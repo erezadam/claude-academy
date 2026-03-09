@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אשף פרויקט חדש</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent: #6ee7b7;
+    --accent2: #818cf8;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --error: #f87171;
+    --success: #6ee7b7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .wizard {
+    width: 100%;
+    max-width: 680px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .logo {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #e2e8f0 0%, #6ee7b7 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  /* Progress */
+  .progress-bar {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+
+  .prog-step {
+    height: 3px;
+    flex: 1;
+    max-width: 80px;
+    border-radius: 2px;
+    background: var(--border);
+    transition: background 0.4s;
+  }
+
+  .prog-step.done { background: var(--accent); }
+  .prog-step.active { background: var(--accent2); }
+
+  /* Card */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 16px;
+    display: none;
+    animation: slideIn 0.3s ease;
+  }
+
+  .card.active { display: block; }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .question {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .hint {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  /* Input */
+  input[type="text"], textarea, select {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: var(--text);
+    font-family: 'Heebo', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  input[type="text"]:focus,
+  textarea:focus,
+  select:focus {
+    border-color: var(--accent2);
+  }
+
+  textarea { min-height: 90px; }
+
+  select option { background: var(--surface); }
+
+  /* Chips */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .chip {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--bg);
+    user-select: none;
+  }
+
+  .chip:hover { border-color: var(--accent2); color: var(--accent2); }
+  .chip.selected { border-color: var(--accent); background: rgba(110,231,183,0.1); color: var(--accent); }
+
+  /* Toggle */
+  .toggle-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  .toggle-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    font-family: 'Heebo', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .toggle-btn:hover { border-color: var(--accent2); }
+  .toggle-btn.selected { border-color: var(--accent); background: rgba(110,231,183,0.1); color: var(--accent); }
+
+  /* Buttons */
+  .btn-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+  }
+
+  .btn {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Heebo', sans-serif;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0a0a0f;
+  }
+
+  .btn-primary:hover { background: #34d399; transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+
+  .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+
+  /* Result */
+  .result-section {
+    display: none;
+    animation: slideIn 0.3s ease;
+  }
+
+  .result-section.active { display: block; }
+
+  .result-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .code-block {
+    background: #050508;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .code-block::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 60px; height: 2px;
+    background: var(--accent);
+  }
+
+  pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
+  .code-comment { color: var(--muted); }
+  .code-cmd { color: var(--accent); }
+  .code-flag { color: var(--accent2); }
+  .code-str { color: #fbbf24; }
+
+  .copy-btn {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: var(--border);
+    border: none;
+    color: var(--muted);
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .copy-btn:hover { background: var(--accent2); color: white; }
+  .copy-btn.copied { background: var(--accent); color: #0a0a0f; }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .summary-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  .summary-label {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .summary-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .restart-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+    font-family: 'Heebo', sans-serif;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.2s;
+  }
+
+  .restart-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+</style>
+</head>
+<body>
+<div class="wizard">
+
+  <header>
+    <div class="logo">Claude Code</div>
+    <h1>אשף פרויקט חדש</h1>
+    <p class="subtitle">ענה על כמה שאלות — תקבל את כל הפקודות מוכנות להרצה</p>
+  </header>
+
+  <div class="progress-bar">
+    <div class="prog-step active" id="p1"></div>
+    <div class="prog-step" id="p2"></div>
+    <div class="prog-step" id="p3"></div>
+    <div class="prog-step" id="p4"></div>
+    <div class="prog-step" id="p5"></div>
+  </div>
+
+  <!-- שלב 1: שם הפרויקט -->
+  <div class="card active" id="step1">
+    <div class="step-label">שלב 1 מתוך 5 — זהות</div>
+    <div class="question">מה שם הפרויקט?</div>
+    <div class="hint">שם קצר באנגלית, ללא רווחים (ישמש כשם התיקייה)</div>
+    <input type="text" id="projectName" placeholder="my-awesome-app" dir="ltr" />
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(2)">הבא ←</button>
+    </div>
+  </div>
+
+  <!-- שלב 2: תיאור -->
+  <div class="card" id="step2">
+    <div class="step-label">שלב 2 מתוך 5 — אפיון</div>
+    <div class="question">מה בונים ולמי?</div>
+    <div class="hint">משפט אחד: מה הפרויקט עושה ומי ישתמש בו</div>
+    <textarea id="projectDesc" placeholder="אפליקציית ניהול משימות למפתחים שרוצים לעקוב אחר הפרויקטים שלהם"></textarea>
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(3)">הבא ←</button>
+      <button class="btn btn-ghost" onclick="goTo(1)">→ חזור</button>
+    </div>
+  </div>
+
+  <!-- שלב 3: Stack -->
+  <div class="card" id="step3">
+    <div class="step-label">שלב 3 מתוך 5 — טכנולוגיה</div>
+    <div class="question">איזה stack?</div>
+    <div class="hint">בחר את הטכנולוגיות הרלוונטיות</div>
+
+    <div style="margin-bottom:16px">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Frontend</div>
+      <div class="chips" id="frontendChips">
+        <div class="chip" onclick="toggleChip(this,'frontend')">Next.js</div>
+        <div class="chip" onclick="toggleChip(this,'frontend')">React</div>
+        <div class="chip" onclick="toggleChip(this,'frontend')">Vue</div>
+        <div class="chip" onclick="toggleChip(this,'frontend')">HTML/CSS</div>
+        <div class="chip" onclick="toggleChip(this,'frontend')">ללא</div>
+      </div>
+    </div>
+
+    <div style="margin-bottom:16px">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Backend</div>
+      <div class="chips" id="backendChips">
+        <div class="chip" onclick="toggleChip(this,'backend')">Node.js</div>
+        <div class="chip" onclick="toggleChip(this,'backend')">Python</div>
+        <div class="chip" onclick="toggleChip(this,'backend')">Firebase</div>
+        <div class="chip" onclick="toggleChip(this,'backend')">Supabase</div>
+        <div class="chip" onclick="toggleChip(this,'backend')">ללא</div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Auth?</div>
+      <div class="toggle-group">
+        <div class="toggle-btn" id="authYes" onclick="setToggle('auth','yes')">✅ כן</div>
+        <div class="toggle-btn" id="authNo" onclick="setToggle('auth','no')">❌ לא</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(4)">הבא ←</button>
+      <button class="btn btn-ghost" onclick="goTo(2)">→ חזור</button>
+    </div>
+  </div>
+
+  <!-- שלב 4: Git -->
+  <div class="card" id="step4">
+    <div class="step-label">שלב 4 מתוך 5 — Git</div>
+    <div class="question">הגדרות Git</div>
+    <div class="hint">מה תרצה שיוגדר אוטומטית</div>
+
+    <div style="margin-bottom:16px">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:8px">GitHub repo?</div>
+      <div class="toggle-group">
+        <div class="toggle-btn" id="repoYes" onclick="setToggle('repo','yes')">✅ כן — צור repo</div>
+        <div class="toggle-btn" id="repoNo" onclick="setToggle('repo','no')">❌ רק local</div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:8px">GitHub username (אם יש repo)</div>
+      <input type="text" id="githubUser" placeholder="erezadam" dir="ltr" />
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="goTo(5)">הבא ←</button>
+      <button class="btn btn-ghost" onclick="goTo(3)">→ חזור</button>
+    </div>
+  </div>
+
+  <!-- שלב 5: מיקום -->
+  <div class="card" id="step5">
+    <div class="step-label">שלב 5 מתוך 5 — מיקום</div>
+    <div class="question">איפה ליצור את התיקייה?</div>
+    <div class="hint">הנתיב המלא במק שלך</div>
+    <input type="text" id="projectPath" placeholder="~/Documents/פרויקטים" dir="ltr" />
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="generate()">✨ צור פקודות</button>
+      <button class="btn btn-ghost" onclick="goTo(4)">→ חזור</button>
+    </div>
+  </div>
+
+  <!-- תוצאה -->
+  <div class="result-section" id="result">
+
+    <div class="summary-grid" id="summaryGrid"></div>
+
+    <div class="result-title">📁 שלב 1 — יצירת תיקייה והתקנה</div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode('cmd1',this)">העתק</button>
+      <pre id="cmd1"></pre>
+    </div>
+
+    <div class="result-title">📝 שלב 2 — צור CLAUDE.md לפרויקט</div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode('cmd2',this)">העתק</button>
+      <pre id="cmd2"></pre>
+    </div>
+
+    <div class="result-title">🐙 שלב 3 — Git</div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode('cmd3',this)">העתק</button>
+      <pre id="cmd3"></pre>
+    </div>
+
+    <div class="result-title">🚀 שלב 4 — פתח Claude Code</div>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode('cmd4',this)">העתק</button>
+      <pre id="cmd4"></pre>
+    </div>
+
+    <button class="restart-btn" onclick="restart()">↺ פרויקט חדש</button>
+  </div>
+
+</div>
+
+<script>
+  const state = {
+    name: '', desc: '', frontend: [], backend: [],
+    auth: '', repo: '', githubUser: '', path: ''
+  };
+
+  function goTo(n) {
+    // שמור ערכים
+    if (n > 1) state.name = document.getElementById('projectName').value.trim().replace(/\s+/g,'-') || 'my-project';
+    if (n > 2) state.desc = document.getElementById('projectDesc').value.trim() || 'פרויקט חדש';
+    if (n > 4) {
+      state.githubUser = document.getElementById('githubUser').value.trim();
+      state.path = document.getElementById('projectPath').value.trim() || '~/Documents/פרויקטים';
+    }
+
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    const el = document.getElementById('step'+n);
+    if (el) el.classList.add('active');
+    document.getElementById('result').classList.remove('active');
+
+    // progress
+    for(let i=1;i<=5;i++){
+      const p = document.getElementById('p'+i);
+      p.classList.remove('done','active');
+      if(i < n) p.classList.add('done');
+      if(i === n) p.classList.add('active');
+    }
+  }
+
+  function toggleChip(el, group) {
+    // single select per group
+    el.closest('.chips').querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    if(group === 'frontend') state.frontend = [el.textContent];
+    if(group === 'backend') state.backend = [el.textContent];
+  }
+
+  function setToggle(group, val) {
+    if(group === 'auth') {
+      state.auth = val;
+      document.getElementById('authYes').classList.toggle('selected', val==='yes');
+      document.getElementById('authNo').classList.toggle('selected', val==='no');
+    }
+    if(group === 'repo') {
+      state.repo = val;
+      document.getElementById('repoYes').classList.toggle('selected', val==='yes');
+      document.getElementById('repoNo').classList.toggle('selected', val==='no');
+    }
+  }
+
+  function generate() {
+    state.githubUser = document.getElementById('githubUser').value.trim();
+    state.path = document.getElementById('projectPath').value.trim() || '~/Documents/פרויקטים';
+
+    const fe = state.frontend[0] || 'React';
+    const be = state.backend[0] || 'Node.js';
+    const name = state.name || 'my-project';
+    const path = state.path;
+    const ghUser = state.githubUser || 'username';
+
+    // Summary
+    const grid = document.getElementById('summaryGrid');
+    grid.innerHTML = [
+      ['שם', name],
+      ['Frontend', fe],
+      ['Backend', be],
+      ['Auth', state.auth==='yes'?'כן':'לא'],
+      ['GitHub', state.repo==='yes'?'כן':'לא'],
+      ['מיקום', path]
+    ].map(([l,v]) => `
+      <div class="summary-item">
+        <div class="summary-label">${l}</div>
+        <div class="summary-value">${v}</div>
+      </div>
+    `).join('');
+
+    // CMD 1 — יצירת תיקייה
+    let initCmd = '';
+    if(fe === 'Next.js') initCmd = `npx create-next-app@latest ${name} --typescript --tailwind --app`;
+    else if(fe === 'React') initCmd = `npm create vite@latest ${name} -- --template react-ts`;
+    else if(fe === 'Vue') initCmd = `npm create vue@latest ${name}`;
+    else if(be === 'Python') initCmd = `mkdir ${name} && cd ${name} && python3 -m venv venv && source venv/bin/activate`;
+    else if(be === 'Node.js') initCmd = `mkdir ${name} && cd ${name} && npm init -y`;
+    else initCmd = `mkdir ${name}`;
+
+    document.getElementById('cmd1').textContent =
+`# נווט לתיקיית הפרויקטים
+cd ${path}
+
+# צור את הפרויקט
+${initCmd}
+
+# כנס לתיקייה
+cd ${name}`;
+
+    // CMD 2 — CLAUDE.md
+    const claudeMd = `# CLAUDE.md — ${name}
+
+## הפרויקט
+${state.desc || 'תיאור הפרויקט'}
+
+## Stack
+- Frontend: ${fe}
+- Backend: ${be}
+- Auth: ${state.auth === 'yes' ? 'כן' : 'לא'}
+
+## כללי ברזל
+- No hardcoded secrets — רק environment variables
+- No direct push to main — תמיד ענף + PR
+- No silent failures
+- No deploy בלי אישור מפורש
+
+## פקודות שימושיות
+\`\`\`bash
+npm run dev      # הפעל dev server
+npm run build    # build לייצור
+npm test         # הרץ טסטים
+\`\`\``;
+
+    document.getElementById('cmd2').textContent =
+`cat > CLAUDE.md << 'EOF'
+${claudeMd}
+EOF
+
+echo "✅ CLAUDE.md נוצר"`;
+
+    // CMD 3 — Git
+    let gitCmd = `git init
+git add .
+git commit -m "feat: initial project setup — ${name}"
+
+# צור ענף עבודה
+git checkout -b work/$(date +%Y-%m-%d)`;
+
+    if(state.repo === 'yes') {
+      gitCmd += `
+
+# צור GitHub repo והתחבר
+gh repo create ${name} --public --source=. --remote=origin --push`;
+    }
+
+    document.getElementById('cmd3').textContent = gitCmd;
+
+    // CMD 4 — פתח Claude
+    document.getElementById('cmd4').textContent =
+`# פתח Claude Code בתיקיית הפרויקט
+claude
+
+# בתוך Claude Code — אתחל:
+# /init`;
+
+    // הצג תוצאה
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    document.getElementById('result').classList.add('active');
+    for(let i=1;i<=5;i++) {
+      document.getElementById('p'+i).classList.remove('active');
+      document.getElementById('p'+i).classList.add('done');
+    }
+
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function copyCode(id, btn) {
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text);
+    btn.textContent = '✅ הועתק';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'העתק'; btn.classList.remove('copied'); }, 2000);
+  }
+
+  function restart() {
+    state.frontend = []; state.backend = [];
+    state.auth = ''; state.repo = '';
+    document.getElementById('projectName').value = '';
+    document.getElementById('projectDesc').value = '';
+    document.getElementById('githubUser').value = '';
+    document.getElementById('projectPath').value = '';
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.toggle-btn').forEach(c => c.classList.remove('selected'));
+    goTo(1);
+  }
+</script>
+</body>
+</html>
