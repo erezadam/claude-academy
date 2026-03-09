@@ -33,6 +33,11 @@ const CATEGORY_META: Record<
     description: "פקודות, טיפים ומדריכים לעבודה עם Claude Code",
     icon: "🤖",
   },
+  scheduling: {
+    name: "תזמון ולולאות",
+    description: "תזמון משימות חוזרות עם /loop ו-Cron — חדש מרץ 2026",
+    icon: "⏱️",
+  },
   workflows: {
     name: "תהליכי עבודה",
     description: "תרחישים מעשיים ותהליכי עבודה מומלצים",

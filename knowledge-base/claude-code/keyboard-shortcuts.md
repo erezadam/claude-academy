@@ -2,7 +2,7 @@
 title: "קיצורי מקלדת"
 category: claude-code
 layer: basic
-last_verified: 2026-03-07
+last_verified: 2026-03-09
 status: current
 source_url: https://code.claude.com/docs/en/slash-commands
 related: [/rewind, /plan, /compact]
@@ -10,18 +10,19 @@ related: [/rewind, /plan, /compact]
 
 ## קיצורי מקלדת — Claude Code
 
-הדרך המהירה ביותר לשלוט בClaude Code.
+הדרך המהירה ביותר לשלוט בClaude Code. עדכני למרץ 2026.
 
 ---
 
-### ניווט בסיסי
+### ניווט ושליטה
 
 | קיצור | פעולה |
 |-------|--------|
-| `Ctrl+C` | ביטול פעולה נוכחית |
-| `Ctrl+G` | פתח עורך חיצוני (VS Code) |
-| `Ctrl+R` | חיפוש בהיסטוריית פקודות |
-| `Esc + Esc` | /rewind — checkpoint אחורה |
+| `Escape` | ביטול generation נוכחי |
+| `Escape × 2` | Rewind / סיכום — חזרה לנקודה קודמת |
+| `Ctrl+C` | יציאה מהסשן (לחץ פעמיים) |
+| `Ctrl+R` | חיפוש בהיסטוריית הפרומפטים |
+| `Ctrl+G` | פתח פרומפט עורך טקסט חיצוני |
 
 ---
 
@@ -29,23 +30,36 @@ related: [/rewind, /plan, /compact]
 
 | קיצור | פעולה |
 |-------|--------|
-| `Shift+Tab` | מעבר מהיר בין מצבים |
-| ← מצב רגיל | Claude שואל לפני כל פעולה |
-| ← auto-accept | Claude מבצע הכל בלי לשאול |
-| ← plan mode | Claude מתכנן בלי לכתוב קוד |
+| `Shift+Tab` | מחזור בין מצבים: Auto-Accept / Plan / Normal |
+| ← Normal | Claude שואל לפני כל פעולה |
+| ← Auto-Accept | Claude מבצע הכל בלי לשאול |
+| ← Plan mode | Claude מתכנן בלי לכתוב קוד |
 
 הcurrent mode מוצג מתחת ל-prompt.
 
 ---
 
-### הכנסת תוכן
+### שליטה בפלט ומודל
+
+| קיצור | פעולה |
+|-------|--------|
+| `Ctrl+O` | Verbose output — הצג שימוש מפורט בכלים |
+| `Ctrl+T` | הצג/הסתר רשימת משימות |
+| `Alt+P` | החלף מודל בלי לנקות פרומפט |
+| `Alt+T` | הפעל/כבה extended thinking |
+
+---
+
+### הכנסת תוכן ועריכה
 
 | קיצור | פעולה |
 |-------|--------|
 | `# [טקסט]` | שמור זיכרון מהיר ל-CLAUDE.md |
 | `@ [path]` | הכנס קובץ לcontext — autocomplete |
 | `! [command]` | הרץ bash ישירות בלי prompt |
-| `Ctrl+B` | הרץ task ארוך ברקע |
+| `Ctrl+B` | הרץ task ברקע (Background) |
+| `Ctrl+K` | מחק עד סוף שורה |
+| `Ctrl+U` | מחק שורה שלמה |
 
 ---
 
@@ -64,6 +78,9 @@ related: [/rewind, /plan, /compact]
 
 # task ברקע
 Ctrl+B   ← npm test רץ ברקע, ממשיכים לדבר
+
+# החלפת מודל מהירה
+Alt+P    ← בחר מודל אחר בלי לאבד את הפרומפט
 ```
 
 ---
@@ -80,4 +97,6 @@ Ctrl+B   ← npm test רץ ברקע, ממשיכים לדבר
 
 💡 `Ctrl+B` = הרץ tests ברקע תוך כדי שממשיכים לדבר עם Claude.
 
-→ קשור ל: /rewind, /plan, /memory
+💡 `Alt+P` = החלף מודל מהר — שימושי כשרוצים מודל חזק יותר למשימה ספציפית.
+
+→ קשור ל: /rewind, /plan, /memory, /keybindings
