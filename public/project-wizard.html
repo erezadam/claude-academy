@@ -349,6 +349,41 @@
   }
 
   .restart-btn:hover { border-color: var(--accent2); color: var(--accent2); }
+
+  .create-project-btn {
+    width: 100%;
+    padding: 20px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #6ee7b7 0%, #34d399 50%, #059669 100%);
+    border: none;
+    color: #0a0a0f;
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Heebo', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 24px rgba(110,231,183,0.25);
+    letter-spacing: 0.5px;
+  }
+
+  .create-project-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(110,231,183,0.35);
+  }
+
+  .create-project-btn:active {
+    transform: translateY(0);
+  }
+
+  .create-project-btn.copied {
+    background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+    box-shadow: 0 4px 24px rgba(129,140,248,0.25);
+  }
+
+  details summary { list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: '▸ '; }
+  details[open] summary::before { content: '▾ '; }
 </style>
 </head>
 <body>
@@ -357,7 +392,7 @@
   <header>
     <div class="logo">Claude Code</div>
     <h1>אשף פרויקט חדש</h1>
-    <p class="subtitle">ענה על כמה שאלות — תקבל את כל הפקודות מוכנות להרצה</p>
+    <p class="subtitle">ענה על כמה שאלות — תקבל פקודה מוכנה להרצה בטרמינל</p>
   </header>
 
   <div class="progress-bar">
@@ -365,12 +400,11 @@
     <div class="prog-step" id="p2"></div>
     <div class="prog-step" id="p3"></div>
     <div class="prog-step" id="p4"></div>
-    <div class="prog-step" id="p5"></div>
   </div>
 
   <!-- שלב 1: שם הפרויקט -->
   <div class="card active" id="step1">
-    <div class="step-label">שלב 1 מתוך 5 — זהות</div>
+    <div class="step-label">שלב 1 מתוך 4 — זהות</div>
     <div class="question">מה שם הפרויקט?</div>
     <div class="hint">שם קצר באנגלית, ללא רווחים (ישמש כשם התיקייה)</div>
     <input type="text" id="projectName" placeholder="my-awesome-app" dir="ltr" />
@@ -381,7 +415,7 @@
 
   <!-- שלב 2: תיאור -->
   <div class="card" id="step2">
-    <div class="step-label">שלב 2 מתוך 5 — אפיון</div>
+    <div class="step-label">שלב 2 מתוך 4 — אפיון</div>
     <div class="question">מה בונים ולמי?</div>
     <div class="hint">משפט אחד: מה הפרויקט עושה ומי ישתמש בו</div>
     <textarea id="projectDesc" placeholder="אפליקציית ניהול משימות למפתחים שרוצים לעקוב אחר הפרויקטים שלהם"></textarea>
@@ -393,7 +427,7 @@
 
   <!-- שלב 3: Stack -->
   <div class="card" id="step3">
-    <div class="step-label">שלב 3 מתוך 5 — טכנולוגיה</div>
+    <div class="step-label">שלב 3 מתוך 4 — טכנולוגיה</div>
     <div class="question">איזה stack?</div>
     <div class="hint">בחר את הטכנולוגיות הרלוונטיות</div>
 
@@ -435,7 +469,7 @@
 
   <!-- שלב 4: Git -->
   <div class="card" id="step4">
-    <div class="step-label">שלב 4 מתוך 5 — Git</div>
+    <div class="step-label">שלב 4 מתוך 4 — Git</div>
     <div class="question">הגדרות Git</div>
     <div class="hint">מה תרצה שיוגדר אוטומטית</div>
 
@@ -453,51 +487,41 @@
     </div>
 
     <div class="btn-row">
-      <button class="btn btn-primary" onclick="goTo(5)">הבא ←</button>
+      <button class="btn btn-primary" onclick="generate()">🚀 צור פרויקט</button>
       <button class="btn btn-ghost" onclick="goTo(3)">→ חזור</button>
     </div>
   </div>
 
-  <!-- שלב 5: מיקום -->
-  <div class="card" id="step5">
-    <div class="step-label">שלב 5 מתוך 5 — מיקום</div>
-    <div class="question">איפה ליצור את התיקייה?</div>
-    <div class="hint">הנתיב המלא במק שלך</div>
-    <input type="text" id="projectPath" placeholder="~/Documents/פרויקטים" dir="ltr" />
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="generate()">✨ צור פקודות</button>
-      <button class="btn btn-ghost" onclick="goTo(4)">→ חזור</button>
-    </div>
-  </div>
+  <!-- שלב 5 הוסר — נתיב קבוע ~/Documents/Projects/ -->
 
   <!-- תוצאה -->
   <div class="result-section" id="result">
 
+    <div style="text-align:center;margin-bottom:24px">
+      <div style="font-size:48px;margin-bottom:8px">🎉</div>
+      <div class="question" id="resultTitle" style="margin-bottom:4px"></div>
+      <div class="hint">הפקודה מוכנה — העתק והדבק בטרמינל</div>
+    </div>
+
     <div class="summary-grid" id="summaryGrid"></div>
 
-    <div class="result-title">📁 שלב 1 — יצירת תיקייה והתקנה</div>
-    <div class="code-block">
-      <button class="copy-btn" onclick="copyCode('cmd1',this)">העתק</button>
-      <pre id="cmd1"></pre>
+    <!-- כפתור צור פרויקט גדול -->
+    <button class="create-project-btn" id="mainCopyBtn" onclick="copyMainScript()">
+      <span id="copyBtnText">📋 העתק פקודה לטרמינל</span>
+    </button>
+
+    <div style="font-size:12px;color:var(--muted);text-align:center;margin:12px 0 20px">
+      הדבק בטרמינל עם ⌘V → Enter — הפרויקט יקום אוטומטית ו-Claude Code ייפתח
     </div>
 
-    <div class="result-title">📝 שלב 2 — צור CLAUDE.md לפרויקט</div>
-    <div class="code-block">
-      <button class="copy-btn" onclick="copyCode('cmd2',this)">העתק</button>
-      <pre id="cmd2"></pre>
-    </div>
-
-    <div class="result-title">🐙 שלב 3 — Git</div>
-    <div class="code-block">
-      <button class="copy-btn" onclick="copyCode('cmd3',this)">העתק</button>
-      <pre id="cmd3"></pre>
-    </div>
-
-    <div class="result-title">🚀 שלב 4 — פתח Claude Code</div>
-    <div class="code-block">
-      <button class="copy-btn" onclick="copyCode('cmd4',this)">העתק</button>
-      <pre id="cmd4"></pre>
-    </div>
+    <!-- קוד מאוחד — אפשר לפתוח -->
+    <details style="margin-bottom:16px">
+      <summary style="font-size:13px;color:var(--accent2);cursor:pointer;font-family:'JetBrains Mono',monospace;padding:8px 0">👁 הצג את הפקודה המלאה</summary>
+      <div class="code-block" style="margin-top:8px">
+        <button class="copy-btn" onclick="copyCode('fullScript',this)">העתק</button>
+        <pre id="fullScript"></pre>
+      </div>
+    </details>
 
     <button class="restart-btn" onclick="restart()">↺ פרויקט חדש</button>
   </div>
@@ -505,27 +529,26 @@
 </div>
 
 <script>
+  const PROJECTS_DIR = '~/Documents/Projects';
+
   const state = {
     name: '', desc: '', frontend: [], backend: [],
-    auth: '', repo: '', githubUser: '', path: ''
+    auth: '', repo: '', githubUser: ''
   };
 
+  let generatedScript = '';
+
   function goTo(n) {
-    // שמור ערכים
     if (n > 1) state.name = document.getElementById('projectName').value.trim().replace(/\s+/g,'-') || 'my-project';
     if (n > 2) state.desc = document.getElementById('projectDesc').value.trim() || 'פרויקט חדש';
-    if (n > 4) {
-      state.githubUser = document.getElementById('githubUser').value.trim();
-      state.path = document.getElementById('projectPath').value.trim() || '~/Documents/פרויקטים';
-    }
+    if (n > 3) state.githubUser = document.getElementById('githubUser').value.trim();
 
     document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
     const el = document.getElementById('step'+n);
     if (el) el.classList.add('active');
     document.getElementById('result').classList.remove('active');
 
-    // progress
-    for(let i=1;i<=5;i++){
+    for(let i=1;i<=4;i++){
       const p = document.getElementById('p'+i);
       p.classList.remove('done','active');
       if(i < n) p.classList.add('done');
@@ -534,7 +557,6 @@
   }
 
   function toggleChip(el, group) {
-    // single select per group
     el.closest('.chips').querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
     el.classList.add('selected');
     if(group === 'frontend') state.frontend = [el.textContent];
@@ -556,13 +578,10 @@
 
   function generate() {
     state.githubUser = document.getElementById('githubUser').value.trim();
-    state.path = document.getElementById('projectPath').value.trim() || '~/Documents/פרויקטים';
 
     const fe = state.frontend[0] || 'React';
     const be = state.backend[0] || 'Node.js';
     const name = state.name || 'my-project';
-    const path = state.path;
-    const ghUser = state.githubUser || 'username';
 
     // Summary
     const grid = document.getElementById('summaryGrid');
@@ -572,7 +591,7 @@
       ['Backend', be],
       ['Auth', state.auth==='yes'?'כן':'לא'],
       ['GitHub', state.repo==='yes'?'כן':'לא'],
-      ['מיקום', path]
+      ['מיקום', PROJECTS_DIR + '/' + name]
     ].map(([l,v]) => `
       <div class="summary-item">
         <div class="summary-label">${l}</div>
@@ -580,27 +599,18 @@
       </div>
     `).join('');
 
-    // CMD 1 — יצירת תיקייה
+    document.getElementById('resultTitle').textContent = name;
+
+    // --- בניית סקריפט מאוחד ---
     let initCmd = '';
     if(fe === 'Next.js') initCmd = `npx create-next-app@latest ${name} --typescript --tailwind --app`;
     else if(fe === 'React') initCmd = `npm create vite@latest ${name} -- --template react-ts`;
     else if(fe === 'Vue') initCmd = `npm create vue@latest ${name}`;
-    else if(be === 'Python') initCmd = `mkdir ${name} && cd ${name} && python3 -m venv venv && source venv/bin/activate`;
-    else if(be === 'Node.js') initCmd = `mkdir ${name} && cd ${name} && npm init -y`;
-    else initCmd = `mkdir ${name}`;
+    else if(be === 'Python') initCmd = `mkdir -p ${name} && cd ${name} && python3 -m venv venv && source venv/bin/activate`;
+    else if(be === 'Node.js') initCmd = `mkdir -p ${name} && cd ${name} && npm init -y`;
+    else initCmd = `mkdir -p ${name}`;
 
-    document.getElementById('cmd1').textContent =
-`# נווט לתיקיית הפרויקטים
-cd ${path}
-
-# צור את הפרויקט
-${initCmd}
-
-# כנס לתיקייה
-cd ${name}`;
-
-    // CMD 2 — CLAUDE.md
-    const claudeMd = `# CLAUDE.md — ${name}
+    const claudeMdContent = `# CLAUDE.md — ${name}
 
 ## הפרויקט
 ${state.desc || 'תיאור הפרויקט'}
@@ -613,57 +623,83 @@ ${state.desc || 'תיאור הפרויקט'}
 ## כללי ברזל
 - No hardcoded secrets — רק environment variables
 - No direct push to main — תמיד ענף + PR
-- No silent failures
 - No deploy בלי אישור מפורש
+- No silent failures
 
-## פקודות שימושיות
+## פקודות
 \`\`\`bash
-npm run dev      # הפעל dev server
-npm run build    # build לייצור
-npm test         # הרץ טסטים
+npm run dev      # dev server
+npm run build    # build
+npm test         # tests
 \`\`\``;
 
-    document.getElementById('cmd2').textContent =
-`cat > CLAUDE.md << 'EOF'
-${claudeMd}
-EOF
-
-echo "✅ CLAUDE.md נוצר"`;
-
-    // CMD 3 — Git
-    let gitCmd = `git init
+    let gitSection = `
+# ═══ Git ═══
+git init
 git add .
 git commit -m "feat: initial project setup — ${name}"
-
-# צור ענף עבודה
 git checkout -b work/$(date +%Y-%m-%d)`;
 
     if(state.repo === 'yes') {
-      gitCmd += `
-
-# צור GitHub repo והתחבר
+      gitSection += `
 gh repo create ${name} --public --source=. --remote=origin --push`;
     }
 
-    document.getElementById('cmd3').textContent = gitCmd;
+    generatedScript = `#!/bin/bash
+# ╔════════════════════════════════════════╗
+# ║  🚀 ${name} — Project Setup           ║
+# ╚════════════════════════════════════════╝
 
-    // CMD 4 — פתח Claude
-    document.getElementById('cmd4').textContent =
-`# פתח Claude Code בתיקיית הפרויקט
-claude
+set -e
 
-# בתוך Claude Code — אתחל:
-# /init`;
+# ═══ תיקיית פרויקט ═══
+mkdir -p ${PROJECTS_DIR}
+cd ${PROJECTS_DIR}
+
+# ═══ יצירת הפרויקט ═══
+${initCmd}
+cd ${name}
+
+# ═══ CLAUDE.md ═══
+cat > CLAUDE.md << 'CLAUDEEOF'
+${claudeMdContent}
+CLAUDEEOF
+${gitSection}
+
+echo ""
+echo "╔════════════════════════════════════════╗"
+echo "║  ✅ ${name} מוכן!                      ║"
+echo "║  📁 ${PROJECTS_DIR}/${name}             ║"
+echo "╚════════════════════════════════════════╝"
+echo ""
+
+# ═══ פתיחת Claude Code ═══
+claude`;
+
+    document.getElementById('fullScript').textContent = generatedScript;
 
     // הצג תוצאה
     document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
     document.getElementById('result').classList.add('active');
-    for(let i=1;i<=5;i++) {
+    for(let i=1;i<=4;i++) {
       document.getElementById('p'+i).classList.remove('active');
       document.getElementById('p'+i).classList.add('done');
     }
 
     window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function copyMainScript() {
+    navigator.clipboard.writeText(generatedScript).then(() => {
+      const btn = document.getElementById('mainCopyBtn');
+      const txt = document.getElementById('copyBtnText');
+      txt.textContent = '✅ הועתק! הדבק בטרמינל עם ⌘V';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        txt.textContent = '📋 העתק פקודה לטרמינל';
+        btn.classList.remove('copied');
+      }, 3000);
+    });
   }
 
   function copyCode(id, btn) {
@@ -677,10 +713,10 @@ claude
   function restart() {
     state.frontend = []; state.backend = [];
     state.auth = ''; state.repo = '';
+    generatedScript = '';
     document.getElementById('projectName').value = '';
     document.getElementById('projectDesc').value = '';
     document.getElementById('githubUser').value = '';
-    document.getElementById('projectPath').value = '';
     document.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
     document.querySelectorAll('.toggle-btn').forEach(c => c.classList.remove('selected'));
     goTo(1);

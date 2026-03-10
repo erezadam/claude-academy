@@ -679,6 +679,34 @@ const CSS = `
   color: #71717a;
 }
 
+/* Create button */
+.wiz-create-btn {
+  width: 100%;
+  padding: 22px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 50%, #0891b2 100%);
+  border: none;
+  color: #0a0a0f;
+  font-size: 20px;
+  font-weight: 800;
+  font-family: 'Heebo', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 24px rgba(34,211,238,0.3);
+  letter-spacing: 0.5px;
+}
+.wiz-create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(34,211,238,0.4);
+}
+.wiz-create-btn:active {
+  transform: translateY(0);
+}
+.wiz-create-btn--copied {
+  background: linear-gradient(135deg, #6ee7b7 0%, #34d399 100%);
+  box-shadow: 0 4px 24px rgba(110,231,183,0.3);
+}
+
 /* Animations */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
@@ -716,7 +744,7 @@ export default function WizardPage() {
 
   const nameRef = useRef<HTMLInputElement>(null);
   const ghUserRef = useRef<HTMLInputElement>(null);
-  const pathRef = useRef<HTMLInputElement>(null);
+  // pathRef removed — path is now fixed to ~/Documents/Projects
 
   function goTo(n: number) {
     const newState = { ...state };
@@ -773,8 +801,7 @@ export default function WizardPage() {
 
   function generate() {
     const ghUser = ghUserRef.current?.value.trim() || "username";
-    const projectPath = pathRef.current?.value.trim() || "~/Documents/פרויקטים";
-    setState((prev) => ({ ...prev, ghUser, path: projectPath }));
+    setState((prev) => ({ ...prev, ghUser, path: "~/Documents/Projects" }));
     setShowResult(true);
     setStep(0);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -798,7 +825,7 @@ export default function WizardPage() {
     setCopiedId(null);
     if (nameRef.current) nameRef.current.value = "";
     if (ghUserRef.current) ghUserRef.current.value = "";
-    if (pathRef.current) pathRef.current.value = "";
+    // pathRef removed
     setStep(1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -807,7 +834,7 @@ export default function WizardPage() {
   const fe = state.fe || "React";
   const be = state.be || "ללא";
   const name = state.name || "my-project";
-  const projectPath = state.path || "~/Documents/פרויקטים";
+  const projectPath = "~/Documents/Projects";
 
   const tags = [name, fe !== "ללא" ? fe : null, be !== "ללא" ? be : null, state.auth === "yes" ? "Auth" : null, state.repo === "yes" ? "GitHub" : null].filter(Boolean);
 
@@ -851,44 +878,34 @@ npm test       # טסטים
     gitLines.push("", "# צור GitHub repo", `gh repo create ${name} --public --source=. --remote=origin --push`);
   }
 
-  const cmdSections = [
-    {
-      id: "cmd1", num: 1, label: "יצירת תיקייה",
-      lines: [
-        { c: true, t: "# נווט לתיקיית הפרויקטים" },
-        { c: false, t: `cd ${projectPath}` },
-        { c: false, t: "" },
-        { c: true, t: "# צור פרויקט" },
-        { c: false, t: initCmd },
-        { c: false, t: "" },
-        { c: true, t: "# כנס לתיקייה" },
-        { c: false, t: `cd ${name}` },
-      ],
-    },
-    {
-      id: "cmd2", num: 2, label: "קובץ CLAUDE.md",
-      lines: [
-        { c: true, t: "# צור CLAUDE.md לפרויקט" },
-        { c: false, t: `cat > CLAUDE.md << 'EOF'` },
-        { c: false, t: claudeContent },
-        { c: false, t: "EOF" },
-      ],
-    },
-    {
-      id: "cmd3", num: 3, label: "Git",
-      lines: gitLines.map((line) => ({ c: line.startsWith("#"), t: line })),
-    },
-    {
-      id: "cmd4", num: 4, label: "פתח Claude Code",
-      lines: [
-        { c: true, t: "# פתח Claude Code" },
-        { c: false, t: "claude" },
-        { c: false, t: "" },
-        { c: true, t: "# בתוך Claude Code — הרץ:" },
-        { c: false, t: "/init" },
-      ],
-    },
-  ];
+  // Unified script
+  const unifiedScript = `#!/bin/bash
+# 🚀 ${name} — Project Setup
+set -e
+
+# ═══ תיקיית פרויקט ═══
+mkdir -p ${projectPath}
+cd ${projectPath}
+
+# ═══ יצירת הפרויקט ═══
+${initCmd}
+cd ${name}
+
+# ═══ CLAUDE.md ═══
+cat > CLAUDE.md << 'CLAUDEEOF'
+${claudeContent}
+CLAUDEEOF
+
+# ═══ Git ═══
+${gitLines.filter(l => l !== "").join("\n")}
+
+echo ""
+echo "✅ ${name} מוכן!"
+echo "📁 ${projectPath}/${name}"
+echo ""
+
+# ═══ פתיחת Claude Code ═══
+claude`;
 
   return (
     <>
@@ -910,14 +927,14 @@ npm test       # טסטים
 
           {/* Progress */}
           <div className="wiz-progress">
-            {[1, 2, 3, 4, 5].map((i) => (
+            {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
                 className={`wiz-prog-bar${showResult || i < step ? " wiz-prog-bar--done" : i === step ? " wiz-prog-bar--active" : ""}`}
               />
             ))}
             <span className={`wiz-prog-label${showResult ? " wiz-prog-label--done" : ""}`}>
-              {showResult ? "✓" : `${step} / 5`}
+              {showResult ? "✓" : `${step} / 4`}
             </span>
           </div>
 
@@ -1068,30 +1085,8 @@ npm test       # טסטים
               />
 
               <div className="wiz-btn-row">
-                <button className="wiz-btn wiz-btn--primary" onClick={() => goTo(5)}>הבא</button>
+                <button className="wiz-btn wiz-btn--primary" onClick={generate}>🚀 צור פרויקט</button>
                 <button className="wiz-btn wiz-btn--ghost" onClick={() => goTo(3)}>חזור</button>
-              </div>
-            </div>
-          )}
-
-          {/* ── Step 5: Path ── */}
-          {step === 5 && !showResult && (
-            <div className="wiz-step">
-              <div className="wiz-step-label">שלב 5 — מיקום</div>
-              <div className="wiz-question">איפה ליצור את התיקייה?</div>
-              <div className="wiz-hint">הנתיב במק שלך — לחץ Enter כדי לאשר</div>
-              <input
-                ref={pathRef}
-                type="text"
-                placeholder="~/Documents/פרויקטים"
-                dir="ltr"
-                defaultValue={state.path}
-                className="wiz-input wiz-input--mono"
-                onKeyDown={(e) => { if (e.key === "Enter") generate(); }}
-              />
-              <div className="wiz-btn-row">
-                <button className="wiz-btn wiz-btn--primary" onClick={generate}>צור פקודות</button>
-                <button className="wiz-btn wiz-btn--ghost" onClick={() => goTo(4)}>חזור</button>
               </div>
             </div>
           )}
@@ -1099,9 +1094,10 @@ npm test       # טסטים
           {/* ── Result ── */}
           {showResult && (
             <div className="wiz-result">
-              <div style={{ marginBottom: 20 }}>
+              <div style={{ textAlign: "center", marginBottom: 28 }}>
+                <div style={{ fontSize: 48, marginBottom: 8 }}>🎉</div>
                 <h2 className="wiz-result-title">{name}</h2>
-                <p className="wiz-result-sub">הרץ כל בלוק בנפרד בטרמינל, לפי הסדר</p>
+                <p className="wiz-result-sub">הפקודה מוכנה — העתק והדבק בטרמינל</p>
               </div>
 
               <div className="wiz-tags">
@@ -1112,41 +1108,51 @@ npm test       # טסטים
 
               <hr className="wiz-divider" />
 
-              {cmdSections.map((section, si) => (
-                <div
-                  key={section.id}
-                  className="wiz-terminal"
-                  style={{ animation: `fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) ${si * 100}ms both` }}
-                >
+              {/* כפתור מאוחד גדול */}
+              <button
+                className={`wiz-create-btn${copiedId === "unified" ? " wiz-create-btn--copied" : ""}`}
+                onClick={() => {
+                  navigator.clipboard.writeText(unifiedScript);
+                  setCopiedId("unified");
+                  setTimeout(() => setCopiedId(null), 3000);
+                }}
+              >
+                {copiedId === "unified" ? "✅ הועתק! הדבק בטרמינל עם ⌘V" : "📋 העתק פקודה לטרמינל"}
+              </button>
+
+              <p style={{ fontSize: 12, color: "#52525b", textAlign: "center", margin: "12px 0 24px" }}>
+                הדבק בטרמינל עם ⌘V → Enter — הפרויקט יקום אוטומטית ו-Claude Code ייפתח
+              </p>
+
+              {/* אפשרות לראות את הסקריפט */}
+              <details style={{ marginBottom: 16 }}>
+                <summary style={{ fontSize: 13, color: "#22d3ee", cursor: "pointer", fontFamily: "'JetBrains Mono', monospace", padding: "8px 0", listStyle: "none" }}>
+                  ▸ הצג את הפקודה המלאה
+                </summary>
+                <div className="wiz-terminal" style={{ marginTop: 8 }}>
                   <div className="wiz-terminal-bar">
                     <div className="wiz-terminal-dots">
                       <span className="wiz-terminal-dot wiz-terminal-dot--r" />
                       <span className="wiz-terminal-dot wiz-terminal-dot--y" />
                       <span className="wiz-terminal-dot wiz-terminal-dot--g" />
                     </div>
-                    <div className="wiz-terminal-title">
-                      <span className="wiz-step-badge">{section.num}</span>
-                      {section.label}
-                    </div>
+                    <div className="wiz-terminal-title">סקריפט מאוחד</div>
                     <button
-                      className={`wiz-copy${copiedId === section.id ? " wiz-copy--done" : ""}`}
-                      onClick={() => copyCode(section.id)}
+                      className={`wiz-copy${copiedId === "full" ? " wiz-copy--done" : ""}`}
+                      onClick={() => {
+                        navigator.clipboard.writeText(unifiedScript);
+                        setCopiedId("full");
+                        setTimeout(() => setCopiedId(null), 2000);
+                      }}
                     >
-                      {copiedId === section.id ? "✓ הועתק" : "העתק"}
+                      {copiedId === "full" ? "✓ הועתק" : "העתק"}
                     </button>
                   </div>
                   <div className="wiz-terminal-body">
-                    <pre id={section.id} dir="ltr">
-                      {section.lines.map((line, i) => (
-                        <span key={i}>
-                          {line.c ? <span className="wiz-comment">{line.t}</span> : line.t}
-                          {i < section.lines.length - 1 ? "\n" : ""}
-                        </span>
-                      ))}
-                    </pre>
+                    <pre dir="ltr" style={{ whiteSpace: "pre-wrap", wordBreak: "break-all" }}>{unifiedScript}</pre>
                   </div>
                 </div>
-              ))}
+              </details>
 
               <button className="wiz-restart" onClick={restart}>
                 ↺ פרויקט חדש
