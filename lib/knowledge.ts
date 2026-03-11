@@ -38,6 +38,11 @@ const CATEGORY_META: Record<
     description: "תזמון משימות חוזרות עם /loop ו-Cron — חדש מרץ 2026",
     icon: "⏱️",
   },
+  guides: {
+    name: "מדריכים",
+    description: "מדריכים מקיפים ומעמיקים — Skills, MCP, ועוד",
+    icon: "📖",
+  },
   workflows: {
     name: "תהליכי עבודה",
     description: "תרחישים מעשיים ותהליכי עבודה מומלצים",
