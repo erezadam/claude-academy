@@ -3,290 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitness Dashboard — FitPulse</title>
+  <title>Fitness Dashboard — Design Gallery</title>
   <link rel="stylesheet" href="../styles/fitness-dashboard.css">
 </head>
 <body>
-  <div class="fit-app">
-    <!-- Header -->
-    <header class="fit-header">
-      <div class="fit-header-left">
-        <div class="fit-profile">
-          <div class="fit-avatar">
-            M
-            <span class="fit-avatar-status"></span>
-          </div>
-          <div class="fit-profile-info">
-            <h1>Marcus Rivera</h1>
-            <div class="fit-profile-sub">
-              <span class="fit-streak">&#x1F525; 24-day streak</span>
-              <span>Level 18 &bull; Intermediate</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fit-header-right">
-        <button class="fit-header-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          History
-        </button>
-        <button class="fit-header-btn fit-header-btn--primary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Log Workout
-        </button>
-      </div>
-    </header>
 
-    <main class="fit-main">
-      <!-- Stat Cards -->
-      <div class="fit-stat-grid">
-        <div class="fit-stat-card fit-stat-card--calories">
-          <div class="fit-stat-label">Calories Burned</div>
-          <div class="fit-stat-value">2,847 <span class="fit-stat-unit">kcal</span></div>
-          <div class="fit-stat-sub">
-            <span class="fit-stat-change fit-stat-change--up">+340</span>
-            above daily goal
-          </div>
-        </div>
-        <div class="fit-stat-card fit-stat-card--workouts">
-          <div class="fit-stat-label">Workouts This Month</div>
-          <div class="fit-stat-value">24</div>
-          <div class="fit-stat-sub">
-            <span class="fit-stat-change fit-stat-change--up">+6</span>
-            vs last month
-          </div>
-        </div>
-        <div class="fit-stat-card fit-stat-card--duration">
-          <div class="fit-stat-label">Total Duration</div>
-          <div class="fit-stat-value">18.5<span class="fit-stat-unit">h</span></div>
-          <div class="fit-stat-sub">
-            <span class="fit-stat-change fit-stat-change--up">+2.3h</span>
-            vs last month
-          </div>
-        </div>
-        <div class="fit-stat-card fit-stat-card--prs">
-          <div class="fit-stat-label">Personal Records</div>
-          <div class="fit-stat-value">7</div>
-          <div class="fit-stat-sub">
-            <span class="fit-stat-change fit-stat-change--up">+3</span>
-            new PRs this month
-          </div>
-        </div>
+  <!-- TopBar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Project Dashboard</span>
       </div>
+    </div>
+    <nav class="topbar-nav">
+      <a href="#" class="nav-link active">Projects</a>
+      <a href="#" class="nav-link">Settings</a>
+      <a href="#" class="nav-link">Docs</a>
+      <div class="avatar">EA</div>
+    </nav>
+  </header>
 
-      <!-- Progress Rings -->
-      <div class="fit-rings-grid">
-        <!-- Protein -->
-        <div class="fit-ring-card">
-          <div class="fit-ring-wrap">
-            <svg class="fit-ring-svg" viewBox="0 0 120 120">
-              <circle class="fit-ring-bg" cx="60" cy="60" r="50"/>
-              <circle class="fit-ring-progress" cx="60" cy="60" r="50"
-                stroke="#F97316"
-                stroke-dasharray="314.16"
-                stroke-dashoffset="78.54"/>
-            </svg>
-            <div class="fit-ring-label-center">
-              <span class="fit-ring-percent" style="color: #F97316;">75%</span>
-              <span class="fit-ring-small">of goal</span>
-            </div>
-          </div>
-          <div class="fit-ring-title">Protein Intake</div>
-          <div class="fit-ring-detail">142g / 190g daily target</div>
+  <main class="main">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Projects</h1>
+      <p>Manage and monitor all your local repositories and their cloud links.</p>
+    </div>
+
+    <!-- Search -->
+    <div class="search-wrapper">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" class="search-input" placeholder="Search projects...">
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card" data-accent="primary">
+        <span class="stat-label">Total Projects</span>
+        <span class="stat-value">12</span>
+      </div>
+      <div class="stat-card" data-accent="success">
+        <span class="stat-label">Active</span>
+        <span class="stat-value">8</span>
+      </div>
+      <div class="stat-card" data-accent="warning">
+        <span class="stat-label">Linked</span>
+        <span class="stat-value">4</span>
+      </div>
+      <div class="stat-card" data-accent="muted">
+        <span class="stat-label">Last Scan</span>
+        <span class="stat-value">3h ago</span>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Active</button>
+      <button class="filter-pill">Archived</button>
+      <button class="filter-pill">Linked</button>
+      <button class="filter-pill">Unlinked</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+
+      <!-- Card 1 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">nutrimanager</span>
         </div>
-        <!-- Hydration -->
-        <div class="fit-ring-card">
-          <div class="fit-ring-wrap">
-            <svg class="fit-ring-svg" viewBox="0 0 120 120">
-              <circle class="fit-ring-bg" cx="60" cy="60" r="50"/>
-              <circle class="fit-ring-progress" cx="60" cy="60" r="50"
-                stroke="#3B82F6"
-                stroke-dasharray="314.16"
-                stroke-dashoffset="109.96"/>
-            </svg>
-            <div class="fit-ring-label-center">
-              <span class="fit-ring-percent" style="color: #3B82F6;">65%</span>
-              <span class="fit-ring-small">of goal</span>
-            </div>
-          </div>
-          <div class="fit-ring-title">Hydration</div>
-          <div class="fit-ring-detail">2.1L / 3.2L daily target</div>
+        <p class="card-desc">Full-stack nutrition management system</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="typescript">TypeScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">2h ago</span>
         </div>
-        <!-- Recovery -->
-        <div class="fit-ring-card">
-          <div class="fit-ring-wrap">
-            <svg class="fit-ring-svg" viewBox="0 0 120 120">
-              <circle class="fit-ring-bg" cx="60" cy="60" r="50"/>
-              <circle class="fit-ring-progress" cx="60" cy="60" r="50"
-                stroke="#22C55E"
-                stroke-dasharray="314.16"
-                stroke-dashoffset="47.12"/>
-            </svg>
-            <div class="fit-ring-label-center">
-              <span class="fit-ring-percent" style="color: #22C55E;">85%</span>
-              <span class="fit-ring-small">score</span>
-            </div>
-          </div>
-          <div class="fit-ring-title">Recovery Score</div>
-          <div class="fit-ring-detail">7.2h sleep &bull; Low stress</div>
+        <div class="card-path">~/projects/nutrimanager</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
 
-      <!-- Weekly Chart + Activity Feed -->
-      <div class="fit-grid-2col">
-        <!-- Weekly Activity -->
-        <div class="fit-section">
-          <div class="fit-section-header">
-            <h2 class="fit-section-title">Weekly Activity</h2>
-            <a href="#" class="fit-section-link">Full Report &rarr;</a>
-          </div>
-          <div class="fit-week-chart">
-            <div class="fit-week-bar-group">
-              <div class="fit-week-bar" style="height: 65%"></div>
-              <span class="fit-week-label">Mon</span>
-            </div>
-            <div class="fit-week-bar-group">
-              <div class="fit-week-bar" style="height: 85%"></div>
-              <span class="fit-week-label">Tue</span>
-            </div>
-            <div class="fit-week-bar-group">
-              <div class="fit-week-bar" style="height: 45%"></div>
-              <span class="fit-week-label">Wed</span>
-            </div>
-            <div class="fit-week-bar-group">
-              <div class="fit-week-bar" style="height: 92%"></div>
-              <span class="fit-week-label">Thu</span>
-            </div>
-            <div class="fit-week-bar-group">
-              <div class="fit-week-bar fit-week-bar--rest" style="height: 20%"></div>
-              <span class="fit-week-label">Fri</span>
-            </div>
-            <div class="fit-week-bar-group">
-              <div class="fit-week-bar" style="height: 78%"></div>
-              <span class="fit-week-label">Sat</span>
-            </div>
-            <div class="fit-week-bar-group fit-week-bar-group--today">
-              <div class="fit-week-bar fit-week-bar--today" style="height: 70%"></div>
-              <span class="fit-week-label">Sun</span>
-            </div>
-          </div>
+      <!-- Card 2 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">develop</span>
+          <span class="card-repo">gym-expert</span>
         </div>
-
-        <!-- Activity Feed -->
-        <div class="fit-section">
-          <div class="fit-section-header">
-            <h2 class="fit-section-title">Activity Feed</h2>
-            <a href="#" class="fit-section-link">All &rarr;</a>
-          </div>
-          <div class="fit-activity-list">
-            <div class="fit-activity-item">
-              <div class="fit-activity-icon" style="background: rgba(249, 115, 22, 0.15); color: #F97316;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-              </div>
-              <div class="fit-activity-info">
-                <div class="fit-activity-title">Upper Body Strength</div>
-                <div class="fit-activity-meta">Today, 7:30 AM &bull; 52 min</div>
-              </div>
-              <div class="fit-activity-value">
-                486
-                <div class="fit-activity-cals">kcal</div>
-              </div>
-            </div>
-            <div class="fit-activity-item">
-              <div class="fit-activity-icon" style="background: rgba(59, 130, 246, 0.15); color: #3B82F6;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              </div>
-              <div class="fit-activity-info">
-                <div class="fit-activity-title">HIIT Cardio</div>
-                <div class="fit-activity-meta">Yesterday &bull; 35 min</div>
-              </div>
-              <div class="fit-activity-value">
-                412
-                <div class="fit-activity-cals">kcal</div>
-              </div>
-            </div>
-            <div class="fit-activity-item">
-              <div class="fit-activity-icon" style="background: rgba(168, 85, 247, 0.15); color: #A855F7;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-              </div>
-              <div class="fit-activity-info">
-                <div class="fit-activity-title">5K Morning Run</div>
-                <div class="fit-activity-meta">Mar 9 &bull; 28 min</div>
-              </div>
-              <div class="fit-activity-value">
-                320
-                <div class="fit-activity-cals">kcal</div>
-              </div>
-            </div>
-            <div class="fit-activity-item">
-              <div class="fit-activity-icon" style="background: rgba(34, 197, 94, 0.15); color: #22C55E;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div class="fit-activity-info">
-                <div class="fit-activity-title">Yoga & Stretching</div>
-                <div class="fit-activity-meta">Mar 8 &bull; 45 min</div>
-              </div>
-              <div class="fit-activity-value">
-                180
-                <div class="fit-activity-cals">kcal</div>
-              </div>
-            </div>
-            <div class="fit-activity-item">
-              <div class="fit-activity-icon" style="background: rgba(234, 179, 8, 0.15); color: #EAB308;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/></svg>
-              </div>
-              <div class="fit-activity-info">
-                <div class="fit-activity-title">Leg Day</div>
-                <div class="fit-activity-meta">Mar 7 &bull; 58 min</div>
-              </div>
-              <div class="fit-activity-value">
-                520
-                <div class="fit-activity-cals">kcal</div>
-              </div>
-            </div>
-          </div>
+        <p class="card-desc">AI-powered workout recommendation engine</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="python">Python</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">5h ago</span>
+        </div>
+        <div class="card-path">~/projects/gym-expert</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
 
-      <!-- Achievements -->
-      <div class="fit-achievements">
-        <div class="fit-achievement">
-          <div class="fit-achievement-icon" style="background: rgba(249, 115, 22, 0.15);">&#x1F3C6;</div>
-          <div class="fit-achievement-info">
-            <div class="fit-achievement-name">Iron Will</div>
-            <div class="fit-achievement-desc">20+ workouts in a month</div>
-          </div>
+      <!-- Card 3 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">design-gallery</span>
         </div>
-        <div class="fit-achievement">
-          <div class="fit-achievement-icon" style="background: rgba(59, 130, 246, 0.15);">&#x1F4AA;</div>
-          <div class="fit-achievement-info">
-            <div class="fit-achievement-name">PR Crusher</div>
-            <div class="fit-achievement-desc">5 personal records</div>
-          </div>
+        <p class="card-desc">UI design system showcase and library</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="html">HTML</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">1h ago</span>
         </div>
-        <div class="fit-achievement">
-          <div class="fit-achievement-icon" style="background: rgba(34, 197, 94, 0.15);">&#x1F525;</div>
-          <div class="fit-achievement-info">
-            <div class="fit-achievement-name">On Fire</div>
-            <div class="fit-achievement-desc">21-day streak achieved</div>
-          </div>
-        </div>
-        <div class="fit-achievement">
-          <div class="fit-achievement-icon" style="background: rgba(168, 85, 247, 0.15);">&#x26A1;</div>
-          <div class="fit-achievement-info">
-            <div class="fit-achievement-name">Speed Demon</div>
-            <div class="fit-achievement-desc">Sub-6 min/km pace</div>
-          </div>
-        </div>
-        <div class="fit-achievement">
-          <div class="fit-achievement-icon" style="background: rgba(234, 179, 8, 0.15);">&#x1F3AF;</div>
-          <div class="fit-achievement-info">
-            <div class="fit-achievement-name">Goal Getter</div>
-            <div class="fit-achievement-desc">Weekly calorie target hit</div>
-          </div>
+        <div class="card-path">~/projects/design-gallery</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
-    </main>
-  </div>
+
+      <!-- Card 4 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">feature/v2</span>
+          <span class="card-repo">suno-maker</span>
+        </div>
+        <p class="card-desc">Music generation prompt builder</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="javascript">JavaScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">1d ago</span>
+        </div>
+        <div class="card-path">~/projects/suno-maker</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">work/2026-03-11</span>
+          <span class="card-repo">claude-academy</span>
+        </div>
+        <p class="card-desc">Knowledge base for Claude Code</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="typescript">TypeScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">30m ago</span>
+        </div>
+        <div class="card-path">~/projects/claude-academy</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="project-card card-archived">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">naturopathic-atlas</span>
+        </div>
+        <p class="card-desc">Disease classification reference system</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="python">Python</span>
+          <span class="meta-status status-archived">Archived</span>
+          <span class="meta-updated">2w ago</span>
+        </div>
+        <div class="card-path">~/projects/naturopathic-atlas</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+
+  </main>
+
 </body>
 </html>

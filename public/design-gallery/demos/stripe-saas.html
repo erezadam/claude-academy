@@ -1,344 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PayStream — Payment Analytics Dashboard</title>
-  <link rel="stylesheet" href="../styles/stripe-saas.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe SaaS — Project Dashboard</title>
+    <link rel="stylesheet" href="../styles/stripe-saas.css">
 </head>
 <body>
 
-  <div class="stripe-layout">
-
-    <!-- Sidebar -->
-    <aside class="stripe-sidebar">
-      <div class="stripe-sidebar-logo">
-        <div class="logo-mark">P</div>
-        PayStream
-      </div>
-
-      <div class="stripe-sidebar-section">
-        <div class="stripe-sidebar-section-title">Overview</div>
-        <ul class="stripe-sidebar-nav">
-          <li><a href="#" class="active"><span class="nav-icon">&#9632;</span> Dashboard</a></li>
-          <li><a href="#"><span class="nav-icon">&#8644;</span> Transactions</a></li>
-          <li><a href="#"><span class="nav-icon">&#9650;</span> Analytics</a></li>
-        </ul>
-      </div>
-
-      <div class="stripe-sidebar-section">
-        <div class="stripe-sidebar-section-title">Manage</div>
-        <ul class="stripe-sidebar-nav">
-          <li><a href="#"><span class="nav-icon">&#9874;</span> Products</a></li>
-          <li><a href="#"><span class="nav-icon">&#9993;</span> Invoices</a></li>
-          <li><a href="#"><span class="nav-icon">&#9881;</span> Settings</a></li>
-        </ul>
-      </div>
-
-      <div class="stripe-sidebar-section">
-        <div class="stripe-sidebar-section-title">Developer</div>
-        <ul class="stripe-sidebar-nav">
-          <li><a href="#"><span class="nav-icon">&lt;/&gt;</span> API Keys</a></li>
-          <li><a href="#"><span class="nav-icon">&#9888;</span> Webhooks</a></li>
-          <li><a href="#"><span class="nav-icon">&#128203;</span> Logs</a></li>
-        </ul>
-      </div>
-
-      <div class="stripe-sidebar-bottom">
-        <div class="stripe-sidebar-user">
-          <div class="user-avatar">SM</div>
-          <div>
-            <div class="user-name">Sarah Mitchell</div>
-            <div class="user-email">sarah@paystream.io</div>
-          </div>
+    <!-- TopBar -->
+    <nav class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-logo">
+                <span class="logo-icon">&#9679;</span>
+                <span class="logo-text">DevDash</span>
+            </div>
+            <div class="topbar-nav">
+                <a href="#" class="nav-link active">Projects</a>
+                <a href="#" class="nav-link">Deployments</a>
+                <a href="#" class="nav-link">Settings</a>
+            </div>
         </div>
-      </div>
-    </aside>
+    </nav>
 
     <!-- Main Content -->
-    <main class="stripe-main">
+    <main class="page-container">
+        <header class="page-header">
+            <h1 class="page-title">Project Dashboard</h1>
+            <p class="page-desc">Manage and monitor your local development projects.</p>
+        </header>
 
-      <!-- Top Bar -->
-      <div class="stripe-topbar">
-        <div class="stripe-topbar-title">Dashboard</div>
-        <div class="stripe-topbar-actions">
-          <div class="stripe-topbar-period">&#128197; Mar 1 — Mar 11, 2026</div>
-          <button class="stripe-btn stripe-btn-secondary">Export</button>
-          <button class="stripe-btn stripe-btn-primary">+ New Payment</button>
-        </div>
-      </div>
-
-      <div class="stripe-content">
-
-        <!-- Metrics Row -->
-        <div class="stripe-metrics">
-          <div class="stripe-metric-card">
-            <div class="stripe-metric-header">
-              <div class="stripe-metric-label">Revenue</div>
-              <div class="stripe-metric-icon stripe-metric-icon-purple">$</div>
-            </div>
-            <div class="stripe-metric-value">$124,563</div>
-            <div class="stripe-metric-change up">&#9650; 12.5%</div>
-          </div>
-
-          <div class="stripe-metric-card">
-            <div class="stripe-metric-header">
-              <div class="stripe-metric-label">Transactions</div>
-              <div class="stripe-metric-icon stripe-metric-icon-blue">&#8644;</div>
-            </div>
-            <div class="stripe-metric-value">8,429</div>
-            <div class="stripe-metric-change up">&#9650; 8.2%</div>
-          </div>
-
-          <div class="stripe-metric-card">
-            <div class="stripe-metric-header">
-              <div class="stripe-metric-label">Conversion</div>
-              <div class="stripe-metric-icon stripe-metric-icon-green">%</div>
-            </div>
-            <div class="stripe-metric-value">3.24%</div>
-            <div class="stripe-metric-change down">&#9660; 0.4%</div>
-          </div>
-
-          <div class="stripe-metric-card">
-            <div class="stripe-metric-header">
-              <div class="stripe-metric-label">MRR</div>
-              <div class="stripe-metric-icon stripe-metric-icon-orange">&#9733;</div>
-            </div>
-            <div class="stripe-metric-value">$47,200</div>
-            <div class="stripe-metric-change up">&#9650; 6.1%</div>
-          </div>
+        <!-- Search -->
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Search projects...">
         </div>
 
-        <!-- Charts Section -->
-        <div class="stripe-chart-section">
-
-          <!-- Revenue Chart -->
-          <div class="stripe-chart-card">
-            <div class="stripe-chart-header">
-              <div class="stripe-chart-title">Revenue Overview</div>
-              <div class="stripe-chart-tabs">
-                <button class="stripe-chart-tab">7D</button>
-                <button class="stripe-chart-tab active">30D</button>
-                <button class="stripe-chart-tab">90D</button>
-                <button class="stripe-chart-tab">1Y</button>
-              </div>
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Projects</span>
             </div>
-            <div class="stripe-bar-chart">
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 55%;"></div>
-                <div class="stripe-bar-label">Jan</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 42%;"></div>
-                <div class="stripe-bar-label">Feb</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 68%;"></div>
-                <div class="stripe-bar-label">Mar</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 80%;"></div>
-                <div class="stripe-bar-label">Apr</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 62%;"></div>
-                <div class="stripe-bar-label">May</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 74%;"></div>
-                <div class="stripe-bar-label">Jun</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 58%;"></div>
-                <div class="stripe-bar-label">Jul</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 85%;"></div>
-                <div class="stripe-bar-label">Aug</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 90%;"></div>
-                <div class="stripe-bar-label">Sep</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 78%;"></div>
-                <div class="stripe-bar-label">Oct</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 95%;"></div>
-                <div class="stripe-bar-label">Nov</div>
-              </div>
-              <div class="stripe-bar-group">
-                <div class="stripe-bar stripe-bar-primary" style="height: 100%;"></div>
-                <div class="stripe-bar-label">Dec</div>
-              </div>
+            <div class="stat-card">
+                <span class="stat-value">8</span>
+                <span class="stat-label">Active</span>
             </div>
-          </div>
-
-          <!-- Revenue Breakdown -->
-          <div class="stripe-chart-card">
-            <div class="stripe-chart-header">
-              <div class="stripe-chart-title">By Source</div>
+            <div class="stat-card">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Linked</span>
             </div>
-            <ul class="stripe-breakdown-list">
-              <li class="stripe-breakdown-item">
-                <div class="stripe-breakdown-left">
-                  <div class="stripe-breakdown-dot" style="background: #635BFF;"></div>
-                  <div class="stripe-breakdown-name">Subscriptions</div>
-                </div>
-                <div class="stripe-breakdown-right">
-                  <div class="stripe-breakdown-amount">$68,420</div>
-                  <div class="stripe-breakdown-pct">54.9%</div>
-                </div>
-              </li>
-              <li class="stripe-breakdown-item">
-                <div class="stripe-breakdown-left">
-                  <div class="stripe-breakdown-dot" style="background: #30D158;"></div>
-                  <div class="stripe-breakdown-name">One-time</div>
-                </div>
-                <div class="stripe-breakdown-right">
-                  <div class="stripe-breakdown-amount">$32,180</div>
-                  <div class="stripe-breakdown-pct">25.8%</div>
-                </div>
-              </li>
-              <li class="stripe-breakdown-item">
-                <div class="stripe-breakdown-left">
-                  <div class="stripe-breakdown-dot" style="background: #007AFF;"></div>
-                  <div class="stripe-breakdown-name">Invoices</div>
-                </div>
-                <div class="stripe-breakdown-right">
-                  <div class="stripe-breakdown-amount">$18,740</div>
-                  <div class="stripe-breakdown-pct">15.0%</div>
-                </div>
-              </li>
-              <li class="stripe-breakdown-item">
-                <div class="stripe-breakdown-left">
-                  <div class="stripe-breakdown-dot" style="background: #FF9F0A;"></div>
-                  <div class="stripe-breakdown-name">Marketplace</div>
-                </div>
-                <div class="stripe-breakdown-right">
-                  <div class="stripe-breakdown-amount">$5,223</div>
-                  <div class="stripe-breakdown-pct">4.2%</div>
-                </div>
-              </li>
-            </ul>
-          </div>
+            <div class="stat-card">
+                <span class="stat-value">3h ago</span>
+                <span class="stat-label">Last scan</span>
+            </div>
         </div>
 
-        <!-- Recent Transactions Table -->
-        <div class="stripe-table-card">
-          <div class="stripe-table-header">
-            <div class="stripe-table-title">Recent Transactions</div>
-            <a href="#" class="stripe-table-action">View all &#8250;</a>
-          </div>
-          <table class="stripe-table">
-            <thead>
-              <tr>
-                <th>Customer</th>
-                <th>Amount</th>
-                <th>Status</th>
-                <th>Method</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="stripe-table-customer">
-                    <div class="stripe-table-avatar" style="background: #635BFF;">AW</div>
-                    <div>
-                      <div class="stripe-table-name">Alex Whitmore</div>
-                      <div class="stripe-table-email">alex@designlabs.co</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="stripe-table-amount">$2,450.00</td>
-                <td><span class="stripe-badge stripe-badge-success"><span class="stripe-badge-dot"></span> Completed</span></td>
-                <td>Visa *4242</td>
-                <td>Mar 11, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="stripe-table-customer">
-                    <div class="stripe-table-avatar" style="background: #30D158;">JK</div>
-                    <div>
-                      <div class="stripe-table-name">Jordan Kim</div>
-                      <div class="stripe-table-email">jordan@startupai.com</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="stripe-table-amount">$890.00</td>
-                <td><span class="stripe-badge stripe-badge-success"><span class="stripe-badge-dot"></span> Completed</span></td>
-                <td>Mastercard *8371</td>
-                <td>Mar 10, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="stripe-table-customer">
-                    <div class="stripe-table-avatar" style="background: #FF9F0A;">RP</div>
-                    <div>
-                      <div class="stripe-table-name">Rachel Patel</div>
-                      <div class="stripe-table-email">rachel@cloudnative.io</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="stripe-table-amount">$4,200.00</td>
-                <td><span class="stripe-badge stripe-badge-pending"><span class="stripe-badge-dot"></span> Pending</span></td>
-                <td>Wire transfer</td>
-                <td>Mar 10, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="stripe-table-customer">
-                    <div class="stripe-table-avatar" style="background: #007AFF;">MC</div>
-                    <div>
-                      <div class="stripe-table-name">Marcus Chen</div>
-                      <div class="stripe-table-email">marcus@finteqhub.com</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="stripe-table-amount">$1,320.00</td>
-                <td><span class="stripe-badge stripe-badge-success"><span class="stripe-badge-dot"></span> Completed</span></td>
-                <td>Amex *1029</td>
-                <td>Mar 9, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="stripe-table-customer">
-                    <div class="stripe-table-avatar" style="background: #FF453A;">LN</div>
-                    <div>
-                      <div class="stripe-table-name">Lisa Novak</div>
-                      <div class="stripe-table-email">lisa@ecomflow.store</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="stripe-table-amount">$560.00</td>
-                <td><span class="stripe-badge stripe-badge-failed"><span class="stripe-badge-dot"></span> Failed</span></td>
-                <td>Visa *9104</td>
-                <td>Mar 9, 2026</td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="stripe-table-customer">
-                    <div class="stripe-table-avatar" style="background: #0A2540;">DT</div>
-                    <div>
-                      <div class="stripe-table-name">David Torres</div>
-                      <div class="stripe-table-email">david@mediasync.app</div>
-                    </div>
-                  </div>
-                </td>
-                <td class="stripe-table-amount">$3,780.00</td>
-                <td><span class="stripe-badge stripe-badge-success"><span class="stripe-badge-dot"></span> Completed</span></td>
-                <td>ACH Direct</td>
-                <td>Mar 8, 2026</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-pill active">All</button>
+            <button class="filter-pill">Active</button>
+            <button class="filter-pill">Archived</button>
+            <button class="filter-pill">Linked</button>
+            <button class="filter-pill">Unlinked</button>
         </div>
 
-      </div>
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+
+            <!-- Card 1: nutrimanager -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">nutrimanager</span>
+                </div>
+                <p class="card-desc">Full-stack nutrition management system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">2h ago</span>
+                </div>
+                <div class="card-path">~/projects/nutrimanager</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 2: gym-expert -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">develop</span>
+                    <span class="card-name">gym-expert</span>
+                </div>
+                <p class="card-desc">AI-powered workout recommendation engine</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">5h ago</span>
+                </div>
+                <div class="card-path">~/projects/gym-expert</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3: design-gallery -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">design-gallery</span>
+                </div>
+                <p class="card-desc">UI design system showcase and library</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#E34C26"></span>HTML</span>
+                    <span class="meta-status">Active</span>
+                    <span class="meta-updated">1h ago</span>
+                </div>
+                <div class="card-path">~/projects/design-gallery</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 4: suno-maker -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">feature/v2</span>
+                    <span class="card-name">suno-maker</span>
+                </div>
+                <p class="card-desc">Music generation prompt builder</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">1d ago</span>
+                </div>
+                <div class="card-path">~/projects/suno-maker</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 5: claude-academy -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">work/2026-03-11</span>
+                    <span class="card-name">claude-academy</span>
+                </div>
+                <p class="card-desc">Knowledge base for Claude Code</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">30m ago</span>
+                </div>
+                <div class="card-path">~/projects/claude-academy</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 6: naturopathic-atlas -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">naturopathic-atlas</span>
+                </div>
+                <p class="card-desc">Disease classification reference system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status archived">Archived</span>
+                    <span class="meta-updated">2w ago</span>
+                </div>
+                <div class="card-path">~/projects/naturopathic-atlas</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+        </div>
     </main>
-  </div>
 
 </body>
 </html>

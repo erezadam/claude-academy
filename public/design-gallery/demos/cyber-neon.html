@@ -1,293 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cyber Neon — Design System Demo</title>
-  <link rel="stylesheet" href="../styles/cyber-neon.css">
-  <style>
-    .demo-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-    @media (max-width: 767px) {
-      .demo-grid-2 { grid-template-columns: 1fr; }
-    }
-    .demo-section {
-      margin-bottom: 48px;
-    }
-    .cn-hero-grid-bg {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image:
-        linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dashboard — Cyber Neon</title>
+    <link rel="stylesheet" href="../styles/cyber-neon.css">
 </head>
 <body>
 
-<!-- HUD Header -->
-<header class="cn-header">
-  <div class="cn-header-inner">
-    <div class="cn-header-logo">NEXUS<span style="color: var(--cn-secondary);">_</span>CMD</div>
-    <nav>
-      <ul class="cn-header-nav">
-        <li><a href="#" class="active">Dashboard</a></li>
-        <li><a href="#">Systems</a></li>
-        <li><a href="#">Analytics</a></li>
-        <li><a href="#">Network</a></li>
-        <li><a href="#">Settings</a></li>
-      </ul>
+    <!-- Top Bar -->
+    <nav class="topbar">
+        <div class="topbar-logo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>Project Dashboard</span>
+        </div>
+        <div class="topbar-nav">
+            <a href="#" class="topbar-link active">Projects</a>
+            <a href="#" class="topbar-link">Settings</a>
+            <a href="#" class="topbar-link">Docs</a>
+        </div>
     </nav>
-    <div class="cn-header-status">
-      <span class="cn-status-dot"></span>
-      <span>SYS ONLINE</span>
-    </div>
-  </div>
-</header>
 
-<div class="cn-container">
+    <!-- Main Content -->
+    <main class="main-content">
 
-  <!-- Hero Section -->
-  <section class="cn-hero">
-    <div class="cn-hero-grid-bg"></div>
-    <div class="cn-hero-subtitle">// System Control Interface v4.2</div>
-    <h1>Network Operations<br>Command Center</h1>
-    <p class="cn-hero-desc">Real-time monitoring and control of distributed systems across 47 global edge nodes. Full operational visibility with zero-trust security architecture.</p>
-    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-      <button class="cn-btn cn-btn--filled">Initialize Scan</button>
-      <button class="cn-btn cn-btn--accent">View Documentation</button>
-      <button class="cn-btn cn-btn--secondary">Emergency Protocol</button>
-    </div>
-  </section>
-
-  <hr class="cn-divider">
-
-  <!-- 4 Stat Cards -->
-  <section class="demo-section">
-    <h2>// System Metrics</h2>
-    <div class="cn-stat-grid">
-      <div class="cn-stat-card">
-        <div class="cn-stat-label">Active Nodes</div>
-        <div class="cn-stat-value">2,847</div>
-        <div class="cn-stat-change">+12.4% from last cycle</div>
-      </div>
-      <div class="cn-stat-card cn-stat-card--secondary">
-        <div class="cn-stat-label">Threat Level</div>
-        <div class="cn-stat-value">LOW</div>
-        <div class="cn-stat-change cn-stat-change--down">3 incidents detected</div>
-      </div>
-      <div class="cn-stat-card cn-stat-card--accent">
-        <div class="cn-stat-label">Data Throughput</div>
-        <div class="cn-stat-value">94.7<span style="font-size:16px;">TB/s</span></div>
-        <div class="cn-stat-change">+3.2% avg bandwidth</div>
-      </div>
-      <div class="cn-stat-card">
-        <div class="cn-stat-label">Uptime</div>
-        <div class="cn-stat-value">99.97<span style="font-size:16px;">%</span></div>
-        <div class="cn-stat-change">142 days since last outage</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Data Grid / Log -->
-  <section class="demo-section">
-    <h2>// Active Connections</h2>
-    <div style="overflow-x: auto;">
-      <table class="cn-data-grid">
-        <thead>
-          <tr>
-            <th>Node ID</th>
-            <th>Location</th>
-            <th>Status</th>
-            <th>Latency</th>
-            <th>Protocol</th>
-            <th>Last Sync</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="color: var(--cn-primary);">NX-4721</td>
-            <td>Tokyo, JP</td>
-            <td><span class="cn-badge cn-badge--primary">Active</span></td>
-            <td>12ms</td>
-            <td>WSS/TLS</td>
-            <td>2s ago</td>
-          </tr>
-          <tr>
-            <td style="color: var(--cn-primary);">NX-1138</td>
-            <td>Frankfurt, DE</td>
-            <td><span class="cn-badge cn-badge--primary">Active</span></td>
-            <td>28ms</td>
-            <td>QUIC</td>
-            <td>1s ago</td>
-          </tr>
-          <tr>
-            <td style="color: var(--cn-accent);">NX-0093</td>
-            <td>Sao Paulo, BR</td>
-            <td><span class="cn-badge cn-badge--warning">Degraded</span></td>
-            <td>145ms</td>
-            <td>WSS/TLS</td>
-            <td>14s ago</td>
-          </tr>
-          <tr>
-            <td style="color: var(--cn-primary);">NX-8844</td>
-            <td>Singapore, SG</td>
-            <td><span class="cn-badge cn-badge--primary">Active</span></td>
-            <td>8ms</td>
-            <td>gRPC</td>
-            <td>0s ago</td>
-          </tr>
-          <tr>
-            <td style="color: var(--cn-secondary);">NX-2210</td>
-            <td>Mumbai, IN</td>
-            <td><span class="cn-badge cn-badge--secondary">Offline</span></td>
-            <td>---</td>
-            <td>---</td>
-            <td>47m ago</td>
-          </tr>
-          <tr>
-            <td style="color: var(--cn-primary);">NX-5567</td>
-            <td>New York, US</td>
-            <td><span class="cn-badge cn-badge--primary">Active</span></td>
-            <td>3ms</td>
-            <td>QUIC</td>
-            <td>0s ago</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <hr class="cn-divider">
-
-  <!-- Alert Section -->
-  <section class="demo-section">
-    <h2>// Alerts &amp; Notifications</h2>
-    <div class="cn-alert" style="border-left-color: var(--cn-secondary);">
-      <span style="color: var(--cn-secondary);">[CRITICAL]</span>
-      <span>Node NX-2210 has been offline for 47 minutes. Auto-recovery failed. Manual intervention required.</span>
-    </div>
-    <div class="cn-alert cn-alert--warning">
-      <span style="color: #FFCC00;">[WARNING]</span>
-      <span>NX-0093 latency exceeding 100ms threshold. Route optimization in progress.</span>
-    </div>
-    <div class="cn-alert cn-alert--info">
-      <span style="color: var(--cn-accent);">[INFO]</span>
-      <span>Scheduled maintenance window: March 15, 02:00-04:00 UTC. 12 nodes affected.</span>
-    </div>
-  </section>
-
-  <!-- Operations Panels -->
-  <section class="demo-section">
-    <h2>// Operations</h2>
-    <div class="demo-grid-2">
-      <div class="cn-panel cn-panel--glow-primary">
-        <div class="cn-panel-title">System Log</div>
-        <div style="font-family: var(--cn-font-mono); font-size: 11px; line-height: 2; color: var(--cn-text-dim);">
-          <div><span style="color: var(--cn-primary);">[INFO]</span> Node NX-8844 synchronized</div>
-          <div><span style="color: var(--cn-accent);">[SYNC]</span> Database replication complete</div>
-          <div><span style="color: #FFCC00;">[WARN]</span> NX-0093 latency exceeding threshold</div>
-          <div><span style="color: var(--cn-secondary);">[ALRT]</span> NX-2210 connection lost</div>
-          <div><span style="color: var(--cn-primary);">[INFO]</span> Auto-scaling triggered: +3 instances</div>
-          <div><span style="color: var(--cn-primary);">[INFO]</span> SSL certificates renewed</div>
-          <div><span style="color: var(--cn-accent);">[SYNC]</span> Edge cache invalidated globally</div>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Projects</h1>
+            <p>Manage your local repositories, link them to GitHub, and track activity across all your work.</p>
         </div>
-      </div>
-      <div class="cn-panel cn-panel--glow-secondary">
-        <div class="cn-panel-title">Quick Actions</div>
-        <div style="display: flex; flex-direction: column; gap: 12px;">
-          <button class="cn-btn cn-btn--sm" style="width: 100%;">Deploy Latest Build</button>
-          <button class="cn-btn cn-btn--sm cn-btn--accent" style="width: 100%;">Run Diagnostics</button>
-          <button class="cn-btn cn-btn--sm cn-btn--secondary" style="width: 100%;">Restart Node NX-2210</button>
-          <button class="cn-btn cn-btn--sm" style="width: 100%;">Flush Cache Layer</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <hr class="cn-divider">
+        <!-- Search -->
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Search projects by name, language, or status...">
+        </div>
 
-  <!-- Command Input -->
-  <section class="demo-section">
-    <h2>// Command Interface</h2>
-    <div class="cn-panel">
-      <div class="demo-grid-2">
-        <div>
-          <label class="cn-input-label">Target Node</label>
-          <input class="cn-input" type="text" placeholder="NX-XXXX">
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">8</span>
+                <span class="stat-label">Active</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Linked</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">3h ago</span>
+                <span class="stat-label">Last Scan</span>
+            </div>
         </div>
-        <div>
-          <label class="cn-input-label">Command Type</label>
-          <input class="cn-input" type="text" placeholder="SELECT PROTOCOL...">
-        </div>
-      </div>
-      <div style="margin-top: 16px;">
-        <label class="cn-input-label">Parameters</label>
-        <textarea class="cn-input" rows="3" placeholder="Enter command parameters..." style="resize: vertical;"></textarea>
-      </div>
-      <div style="margin-top: 20px; display: flex; gap: 12px;">
-        <button class="cn-btn cn-btn--filled">Execute Command</button>
-        <button class="cn-btn">Validate Syntax</button>
-      </div>
-    </div>
-  </section>
 
-  <!-- Badges & Progress -->
-  <section class="demo-section">
-    <h2>// Resource Allocation</h2>
-    <div class="cn-panel cn-panel--glow-primary">
-      <div style="margin-bottom: 24px;">
-        <div class="cn-progress-label">
-          <span>CPU Utilization</span>
-          <span style="color: var(--cn-primary);">73%</span>
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-pill active">All</button>
+            <button class="filter-pill">Active</button>
+            <button class="filter-pill">Archived</button>
+            <button class="filter-pill">Linked</button>
+            <button class="filter-pill">Unlinked</button>
         </div>
-        <div class="cn-progress">
-          <div class="cn-progress-bar cn-progress-bar--primary" style="width: 73%;"></div>
-        </div>
-      </div>
-      <div style="margin-bottom: 24px;">
-        <div class="cn-progress-label">
-          <span>Memory Usage</span>
-          <span style="color: var(--cn-secondary);">89%</span>
-        </div>
-        <div class="cn-progress">
-          <div class="cn-progress-bar cn-progress-bar--secondary" style="width: 89%;"></div>
-        </div>
-      </div>
-      <div style="margin-bottom: 24px;">
-        <div class="cn-progress-label">
-          <span>Network I/O</span>
-          <span style="color: var(--cn-accent);">45%</span>
-        </div>
-        <div class="cn-progress">
-          <div class="cn-progress-bar cn-progress-bar--accent" style="width: 45%;"></div>
-        </div>
-      </div>
-      <div>
-        <div class="cn-progress-label">
-          <span>Storage</span>
-          <span style="color: var(--cn-primary);">62%</span>
-        </div>
-        <div class="cn-progress">
-          <div class="cn-progress-bar cn-progress-bar--primary" style="width: 62%;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer style="text-align: center; padding: 48px 0 32px; border-top: 1px solid var(--cn-border);">
-    <div style="font-family: var(--cn-font-mono); font-size: 11px; color: var(--cn-text-muted);">
-      NEXUS_CMD v4.2.1 // SESSION: <span style="color: var(--cn-primary);">0x7F3A9C</span> // UPTIME: 142d 07h 23m
-    </div>
-  </footer>
+        <!-- Projects Grid -->
+        <div class="projects-grid">
 
-</div>
+            <!-- Card 1 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">main</span>
+                    <span class="card-title">nutrimanager</span>
+                </div>
+                <p class="card-desc">Full-stack nutrition management system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">&#x1F517; Active</span>
+                    <span class="meta-updated">2h ago</span>
+                </div>
+                <div class="card-path">~/projects/nutrimanager</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">develop</span>
+                    <span class="card-title">gym-expert</span>
+                </div>
+                <p class="card-desc">AI-powered workout recommendation engine</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status linked">&#x1F517; Active</span>
+                    <span class="meta-updated">5h ago</span>
+                </div>
+                <div class="card-path">~/projects/gym-expert</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">main</span>
+                    <span class="card-title">design-gallery</span>
+                </div>
+                <p class="card-desc">UI design system showcase and library</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#E34C26"></span>HTML</span>
+                    <span class="meta-status unlinked">Active</span>
+                    <span class="meta-updated">1h ago</span>
+                </div>
+                <div class="card-path">~/projects/design-gallery</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">feature/v2</span>
+                    <span class="card-title">suno-maker</span>
+                </div>
+                <p class="card-desc">Music generation prompt builder</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+                    <span class="meta-status linked">&#x1F517; Active</span>
+                    <span class="meta-updated">1d ago</span>
+                </div>
+                <div class="card-path">~/projects/suno-maker</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">work/2026-03-11</span>
+                    <span class="card-title">claude-academy</span>
+                </div>
+                <p class="card-desc">Knowledge base for Claude Code</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">&#x1F517; Active</span>
+                    <span class="meta-updated">30m ago</span>
+                </div>
+                <div class="card-path">~/projects/claude-academy</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">main</span>
+                    <span class="card-title">naturopathic-atlas</span>
+                </div>
+                <p class="card-desc">Disease classification reference system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status unlinked">Archived</span>
+                    <span class="meta-updated">2w ago</span>
+                </div>
+                <div class="card-path">~/projects/naturopathic-atlas</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
 
 </body>
 </html>

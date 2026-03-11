@@ -1,208 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deploykit — Deploy Instantly</title>
-  <link rel="stylesheet" href="../styles/vercel-minimal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Minimal — Project Dashboard</title>
+    <link rel="stylesheet" href="../styles/vercel-minimal.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="vercel-nav">
-    <div class="vercel-nav-inner">
-      <a href="#" class="vercel-nav-logo">
-        <span class="logo-triangle"></span>
-        Deploykit
-      </a>
-      <ul class="vercel-nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#">Docs</a></li>
-        <li><a href="#">Templates</a></li>
-        <li><a href="#">Enterprise</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Changelog</a></li>
-      </ul>
-      <div class="vercel-nav-actions">
-        <a href="#" class="vercel-btn vercel-btn-secondary vercel-btn-sm">Log In</a>
-        <a href="#" class="vercel-btn vercel-btn-primary vercel-btn-sm">Sign Up</a>
-      </div>
-    </div>
-  </nav>
+    <!-- TopBar -->
+    <nav class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-logo">
+                <span class="logo-icon">&#9679;</span>
+                <span class="logo-text">DevDash</span>
+            </div>
+            <div class="topbar-nav">
+                <a href="#" class="nav-link active">Projects</a>
+                <a href="#" class="nav-link">Deployments</a>
+                <a href="#" class="nav-link">Settings</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="vercel-hero">
-    <h1 class="vercel-display">Deploy Instantly.</h1>
-    <p class="vercel-subtitle">
-      Ship your web application to the edge in seconds.
-      Zero configuration, infinite scalability.
-    </p>
-    <div class="vercel-hero-actions">
-      <a href="#" class="vercel-btn vercel-btn-primary vercel-btn-lg">Start Deploying</a>
-      <a href="#" class="vercel-btn vercel-btn-secondary vercel-btn-lg">View Docs</a>
-    </div>
-    <div class="vercel-terminal">
-      <span class="vercel-terminal-prompt">$</span>
-      <span class="vercel-terminal-cmd">npx</span>
-      <span class="vercel-terminal-text">deploykit init my-app</span>
-      <span class="vercel-terminal-copy" title="Copy to clipboard">&#128203;</span>
-    </div>
-  </section>
+    <!-- Main Content -->
+    <main class="page-container">
+        <header class="page-header">
+            <h1 class="page-title">Project Dashboard</h1>
+            <p class="page-desc">Manage and monitor your local development projects.</p>
+        </header>
 
-  <!-- Framework Logos -->
-  <section class="vercel-frameworks">
-    <div class="vercel-frameworks-label">Works with your favorite framework</div>
-    <div class="vercel-frameworks-grid">
-      <div class="vercel-framework">
-        <div class="vercel-framework-icon">N</div>
-        <div class="vercel-framework-name">Next.js</div>
-      </div>
-      <div class="vercel-framework">
-        <div class="vercel-framework-icon">R</div>
-        <div class="vercel-framework-name">React</div>
-      </div>
-      <div class="vercel-framework">
-        <div class="vercel-framework-icon">V</div>
-        <div class="vercel-framework-name">Vue</div>
-      </div>
-      <div class="vercel-framework">
-        <div class="vercel-framework-icon">S</div>
-        <div class="vercel-framework-name">Svelte</div>
-      </div>
-      <div class="vercel-framework">
-        <div class="vercel-framework-icon">A</div>
-        <div class="vercel-framework-name">Astro</div>
-      </div>
-      <div class="vercel-framework">
-        <div class="vercel-framework-icon">N</div>
-        <div class="vercel-framework-name">Nuxt</div>
-      </div>
-    </div>
-  </section>
+        <!-- Search -->
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Search projects...">
+        </div>
 
-  <!-- Features Section -->
-  <section class="vercel-section" id="features">
-    <div class="vercel-section-title">
-      <h2 class="vercel-headline">Everything you need to ship.</h2>
-      <p class="vercel-subtitle">
-        From git push to global deployment in under 10 seconds.
-      </p>
-    </div>
-    <div class="vercel-grid">
-      <div class="vercel-card">
-        <div class="vercel-card-icon">&#9889;</div>
-        <div class="vercel-card-title">Edge Functions</div>
-        <div class="vercel-card-desc">
-          Run serverless functions at the edge, closest to your users. Sub-millisecond cold starts with automatic scaling from zero to millions.
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">8</span>
+                <span class="stat-label">Active</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Linked</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">3h ago</span>
+                <span class="stat-label">Last scan</span>
+            </div>
         </div>
-      </div>
-      <div class="vercel-card">
-        <div class="vercel-card-icon">&#9678;</div>
-        <div class="vercel-card-title">Preview Deployments</div>
-        <div class="vercel-card-desc">
-          Every pull request gets a unique URL. Share, review, and iterate on changes before merging to production. Integrated with GitHub and GitLab.
-        </div>
-      </div>
-      <div class="vercel-card">
-        <div class="vercel-card-icon">&#9881;</div>
-        <div class="vercel-card-title">Analytics</div>
-        <div class="vercel-card-desc">
-          Real-time performance insights powered by Real User Monitoring. Track Web Vitals, page views, and user interactions without any code changes.
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Deployment Log Section -->
-  <div class="vercel-code-section">
-    <div class="vercel-section-title">
-      <h2 class="vercel-headline">Watch it deploy.</h2>
-      <p class="vercel-subtitle">
-        Real-time build logs with instant feedback.
-      </p>
-    </div>
-    <div class="vercel-code-block">
-      <div class="vercel-code-header">
-        <div class="vercel-code-header-left">
-          <div class="vercel-code-dots">
-            <div class="vercel-code-dot vercel-code-dot-red"></div>
-            <div class="vercel-code-dot vercel-code-dot-yellow"></div>
-            <div class="vercel-code-dot vercel-code-dot-green"></div>
-          </div>
-          <span class="vercel-code-filename">deployment-log.sh</span>
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-pill active">All</button>
+            <button class="filter-pill">Active</button>
+            <button class="filter-pill">Archived</button>
+            <button class="filter-pill">Linked</button>
+            <button class="filter-pill">Unlinked</button>
         </div>
-      </div>
-      <div class="vercel-code-body">
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:01</span>
-          <span class="vercel-log-status vercel-log-info">Cloning repository...</span>
-        </div>
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:02</span>
-          <span class="vercel-log-status vercel-log-success">Installing dependencies (npm ci)</span>
-        </div>
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:04</span>
-          <span class="vercel-log-status vercel-log-info">Running build script: next build</span>
-        </div>
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:06</span>
-          <span class="vercel-log-status vercel-log-success">Compiled successfully in 2.1s</span>
-        </div>
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:06</span>
-          <span class="vercel-log-status vercel-log-info">Generating static pages (14/14)</span>
-        </div>
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:07</span>
-          <span class="vercel-log-status vercel-log-success">Uploading build artifacts (3.2 MB)</span>
-        </div>
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:08</span>
-          <span class="vercel-log-status vercel-log-info">Deploying to edge network (28 regions)</span>
-        </div>
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:09</span>
-          <span class="vercel-log-status vercel-log-info">Running post-deploy checks...</span>
-        </div>
-        <div class="vercel-log-line">
-          <span class="vercel-log-time">12:04:09</span>
-          <span class="vercel-log-status vercel-log-ready">&#10003; Ready — deployed to https://my-app.deploykit.app</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- CTA Section -->
-  <section class="vercel-cta">
-    <h2 class="vercel-headline">Start building today.</h2>
-    <p class="vercel-subtitle">
-      Free for personal projects. Scale as you grow.
-    </p>
-    <div class="vercel-cta-actions">
-      <a href="#" class="vercel-btn vercel-btn-primary vercel-btn-lg">Deploy Now</a>
-      <a href="#" class="vercel-btn vercel-btn-secondary vercel-btn-lg">Contact Sales</a>
-    </div>
-  </section>
+        <!-- Projects Grid -->
+        <div class="projects-grid">
 
-  <!-- Footer -->
-  <footer class="vercel-footer">
-    <div class="vercel-footer-inner">
-      <div class="vercel-footer-logo">
-        <span class="logo-triangle-sm"></span>
-        Deploykit
-      </div>
-      <ul class="vercel-footer-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Docs</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Changelog</a></li>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Terms</a></li>
-      </ul>
-      <div class="vercel-footer-copy">&copy; 2026 Deploykit Inc.</div>
-    </div>
-  </footer>
+            <!-- Card 1: nutrimanager -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">nutrimanager</span>
+                </div>
+                <p class="card-desc">Full-stack nutrition management system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">2h ago</span>
+                </div>
+                <div class="card-path">~/projects/nutrimanager</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 2: gym-expert -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">develop</span>
+                    <span class="card-name">gym-expert</span>
+                </div>
+                <p class="card-desc">AI-powered workout recommendation engine</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">5h ago</span>
+                </div>
+                <div class="card-path">~/projects/gym-expert</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3: design-gallery -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">design-gallery</span>
+                </div>
+                <p class="card-desc">UI design system showcase and library</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#E34C26"></span>HTML</span>
+                    <span class="meta-status">Active</span>
+                    <span class="meta-updated">1h ago</span>
+                </div>
+                <div class="card-path">~/projects/design-gallery</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 4: suno-maker -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">feature/v2</span>
+                    <span class="card-name">suno-maker</span>
+                </div>
+                <p class="card-desc">Music generation prompt builder</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">1d ago</span>
+                </div>
+                <div class="card-path">~/projects/suno-maker</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 5: claude-academy -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">work/2026-03-11</span>
+                    <span class="card-name">claude-academy</span>
+                </div>
+                <p class="card-desc">Knowledge base for Claude Code</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">30m ago</span>
+                </div>
+                <div class="card-path">~/projects/claude-academy</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 6: naturopathic-atlas -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">naturopathic-atlas</span>
+                </div>
+                <p class="card-desc">Disease classification reference system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status archived">Archived</span>
+                    <span class="meta-updated">2w ago</span>
+                </div>
+                <div class="card-path">~/projects/naturopathic-atlas</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
 
 </body>
 </html>

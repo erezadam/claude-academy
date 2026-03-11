@@ -1,324 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Material Modern — Design System Demo</title>
-  <link rel="stylesheet" href="../styles/material-modern.css">
-  <style>
-    .demo-section {
-      margin-bottom: 48px;
-    }
-    .demo-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .demo-grid-3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 767px) {
-      .demo-grid-2, .demo-grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-    .demo-gradient-1 {
-      background: linear-gradient(135deg, #F3E8FD 0%, #E0F7F5 100%);
-    }
-    .demo-gradient-2 {
-      background: linear-gradient(135deg, #E0F7F5 0%, #E8F0FE 100%);
-    }
-    .demo-gradient-3 {
-      background: linear-gradient(135deg, #FCE4EC 0%, #F3E8FD 100%);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Dashboard — Material Modern</title>
+    <link rel="stylesheet" href="../styles/material-modern.css">
 </head>
 <body>
 
-<!-- App Bar -->
-<header class="mm-app-bar">
-  <div class="mm-app-bar-inner">
-    <div style="display: flex; align-items: center; gap: 12px;">
-      <div style="width: 32px; height: 32px; background: var(--mm-primary); border-radius: var(--mm-radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">T</div>
-      <span class="mm-app-bar-title">TaskFlow</span>
-    </div>
-    <nav>
-      <ul class="mm-app-bar-nav">
-        <li><a href="#" class="active">Tasks</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Calendar</a></li>
-        <li><a href="#">Reports</a></li>
-      </ul>
+    <!-- Top Bar -->
+    <nav class="topbar">
+        <div class="topbar-logo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+            <span>Project Dashboard</span>
+        </div>
+        <div class="topbar-nav">
+            <a href="#" class="topbar-link active">Projects</a>
+            <a href="#" class="topbar-link">Settings</a>
+            <a href="#" class="topbar-link">Docs</a>
+        </div>
     </nav>
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <button class="mm-btn mm-btn--text" style="font-size: 20px; padding: 8px;">&#128269;</button>
-      <button class="mm-btn mm-btn--tonal mm-btn--sm" style="padding: 6px 16px;">Sign In</button>
-    </div>
-  </div>
-</header>
 
-<!-- Hero Section -->
-<section class="mm-hero">
-  <div class="mm-section-overline">Task Management</div>
-  <h1>Stay organized,<br>ship with confidence</h1>
-  <p class="mm-hero-desc">A modern task management app built on Material Design 3 principles. Track progress, collaborate with your team, and deliver projects on time.</p>
-  <div class="mm-hero-actions">
-    <button class="mm-btn mm-btn--filled">Create Project</button>
-    <button class="mm-btn mm-btn--tonal">View Templates</button>
-    <button class="mm-btn mm-btn--outlined">Learn More</button>
-  </div>
-</section>
+    <!-- Main Content -->
+    <main class="main-content">
 
-<div class="mm-container">
-
-  <!-- Chip Filters Row -->
-  <section class="demo-section">
-    <div class="mm-section-header">
-      <div class="mm-section-overline">Filter</div>
-      <h2>Browse by category</h2>
-    </div>
-    <div class="mm-chip-group">
-      <span class="mm-chip mm-chip--selected">All Tasks</span>
-      <span class="mm-chip">Design</span>
-      <span class="mm-chip">Engineering</span>
-      <span class="mm-chip">Product</span>
-      <span class="mm-chip">Marketing</span>
-      <span class="mm-chip">Research</span>
-      <span class="mm-chip">DevOps</span>
-    </div>
-  </section>
-
-  <hr class="mm-divider">
-
-  <!-- 3 Task Cards with Media Headers -->
-  <section class="demo-section">
-    <div class="mm-section-header">
-      <div class="mm-section-overline">Active</div>
-      <h2>Current tasks</h2>
-    </div>
-    <div class="mm-card-grid">
-      <!-- Card 1 -->
-      <div class="mm-card mm-card--elevated">
-        <div class="mm-card-media--placeholder demo-gradient-1" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#127912;</div>
-        <div class="mm-card-body">
-          <div class="mm-card-title">Design System Workshop</div>
-          <div class="mm-card-subtitle">Due March 15 &middot; High Priority</div>
-          <div class="mm-card-text">Create scalable design tokens and component library. Review with stakeholders and finalize documentation for the engineering handoff.</div>
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Projects</h1>
+            <p>Manage your local repositories, link them to GitHub, and track activity across all your work.</p>
         </div>
-        <div class="mm-card-actions">
-          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">View Task</button>
-          <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
-        </div>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="mm-card mm-card--elevated">
-        <div class="mm-card-media--placeholder demo-gradient-2" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#128187;</div>
-        <div class="mm-card-body">
-          <div class="mm-card-title">API Integration Sprint</div>
-          <div class="mm-card-subtitle">Due March 20 &middot; Medium Priority</div>
-          <div class="mm-card-text">Integrate the new payment provider APIs. Implement webhook handlers, error recovery, and comprehensive logging for all transaction flows.</div>
+        <!-- Search -->
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Search projects by name, language, or status...">
         </div>
-        <div class="mm-card-actions">
-          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">View Task</button>
-          <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
-        </div>
-      </div>
 
-      <!-- Card 3 -->
-      <div class="mm-card mm-card--elevated">
-        <div class="mm-card-media--placeholder demo-gradient-3" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#128640;</div>
-        <div class="mm-card-body">
-          <div class="mm-card-title">Production Deployment</div>
-          <div class="mm-card-subtitle">Due March 25 &middot; Critical</div>
-          <div class="mm-card-text">Ship v2.0 with feature flags for gradual rollout. Coordinate with QA team for final regression testing and performance benchmarks.</div>
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">8</span>
+                <span class="stat-label">Active</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Linked</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">3h ago</span>
+                <span class="stat-label">Last Scan</span>
+            </div>
         </div>
-        <div class="mm-card-actions">
-          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">View Task</button>
-          <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
+
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-pill active">All</button>
+            <button class="filter-pill">Active</button>
+            <button class="filter-pill">Archived</button>
+            <button class="filter-pill">Linked</button>
+            <button class="filter-pill">Unlinked</button>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <hr class="mm-divider">
+        <!-- Projects Grid -->
+        <div class="projects-grid">
 
-  <!-- All Button Variants and Chips -->
-  <section class="demo-section">
-    <div class="mm-section-header">
-      <div class="mm-section-overline">Components</div>
-      <h2>Buttons &amp; controls</h2>
-    </div>
-    <div class="mm-card mm-card--outlined" style="padding: 32px;">
-      <h3 style="margin-bottom: 20px;">Button Types</h3>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
-        <button class="mm-btn mm-btn--filled">Filled</button>
-        <button class="mm-btn mm-btn--tonal">Filled Tonal</button>
-        <button class="mm-btn mm-btn--outlined">Outlined</button>
-        <button class="mm-btn mm-btn--text">Text</button>
-        <button class="mm-btn mm-btn--secondary">Secondary</button>
-        <button class="mm-btn mm-btn--error">Error</button>
-      </div>
+            <!-- Card 1 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">main</span>
+                    <span class="card-title">nutrimanager</span>
+                </div>
+                <p class="card-desc">Full-stack nutrition management system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">&#x1F517; Active</span>
+                    <span class="meta-updated">2h ago</span>
+                </div>
+                <div class="card-path">~/projects/nutrimanager</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
 
-      <h3 style="margin-bottom: 20px;">Chips</h3>
-      <div class="mm-chip-group" style="margin-bottom: 24px;">
-        <span class="mm-chip mm-chip--selected">&#10003; Selected</span>
-        <span class="mm-chip">Unselected</span>
-        <span class="mm-chip">React</span>
-        <span class="mm-chip">Vue</span>
-        <span class="mm-chip">Angular</span>
-        <span class="mm-chip mm-chip--selected">&#10003; TypeScript</span>
-      </div>
+            <!-- Card 2 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">develop</span>
+                    <span class="card-title">gym-expert</span>
+                </div>
+                <p class="card-desc">AI-powered workout recommendation engine</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status linked">&#x1F517; Active</span>
+                    <span class="meta-updated">5h ago</span>
+                </div>
+                <div class="card-path">~/projects/gym-expert</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
 
-      <h3 style="margin-bottom: 20px;">Badges</h3>
-      <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 24px;">
-        <span class="mm-badge">3</span>
-        <span class="mm-badge mm-badge--primary">New</span>
-        <span class="mm-badge mm-badge--secondary">Pro</span>
-      </div>
+            <!-- Card 3 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">main</span>
+                    <span class="card-title">design-gallery</span>
+                </div>
+                <p class="card-desc">UI design system showcase and library</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#E34C26"></span>HTML</span>
+                    <span class="meta-status unlinked">Active</span>
+                    <span class="meta-updated">1h ago</span>
+                </div>
+                <div class="card-path">~/projects/design-gallery</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
 
-      <h3 style="margin-bottom: 20px;">Switches</h3>
-      <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="mm-switch active" onclick="this.classList.toggle('active')"></div>
-          <span class="mm-body-medium">Dark mode</span>
+            <!-- Card 4 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">feature/v2</span>
+                    <span class="card-title">suno-maker</span>
+                </div>
+                <p class="card-desc">Music generation prompt builder</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+                    <span class="meta-status linked">&#x1F517; Active</span>
+                    <span class="meta-updated">1d ago</span>
+                </div>
+                <div class="card-path">~/projects/suno-maker</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">work/2026-03-11</span>
+                    <span class="card-title">claude-academy</span>
+                </div>
+                <p class="card-desc">Knowledge base for Claude Code</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">&#x1F517; Active</span>
+                    <span class="meta-updated">30m ago</span>
+                </div>
+                <div class="card-path">~/projects/claude-academy</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge">main</span>
+                    <span class="card-title">naturopathic-atlas</span>
+                </div>
+                <p class="card-desc">Disease classification reference system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status unlinked">Archived</span>
+                    <span class="meta-updated">2w ago</span>
+                </div>
+                <div class="card-path">~/projects/naturopathic-atlas</div>
+                <div class="card-divider"></div>
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <button class="btn btn-ghost btn-external">GitHub &#x2197;</button>
+                </div>
+            </div>
+
         </div>
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="mm-switch" onclick="this.classList.toggle('active')"></div>
-          <span class="mm-body-medium">Notifications</span>
-        </div>
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <div class="mm-switch active" onclick="this.classList.toggle('active')"></div>
-          <span class="mm-body-medium">Auto-save</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="mm-divider">
-
-  <!-- Form Inputs with Floating Labels -->
-  <section class="demo-section">
-    <div class="mm-section-header">
-      <div class="mm-section-overline">Inputs</div>
-      <h2>Text fields</h2>
-    </div>
-    <div class="demo-grid-2">
-      <div class="mm-card mm-card--outlined" style="padding: 32px;">
-        <h3 style="margin-bottom: 24px;">Outlined Fields</h3>
-        <div class="mm-field">
-          <input class="mm-field-input" type="text" placeholder=" " value="Design System Workshop">
-          <label class="mm-field-label">Task Name</label>
-        </div>
-        <div class="mm-field">
-          <input class="mm-field-input" type="email" placeholder=" ">
-          <label class="mm-field-label">Assignee Email</label>
-          <div class="mm-field-helper">Enter the team member's email address</div>
-        </div>
-        <div class="mm-field">
-          <input class="mm-field-input" type="date" placeholder=" ">
-          <label class="mm-field-label">Due Date</label>
-        </div>
-        <button class="mm-btn mm-btn--filled" style="width: 100%; margin-top: 8px;">Create Task</button>
-      </div>
-
-      <div class="mm-card mm-card--outlined" style="padding: 32px;">
-        <h3 style="margin-bottom: 24px;">Filled Fields</h3>
-        <div class="mm-field mm-field--filled">
-          <input class="mm-field-input" type="text" placeholder=" " value="TaskFlow">
-          <label class="mm-field-label">Project Name</label>
-        </div>
-        <div class="mm-field mm-field--filled">
-          <input class="mm-field-input" type="text" placeholder=" ">
-          <label class="mm-field-label">Description</label>
-        </div>
-        <div class="mm-field mm-field--filled">
-          <input class="mm-field-input" type="url" placeholder=" ">
-          <label class="mm-field-label">Repository URL</label>
-          <div class="mm-field-helper">Include https://</div>
-        </div>
-        <button class="mm-btn mm-btn--tonal" style="width: 100%; margin-top: 8px;">Save Project</button>
-      </div>
-    </div>
-  </section>
-
-  <hr class="mm-divider">
-
-  <!-- List Items / Navigation -->
-  <section class="demo-section">
-    <div class="mm-section-header">
-      <div class="mm-section-overline">Navigation</div>
-      <h2>Settings</h2>
-    </div>
-    <div class="mm-card mm-card--outlined" style="padding: 8px; max-width: 480px;">
-      <div class="mm-list-item">
-        <div class="mm-list-item-icon">&#128100;</div>
-        <div class="mm-list-item-content">
-          <div class="mm-list-item-title">Profile Settings</div>
-          <div class="mm-list-item-subtitle">Edit your profile information</div>
-        </div>
-      </div>
-      <div class="mm-list-item">
-        <div class="mm-list-item-icon">&#128276;</div>
-        <div class="mm-list-item-content">
-          <div class="mm-list-item-title">Notifications</div>
-          <div class="mm-list-item-subtitle">Manage notification preferences</div>
-        </div>
-        <span class="mm-badge">5</span>
-      </div>
-      <div class="mm-list-item">
-        <div class="mm-list-item-icon">&#128274;</div>
-        <div class="mm-list-item-content">
-          <div class="mm-list-item-title">Privacy &amp; Security</div>
-          <div class="mm-list-item-subtitle">Password, 2FA, sessions</div>
-        </div>
-      </div>
-      <div class="mm-list-item">
-        <div class="mm-list-item-icon">&#127912;</div>
-        <div class="mm-list-item-content">
-          <div class="mm-list-item-title">Appearance</div>
-          <div class="mm-list-item-subtitle">Theme, colors, layout</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="mm-divider">
-
-  <!-- Snackbar Demo -->
-  <section class="demo-section">
-    <div class="mm-section-header">
-      <div class="mm-section-overline">Feedback</div>
-      <h2>Snackbar / Toast</h2>
-    </div>
-    <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
-      <div class="mm-snackbar">
-        Task created successfully
-        <button class="mm-snackbar-action">Undo</button>
-      </div>
-      <div class="mm-snackbar">
-        3 tasks moved to "Done"
-        <button class="mm-snackbar-action">View</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer style="text-align: center; padding: 48px 0 32px;">
-    <p style="font-size: 14px; color: var(--mm-text-muted); letter-spacing: 0.25px;">
-      Built with Material Modern Design System &mdash; 2026 TaskFlow
-    </p>
-  </footer>
-
-</div>
-
-<!-- FAB -->
-<button class="mm-fab mm-fab--extended">
-  <span style="font-size: 20px;">+</span>
-  <span>New Task</span>
-</button>
+    </main>
 
 </body>
 </html>

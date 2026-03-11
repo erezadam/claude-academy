@@ -1,199 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AirFlow - Focus on what matters</title>
-  <link rel="stylesheet" href="../styles/apple-minimal.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Minimal — Project Dashboard</title>
+    <link rel="stylesheet" href="../styles/apple-minimal.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="apple-nav">
-    <div class="apple-nav-inner">
-      <a href="#" class="apple-nav-logo">AirFlow</a>
-      <ul class="apple-nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#signup">Sign Up</a></li>
-      </ul>
-      <div class="apple-nav-cta">
-        <a href="#" class="apple-btn apple-btn-secondary apple-btn-sm">Sign In</a>
-        <a href="#" class="apple-btn apple-btn-primary apple-btn-sm">Try Free</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="apple-hero">
-    <div class="apple-eyebrow">Introducing AirFlow</div>
-    <h1 class="apple-display">Focus on what<br>actually matters.</h1>
-    <p class="apple-subhead">
-      The productivity app designed to remove distractions and help your team
-      ship work that moves the needle. Beautifully simple. Remarkably powerful.
-    </p>
-    <div class="apple-hero-actions">
-      <a href="#" class="apple-btn apple-btn-primary">Start Free Trial</a>
-      <a href="#" class="apple-btn apple-btn-secondary">Watch the film &#8250;</a>
-    </div>
-    <div class="apple-hero-image">
-      <div class="apple-hero-image-content">
-        <div class="logo-icon">&#9678;</div>
-        <div>AirFlow Dashboard</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <div class="apple-stats">
-    <div class="apple-stat">
-      <div class="apple-stat-number">2.4M+</div>
-      <div class="apple-stat-label">Teams worldwide</div>
-    </div>
-    <div class="apple-stat">
-      <div class="apple-stat-number">37%</div>
-      <div class="apple-stat-label">Faster delivery</div>
-    </div>
-    <div class="apple-stat">
-      <div class="apple-stat-number">99.99%</div>
-      <div class="apple-stat-label">Uptime guaranteed</div>
-    </div>
-  </div>
-
-  <!-- Features Grid -->
-  <section class="apple-section" id="features">
-    <div class="apple-section-title">
-      <div class="apple-eyebrow">Why AirFlow</div>
-      <h2 class="apple-headline-2">Less noise. More impact.</h2>
-      <p class="apple-subhead">
-        Every feature exists for a reason. Nothing extra, nothing missing.
-      </p>
-    </div>
-    <div class="apple-grid apple-grid-3">
-      <div class="apple-card" style="text-align: center;">
-        <div class="apple-feature-icon apple-feature-icon-blue" style="margin: 0 auto 20px;">&#9889;</div>
-        <div class="apple-feature-title">Instant Capture</div>
-        <div class="apple-feature-desc">
-          Capture thoughts, tasks, and ideas the moment they arrive. Our smart inbox
-          categorizes and prioritizes so nothing falls through the cracks.
+    <!-- TopBar -->
+    <nav class="topbar">
+        <div class="topbar-inner">
+            <div class="topbar-logo">
+                <span class="logo-icon">&#9679;</span>
+                <span class="logo-text">DevDash</span>
+            </div>
+            <div class="topbar-nav">
+                <a href="#" class="nav-link active">Projects</a>
+                <a href="#" class="nav-link">Deployments</a>
+                <a href="#" class="nav-link">Settings</a>
+            </div>
         </div>
-      </div>
-      <div class="apple-card" style="text-align: center;">
-        <div class="apple-feature-icon apple-feature-icon-green" style="margin: 0 auto 20px;">&#9203;</div>
-        <div class="apple-feature-title">Deep Focus Mode</div>
-        <div class="apple-feature-desc">
-          Block distractions with a single tap. AirFlow silences notifications, hides
-          non-essential UI, and keeps your attention where it belongs.
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-container">
+        <header class="page-header">
+            <h1 class="page-title">Project Dashboard</h1>
+            <p class="page-desc">Manage and monitor your local development projects.</p>
+        </header>
+
+        <!-- Search -->
+        <div class="search-wrapper">
+            <input type="text" class="search-input" placeholder="Search projects...">
         </div>
-      </div>
-      <div class="apple-card" style="text-align: center;">
-        <div class="apple-feature-icon apple-feature-icon-purple" style="margin: 0 auto 20px;">&#9670;</div>
-        <div class="apple-feature-title">Team Sync</div>
-        <div class="apple-feature-desc">
-          Real-time collaboration without the chaos. Shared boards, threaded updates,
-          and smart status tracking keep everyone aligned.
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-value">12</span>
+                <span class="stat-label">Projects</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">8</span>
+                <span class="stat-label">Active</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Linked</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">3h ago</span>
+                <span class="stat-label">Last scan</span>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Pricing Section -->
-  <section class="apple-section" id="pricing" style="padding-top: 40px;">
-    <div class="apple-section-title">
-      <div class="apple-eyebrow">Pricing</div>
-      <h2 class="apple-headline-2">Simple, transparent pricing.</h2>
-      <p class="apple-subhead">
-        No hidden fees. No surprises. Cancel anytime.
-      </p>
-    </div>
-    <div class="apple-pricing-grid">
-      <!-- Free -->
-      <div class="apple-pricing-card">
-        <div class="apple-pricing-name">Personal</div>
-        <div class="apple-pricing-price">$0<span>/mo</span></div>
-        <div class="apple-pricing-desc">For individuals getting started</div>
-        <ul class="apple-pricing-features">
-          <li>Up to 3 projects</li>
-          <li>Basic task management</li>
-          <li>1 GB storage</li>
-          <li>Mobile and web access</li>
-        </ul>
-        <a href="#" class="apple-btn apple-btn-outline" style="width: 100%;">Get Started</a>
-      </div>
-      <!-- Pro -->
-      <div class="apple-pricing-card featured">
-        <div class="apple-pricing-badge">Most Popular</div>
-        <div class="apple-pricing-name">Team</div>
-        <div class="apple-pricing-price">$12<span>/mo</span></div>
-        <div class="apple-pricing-desc">Per user, billed annually</div>
-        <ul class="apple-pricing-features">
-          <li>Unlimited projects</li>
-          <li>Deep Focus Mode</li>
-          <li>50 GB storage</li>
-          <li>Team Sync and shared boards</li>
-          <li>Priority email support</li>
-        </ul>
-        <a href="#" class="apple-btn apple-btn-primary" style="width: 100%;">Start Free Trial</a>
-      </div>
-      <!-- Enterprise -->
-      <div class="apple-pricing-card">
-        <div class="apple-pricing-name">Enterprise</div>
-        <div class="apple-pricing-price">Custom</div>
-        <div class="apple-pricing-desc">For large organizations</div>
-        <ul class="apple-pricing-features">
-          <li>Everything in Team</li>
-          <li>SSO and SAML</li>
-          <li>Unlimited storage</li>
-          <li>Dedicated account manager</li>
-          <li>Custom integrations</li>
-        </ul>
-        <a href="#" class="apple-btn apple-btn-outline" style="width: 100%;">Contact Sales</a>
-      </div>
-    </div>
-  </section>
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-pill active">All</button>
+            <button class="filter-pill">Active</button>
+            <button class="filter-pill">Archived</button>
+            <button class="filter-pill">Linked</button>
+            <button class="filter-pill">Unlinked</button>
+        </div>
 
-  <!-- Signup Form -->
-  <div class="apple-form-section" id="signup">
-    <div class="apple-section-title">
-      <h2 class="apple-headline-3">Get early access</h2>
-      <p class="apple-subhead" style="font-size: 17px; margin-top: 8px;">
-        Join the waitlist and be among the first to experience AirFlow 2.0.
-      </p>
-    </div>
-    <form onsubmit="return false;">
-      <div class="apple-form-group">
-        <label class="apple-form-label">Full name</label>
-        <input type="text" class="apple-input" placeholder="Jane Appleseed">
-      </div>
-      <div class="apple-form-group">
-        <label class="apple-form-label">Work email</label>
-        <input type="email" class="apple-input" placeholder="jane@company.com">
-      </div>
-      <div class="apple-form-group">
-        <label class="apple-form-label">Company</label>
-        <input type="text" class="apple-input" placeholder="Acme Inc.">
-      </div>
-      <a href="#" class="apple-btn apple-btn-primary" style="width: 100%; margin-top: 12px;">Request Access</a>
-    </form>
-  </div>
+        <!-- Projects Grid -->
+        <div class="projects-grid">
 
-  <!-- CTA Section -->
-  <div class="apple-cta">
-    <h2 class="apple-headline-2">Ready to focus?</h2>
-    <p class="apple-subhead">
-      Start building for free. No credit card required.
-    </p>
-    <div class="apple-cta-actions">
-      <a href="#" class="apple-btn apple-btn-primary apple-btn-lg">Start Building Free</a>
-      <a href="#" class="apple-btn apple-btn-outline apple-btn-lg">Contact Sales</a>
-    </div>
-  </div>
+            <!-- Card 1: nutrimanager -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">nutrimanager</span>
+                </div>
+                <p class="card-desc">Full-stack nutrition management system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">2h ago</span>
+                </div>
+                <div class="card-path">~/projects/nutrimanager</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
 
-  <!-- Footer -->
-  <hr class="apple-divider">
-  <footer class="apple-footer">
-    <p>Copyright &copy; 2026 AirFlow, Inc. All rights reserved. &nbsp;|&nbsp; Privacy &nbsp;|&nbsp; Terms &nbsp;|&nbsp; Legal</p>
-  </footer>
+            <!-- Card 2: gym-expert -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">develop</span>
+                    <span class="card-name">gym-expert</span>
+                </div>
+                <p class="card-desc">AI-powered workout recommendation engine</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">5h ago</span>
+                </div>
+                <div class="card-path">~/projects/gym-expert</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3: design-gallery -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">design-gallery</span>
+                </div>
+                <p class="card-desc">UI design system showcase and library</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#E34C26"></span>HTML</span>
+                    <span class="meta-status">Active</span>
+                    <span class="meta-updated">1h ago</span>
+                </div>
+                <div class="card-path">~/projects/design-gallery</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 4: suno-maker -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">feature/v2</span>
+                    <span class="card-name">suno-maker</span>
+                </div>
+                <p class="card-desc">Music generation prompt builder</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#F1E05A"></span>JavaScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">1d ago</span>
+                </div>
+                <div class="card-path">~/projects/suno-maker</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 5: claude-academy -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">work/2026-03-11</span>
+                    <span class="card-name">claude-academy</span>
+                </div>
+                <p class="card-desc">Knowledge base for Claude Code</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3178C6"></span>TypeScript</span>
+                    <span class="meta-status linked">Active</span>
+                    <span class="meta-updated">30m ago</span>
+                </div>
+                <div class="card-path">~/projects/claude-academy</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+            <!-- Card 6: naturopathic-atlas -->
+            <div class="project-card">
+                <div class="card-header">
+                    <span class="badge badge-branch">main</span>
+                    <span class="card-name">naturopathic-atlas</span>
+                </div>
+                <p class="card-desc">Disease classification reference system</p>
+                <div class="card-meta">
+                    <span class="meta-lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+                    <span class="meta-status archived">Archived</span>
+                    <span class="meta-updated">2w ago</span>
+                </div>
+                <div class="card-path">~/projects/naturopathic-atlas</div>
+                <hr class="card-divider">
+                <div class="card-actions">
+                    <button class="btn btn-secondary">Edit</button>
+                    <button class="btn btn-primary">Set Link</button>
+                    <a href="#" class="btn btn-external">GitHub &nearr;</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
 
 </body>
 </html>

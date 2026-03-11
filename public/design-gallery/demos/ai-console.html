@@ -3,220 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Console — Neural</title>
+  <title>AI Console — Design Gallery</title>
   <link rel="stylesheet" href="../styles/ai-console.css">
 </head>
 <body>
-  <div class="ai-app">
-    <!-- Top Bar -->
-    <header class="ai-topbar">
-      <div class="ai-topbar-left">
-        <div class="ai-logo">
-          <div class="ai-logo-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-          </div>
-          Neural
-        </div>
-        <button class="ai-model-selector">
-          <span class="ai-model-dot"></span>
-          claude-opus-4-6
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </button>
+
+  <!-- TopBar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Project Dashboard</span>
       </div>
-      <div class="ai-topbar-right">
-        <div class="ai-token-counter">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          <strong>1,247</strong> tokens
-        </div>
-        <button class="ai-topbar-btn">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.77 1.05 1.39 1.16H21a2 2 0 0 1 0 4h-.09"/></svg>
-          Settings
-        </button>
-        <button class="ai-topbar-btn">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          Export
-        </button>
+    </div>
+    <nav class="topbar-nav">
+      <a href="#" class="nav-link active">Projects</a>
+      <a href="#" class="nav-link">Settings</a>
+      <a href="#" class="nav-link">Docs</a>
+      <div class="avatar">EA</div>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Projects</h1>
+      <p>Manage and monitor all your local repositories and their cloud links.</p>
+    </div>
+
+    <!-- Search -->
+    <div class="search-wrapper">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" class="search-input" placeholder="Search projects...">
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card" data-accent="primary">
+        <span class="stat-label">Total Projects</span>
+        <span class="stat-value">12</span>
       </div>
-    </header>
-
-    <!-- Sidebar -->
-    <aside class="ai-sidebar">
-      <div class="ai-sidebar-header">
-        <span class="ai-sidebar-title">Conversations</span>
-        <button class="ai-sidebar-new">+</button>
+      <div class="stat-card" data-accent="success">
+        <span class="stat-label">Active</span>
+        <span class="stat-value">8</span>
       </div>
-      <div class="ai-conv-list">
-        <div class="ai-conv-item ai-conv-item--active">
-          <span class="ai-conv-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </span>
-          <div class="ai-conv-info">
-            <div class="ai-conv-name">Code Review: auth handler</div>
-            <div class="ai-conv-time">Just now</div>
-          </div>
-        </div>
-        <div class="ai-conv-item">
-          <span class="ai-conv-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </span>
-          <div class="ai-conv-info">
-            <div class="ai-conv-name">Debug: memory leak in workers</div>
-            <div class="ai-conv-time">2 hours ago</div>
-          </div>
-        </div>
-        <div class="ai-conv-item">
-          <span class="ai-conv-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-          </span>
-          <div class="ai-conv-info">
-            <div class="ai-conv-name">SQL query optimization</div>
-            <div class="ai-conv-time">Yesterday</div>
-          </div>
-        </div>
-        <div class="ai-conv-item">
-          <span class="ai-conv-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-          </span>
-          <div class="ai-conv-info">
-            <div class="ai-conv-name">API design: REST vs GraphQL</div>
-            <div class="ai-conv-time">Mar 9</div>
-          </div>
-        </div>
-        <div class="ai-conv-item">
-          <span class="ai-conv-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          </span>
-          <div class="ai-conv-info">
-            <div class="ai-conv-name">Docker compose setup</div>
-            <div class="ai-conv-time">Mar 8</div>
-          </div>
-        </div>
-        <div class="ai-conv-item">
-          <span class="ai-conv-icon">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          </span>
-          <div class="ai-conv-info">
-            <div class="ai-conv-name">TypeScript strict mode migration</div>
-            <div class="ai-conv-time">Mar 7</div>
-          </div>
-        </div>
+      <div class="stat-card" data-accent="warning">
+        <span class="stat-label">Linked</span>
+        <span class="stat-value">4</span>
       </div>
-    </aside>
+      <div class="stat-card" data-accent="muted">
+        <span class="stat-label">Last Scan</span>
+        <span class="stat-value">3h ago</span>
+      </div>
+    </div>
 
-    <!-- Chat Area -->
-    <main class="ai-chat">
-      <div class="ai-messages">
-        <!-- System Message -->
-        <div class="ai-msg ai-msg--system">
-          <div class="ai-msg-avatar">SYS</div>
-          <div class="ai-msg-body">
-            <div class="ai-msg-header">
-              <span class="ai-msg-name">System Prompt</span>
-              <span class="ai-msg-time">Active</span>
-            </div>
-            <div class="ai-msg-content">
-              You are a senior software engineer with expertise in TypeScript, Node.js, and cloud architecture. Review code for correctness, performance, and security. Be concise and actionable.
-            </div>
-          </div>
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Active</button>
+      <button class="filter-pill">Archived</button>
+      <button class="filter-pill">Linked</button>
+      <button class="filter-pill">Unlinked</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+
+      <!-- Card 1 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">nutrimanager</span>
         </div>
-
-        <!-- User Message -->
-        <div class="ai-msg ai-msg--user">
-          <div class="ai-msg-avatar">AK</div>
-          <div class="ai-msg-body">
-            <div class="ai-msg-header">
-              <span class="ai-msg-name">You</span>
-              <span class="ai-msg-time">11:42 AM</span>
-            </div>
-            <div class="ai-msg-content">
-              Can you review this authentication handler? I think there might be a timing attack vulnerability in the token comparison:
-
-              <div class="ai-code-block">
-                <div class="ai-code-header">
-                  <span class="ai-code-lang">typescript</span>
-                  <button class="ai-code-copy">Copy</button>
-                </div>
-                <div class="ai-code-body">
-<code><span class="ai-syn-keyword">async function</span> <span class="ai-syn-function">verifyToken</span>(<span class="ai-syn-param">token</span>: <span class="ai-syn-type">string</span>, <span class="ai-syn-param">expected</span>: <span class="ai-syn-type">string</span>): <span class="ai-syn-type">Promise</span>&lt;<span class="ai-syn-type">boolean</span>&gt; {
-  <span class="ai-syn-keyword">if</span> (token.length !== expected.length) {
-    <span class="ai-syn-keyword">return</span> <span class="ai-syn-number">false</span>;
-  }
-  <span class="ai-syn-keyword">return</span> token <span class="ai-syn-operator">===</span> expected;
-}</code>
-                </div>
-              </div>
-            </div>
-          </div>
+        <p class="card-desc">Full-stack nutrition management system</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="typescript">TypeScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">2h ago</span>
         </div>
-
-        <!-- Assistant Message -->
-        <div class="ai-msg ai-msg--assistant">
-          <div class="ai-msg-avatar">AI</div>
-          <div class="ai-msg-body">
-            <div class="ai-msg-header">
-              <span class="ai-msg-name">claude-opus-4-6</span>
-              <span class="ai-msg-time">11:42 AM</span>
-            </div>
-            <div class="ai-msg-content">
-              Good catch. You are correct -- this is vulnerable to a timing attack. The <code>===</code> operator performs a byte-by-byte comparison and returns early on the first mismatch, which leaks information about how many leading bytes match.
-
-              <strong>The fix:</strong> Use <code>crypto.timingSafeEqual</code> which performs a constant-time comparison:
-
-              <div class="ai-code-block">
-                <div class="ai-code-header">
-                  <span class="ai-code-lang">typescript</span>
-                  <button class="ai-code-copy">Copy</button>
-                </div>
-                <div class="ai-code-body">
-<code><span class="ai-syn-keyword">import</span> { <span class="ai-syn-function">timingSafeEqual</span> } <span class="ai-syn-keyword">from</span> <span class="ai-syn-string">'crypto'</span>;
-
-<span class="ai-syn-keyword">async function</span> <span class="ai-syn-function">verifyToken</span>(<span class="ai-syn-param">token</span>: <span class="ai-syn-type">string</span>, <span class="ai-syn-param">expected</span>: <span class="ai-syn-type">string</span>): <span class="ai-syn-type">Promise</span>&lt;<span class="ai-syn-type">boolean</span>&gt; {
-  <span class="ai-syn-keyword">if</span> (token.length !== expected.length) {
-    <span class="ai-syn-keyword">return</span> <span class="ai-syn-number">false</span>;
-  }
-
-  <span class="ai-syn-keyword">const</span> a = Buffer.<span class="ai-syn-function">from</span>(token);
-  <span class="ai-syn-keyword">const</span> b = Buffer.<span class="ai-syn-function">from</span>(expected);
-
-  <span class="ai-syn-keyword">return</span> <span class="ai-syn-function">timingSafeEqual</span>(a, b);
-}</code>
-                </div>
-              </div>
-
-              <strong>Additional recommendations:</strong>
-              <br>1. The length check still leaks info. Consider hashing both values first with HMAC so length is always consistent.
-              <br>2. Add rate limiting to your auth endpoint to further mitigate brute-force attacks.
-              <br>3. Consider using a well-tested auth library like <code>passport</code> or <code>jose</code> instead of rolling your own token verification.
-            </div>
-          </div>
-        </div>
-
-        <!-- Typing Indicator -->
-        <div class="ai-typing">
-          <div class="ai-msg-avatar" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;background:linear-gradient(135deg,#38BDF8,#A78BFA);color:#fff;flex-shrink:0;">AI</div>
-          <div class="ai-typing-dots">
-            <span class="ai-typing-dot"></span>
-            <span class="ai-typing-dot"></span>
-            <span class="ai-typing-dot"></span>
-          </div>
+        <div class="card-path">~/projects/nutrimanager</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
 
-      <!-- Input Area -->
-      <div class="ai-input-area">
-        <div class="ai-input-box">
-          <textarea class="ai-input-field" rows="1" placeholder="Type a message... (Shift+Enter for new line)"></textarea>
-          <button class="ai-send-btn" title="Send message">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          </button>
+      <!-- Card 2 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">develop</span>
+          <span class="card-repo">gym-expert</span>
         </div>
-        <div class="ai-input-hints">
-          <span class="ai-input-hint"><span class="ai-kbd">Enter</span> to send</span>
-          <span class="ai-input-hint"><span class="ai-kbd">Shift</span>+<span class="ai-kbd">Enter</span> new line</span>
-          <span class="ai-input-hint"><span class="ai-kbd">/</span> commands</span>
+        <p class="card-desc">AI-powered workout recommendation engine</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="python">Python</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">5h ago</span>
+        </div>
+        <div class="card-path">~/projects/gym-expert</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
-    </main>
-  </div>
+
+      <!-- Card 3 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">design-gallery</span>
+        </div>
+        <p class="card-desc">UI design system showcase and library</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="html">HTML</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">1h ago</span>
+        </div>
+        <div class="card-path">~/projects/design-gallery</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">feature/v2</span>
+          <span class="card-repo">suno-maker</span>
+        </div>
+        <p class="card-desc">Music generation prompt builder</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="javascript">JavaScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">1d ago</span>
+        </div>
+        <div class="card-path">~/projects/suno-maker</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">work/2026-03-11</span>
+          <span class="card-repo">claude-academy</span>
+        </div>
+        <p class="card-desc">Knowledge base for Claude Code</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="typescript">TypeScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">30m ago</span>
+        </div>
+        <div class="card-path">~/projects/claude-academy</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="project-card card-archived">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">naturopathic-atlas</span>
+        </div>
+        <p class="card-desc">Disease classification reference system</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="python">Python</span>
+          <span class="meta-status status-archived">Archived</span>
+          <span class="meta-updated">2w ago</span>
+        </div>
+        <div class="card-path">~/projects/naturopathic-atlas</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+
+  </main>
+
 </body>
 </html>

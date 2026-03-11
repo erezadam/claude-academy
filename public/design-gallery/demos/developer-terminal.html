@@ -3,341 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer Terminal — NexusIDE</title>
+  <title>Developer Terminal — Design Gallery</title>
   <link rel="stylesheet" href="../styles/developer-terminal.css">
 </head>
 <body>
-  <div class="dev-app">
-    <!-- Title Bar -->
-    <div class="dev-titlebar">
-      <div class="dev-titlebar-left">
-        <div class="dev-traffic-lights">
-          <span class="dev-traffic-light dev-traffic-light--red"></span>
-          <span class="dev-traffic-light dev-traffic-light--yellow"></span>
-          <span class="dev-traffic-light dev-traffic-light--green"></span>
-        </div>
-        <span class="dev-titlebar-title">app.controller.ts &mdash; nexus-api &mdash; NexusIDE</span>
-      </div>
-      <div class="dev-titlebar-right">
-        <button class="dev-titlebar-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-        </button>
+
+  <!-- TopBar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Project Dashboard</span>
       </div>
     </div>
-
-    <!-- Activity Bar -->
-    <nav class="dev-activitybar">
-      <div class="dev-activitybar-top">
-        <button class="dev-activitybar-btn dev-activitybar-btn--active" title="Explorer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-        </button>
-        <button class="dev-activitybar-btn" title="Search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </button>
-        <button class="dev-activitybar-btn" title="Source Control">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
-          <span class="dev-activitybar-badge">3</span>
-        </button>
-        <button class="dev-activitybar-btn" title="Run & Debug">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-        </button>
-        <button class="dev-activitybar-btn" title="Extensions">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-        </button>
-      </div>
-      <div class="dev-activitybar-bottom">
-        <button class="dev-activitybar-btn" title="Account">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </button>
-        <button class="dev-activitybar-btn" title="Settings">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.82 1.18V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1.08-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0-.33-2.82H3a2 2 0 0 1 0-4h.09a1.65 1.65 0 0 0 1.51-1.08 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.77 1.05 1.39 1.16H21a2 2 0 0 1 0 4h-.09"/></svg>
-        </button>
-      </div>
+    <nav class="topbar-nav">
+      <a href="#" class="nav-link active">Projects</a>
+      <a href="#" class="nav-link">Settings</a>
+      <a href="#" class="nav-link">Docs</a>
+      <div class="avatar">EA</div>
     </nav>
+  </header>
 
-    <!-- Sidebar: File Explorer -->
-    <aside class="dev-sidebar">
-      <div class="dev-sidebar-header">
-        <span>Explorer</span>
-        <div class="dev-sidebar-actions">
-          <button class="dev-sidebar-action" title="New File">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
-          </button>
-          <button class="dev-sidebar-action" title="New Folder">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>
-          </button>
-          <button class="dev-sidebar-action" title="Collapse All">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-          </button>
-        </div>
+  <main class="main">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <h1>Projects</h1>
+      <p>Manage and monitor all your local repositories and their cloud links.</p>
+    </div>
+
+    <!-- Search -->
+    <div class="search-wrapper">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input type="text" class="search-input" placeholder="Search projects...">
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card" data-accent="primary">
+        <span class="stat-label">Total Projects</span>
+        <span class="stat-value">12</span>
       </div>
-      <div class="dev-tree">
-        <!-- Project root -->
-        <div class="dev-tree-section">
-          <button class="dev-tree-toggle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-            NEXUS-API
-          </button>
-          <div class="dev-tree-children">
-            <!-- src -->
-            <button class="dev-tree-toggle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              <span class="dev-tree-icon dev-tree-icon--folder">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg>
-              </span>
-              src
-            </button>
-            <div class="dev-tree-children">
-              <!-- controllers -->
-              <button class="dev-tree-toggle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                <span class="dev-tree-icon dev-tree-icon--folder">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg>
-                </span>
-                controllers
-              </button>
-              <div class="dev-tree-children">
-                <div class="dev-tree-item dev-tree-item--active">
-                  <span class="dev-tree-icon dev-tree-icon--ts">TS</span>
-                  app.controller.ts
-                </div>
-                <div class="dev-tree-item">
-                  <span class="dev-tree-icon dev-tree-icon--ts">TS</span>
-                  auth.controller.ts
-                </div>
-                <div class="dev-tree-item">
-                  <span class="dev-tree-icon dev-tree-icon--ts">TS</span>
-                  users.controller.ts
-                </div>
-              </div>
-
-              <!-- services -->
-              <button class="dev-tree-toggle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="dev-tree-icon dev-tree-icon--folder">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg>
-                </span>
-                services
-              </button>
-
-              <!-- models -->
-              <button class="dev-tree-toggle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="dev-tree-icon dev-tree-icon--folder">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-8l-2-2z"/></svg>
-                </span>
-                models
-              </button>
-
-              <!-- Root files -->
-              <div class="dev-tree-item">
-                <span class="dev-tree-icon dev-tree-icon--ts">TS</span>
-                app.module.ts
-              </div>
-              <div class="dev-tree-item">
-                <span class="dev-tree-icon dev-tree-icon--ts">TS</span>
-                main.ts
-              </div>
-            </div>
-
-            <!-- Config files -->
-            <div class="dev-tree-item">
-              <span class="dev-tree-icon dev-tree-icon--json">{ }</span>
-              package.json
-            </div>
-            <div class="dev-tree-item">
-              <span class="dev-tree-icon dev-tree-icon--json">{ }</span>
-              tsconfig.json
-            </div>
-            <div class="dev-tree-item">
-              <span class="dev-tree-icon dev-tree-icon--env">.e</span>
-              .env.example
-            </div>
-            <div class="dev-tree-item">
-              <span class="dev-tree-icon dev-tree-icon--git">.g</span>
-              .gitignore
-            </div>
-            <div class="dev-tree-item">
-              <span class="dev-tree-icon dev-tree-icon--md">#</span>
-              README.md
-            </div>
-          </div>
-        </div>
+      <div class="stat-card" data-accent="success">
+        <span class="stat-label">Active</span>
+        <span class="stat-value">8</span>
       </div>
-    </aside>
-
-    <!-- Editor Panel -->
-    <main class="dev-editor">
-      <!-- Tab Bar -->
-      <div class="dev-tabs">
-        <button class="dev-tab dev-tab--active">
-          <span class="dev-tab-icon dev-tree-icon--ts" style="font-size:10px;font-weight:700;">TS</span>
-          app.controller.ts
-          <span class="dev-tab-close">&times;</span>
-        </button>
-        <button class="dev-tab dev-tab--modified">
-          <span class="dev-tab-icon dev-tree-icon--ts" style="font-size:10px;font-weight:700;">TS</span>
-          config.ts
-          <span class="dev-tab-dot"></span>
-          <span class="dev-tab-close">&times;</span>
-        </button>
-        <button class="dev-tab">
-          <span class="dev-tab-icon dev-tree-icon--ts" style="font-size:10px;font-weight:700;">TS</span>
-          utils.ts
-          <span class="dev-tab-close">&times;</span>
-        </button>
+      <div class="stat-card" data-accent="warning">
+        <span class="stat-label">Linked</span>
+        <span class="stat-value">4</span>
       </div>
-
-      <!-- Breadcrumb -->
-      <div class="dev-breadcrumb">
-        <a href="#">src</a>
-        <span class="dev-breadcrumb-sep">/</span>
-        <a href="#">controllers</a>
-        <span class="dev-breadcrumb-sep">/</span>
-        <a href="#">app.controller.ts</a>
-        <span class="dev-breadcrumb-sep">&gt;</span>
-        <a href="#">AppController</a>
-        <span class="dev-breadcrumb-sep">&gt;</span>
-        <a href="#">getHealth</a>
-      </div>
-
-      <!-- Code Area -->
-      <div class="dev-code-area">
-        <div class="dev-line-numbers">
-          <div class="dev-line-num">1</div>
-          <div class="dev-line-num">2</div>
-          <div class="dev-line-num">3</div>
-          <div class="dev-line-num">4</div>
-          <div class="dev-line-num">5</div>
-          <div class="dev-line-num">6</div>
-          <div class="dev-line-num">7</div>
-          <div class="dev-line-num">8</div>
-          <div class="dev-line-num">9</div>
-          <div class="dev-line-num">10</div>
-          <div class="dev-line-num">11</div>
-          <div class="dev-line-num">12</div>
-          <div class="dev-line-num">13</div>
-          <div class="dev-line-num">14</div>
-          <div class="dev-line-num">15</div>
-          <div class="dev-line-num">16</div>
-          <div class="dev-line-num dev-line-num--active">17</div>
-          <div class="dev-line-num">18</div>
-          <div class="dev-line-num">19</div>
-          <div class="dev-line-num">20</div>
-          <div class="dev-line-num">21</div>
-          <div class="dev-line-num">22</div>
-          <div class="dev-line-num">23</div>
-          <div class="dev-line-num">24</div>
-          <div class="dev-line-num">25</div>
-          <div class="dev-line-num">26</div>
-          <div class="dev-line-num">27</div>
-          <div class="dev-line-num">28</div>
-          <div class="dev-line-num">29</div>
-          <div class="dev-line-num">30</div>
-        </div>
-        <div class="dev-code-content">
-          <div class="dev-code-line"><span class="s-kw">import</span> { <span class="s-cls">Controller</span>, <span class="s-cls">Get</span>, <span class="s-cls">Post</span>, <span class="s-cls">Body</span>, <span class="s-cls">UseGuards</span> } <span class="s-kw">from</span> <span class="s-str">'@nestjs/common'</span>;</div>
-          <div class="dev-code-line"><span class="s-kw">import</span> { <span class="s-cls">AppService</span> } <span class="s-kw">from</span> <span class="s-str">'../services/app.service'</span>;</div>
-          <div class="dev-code-line"><span class="s-kw">import</span> { <span class="s-cls">AuthGuard</span> } <span class="s-kw">from</span> <span class="s-str">'../guards/auth.guard'</span>;</div>
-          <div class="dev-code-line"><span class="s-kw">import</span> { <span class="s-type">CreateItemDto</span> } <span class="s-kw">from</span> <span class="s-str">'../models/create-item.dto'</span>;</div>
-          <div class="dev-code-line"></div>
-          <div class="dev-code-line"><span class="s-dec">@Controller</span>(<span class="s-str">'api/v1'</span>)</div>
-          <div class="dev-code-line"><span class="s-kw">export class</span> <span class="s-cls">AppController</span> {</div>
-          <div class="dev-code-line">  <span class="s-kw">constructor</span>(<span class="s-kw">private readonly</span> <span class="s-param">appService</span>: <span class="s-type">AppService</span>) {}</div>
-          <div class="dev-code-line"></div>
-          <div class="dev-code-line">  <span class="s-cmt">/** Health check endpoint — returns service status */</span></div>
-          <div class="dev-code-line">  <span class="s-dec">@Get</span>(<span class="s-str">'health'</span>)</div>
-          <div class="dev-code-line">  <span class="s-fn">getHealth</span>(): <span class="s-type">HealthResponse</span> {</div>
-          <div class="dev-code-line">    <span class="s-kw">return</span> {</div>
-          <div class="dev-code-line">      <span class="s-param">status</span>: <span class="s-str">'ok'</span>,</div>
-          <div class="dev-code-line">      <span class="s-param">version</span>: <span class="s-const">process</span>.<span class="s-param">env</span>.<span class="s-const">APP_VERSION</span> ?? <span class="s-str">'1.0.0'</span>,</div>
-          <div class="dev-code-line">      <span class="s-param">uptime</span>: <span class="s-const">process</span>.<span class="s-fn">uptime</span>(),</div>
-          <div class="dev-code-line dev-code-line--active">      <span class="s-param">timestamp</span>: <span class="s-kw">new</span> <span class="s-cls">Date</span>().<span class="s-fn">toISOString</span>(),</div>
-          <div class="dev-code-line">    };</div>
-          <div class="dev-code-line">  }</div>
-          <div class="dev-code-line"></div>
-          <div class="dev-code-line">  <span class="s-cmt">/** Create a new item — requires authentication */</span></div>
-          <div class="dev-code-line">  <span class="s-dec">@Post</span>(<span class="s-str">'items'</span>)</div>
-          <div class="dev-code-line">  <span class="s-dec">@UseGuards</span>(<span class="s-cls">AuthGuard</span>)</div>
-          <div class="dev-code-line">  <span class="s-kw">async</span> <span class="s-fn">createItem</span>(<span class="s-dec">@Body</span>() <span class="s-param">dto</span>: <span class="s-type">CreateItemDto</span>) {</div>
-          <div class="dev-code-line">    <span class="s-kw">const</span> <span class="s-param">item</span> = <span class="s-kw">await</span> <span class="s-kw">this</span>.<span class="s-param">appService</span>.<span class="s-fn">create</span>(<span class="s-param">dto</span>);</div>
-          <div class="dev-code-line">    <span class="s-kw">return</span> { <span class="s-param">success</span>: <span class="s-const">true</span>, <span class="s-param">data</span>: <span class="s-param">item</span> };</div>
-          <div class="dev-code-line">  }</div>
-          <div class="dev-code-line"></div>
-          <div class="dev-code-line">  <span class="s-dec">@Get</span>(<span class="s-str">'items'</span>)</div>
-          <div class="dev-code-line">  <span class="s-kw">async</span> <span class="s-fn">findAll</span>(): <span class="s-type">Promise</span>&lt;<span class="s-type">Item</span>[]&gt; {</div>
-          <div class="dev-code-line">    <span class="s-kw">return</span> <span class="s-kw">this</span>.<span class="s-param">appService</span>.<span class="s-fn">findAll</span>();</div>
-        </div>
-      </div>
-    </main>
-
-    <!-- Terminal Panel -->
-    <div class="dev-terminal">
-      <div class="dev-terminal-header">
-        <div class="dev-terminal-tabs">
-          <button class="dev-terminal-tab dev-terminal-tab--active">Terminal</button>
-          <button class="dev-terminal-tab">Problems</button>
-          <button class="dev-terminal-tab">Output</button>
-          <button class="dev-terminal-tab">Debug Console</button>
-        </div>
-        <div class="dev-terminal-actions">
-          <button class="dev-terminal-action" title="New Terminal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </button>
-          <button class="dev-terminal-action" title="Split Terminal">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
-          </button>
-          <button class="dev-terminal-action" title="Close">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="dev-terminal-body">
-        <div><span class="dev-term-prompt">~/nexus-api $</span> <span class="dev-term-cmd">npm test</span></div>
-        <div><span class="dev-term-dim">> nexus-api@1.0.0 test</span></div>
-        <div><span class="dev-term-dim">> jest --coverage --verbose</span></div>
-        <div></div>
-        <div><span class="dev-term-output"> PASS  </span><span class="dev-term-success"> src/controllers/app.controller.spec.ts</span></div>
-        <div><span class="dev-term-success">  &#10003;</span> <span class="dev-term-output">GET /api/v1/health returns 200 with status ok (14 ms)</span></div>
-        <div><span class="dev-term-success">  &#10003;</span> <span class="dev-term-output">POST /api/v1/items creates item successfully (32 ms)</span></div>
-        <div><span class="dev-term-success">  &#10003;</span> <span class="dev-term-output">POST /api/v1/items rejects unauthenticated requests (8 ms)</span></div>
-        <div><span class="dev-term-output"> PASS  </span><span class="dev-term-success"> src/services/app.service.spec.ts</span></div>
-        <div><span class="dev-term-success">  &#10003;</span> <span class="dev-term-output">create() stores item in database (22 ms)</span></div>
-        <div><span class="dev-term-success">  &#10003;</span> <span class="dev-term-output">findAll() returns paginated results (11 ms)</span></div>
-        <div></div>
-        <div><span class="dev-term-success">Tests:       5 passed, 5 total</span></div>
-        <div><span class="dev-term-output">Snapshots:   0 total</span></div>
-        <div><span class="dev-term-output">Time:        2.847 s</span></div>
-        <div><span class="dev-term-dim">Coverage:    94.2% Statements | 88.7% Branches | 91.3% Functions</span></div>
-        <div></div>
-        <div><span class="dev-term-prompt">~/nexus-api $</span> <span class="dev-term-cursor"></span></div>
+      <div class="stat-card" data-accent="muted">
+        <span class="stat-label">Last Scan</span>
+        <span class="stat-value">3h ago</span>
       </div>
     </div>
 
-    <!-- Status Bar -->
-    <footer class="dev-statusbar">
-      <div class="dev-statusbar-left">
-        <div class="dev-status-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>
-          feature/auth-handler
+    <!-- Filters -->
+    <div class="filters">
+      <button class="filter-pill active">All</button>
+      <button class="filter-pill">Active</button>
+      <button class="filter-pill">Archived</button>
+      <button class="filter-pill">Linked</button>
+      <button class="filter-pill">Unlinked</button>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+
+      <!-- Card 1 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">nutrimanager</span>
         </div>
-        <div class="dev-status-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-          0 errors
+        <p class="card-desc">Full-stack nutrition management system</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="typescript">TypeScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">2h ago</span>
         </div>
-        <div class="dev-status-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          2 warnings
+        <div class="card-path">~/projects/nutrimanager</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
         </div>
       </div>
-      <div class="dev-statusbar-right">
-        <div class="dev-status-item">Ln 17, Col 42</div>
-        <div class="dev-status-item">Spaces: 2</div>
-        <div class="dev-status-item">UTF-8</div>
-        <div class="dev-status-item">TypeScript</div>
-        <div class="dev-status-item">Prettier</div>
+
+      <!-- Card 2 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">develop</span>
+          <span class="card-repo">gym-expert</span>
+        </div>
+        <p class="card-desc">AI-powered workout recommendation engine</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="python">Python</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">5h ago</span>
+        </div>
+        <div class="card-path">~/projects/gym-expert</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
       </div>
-    </footer>
-  </div>
+
+      <!-- Card 3 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">design-gallery</span>
+        </div>
+        <p class="card-desc">UI design system showcase and library</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="html">HTML</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">1h ago</span>
+        </div>
+        <div class="card-path">~/projects/design-gallery</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">feature/v2</span>
+          <span class="card-repo">suno-maker</span>
+        </div>
+        <p class="card-desc">Music generation prompt builder</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="javascript">JavaScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">1d ago</span>
+        </div>
+        <div class="card-path">~/projects/suno-maker</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="project-card">
+        <div class="card-header">
+          <span class="badge badge-branch">work/2026-03-11</span>
+          <span class="card-repo">claude-academy</span>
+        </div>
+        <p class="card-desc">Knowledge base for Claude Code</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="typescript">TypeScript</span>
+          <span class="meta-status status-active">Active</span>
+          <span class="meta-updated">30m ago</span>
+        </div>
+        <div class="card-path">~/projects/claude-academy</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="project-card card-archived">
+        <div class="card-header">
+          <span class="badge badge-branch">main</span>
+          <span class="card-repo">naturopathic-atlas</span>
+        </div>
+        <p class="card-desc">Disease classification reference system</p>
+        <div class="card-meta">
+          <span class="meta-lang" data-lang="python">Python</span>
+          <span class="meta-status status-archived">Archived</span>
+          <span class="meta-updated">2w ago</span>
+        </div>
+        <div class="card-path">~/projects/naturopathic-atlas</div>
+        <div class="card-divider"></div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Edit</button>
+          <button class="btn btn-primary">Set Link</button>
+          <a href="#" class="btn btn-ghost btn-external">
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /projects-grid -->
+
+  </main>
+
+  <!-- Status Bar (VS Code style) -->
+  <footer class="status-bar">
+    <div class="status-bar-left">
+      <span class="status-item">main</span>
+      <span class="status-item">6 repos</span>
+    </div>
+    <div class="status-bar-right">
+      <span class="status-item">UTF-8</span>
+      <span class="status-item">Ln 1, Col 1</span>
+    </div>
+  </footer>
+
 </body>
 </html>
