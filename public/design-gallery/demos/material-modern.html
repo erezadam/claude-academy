@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Modern — Design System Demo</title>
+  <link rel="stylesheet" href="../styles/material-modern.css">
+  <style>
+    .demo-section {
+      margin-bottom: 48px;
+    }
+    .demo-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .demo-grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 767px) {
+      .demo-grid-2, .demo-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+    .demo-gradient-1 {
+      background: linear-gradient(135deg, #f3e8fd 0%, #e0f7f5 100%);
+    }
+    .demo-gradient-2 {
+      background: linear-gradient(135deg, #e0f7f5 0%, #e8f0fe 100%);
+    }
+    .demo-gradient-3 {
+      background: linear-gradient(135deg, #fce4ec 0%, #f3e8fd 100%);
+    }
+  </style>
+</head>
+<body>
+
+<!-- App Bar -->
+<header class="mm-app-bar">
+  <div class="mm-app-bar-inner">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="width: 32px; height: 32px; background: var(--mm-primary); border-radius: var(--mm-radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">M</div>
+      <span class="mm-app-bar-title">Material Studio</span>
+    </div>
+    <nav>
+      <ul class="mm-app-bar-nav">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Components</a></li>
+        <li><a href="#">Templates</a></li>
+        <li><a href="#">Resources</a></li>
+      </ul>
+    </nav>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <button class="mm-btn mm-btn--text" style="font-size: 20px; padding: 8px;">&#128269;</button>
+      <button class="mm-btn mm-btn--tonal mm-btn--sm" style="padding: 6px 16px;">Sign In</button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="mm-hero">
+  <div class="mm-section-overline">Material Design 3</div>
+  <h1>Design with purpose,<br>build with confidence</h1>
+  <p class="mm-hero-desc">A modern design system built on Material Design 3 principles. Expressive, accessible, and adaptable to any brand or product.</p>
+  <div class="mm-hero-actions">
+    <button class="mm-btn mm-btn--filled">Get Started</button>
+    <button class="mm-btn mm-btn--tonal">View Components</button>
+    <button class="mm-btn mm-btn--outlined">Learn More</button>
+  </div>
+</section>
+
+<div class="mm-container">
+
+  <!-- Chips Section -->
+  <section class="demo-section">
+    <div class="mm-section-header">
+      <div class="mm-section-overline">Filter</div>
+      <h2>Browse by category</h2>
+    </div>
+    <div class="mm-chip-group">
+      <span class="mm-chip mm-chip--selected">All</span>
+      <span class="mm-chip">Design</span>
+      <span class="mm-chip">Engineering</span>
+      <span class="mm-chip">Product</span>
+      <span class="mm-chip">Marketing</span>
+      <span class="mm-chip">Research</span>
+      <span class="mm-chip">Data Science</span>
+      <span class="mm-chip">DevOps</span>
+    </div>
+  </section>
+
+  <hr class="mm-divider">
+
+  <!-- Cards with Media -->
+  <section class="demo-section">
+    <div class="mm-section-header">
+      <div class="mm-section-overline">Featured</div>
+      <h2>Latest projects</h2>
+    </div>
+    <div class="mm-card-grid">
+      <!-- Card 1 -->
+      <div class="mm-card mm-card--elevated">
+        <div class="mm-card-media--placeholder demo-gradient-1" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#127912;</div>
+        <div class="mm-card-body">
+          <div class="mm-card-title">Design System Workshop</div>
+          <div class="mm-card-subtitle">March 15, 2026 &middot; 3 min read</div>
+          <div class="mm-card-text">Learn how to create scalable design systems that adapt to your brand while maintaining consistency across products.</div>
+        </div>
+        <div class="mm-card-actions">
+          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">Read More</button>
+          <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="mm-card mm-card--elevated">
+        <div class="mm-card-media--placeholder demo-gradient-2" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#128187;</div>
+        <div class="mm-card-body">
+          <div class="mm-card-title">Frontend Architecture</div>
+          <div class="mm-card-subtitle">March 12, 2026 &middot; 5 min read</div>
+          <div class="mm-card-text">Modern approaches to building maintainable frontends. From micro-frontends to server components and beyond.</div>
+        </div>
+        <div class="mm-card-actions">
+          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">Read More</button>
+          <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="mm-card mm-card--elevated">
+        <div class="mm-card-media--placeholder demo-gradient-3" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#128640;</div>
+        <div class="mm-card-body">
+          <div class="mm-card-title">Shipping Faster</div>
+          <div class="mm-card-subtitle">March 10, 2026 &middot; 4 min read</div>
+          <div class="mm-card-text">How top teams deliver features faster without sacrificing quality. CI/CD, feature flags, and progressive rollouts.</div>
+        </div>
+        <div class="mm-card-actions">
+          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">Read More</button>
+          <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="mm-divider">
+
+  <!-- Card Variants -->
+  <section class="demo-section">
+    <div class="mm-section-header">
+      <div class="mm-section-overline">Variants</div>
+      <h2>Card styles</h2>
+    </div>
+    <div class="demo-grid-3">
+      <div class="mm-card mm-card--elevated">
+        <div class="mm-card-body">
+          <div class="mm-card-title">Elevated Card</div>
+          <div class="mm-card-text">Uses shadow elevation to create depth. The default Material card style for most use cases.</div>
+        </div>
+      </div>
+      <div class="mm-card mm-card--filled">
+        <div class="mm-card-body">
+          <div class="mm-card-title">Filled Card</div>
+          <div class="mm-card-text">Uses a tinted surface color instead of elevation. Great for lower-emphasis content sections.</div>
+        </div>
+      </div>
+      <div class="mm-card mm-card--outlined">
+        <div class="mm-card-body">
+          <div class="mm-card-title">Outlined Card</div>
+          <div class="mm-card-text">Uses a border instead of shadow. Best for grouping related content without visual weight.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="mm-divider">
+
+  <!-- Buttons Showcase -->
+  <section class="demo-section">
+    <div class="mm-section-header">
+      <div class="mm-section-overline">Interactive</div>
+      <h2>Buttons &amp; controls</h2>
+    </div>
+    <div class="mm-card mm-card--outlined" style="padding: 32px;">
+      <h3 style="margin-bottom: 20px;">Button Types</h3>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+        <button class="mm-btn mm-btn--filled">Filled</button>
+        <button class="mm-btn mm-btn--tonal">Filled Tonal</button>
+        <button class="mm-btn mm-btn--outlined">Outlined</button>
+        <button class="mm-btn mm-btn--text">Text</button>
+        <button class="mm-btn mm-btn--secondary">Secondary</button>
+        <button class="mm-btn mm-btn--error">Error</button>
+      </div>
+
+      <h3 style="margin-bottom: 20px;">Chips</h3>
+      <div class="mm-chip-group" style="margin-bottom: 24px;">
+        <span class="mm-chip mm-chip--selected">&#10003; Selected</span>
+        <span class="mm-chip">Unselected</span>
+        <span class="mm-chip">React</span>
+        <span class="mm-chip">Vue</span>
+        <span class="mm-chip">Angular</span>
+        <span class="mm-chip mm-chip--selected">&#10003; TypeScript</span>
+      </div>
+
+      <h3 style="margin-bottom: 20px;">Badges</h3>
+      <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 24px;">
+        <span class="mm-badge">3</span>
+        <span class="mm-badge mm-badge--primary">New</span>
+        <span class="mm-badge mm-badge--secondary">Pro</span>
+        <span class="mm-badge--small mm-badge" style="display: inline-block;"></span>
+        <span style="font-size: 14px; color: var(--mm-text-muted);">Notification dot</span>
+      </div>
+
+      <h3 style="margin-bottom: 20px;">Switches</h3>
+      <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="mm-switch active" onclick="this.classList.toggle('active')"></div>
+          <span class="mm-body-medium">Dark mode</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="mm-switch" onclick="this.classList.toggle('active')"></div>
+          <span class="mm-body-medium">Notifications</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div class="mm-switch active" onclick="this.classList.toggle('active')"></div>
+          <span class="mm-body-medium">Auto-save</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="mm-divider">
+
+  <!-- Text Fields -->
+  <section class="demo-section">
+    <div class="mm-section-header">
+      <div class="mm-section-overline">Inputs</div>
+      <h2>Text fields</h2>
+    </div>
+    <div class="demo-grid-2">
+      <div class="mm-card mm-card--outlined" style="padding: 32px;">
+        <h3 style="margin-bottom: 24px;">Outlined Fields</h3>
+        <div class="mm-field">
+          <input class="mm-field-input" type="text" placeholder=" " value="John Doe">
+          <label class="mm-field-label">Full Name</label>
+        </div>
+        <div class="mm-field">
+          <input class="mm-field-input" type="email" placeholder=" ">
+          <label class="mm-field-label">Email Address</label>
+          <div class="mm-field-helper">We'll never share your email</div>
+        </div>
+        <div class="mm-field">
+          <input class="mm-field-input" type="password" placeholder=" ">
+          <label class="mm-field-label">Password</label>
+        </div>
+        <button class="mm-btn mm-btn--filled" style="width: 100%; margin-top: 8px;">Sign Up</button>
+      </div>
+
+      <div class="mm-card mm-card--outlined" style="padding: 32px;">
+        <h3 style="margin-bottom: 24px;">Filled Fields</h3>
+        <div class="mm-field mm-field--filled">
+          <input class="mm-field-input" type="text" placeholder=" " value="Material Studio">
+          <label class="mm-field-label">Project Name</label>
+        </div>
+        <div class="mm-field mm-field--filled">
+          <input class="mm-field-input" type="text" placeholder=" ">
+          <label class="mm-field-label">Description</label>
+        </div>
+        <div class="mm-field mm-field--filled">
+          <input class="mm-field-input" type="url" placeholder=" ">
+          <label class="mm-field-label">Website URL</label>
+          <div class="mm-field-helper">Include https://</div>
+        </div>
+        <button class="mm-btn mm-btn--tonal" style="width: 100%; margin-top: 8px;">Create Project</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="mm-divider">
+
+  <!-- List Items -->
+  <section class="demo-section">
+    <div class="mm-section-header">
+      <div class="mm-section-overline">Navigation</div>
+      <h2>List items</h2>
+    </div>
+    <div class="mm-card mm-card--outlined" style="padding: 8px; max-width: 480px;">
+      <div class="mm-list-item">
+        <div class="mm-list-item-icon">&#128100;</div>
+        <div class="mm-list-item-content">
+          <div class="mm-list-item-title">Profile Settings</div>
+          <div class="mm-list-item-subtitle">Edit your profile information</div>
+        </div>
+      </div>
+      <div class="mm-list-item">
+        <div class="mm-list-item-icon">&#128276;</div>
+        <div class="mm-list-item-content">
+          <div class="mm-list-item-title">Notifications</div>
+          <div class="mm-list-item-subtitle">Manage notification preferences</div>
+        </div>
+        <span class="mm-badge">5</span>
+      </div>
+      <div class="mm-list-item">
+        <div class="mm-list-item-icon">&#128274;</div>
+        <div class="mm-list-item-content">
+          <div class="mm-list-item-title">Privacy &amp; Security</div>
+          <div class="mm-list-item-subtitle">Password, 2FA, sessions</div>
+        </div>
+      </div>
+      <div class="mm-list-item">
+        <div class="mm-list-item-icon">&#127912;</div>
+        <div class="mm-list-item-content">
+          <div class="mm-list-item-title">Appearance</div>
+          <div class="mm-list-item-subtitle">Theme, colors, layout</div>
+        </div>
+      </div>
+      <div class="mm-list-item">
+        <div class="mm-list-item-icon" style="background: var(--mm-error-light); color: var(--mm-error);">&#128682;</div>
+        <div class="mm-list-item-content">
+          <div class="mm-list-item-title" style="color: var(--mm-error);">Sign Out</div>
+          <div class="mm-list-item-subtitle">End your current session</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="mm-divider">
+
+  <!-- Snackbar Demo -->
+  <section class="demo-section">
+    <div class="mm-section-header">
+      <div class="mm-section-overline">Feedback</div>
+      <h2>Snackbar / Toast</h2>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+      <div class="mm-snackbar">
+        Project saved successfully
+        <button class="mm-snackbar-action">Undo</button>
+      </div>
+      <div class="mm-snackbar">
+        3 items moved to archive
+        <button class="mm-snackbar-action">View</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 48px 0 32px;">
+    <p style="font-size: 14px; color: var(--mm-text-muted); letter-spacing: 0.25px;">
+      Built with Material Modern Design System &mdash; 2026
+    </p>
+  </footer>
+
+</div>
+
+<!-- FAB -->
+<button class="mm-fab mm-fab--extended">
+  <span style="font-size: 20px;">&#9998;</span>
+  <span>Compose</span>
+</button>
+
+</body>
+</html>

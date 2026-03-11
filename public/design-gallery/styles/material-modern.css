@@ -1,0 +1,781 @@
+/* ============================================
+   Material Modern — Design System
+   Material Design 3 inspired, elevation, pills
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --mm-bg: #fafafa;
+  --mm-surface: #ffffff;
+  --mm-surface-variant: #e7e0ec;
+  --mm-surface-container: #f3edf7;
+  --mm-surface-container-high: #ece6f0;
+
+  --mm-primary: #6200ee;
+  --mm-primary-light: #f3e8fd;
+  --mm-primary-dark: #4a00b4;
+  --mm-on-primary: #ffffff;
+
+  --mm-secondary: #03dac6;
+  --mm-secondary-light: #e0f7f5;
+  --mm-on-secondary: #000000;
+
+  --mm-error: #b3261e;
+  --mm-error-light: #f9dedc;
+  --mm-on-error: #ffffff;
+
+  --mm-text: #1c1b1f;
+  --mm-text-secondary: #49454f;
+  --mm-text-muted: #79747e;
+  --mm-outline: #79747e;
+  --mm-outline-variant: #cac4d0;
+
+  --mm-font: 'Roboto', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  --mm-elevation-1: 0 1px 2px rgba(0,0,0,0.08), 0 1px 3px 1px rgba(0,0,0,0.05);
+  --mm-elevation-2: 0 1px 2px rgba(0,0,0,0.08), 0 2px 6px 2px rgba(0,0,0,0.06);
+  --mm-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.08);
+  --mm-elevation-4: 0 6px 10px 4px rgba(0,0,0,0.06), 0 2px 3px rgba(0,0,0,0.1);
+  --mm-elevation-5: 0 8px 12px 6px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.1);
+
+  --mm-radius-xs: 4px;
+  --mm-radius-sm: 8px;
+  --mm-radius-md: 12px;
+  --mm-radius-lg: 16px;
+  --mm-radius-xl: 28px;
+  --mm-radius-full: 50px;
+
+  --mm-transition: 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* === Base === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--mm-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--mm-text);
+  background-color: var(--mm-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Typography (Material Type Scale) === */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--mm-text);
+}
+
+.mm-display-large {
+  font-size: 57px;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.25px;
+}
+
+.mm-display-medium {
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 1.16;
+}
+
+h1, .mm-headline-large {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+h2, .mm-headline-medium {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h3, .mm-headline-small {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.mm-title-large {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.mm-title-medium {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+}
+
+.mm-title-small {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.mm-body-large {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+.mm-body-medium {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+}
+
+.mm-body-small {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+
+.mm-label-large {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+.mm-label-medium {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.mm-label-small {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+p {
+  margin-bottom: 16px;
+  color: var(--mm-text-secondary);
+  letter-spacing: 0.25px;
+}
+
+a {
+  color: var(--mm-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--mm-transition);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Layout === */
+.mm-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === App Bar (Top) === */
+.mm-app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--mm-surface);
+  box-shadow: var(--mm-elevation-2);
+  padding: 0 16px;
+}
+
+.mm-app-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 64px;
+  gap: 16px;
+}
+
+.mm-app-bar-title {
+  font-size: 22px;
+  font-weight: 500;
+  flex: 1;
+  color: var(--mm-text);
+}
+
+.mm-app-bar-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.mm-app-bar-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  color: var(--mm-text-secondary);
+  border-radius: var(--mm-radius-full);
+  transition: background var(--mm-transition), color var(--mm-transition);
+}
+
+.mm-app-bar-nav a:hover {
+  background: var(--mm-surface-container);
+  color: var(--mm-text);
+  text-decoration: none;
+}
+
+.mm-app-bar-nav a.active {
+  background: var(--mm-primary-light);
+  color: var(--mm-primary);
+}
+
+/* === Cards === */
+.mm-card {
+  background: var(--mm-surface);
+  border-radius: var(--mm-radius-md);
+  box-shadow: var(--mm-elevation-1);
+  overflow: hidden;
+  transition: box-shadow var(--mm-transition);
+}
+
+.mm-card:hover {
+  box-shadow: var(--mm-elevation-3);
+}
+
+.mm-card-media {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.mm-card-media--placeholder {
+  background: linear-gradient(135deg, var(--mm-primary-light), var(--mm-secondary-light));
+  height: 200px;
+}
+
+.mm-card-body {
+  padding: 16px;
+}
+
+.mm-card-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: 0.15px;
+}
+
+.mm-card-subtitle {
+  font-size: 14px;
+  color: var(--mm-text-secondary);
+  margin-bottom: 12px;
+  letter-spacing: 0.25px;
+}
+
+.mm-card-text {
+  font-size: 14px;
+  color: var(--mm-text-muted);
+  letter-spacing: 0.25px;
+  line-height: 1.5;
+}
+
+.mm-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 16px;
+}
+
+.mm-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+/* Elevated card */
+.mm-card--elevated {
+  box-shadow: var(--mm-elevation-2);
+}
+
+.mm-card--elevated:hover {
+  box-shadow: var(--mm-elevation-4);
+}
+
+/* Outlined card */
+.mm-card--outlined {
+  box-shadow: none;
+  border: 1px solid var(--mm-outline-variant);
+}
+
+.mm-card--outlined:hover {
+  box-shadow: var(--mm-elevation-1);
+}
+
+/* Filled card */
+.mm-card--filled {
+  box-shadow: none;
+  background: var(--mm-surface-container);
+}
+
+/* === Buttons === */
+.mm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--mm-font);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  padding: 10px 24px;
+  border-radius: var(--mm-radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all var(--mm-transition);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Filled button */
+.mm-btn--filled {
+  background: var(--mm-primary);
+  color: var(--mm-on-primary);
+}
+
+.mm-btn--filled:hover {
+  box-shadow: var(--mm-elevation-1);
+  background: var(--mm-primary-dark);
+}
+
+/* Filled tonal */
+.mm-btn--tonal {
+  background: var(--mm-primary-light);
+  color: var(--mm-primary);
+}
+
+.mm-btn--tonal:hover {
+  box-shadow: var(--mm-elevation-1);
+  background: #e8d5fa;
+}
+
+/* Outlined button */
+.mm-btn--outlined {
+  background: transparent;
+  color: var(--mm-primary);
+  border: 1px solid var(--mm-outline-variant);
+}
+
+.mm-btn--outlined:hover {
+  background: var(--mm-primary-light);
+}
+
+/* Text button */
+.mm-btn--text {
+  background: transparent;
+  color: var(--mm-primary);
+  padding: 10px 12px;
+}
+
+.mm-btn--text:hover {
+  background: var(--mm-primary-light);
+}
+
+/* Secondary color */
+.mm-btn--secondary {
+  background: var(--mm-secondary);
+  color: var(--mm-on-secondary);
+}
+
+.mm-btn--secondary:hover {
+  box-shadow: var(--mm-elevation-1);
+}
+
+/* Error color */
+.mm-btn--error {
+  background: var(--mm-error);
+  color: var(--mm-on-error);
+}
+
+/* === Floating Action Button === */
+.mm-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--mm-radius-lg);
+  background: var(--mm-primary-light);
+  color: var(--mm-primary);
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: var(--mm-elevation-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--mm-transition);
+  z-index: 50;
+}
+
+.mm-fab:hover {
+  box-shadow: var(--mm-elevation-4);
+}
+
+.mm-fab--large {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--mm-radius-xl);
+  font-size: 36px;
+}
+
+.mm-fab--small {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--mm-radius-md);
+  font-size: 18px;
+}
+
+.mm-fab--extended {
+  width: auto;
+  height: 56px;
+  padding: 0 20px;
+  border-radius: var(--mm-radius-lg);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  gap: 12px;
+}
+
+/* === Chips === */
+.mm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  border-radius: var(--mm-radius-sm);
+  border: 1px solid var(--mm-outline-variant);
+  background: var(--mm-surface);
+  color: var(--mm-text-secondary);
+  cursor: pointer;
+  transition: all var(--mm-transition);
+}
+
+.mm-chip:hover {
+  background: var(--mm-surface-container);
+}
+
+.mm-chip--selected {
+  background: var(--mm-primary-light);
+  border-color: transparent;
+  color: var(--mm-primary);
+}
+
+.mm-chip--selected:hover {
+  background: #e8d5fa;
+}
+
+.mm-chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* === Text Fields === */
+.mm-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.mm-field-input {
+  width: 100%;
+  padding: 16px;
+  font-family: var(--mm-font);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  background: transparent;
+  border: 1px solid var(--mm-outline);
+  border-radius: var(--mm-radius-xs);
+  color: var(--mm-text);
+  outline: none;
+  transition: border-color var(--mm-transition);
+}
+
+.mm-field-input:focus {
+  border-color: var(--mm-primary);
+  border-width: 2px;
+  padding: 15px;
+}
+
+.mm-field-label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--mm-text-muted);
+  background: var(--mm-bg);
+  padding: 0 4px;
+  transition: all var(--mm-transition);
+  pointer-events: none;
+}
+
+.mm-field-input:focus + .mm-field-label,
+.mm-field-input:not(:placeholder-shown) + .mm-field-label {
+  top: 0;
+  font-size: 12px;
+  color: var(--mm-primary);
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+
+.mm-field-helper {
+  font-size: 12px;
+  color: var(--mm-text-muted);
+  margin-top: 4px;
+  padding-left: 16px;
+  letter-spacing: 0.4px;
+}
+
+/* Filled text field variant */
+.mm-field--filled .mm-field-input {
+  background: var(--mm-surface-container);
+  border: none;
+  border-bottom: 1px solid var(--mm-outline);
+  border-radius: var(--mm-radius-xs) var(--mm-radius-xs) 0 0;
+}
+
+.mm-field--filled .mm-field-input:focus {
+  border-bottom: 2px solid var(--mm-primary);
+  padding-bottom: 15px;
+}
+
+.mm-field--filled .mm-field-label {
+  background: transparent;
+}
+
+/* === Divider === */
+.mm-divider {
+  border: none;
+  height: 1px;
+  background: var(--mm-outline-variant);
+  margin: 32px 0;
+}
+
+/* === Badges === */
+.mm-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: var(--mm-radius-full);
+  background: var(--mm-error);
+  color: var(--mm-on-error);
+}
+
+.mm-badge--small {
+  width: 6px;
+  height: 6px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.mm-badge--primary {
+  background: var(--mm-primary);
+}
+
+.mm-badge--secondary {
+  background: var(--mm-secondary);
+  color: var(--mm-on-secondary);
+}
+
+/* === Snackbar / Toast === */
+.mm-snackbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #323232;
+  color: #ffffff;
+  border-radius: var(--mm-radius-xs);
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  box-shadow: var(--mm-elevation-3);
+}
+
+.mm-snackbar-action {
+  color: var(--mm-secondary);
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--mm-font);
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  padding: 0;
+}
+
+/* === Switch === */
+.mm-switch {
+  width: 52px;
+  height: 32px;
+  background: var(--mm-surface-variant);
+  border-radius: 16px;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid var(--mm-outline);
+  transition: all var(--mm-transition);
+}
+
+.mm-switch::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--mm-outline);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: all var(--mm-transition);
+}
+
+.mm-switch.active {
+  background: var(--mm-primary);
+  border-color: var(--mm-primary);
+}
+
+.mm-switch.active::after {
+  background: var(--mm-on-primary);
+  left: 22px;
+}
+
+/* === Hero Section === */
+.mm-hero {
+  text-align: center;
+  padding: 64px 24px;
+  background: var(--mm-surface);
+  box-shadow: var(--mm-elevation-1);
+  border-radius: 0 0 var(--mm-radius-xl) var(--mm-radius-xl);
+  margin-bottom: 32px;
+}
+
+.mm-hero h1 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--mm-text);
+}
+
+.mm-hero-desc {
+  font-size: 16px;
+  color: var(--mm-text-secondary);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+.mm-hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* === Section Header === */
+.mm-section-header {
+  margin-bottom: 24px;
+}
+
+.mm-section-overline {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--mm-primary);
+  margin-bottom: 8px;
+}
+
+/* === List Item === */
+.mm-list-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: var(--mm-radius-full);
+  transition: background var(--mm-transition);
+  cursor: pointer;
+}
+
+.mm-list-item:hover {
+  background: var(--mm-surface-container);
+}
+
+.mm-list-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--mm-primary-light);
+  color: var(--mm-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.mm-list-item-content {
+  flex: 1;
+}
+
+.mm-list-item-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.mm-list-item-subtitle {
+  font-size: 14px;
+  color: var(--mm-text-muted);
+  letter-spacing: 0.25px;
+}
+
+/* === Responsive === */
+@media (max-width: 767px) {
+  .mm-hero h1 {
+    font-size: 32px;
+  }
+
+  .mm-hero {
+    padding: 40px 16px;
+  }
+
+  .mm-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mm-app-bar-nav {
+    display: none;
+  }
+
+  .mm-fab {
+    bottom: 16px;
+    right: 16px;
+  }
+}

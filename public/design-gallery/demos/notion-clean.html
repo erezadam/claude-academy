@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion Clean — Design System Demo</title>
+  <link rel="stylesheet" href="../styles/notion-clean.css">
+  <style>
+    /* Demo-specific helpers */
+    .demo-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nc-bg);
+      border-bottom: 1px solid var(--nc-border);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .demo-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--nc-text-light);
+    }
+    .demo-nav-logo {
+      font-weight: 700;
+      color: var(--nc-text);
+      font-size: 16px;
+      font-family: var(--nc-font-heading);
+    }
+    .demo-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .demo-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--nc-space-lg);
+    }
+    @media (max-width: 767px) {
+      .demo-columns { grid-template-columns: 1fr; }
+    }
+    .demo-section { margin-bottom: var(--nc-space-3xl); }
+    .demo-color-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: var(--nc-space-md) 0;
+    }
+    .demo-color-chip {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--nc-radius-md);
+      border: 1px solid var(--nc-border);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="demo-nav">
+  <div class="demo-nav-left">
+    <span class="demo-nav-logo">N</span>
+    <span class="nc-breadcrumb-sep">/</span>
+    <span>Design Team</span>
+    <span class="nc-breadcrumb-sep">/</span>
+    <span style="color: var(--nc-text);">Product Roadmap 2026</span>
+  </div>
+  <div class="demo-nav-right">
+    <button class="nc-btn nc-btn--text">Share</button>
+    <button class="nc-btn nc-btn--text">&#9733;</button>
+    <button class="nc-btn nc-btn--text">&#8943;</button>
+  </div>
+</nav>
+
+<div class="nc-page">
+  <div class="nc-content">
+
+    <!-- Page Header -->
+    <div class="nc-page-header">
+      <div class="nc-page-icon">&#128640;</div>
+      <h1 class="nc-page-title">Product Roadmap 2026</h1>
+      <p class="nc-page-description">Strategic plan for Q1-Q2 product development, team goals, and key milestones.</p>
+
+      <!-- Properties -->
+      <div style="margin-top: 16px;">
+        <div class="nc-property">
+          <span class="nc-property-label">Status</span>
+          <span class="nc-property-value"><span class="nc-tag nc-tag--green">In Progress</span></span>
+        </div>
+        <div class="nc-property">
+          <span class="nc-property-label">Owner</span>
+          <span class="nc-property-value">Sarah Chen</span>
+        </div>
+        <div class="nc-property">
+          <span class="nc-property-label">Last Edited</span>
+          <span class="nc-property-value" style="color: var(--nc-text-lighter);">March 11, 2026</span>
+        </div>
+        <div class="nc-property">
+          <span class="nc-property-label">Tags</span>
+          <span class="nc-property-value">
+            <span class="nc-tag nc-tag--blue">Engineering</span>
+            <span class="nc-tag nc-tag--purple">Design</span>
+            <span class="nc-tag nc-tag--orange">Product</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="nc-divider">
+
+    <!-- Content Blocks -->
+    <div class="demo-section">
+      <h2>&#127919; Overview</h2>
+      <p>This document outlines our product strategy for the first half of 2026. We're focusing on three major initiatives that will drive growth and improve the user experience across all platforms.</p>
+
+      <div class="nc-callout nc-callout--info">
+        <span class="nc-callout-icon">&#128161;</span>
+        <div class="nc-callout-content">
+          <strong>Key Insight:</strong> User research from Q4 2025 shows that 73% of users want better collaboration features. This should guide our priority decisions.
+        </div>
+      </div>
+
+      <p>The roadmap is organized by team, with cross-functional dependencies clearly marked. Each initiative has been reviewed by leadership and approved for the allocated budget.</p>
+
+      <div class="nc-quote">
+        "The best products are built at the intersection of what users need and what technology makes possible."
+        <br><small>&#8212; Product vision statement, Jan 2026</small>
+      </div>
+    </div>
+
+    <!-- Toggle Blocks -->
+    <div class="demo-section">
+      <h2>&#128203; Q1 Initiatives</h2>
+
+      <div class="nc-toggle open">
+        <div class="nc-toggle-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="nc-toggle-arrow">&#9654;</span>
+          <span><strong>Real-time Collaboration Engine</strong></span>
+        </div>
+        <div class="nc-toggle-body">
+          <p>Building a new real-time sync engine using CRDTs to support concurrent editing by up to 50 users simultaneously. This replaces our current OT-based system.</p>
+          <ul class="nc-list nc-list--bulleted">
+            <li>CRDT implementation for text and structured data</li>
+            <li>Presence indicators and cursor tracking</li>
+            <li>Conflict resolution UI for complex merges</li>
+            <li>Performance target: &lt;50ms sync latency</li>
+          </ul>
+          <div class="nc-callout nc-callout--warning">
+            <span class="nc-callout-icon">&#9888;&#65039;</span>
+            <div class="nc-callout-content">Dependency on the Infrastructure team's WebSocket migration (due Feb 15).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nc-toggle">
+        <div class="nc-toggle-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="nc-toggle-arrow">&#9654;</span>
+          <span><strong>AI-Powered Search & Discovery</strong></span>
+        </div>
+        <div class="nc-toggle-body">
+          <p>Semantic search across all workspace content, with natural language queries and smart suggestions. Uses our fine-tuned embedding model.</p>
+        </div>
+      </div>
+
+      <div class="nc-toggle">
+        <div class="nc-toggle-header" onclick="this.parentElement.classList.toggle('open')">
+          <span class="nc-toggle-arrow">&#9654;</span>
+          <span><strong>Mobile App Redesign</strong></span>
+        </div>
+        <div class="nc-toggle-body">
+          <p>Complete redesign of the mobile experience focusing on quick capture, offline support, and gesture-based navigation.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="nc-divider">
+
+    <!-- Table -->
+    <div class="demo-section">
+      <h2>&#128197; Timeline & Milestones</h2>
+      <div class="nc-table-wrapper">
+        <table class="nc-table">
+          <thead>
+            <tr>
+              <th>Milestone</th>
+              <th>Team</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>CRDT Engine v1</strong></td>
+              <td>Engineering</td>
+              <td>Feb 28</td>
+              <td><span class="nc-tag nc-tag--green">On Track</span></td>
+              <td><span class="nc-tag nc-tag--red">P0</span></td>
+            </tr>
+            <tr>
+              <td><strong>Search Index Migration</strong></td>
+              <td>Platform</td>
+              <td>Mar 15</td>
+              <td><span class="nc-tag nc-tag--yellow">At Risk</span></td>
+              <td><span class="nc-tag nc-tag--red">P0</span></td>
+            </tr>
+            <tr>
+              <td><strong>Mobile Design Specs</strong></td>
+              <td>Design</td>
+              <td>Feb 14</td>
+              <td><span class="nc-tag nc-tag--blue">Complete</span></td>
+              <td><span class="nc-tag nc-tag--yellow">P1</span></td>
+            </tr>
+            <tr>
+              <td><strong>User Testing Round 1</strong></td>
+              <td>Research</td>
+              <td>Mar 30</td>
+              <td><span class="nc-tag nc-tag--default">Not Started</span></td>
+              <td><span class="nc-tag nc-tag--yellow">P1</span></td>
+            </tr>
+            <tr>
+              <td><strong>API v3 Documentation</strong></td>
+              <td>DevRel</td>
+              <td>Apr 10</td>
+              <td><span class="nc-tag nc-tag--green">On Track</span></td>
+              <td><span class="nc-tag nc-tag--default">P2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Todo List -->
+    <div class="demo-section">
+      <h2>&#9989; Action Items</h2>
+      <div class="nc-todo checked">
+        <input type="checkbox" checked disabled>
+        <span>Draft product requirements document</span>
+      </div>
+      <div class="nc-todo checked">
+        <input type="checkbox" checked disabled>
+        <span>Review competitive analysis with leadership</span>
+      </div>
+      <div class="nc-todo">
+        <input type="checkbox" disabled>
+        <span>Schedule design review for mobile prototype</span>
+      </div>
+      <div class="nc-todo">
+        <input type="checkbox" disabled>
+        <span>Set up performance benchmarking infrastructure</span>
+      </div>
+      <div class="nc-todo">
+        <input type="checkbox" disabled>
+        <span>Prepare Q1 demo for all-hands meeting</span>
+      </div>
+    </div>
+
+    <hr class="nc-divider">
+
+    <!-- Gallery Cards -->
+    <div class="demo-section">
+      <h2>&#128218; Team Resources</h2>
+      <div class="nc-gallery">
+        <div class="nc-gallery-card">
+          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #d3e5ef, #e8deee);"></div>
+          <div class="nc-gallery-card-body">
+            <div class="nc-gallery-card-title">&#128209; Engineering Handbook</div>
+            <div class="nc-gallery-card-meta">Updated 2 days ago</div>
+          </div>
+        </div>
+        <div class="nc-gallery-card">
+          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #dbeddb, #fdecc8);"></div>
+          <div class="nc-gallery-card-body">
+            <div class="nc-gallery-card-title">&#127912; Design System Guide</div>
+            <div class="nc-gallery-card-meta">Updated 5 days ago</div>
+          </div>
+        </div>
+        <div class="nc-gallery-card">
+          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #fdecc8, #ffe2dd);"></div>
+          <div class="nc-gallery-card-body">
+            <div class="nc-gallery-card-title">&#128200; Analytics Dashboard</div>
+            <div class="nc-gallery-card-meta">Updated 1 week ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="demo-section">
+      <h2>&#128172; Feedback</h2>
+      <p>Have thoughts on the roadmap? Share them below.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px;">
+        <input class="nc-input" type="text" placeholder="Your name">
+        <input class="nc-input" type="email" placeholder="Email address">
+        <textarea class="nc-input" rows="4" placeholder="Share your thoughts..." style="resize: vertical;"></textarea>
+        <div style="display: flex; gap: 8px;">
+          <button class="nc-btn nc-btn--primary">Submit Feedback</button>
+          <button class="nc-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Callout Section -->
+    <div class="demo-section">
+      <h3>Status Legend</h3>
+      <div class="nc-callout nc-callout--success">
+        <span class="nc-callout-icon">&#9989;</span>
+        <div class="nc-callout-content"><strong>On Track</strong> &#8212; Progressing as planned, no blockers identified.</div>
+      </div>
+      <div class="nc-callout nc-callout--warning">
+        <span class="nc-callout-icon">&#9888;&#65039;</span>
+        <div class="nc-callout-content"><strong>At Risk</strong> &#8212; Potential blockers identified, mitigation plan in progress.</div>
+      </div>
+      <div class="nc-callout">
+        <span class="nc-callout-icon">&#128308;</span>
+        <div class="nc-callout-content"><strong>Blocked</strong> &#8212; Cannot proceed until dependencies are resolved.</div>
+      </div>
+    </div>
+
+    <!-- Code Block -->
+    <div class="demo-section">
+      <h3>API Example</h3>
+      <p>Use our API to programmatically update roadmap items:</p>
+      <pre><code>const response = await fetch('/api/v3/roadmap/items', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'New Feature Request',
+    status: 'not_started',
+    priority: 'P1',
+    team: 'engineering'
+  })
+});</code></pre>
+    </div>
+
+    <hr class="nc-divider">
+
+    <p style="text-align: center; color: var(--nc-text-lighter); font-size: 13px; padding: 24px 0;">
+      Last edited by Sarah Chen &#183; March 11, 2026
+    </p>
+
+  </div>
+</div>
+
+</body>
+</html>

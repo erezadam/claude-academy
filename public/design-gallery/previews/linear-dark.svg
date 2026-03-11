@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <clipPath id="linear-clip">
+      <rect width="400" height="300" rx="0"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="300" fill="#0e0e10"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="100" height="300" fill="#0e0e10"/>
+  <line x1="100" y1="0" x2="100" y2="300" stroke="#2a2a3e" stroke-width="1"/>
+
+  <!-- Sidebar Logo -->
+  <rect x="14" y="14" width="12" height="12" rx="3" fill="#5e6ad2"/>
+  <rect x="32" y="16" width="48" height="7" rx="2" fill="#e8e8ed"/>
+
+  <!-- Sidebar Items -->
+  <rect x="14" y="42" width="72" height="6" rx="1.5" fill="#5a5a6e"/>
+  <rect x="14" y="56" width="72" height="6" rx="1.5" fill="#5a5a6e"/>
+  <rect x="8" y="68" width="84" height="18" rx="3" fill="rgba(94,106,210,0.12)"/>
+  <rect x="14" y="73" width="60" height="6" rx="1.5" fill="#e8e8ed"/>
+  <rect x="14" y="92" width="72" height="6" rx="1.5" fill="#5a5a6e"/>
+
+  <!-- Sidebar Divider -->
+  <line x1="8" y1="108" x2="92" y2="108" stroke="#2a2a3e" stroke-width="0.5"/>
+
+  <!-- Sidebar Section Label -->
+  <rect x="14" y="118" width="40" height="4" rx="1" fill="#5a5a6e" opacity="0.6"/>
+  <circle cx="20" cy="133" r="3" fill="#5e6ad2"/><rect x="28" y="131" width="50" height="5" rx="1.5" fill="#5a5a6e"/>
+  <circle cx="20" cy="147" r="3" fill="#4dba87"/><rect x="28" y="145" width="50" height="5" rx="1.5" fill="#5a5a6e"/>
+  <circle cx="20" cy="161" r="3" fill="#f0c000"/><rect x="28" y="159" width="50" height="5" rx="1.5" fill="#5a5a6e"/>
+
+  <!-- Top Bar -->
+  <rect x="100" y="0" width="300" height="28" fill="#0e0e10"/>
+  <line x1="100" y1="28" x2="400" y2="28" stroke="#2a2a3e" stroke-width="1"/>
+  <rect x="116" y="10" width="60" height="6" rx="1.5" fill="#8a8a9a"/>
+  <rect x="340" y="7" width="48" height="14" rx="4" fill="#5e6ad2"/>
+
+  <!-- Content: Issue List -->
+  <g transform="translate(110, 40)">
+    <!-- List Header -->
+    <rect x="0" y="0" width="280" height="18" rx="4" fill="#1a1a2e"/>
+    <rect x="8" y="6" width="30" height="5" rx="1.5" fill="#5a5a6e"/>
+    <rect x="50" y="6" width="30" height="5" rx="1.5" fill="#5a5a6e"/>
+
+    <!-- Issue Row 1 -->
+    <rect x="0" y="24" width="280" height="22" rx="0" fill="transparent"/>
+    <circle cx="12" cy="35" r="3.5" fill="#f0c000"/>
+    <rect x="24" y="32" width="30" height="4" rx="1" fill="#5a5a6e" opacity="0.6"/>
+    <rect x="62" y="32" width="150" height="5" rx="1.5" fill="#e8e8ed"/>
+    <rect x="240" y="30" width="30" height="10" rx="3" fill="rgba(229,72,77,0.12)"/>
+    <rect x="244" y="33" width="22" height="4" rx="1" fill="#e5484d"/>
+    <line x1="0" y1="46" x2="280" y2="46" stroke="#2a2a3e" stroke-width="0.5"/>
+
+    <!-- Issue Row 2 -->
+    <rect x="0" y="48" width="280" height="22" rx="0" fill="transparent"/>
+    <circle cx="12" cy="59" r="3.5" fill="#f0c000"/>
+    <rect x="24" y="56" width="30" height="4" rx="1" fill="#5a5a6e" opacity="0.6"/>
+    <rect x="62" y="56" width="170" height="5" rx="1.5" fill="#e8e8ed"/>
+    <rect x="240" y="54" width="30" height="10" rx="3" fill="rgba(94,106,210,0.12)"/>
+    <rect x="244" y="57" width="22" height="4" rx="1" fill="#5e6ad2"/>
+    <line x1="0" y1="70" x2="280" y2="70" stroke="#2a2a3e" stroke-width="0.5"/>
+
+    <!-- Issue Row 3 -->
+    <rect x="0" y="72" width="280" height="22" rx="0" fill="transparent"/>
+    <circle cx="12" cy="83" r="3.5" fill="#8a8a9a"/>
+    <rect x="24" y="80" width="30" height="4" rx="1" fill="#5a5a6e" opacity="0.6"/>
+    <rect x="62" y="80" width="130" height="5" rx="1.5" fill="#e8e8ed"/>
+    <rect x="240" y="78" width="30" height="10" rx="3" fill="rgba(82,168,255,0.12)"/>
+    <rect x="244" y="81" width="22" height="4" rx="1" fill="#52a8ff"/>
+    <line x1="0" y1="94" x2="280" y2="94" stroke="#2a2a3e" stroke-width="0.5"/>
+
+    <!-- Issue Row 4 -->
+    <rect x="0" y="96" width="280" height="22" rx="0" fill="transparent"/>
+    <circle cx="12" cy="107" r="3.5" fill="#4dba87"/>
+    <rect x="24" y="104" width="30" height="4" rx="1" fill="#5a5a6e" opacity="0.6"/>
+    <rect x="62" y="104" width="160" height="5" rx="1.5" fill="#8a8a9a" opacity="0.6"/>
+    <rect x="240" y="102" width="30" height="10" rx="3" fill="rgba(77,186,135,0.12)"/>
+    <rect x="244" y="105" width="22" height="4" rx="1" fill="#4dba87"/>
+    <line x1="0" y1="118" x2="280" y2="118" stroke="#2a2a3e" stroke-width="0.5"/>
+
+    <!-- Issue Row 5 -->
+    <rect x="0" y="120" width="280" height="22" rx="0" fill="transparent"/>
+    <circle cx="12" cy="131" r="3.5" fill="#4dba87"/>
+    <rect x="24" y="128" width="30" height="4" rx="1" fill="#5a5a6e" opacity="0.6"/>
+    <rect x="62" y="128" width="140" height="5" rx="1.5" fill="#8a8a9a" opacity="0.6"/>
+    <rect x="240" y="126" width="30" height="10" rx="3" fill="rgba(77,186,135,0.12)"/>
+    <rect x="244" y="129" width="22" height="4" rx="1" fill="#4dba87"/>
+  </g>
+
+  <!-- Project Cards at Bottom -->
+  <rect x="110" y="200" width="88" height="65" rx="6" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="0.5"/>
+  <rect x="116" y="210" width="40" height="4" rx="1" fill="#e8e8ed"/>
+  <rect x="116" y="220" width="70" height="3" rx="1" fill="#5a5a6e"/>
+  <rect x="116" y="240" width="72" height="3" rx="1.5" fill="#2a2a3e"/>
+  <rect x="116" y="240" width="48" height="3" rx="1.5" fill="#5e6ad2"/>
+
+  <rect x="206" y="200" width="88" height="65" rx="6" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="0.5"/>
+  <rect x="212" y="210" width="40" height="4" rx="1" fill="#e8e8ed"/>
+  <rect x="212" y="220" width="70" height="3" rx="1" fill="#5a5a6e"/>
+  <rect x="212" y="240" width="72" height="3" rx="1.5" fill="#2a2a3e"/>
+  <rect x="212" y="240" width="14" height="3" rx="1.5" fill="#f0c000"/>
+
+  <rect x="302" y="200" width="88" height="65" rx="6" fill="#1a1a2e" stroke="#2a2a3e" stroke-width="0.5"/>
+  <rect x="308" y="210" width="40" height="4" rx="1" fill="#e8e8ed"/>
+  <rect x="308" y="220" width="70" height="3" rx="1" fill="#5a5a6e"/>
+  <rect x="308" y="240" width="72" height="3" rx="1.5" fill="#4dba87"/>
+
+  <!-- Label -->
+  <text x="250" y="290" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="8" fill="#5a5a6e">Linear Dark</text>
+</svg>

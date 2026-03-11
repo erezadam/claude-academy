@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Dark - Design System Demo</title>
+  <link rel="stylesheet" href="../styles/linear-dark.css">
+  <style>
+    .demo-progress-bar {
+      height: 4px;
+      background: var(--linear-border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .demo-progress-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: var(--linear-accent);
+    }
+    .demo-cycle-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .demo-tab-bar {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--linear-border);
+      margin-bottom: 24px;
+    }
+    .demo-tab {
+      padding: 10px 16px;
+      font-size: 13px;
+      color: var(--linear-text-secondary);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: all 0.15s ease;
+    }
+    .demo-tab:hover { color: var(--linear-text); }
+    .demo-tab.active {
+      color: var(--linear-text);
+      border-bottom-color: var(--linear-accent);
+    }
+    .demo-filter-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .demo-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .demo-stat-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .demo-stat-box {
+      flex: 1;
+      background: var(--linear-surface);
+      border: 1px solid var(--linear-border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .demo-stat-value {
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--linear-text);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="linear-app">
+
+    <!-- Sidebar -->
+    <aside class="linear-sidebar">
+      <div class="linear-sidebar-header">
+        <div class="linear-sidebar-logo"></div>
+        <span class="linear-sidebar-title">Acme Team</span>
+      </div>
+
+      <div class="linear-sidebar-section">
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon">&#128269;</span>
+          <span>Search</span>
+          <span class="linear-search-shortcut" style="margin-left: auto;">&#8984;K</span>
+        </a>
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon">&#9889;</span>
+          <span>Inbox</span>
+          <span class="linear-sidebar-item-count">3</span>
+        </a>
+        <a class="linear-sidebar-item active" href="#">
+          <span class="linear-sidebar-item-icon">&#9638;</span>
+          <span>My Issues</span>
+          <span class="linear-sidebar-item-count">12</span>
+        </a>
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon">&#128196;</span>
+          <span>Views</span>
+        </a>
+      </div>
+
+      <hr class="linear-divider">
+
+      <div class="linear-sidebar-section">
+        <div class="linear-sidebar-label">Workspace</div>
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon">&#128736;</span>
+          <span>Projects</span>
+        </a>
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon">&#128203;</span>
+          <span>Cycles</span>
+        </a>
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon">&#128200;</span>
+          <span>Roadmap</span>
+        </a>
+      </div>
+
+      <hr class="linear-divider">
+
+      <div class="linear-sidebar-section">
+        <div class="linear-sidebar-label">Teams</div>
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon" style="color: #5e6ad2;">&#9679;</span>
+          <span>Engineering</span>
+        </a>
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon" style="color: #4dba87;">&#9679;</span>
+          <span>Design</span>
+        </a>
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-sidebar-item-icon" style="color: #f0c000;">&#9679;</span>
+          <span>Product</span>
+        </a>
+      </div>
+
+      <div class="linear-sidebar-footer">
+        <a class="linear-sidebar-item" href="#">
+          <span class="linear-avatar linear-avatar-sm">JD</span>
+          <span>Jane Doe</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="linear-main">
+
+      <!-- Top Bar -->
+      <div class="linear-topbar">
+        <div class="linear-topbar-breadcrumb">
+          <span style="color: var(--linear-text-secondary);">My Issues</span>
+          <span class="linear-topbar-breadcrumb-sep">/</span>
+          <span>Active</span>
+        </div>
+        <div class="linear-topbar-actions">
+          <button class="linear-btn linear-btn-ghost linear-btn-sm">&#128269; Filter</button>
+          <button class="linear-btn linear-btn-secondary linear-btn-sm">Group by</button>
+          <button class="linear-btn linear-btn-primary linear-btn-sm">+ New Issue</button>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="linear-content">
+
+        <!-- Stats Row -->
+        <div class="demo-stat-row">
+          <div class="demo-stat-box">
+            <div class="linear-caption">Total Issues</div>
+            <div class="demo-stat-value">247</div>
+          </div>
+          <div class="demo-stat-box">
+            <div class="linear-caption">In Progress</div>
+            <div class="demo-stat-value" style="color: var(--linear-warning);">18</div>
+          </div>
+          <div class="demo-stat-box">
+            <div class="linear-caption">Completed</div>
+            <div class="demo-stat-value" style="color: var(--linear-success);">189</div>
+          </div>
+          <div class="demo-stat-box">
+            <div class="linear-caption">Cycle Progress</div>
+            <div class="demo-stat-value">76%</div>
+            <div class="demo-progress-bar" style="margin-top: 8px;">
+              <div class="demo-progress-fill" style="width: 76%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="demo-tab-bar">
+          <div class="demo-tab active">All Issues</div>
+          <div class="demo-tab">Active</div>
+          <div class="demo-tab">Backlog</div>
+          <div class="demo-tab">Done</div>
+          <div class="demo-tab">Cancelled</div>
+        </div>
+
+        <!-- Filters -->
+        <div class="demo-filter-bar">
+          <button class="linear-btn linear-btn-secondary linear-btn-sm">Status &#9662;</button>
+          <button class="linear-btn linear-btn-secondary linear-btn-sm">Priority &#9662;</button>
+          <button class="linear-btn linear-btn-secondary linear-btn-sm">Assignee &#9662;</button>
+          <button class="linear-btn linear-btn-ghost linear-btn-sm">+ Filter</button>
+          <div style="flex: 1;"></div>
+          <input type="text" class="linear-input" placeholder="Search issues..." style="max-width: 220px; font-size: 13px; padding: 6px 10px;">
+        </div>
+
+        <!-- Issue List -->
+        <div class="linear-list" style="border: 1px solid var(--linear-border); border-radius: 8px; overflow: hidden;">
+          <!-- Issue 1 -->
+          <div class="linear-list-item">
+            <span class="linear-priority linear-priority-urgent">!</span>
+            <span class="linear-status-dot linear-status-dot-progress"></span>
+            <span class="linear-list-item-id">ENG-421</span>
+            <span class="linear-list-item-title">Fix authentication flow dropping sessions on mobile Safari</span>
+            <div class="linear-list-item-meta">
+              <span class="linear-badge linear-badge-danger" style="font-size: 11px;">Bug</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #e5484d;">AK</span>
+            </div>
+          </div>
+          <!-- Issue 2 -->
+          <div class="linear-list-item">
+            <span class="linear-priority linear-priority-high">!!</span>
+            <span class="linear-status-dot linear-status-dot-progress"></span>
+            <span class="linear-list-item-id">ENG-418</span>
+            <span class="linear-list-item-title">Implement real-time collaborative editing for documents</span>
+            <div class="linear-list-item-meta">
+              <span class="linear-badge linear-badge-accent" style="font-size: 11px;">Feature</span>
+              <span class="linear-avatar linear-avatar-sm">JD</span>
+            </div>
+          </div>
+          <!-- Issue 3 -->
+          <div class="linear-list-item">
+            <span class="linear-priority linear-priority-medium">&#9650;</span>
+            <span class="linear-status-dot linear-status-dot-todo"></span>
+            <span class="linear-list-item-id">ENG-415</span>
+            <span class="linear-list-item-title">Migrate database connection pooling to PgBouncer</span>
+            <div class="linear-list-item-meta">
+              <span class="linear-badge linear-badge-info" style="font-size: 11px;">Infra</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #52a8ff;">ML</span>
+            </div>
+          </div>
+          <!-- Issue 4 -->
+          <div class="linear-list-item">
+            <span class="linear-priority linear-priority-medium">&#9650;</span>
+            <span class="linear-status-dot linear-status-dot-progress"></span>
+            <span class="linear-list-item-id">ENG-412</span>
+            <span class="linear-list-item-title">Add dark mode support to onboarding wizard</span>
+            <div class="linear-list-item-meta">
+              <span class="linear-badge linear-badge-accent" style="font-size: 11px;">Feature</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #4dba87;">SR</span>
+            </div>
+          </div>
+          <!-- Issue 5 -->
+          <div class="linear-list-item">
+            <span class="linear-priority linear-priority-low">&#9660;</span>
+            <span class="linear-status-dot linear-status-dot-backlog"></span>
+            <span class="linear-list-item-id">ENG-409</span>
+            <span class="linear-list-item-title">Optimize bundle size by lazy-loading chart components</span>
+            <div class="linear-list-item-meta">
+              <span class="linear-badge linear-badge-neutral" style="font-size: 11px;">Improvement</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #f76808;">TC</span>
+            </div>
+          </div>
+          <!-- Issue 6 -->
+          <div class="linear-list-item">
+            <span class="linear-priority linear-priority-low">&#9660;</span>
+            <span class="linear-status-dot linear-status-dot-done"></span>
+            <span class="linear-list-item-id">ENG-405</span>
+            <span class="linear-list-item-title" style="text-decoration: line-through; color: var(--linear-text-secondary);">Update API rate limiting to use sliding window algorithm</span>
+            <div class="linear-list-item-meta">
+              <span class="linear-badge linear-badge-success" style="font-size: 11px;">Done</span>
+              <span class="linear-avatar linear-avatar-sm">JD</span>
+            </div>
+          </div>
+          <!-- Issue 7 -->
+          <div class="linear-list-item">
+            <span class="linear-priority linear-priority-low">&#9660;</span>
+            <span class="linear-status-dot linear-status-dot-done"></span>
+            <span class="linear-list-item-id">ENG-401</span>
+            <span class="linear-list-item-title" style="text-decoration: line-through; color: var(--linear-text-secondary);">Configure automated E2E tests for CI pipeline</span>
+            <div class="linear-list-item-meta">
+              <span class="linear-badge linear-badge-success" style="font-size: 11px;">Done</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #52a8ff;">ML</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards Section -->
+        <h3 class="linear-h2" style="margin: 40px 0 20px;">Active Projects</h3>
+        <div class="demo-card-grid">
+          <div class="linear-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="linear-badge linear-badge-accent">In Progress</span>
+              <span class="linear-caption">67%</span>
+            </div>
+            <h4 class="linear-h3" style="margin-bottom: 8px;">Platform v3.0</h4>
+            <p class="linear-body" style="margin-bottom: 16px;">Complete rewrite of the core platform with new architecture and improved performance.</p>
+            <div class="demo-progress-bar">
+              <div class="demo-progress-fill" style="width: 67%;"></div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 12px;">
+              <span class="linear-avatar linear-avatar-sm">JD</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #e5484d;">AK</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #52a8ff;">ML</span>
+            </div>
+          </div>
+          <div class="linear-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="linear-badge linear-badge-warning">Planning</span>
+              <span class="linear-caption">12%</span>
+            </div>
+            <h4 class="linear-h3" style="margin-bottom: 8px;">Mobile App</h4>
+            <p class="linear-body" style="margin-bottom: 16px;">Native mobile application for iOS and Android with offline support and push notifications.</p>
+            <div class="demo-progress-bar">
+              <div class="demo-progress-fill" style="width: 12%; background: var(--linear-warning);"></div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 12px;">
+              <span class="linear-avatar linear-avatar-sm" style="background: #4dba87;">SR</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #f76808;">TC</span>
+            </div>
+          </div>
+          <div class="linear-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span class="linear-badge linear-badge-success">Complete</span>
+              <span class="linear-caption">100%</span>
+            </div>
+            <h4 class="linear-h3" style="margin-bottom: 8px;">API v2 Migration</h4>
+            <p class="linear-body" style="margin-bottom: 16px;">Migrate all internal services from API v1 to v2 with backwards compatibility layer.</p>
+            <div class="demo-progress-bar">
+              <div class="demo-progress-fill" style="width: 100%; background: var(--linear-success);"></div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 12px;">
+              <span class="linear-avatar linear-avatar-sm">JD</span>
+              <span class="linear-avatar linear-avatar-sm" style="background: #52a8ff;">ML</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Section -->
+        <div style="max-width: 480px; margin: 40px 0;">
+          <h3 class="linear-h3" style="margin-bottom: 16px;">Quick Create</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <input type="text" class="linear-input" placeholder="Issue title">
+            <div style="display: flex; gap: 8px;">
+              <input type="text" class="linear-input" placeholder="Label" style="flex: 1;">
+              <input type="text" class="linear-input" placeholder="Assignee" style="flex: 1;">
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="linear-btn linear-btn-primary">Create Issue</button>
+              <button class="linear-btn linear-btn-secondary">Cancel</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

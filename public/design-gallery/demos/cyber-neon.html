@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Neon — Design System Demo</title>
+  <link rel="stylesheet" href="../styles/cyber-neon.css">
+  <style>
+    .demo-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 767px) {
+      .demo-grid-2 { grid-template-columns: 1fr; }
+    }
+    .demo-section {
+      margin-bottom: 48px;
+    }
+    .cn-hero-grid-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HUD Header -->
+<header class="cn-header">
+  <div class="cn-header-inner">
+    <div class="cn-header-logo">NEXUS<span style="color: var(--cn-neon-pink);">_</span>OS</div>
+    <nav>
+      <ul class="cn-header-nav">
+        <li><a href="#" class="active">Dashboard</a></li>
+        <li><a href="#">Systems</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Network</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+    <div class="cn-header-status">
+      <span class="cn-status-dot"></span>
+      <span>SYS ONLINE</span>
+    </div>
+  </div>
+</header>
+
+<div class="cn-container">
+
+  <!-- Hero Section -->
+  <section class="cn-hero">
+    <div class="cn-hero-grid-bg"></div>
+    <div class="cn-hero-subtitle">// System Control Interface v4.2</div>
+    <h1>Network Operations<br>Command Center</h1>
+    <p class="cn-hero-desc">Real-time monitoring and control of distributed systems across 47 global edge nodes. Full operational visibility.</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <button class="cn-btn cn-btn--filled">Initialize Scan</button>
+      <button class="cn-btn cn-btn--cyan">View Documentation</button>
+      <button class="cn-btn cn-btn--pink">Emergency Protocol</button>
+    </div>
+  </section>
+
+  <hr class="cn-divider">
+
+  <!-- Stat Cards -->
+  <section class="demo-section">
+    <h2>// System Metrics</h2>
+    <div class="cn-stat-grid">
+      <div class="cn-stat-card">
+        <div class="cn-stat-label">Active Nodes</div>
+        <div class="cn-stat-value">2,847</div>
+        <div class="cn-stat-change">+12.4% from last cycle</div>
+      </div>
+      <div class="cn-stat-card cn-stat-card--pink">
+        <div class="cn-stat-label">Threat Level</div>
+        <div class="cn-stat-value">LOW</div>
+        <div class="cn-stat-change cn-stat-change--down">3 incidents detected</div>
+      </div>
+      <div class="cn-stat-card cn-stat-card--cyan">
+        <div class="cn-stat-label">Data Throughput</div>
+        <div class="cn-stat-value">94.7<span style="font-size:18px;">TB/s</span></div>
+        <div class="cn-stat-change">+3.2% avg bandwidth</div>
+      </div>
+      <div class="cn-stat-card">
+        <div class="cn-stat-label">Uptime</div>
+        <div class="cn-stat-value">99.97<span style="font-size:18px;">%</span></div>
+        <div class="cn-stat-change">142 days since last outage</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Bars -->
+  <section class="demo-section">
+    <h2>// Resource Allocation</h2>
+    <div class="cn-panel cn-panel--glow-green">
+      <div style="margin-bottom: 24px;">
+        <div class="cn-progress-label">
+          <span>CPU Utilization</span>
+          <span style="color: var(--cn-neon-green);">73%</span>
+        </div>
+        <div class="cn-progress">
+          <div class="cn-progress-bar cn-progress-bar--green" style="width: 73%;"></div>
+        </div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="cn-progress-label">
+          <span>Memory Usage</span>
+          <span style="color: var(--cn-neon-pink);">89%</span>
+        </div>
+        <div class="cn-progress">
+          <div class="cn-progress-bar cn-progress-bar--pink" style="width: 89%;"></div>
+        </div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="cn-progress-label">
+          <span>Network I/O</span>
+          <span style="color: var(--cn-neon-cyan);">45%</span>
+        </div>
+        <div class="cn-progress">
+          <div class="cn-progress-bar cn-progress-bar--cyan" style="width: 45%;"></div>
+        </div>
+      </div>
+      <div>
+        <div class="cn-progress-label">
+          <span>Storage</span>
+          <span style="color: var(--cn-neon-green);">62%</span>
+        </div>
+        <div class="cn-progress">
+          <div class="cn-progress-bar cn-progress-bar--green" style="width: 62%;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="cn-divider">
+
+  <!-- Data Grid -->
+  <section class="demo-section">
+    <h2>// Active Connections</h2>
+    <div style="overflow-x: auto;">
+      <table class="cn-data-grid">
+        <thead>
+          <tr>
+            <th>Node ID</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Latency</th>
+            <th>Protocol</th>
+            <th>Last Sync</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: var(--cn-neon-green);">NX-4721</td>
+            <td>Tokyo, JP</td>
+            <td><span class="cn-badge cn-badge--green">Active</span></td>
+            <td>12ms</td>
+            <td>WSS/TLS</td>
+            <td>2s ago</td>
+          </tr>
+          <tr>
+            <td style="color: var(--cn-neon-green);">NX-1138</td>
+            <td>Frankfurt, DE</td>
+            <td><span class="cn-badge cn-badge--green">Active</span></td>
+            <td>28ms</td>
+            <td>QUIC</td>
+            <td>1s ago</td>
+          </tr>
+          <tr>
+            <td style="color: var(--cn-neon-pink);">NX-0093</td>
+            <td>Sao Paulo, BR</td>
+            <td><span class="cn-badge cn-badge--yellow">Degraded</span></td>
+            <td>145ms</td>
+            <td>WSS/TLS</td>
+            <td>14s ago</td>
+          </tr>
+          <tr>
+            <td style="color: var(--cn-neon-cyan);">NX-8844</td>
+            <td>Singapore, SG</td>
+            <td><span class="cn-badge cn-badge--green">Active</span></td>
+            <td>8ms</td>
+            <td>gRPC</td>
+            <td>0s ago</td>
+          </tr>
+          <tr>
+            <td style="color: var(--cn-neon-pink);">NX-2210</td>
+            <td>Mumbai, IN</td>
+            <td><span class="cn-badge cn-badge--pink">Offline</span></td>
+            <td>---</td>
+            <td>---</td>
+            <td>47m ago</td>
+          </tr>
+          <tr>
+            <td style="color: var(--cn-neon-green);">NX-5567</td>
+            <td>New York, US</td>
+            <td><span class="cn-badge cn-badge--green">Active</span></td>
+            <td>3ms</td>
+            <td>QUIC</td>
+            <td>0s ago</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Panels Grid -->
+  <section class="demo-section">
+    <h2>// Operations</h2>
+    <div class="demo-grid-2">
+      <div class="cn-panel cn-panel--glow-green">
+        <div class="cn-panel-title">System Log</div>
+        <div style="font-family: var(--cn-font-mono); font-size: 12px; line-height: 2; color: var(--cn-text-dim);">
+          <div><span style="color: var(--cn-neon-green);">[INFO]</span> Node NX-8844 synchronized</div>
+          <div><span style="color: var(--cn-neon-cyan);">[SYNC]</span> Database replication complete</div>
+          <div><span style="color: var(--cn-neon-yellow);">[WARN]</span> NX-0093 latency exceeding threshold</div>
+          <div><span style="color: var(--cn-neon-pink);">[ALRT]</span> NX-2210 connection lost</div>
+          <div><span style="color: var(--cn-neon-green);">[INFO]</span> Auto-scaling triggered: +3 instances</div>
+          <div><span style="color: var(--cn-neon-green);">[INFO]</span> SSL certificates renewed</div>
+        </div>
+      </div>
+      <div class="cn-panel cn-panel--glow-pink">
+        <div class="cn-panel-title">Quick Actions</div>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <button class="cn-btn cn-btn--sm" style="width: 100%;">Deploy Latest Build</button>
+          <button class="cn-btn cn-btn--sm cn-btn--cyan" style="width: 100%;">Run Diagnostics</button>
+          <button class="cn-btn cn-btn--sm cn-btn--pink" style="width: 100%;">Restart Node NX-2210</button>
+          <button class="cn-btn cn-btn--sm" style="width: 100%;">Flush Cache Layer</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="cn-divider">
+
+  <!-- Form Section -->
+  <section class="demo-section">
+    <h2>// Command Interface</h2>
+    <div class="cn-panel">
+      <div class="demo-grid-2">
+        <div>
+          <label class="cn-input-label">Target Node</label>
+          <input class="cn-input" type="text" placeholder="NX-XXXX">
+        </div>
+        <div>
+          <label class="cn-input-label">Command Type</label>
+          <input class="cn-input" type="text" placeholder="SELECT PROTOCOL...">
+        </div>
+      </div>
+      <div style="margin-top: 16px;">
+        <label class="cn-input-label">Parameters</label>
+        <textarea class="cn-input" rows="3" placeholder="Enter command parameters..." style="resize: vertical;"></textarea>
+      </div>
+      <div style="margin-top: 20px; display: flex; gap: 12px;">
+        <button class="cn-btn cn-btn--filled">Execute Command</button>
+        <button class="cn-btn">Validate Syntax</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Badges Section -->
+  <section class="demo-section">
+    <h2>// Status Badges</h2>
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
+      <span class="cn-badge cn-badge--green">Active</span>
+      <span class="cn-badge cn-badge--pink">Critical</span>
+      <span class="cn-badge cn-badge--cyan">Syncing</span>
+      <span class="cn-badge cn-badge--yellow">Warning</span>
+      <span class="cn-badge cn-badge--green">Deployed</span>
+      <span class="cn-badge cn-badge--pink">Offline</span>
+      <span class="cn-badge cn-badge--cyan">Queued</span>
+    </div>
+    <p style="font-family: var(--cn-font-mono); font-size: 13px; color: var(--cn-text-muted);">
+      // Badges use angular clip-path for the distinctive cyber-cut style. Pair with monospace font and uppercase text.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 48px 0 32px; border-top: 1px solid var(--cn-border);">
+    <div style="font-family: var(--cn-font-mono); font-size: 12px; color: var(--cn-text-muted);">
+      NEXUS_OS v4.2.1 // SESSION: <span style="color: var(--cn-neon-green);">0x7F3A9C</span> // UPTIME: 142d 07h 23m
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

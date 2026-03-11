@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="card-grad-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3e8fd"/>
+      <stop offset="100%" stop-color="#e0f7f5"/>
+    </linearGradient>
+    <linearGradient id="card-grad-2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0f7f5"/>
+      <stop offset="100%" stop-color="#e8f0fe"/>
+    </linearGradient>
+    <filter id="mm-shadow-1">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <filter id="mm-shadow-2">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="300" fill="#fafafa"/>
+
+  <!-- App Bar -->
+  <rect x="0" y="0" width="400" height="40" fill="#ffffff" filter="url(#mm-shadow-1)"/>
+  <rect x="14" y="10" width="20" height="20" rx="6" fill="#6200ee"/>
+  <text x="19" y="25" font-family="sans-serif" font-size="10" font-weight="700" fill="white">M</text>
+  <text x="40" y="26" font-family="sans-serif" font-size="12" font-weight="500" fill="#1c1b1f">Material Studio</text>
+  <rect x="174" y="12" width="44" height="18" rx="9" fill="#f3e8fd"/>
+  <text x="182" y="24" font-family="sans-serif" font-size="8" fill="#6200ee" font-weight="500">Home</text>
+  <text x="230" y="24" font-family="sans-serif" font-size="8" fill="#49454f">Components</text>
+  <text x="298" y="24" font-family="sans-serif" font-size="8" fill="#49454f">Resources</text>
+  <rect x="352" y="11" width="36" height="18" rx="9" fill="#f3e8fd"/>
+  <text x="357" y="23" font-family="sans-serif" font-size="7" fill="#6200ee" font-weight="500">Sign In</text>
+
+  <!-- Hero Area -->
+  <rect x="0" y="40" width="400" height="70" fill="#ffffff" filter="url(#mm-shadow-1)"/>
+  <text x="12" y="56" font-family="sans-serif" font-size="7" font-weight="500" fill="#6200ee" letter-spacing="0.5">MATERIAL DESIGN 3</text>
+  <text x="200" y="80" font-family="sans-serif" font-size="16" font-weight="400" fill="#1c1b1f" text-anchor="middle">Design with purpose</text>
+  <rect x="80" y="90" rx="2" width="240" height="5" fill="#cac4d0" opacity="0.5"/>
+  <!-- Hero buttons -->
+  <rect x="108" y="97" width="56" height="18" rx="9" fill="#6200ee"/>
+  <text x="117" y="109" font-family="sans-serif" font-size="7" font-weight="500" fill="white">Get Started</text>
+  <rect x="170" y="97" width="56" height="18" rx="9" fill="#f3e8fd"/>
+  <text x="175" y="109" font-family="sans-serif" font-size="7" font-weight="500" fill="#6200ee">Components</text>
+  <rect x="232" y="97" width="56" height="18" rx="9" fill="none" stroke="#cac4d0" stroke-width="0.8"/>
+  <text x="240" y="109" font-family="sans-serif" font-size="7" font-weight="500" fill="#6200ee">Learn More</text>
+
+  <!-- Chips Row -->
+  <rect x="12" y="122" width="28" height="14" rx="4" fill="#f3e8fd" stroke="none"/>
+  <text x="20" y="132" font-family="sans-serif" font-size="7" fill="#6200ee" font-weight="500" text-anchor="middle">All</text>
+  <rect x="44" y="122" width="38" height="14" rx="4" fill="none" stroke="#cac4d0" stroke-width="0.6"/>
+  <text x="63" y="132" font-family="sans-serif" font-size="7" fill="#49454f" text-anchor="middle">Design</text>
+  <rect x="86" y="122" width="55" height="14" rx="4" fill="none" stroke="#cac4d0" stroke-width="0.6"/>
+  <text x="113" y="132" font-family="sans-serif" font-size="7" fill="#49454f" text-anchor="middle">Engineering</text>
+  <rect x="145" y="122" width="40" height="14" rx="4" fill="none" stroke="#cac4d0" stroke-width="0.6"/>
+  <text x="165" y="132" font-family="sans-serif" font-size="7" fill="#49454f" text-anchor="middle">Product</text>
+
+  <!-- Cards Row -->
+  <g filter="url(#mm-shadow-2)">
+    <!-- Card 1 -->
+    <rect x="12" y="148" width="120" height="110" rx="8" fill="#ffffff"/>
+    <rect x="12" y="148" width="120" height="48" rx="8" fill="url(#card-grad-1)"/>
+    <rect x="12" y="188" width="120" height="8" rx="0" fill="#ffffff"/>
+    <text x="70" y="178" font-size="20" text-anchor="middle">&#127912;</text>
+    <rect x="22" y="204" rx="2" width="80" height="6" fill="#1c1b1f" opacity="0.15"/>
+    <rect x="22" y="214" rx="2" width="100" height="4" fill="#cac4d0" opacity="0.5"/>
+    <rect x="22" y="222" rx="2" width="70" height="4" fill="#cac4d0" opacity="0.5"/>
+    <rect x="22" y="237" width="48" height="14" rx="7" fill="#6200ee"/>
+    <text x="32" y="247" font-family="sans-serif" font-size="7" fill="white" font-weight="500">Read More</text>
+  </g>
+
+  <g filter="url(#mm-shadow-2)">
+    <!-- Card 2 -->
+    <rect x="140" y="148" width="120" height="110" rx="8" fill="#ffffff"/>
+    <rect x="140" y="148" width="120" height="48" rx="8" fill="url(#card-grad-2)"/>
+    <rect x="140" y="188" width="120" height="8" rx="0" fill="#ffffff"/>
+    <text x="198" y="178" font-size="20" text-anchor="middle">&#128187;</text>
+    <rect x="150" y="204" rx="2" width="80" height="6" fill="#1c1b1f" opacity="0.15"/>
+    <rect x="150" y="214" rx="2" width="100" height="4" fill="#cac4d0" opacity="0.5"/>
+    <rect x="150" y="222" rx="2" width="70" height="4" fill="#cac4d0" opacity="0.5"/>
+    <rect x="150" y="237" width="48" height="14" rx="7" fill="#6200ee"/>
+    <text x="160" y="247" font-family="sans-serif" font-size="7" fill="white" font-weight="500">Read More</text>
+  </g>
+
+  <!-- Text Field Preview -->
+  <rect x="280" y="148" width="108" height="36" rx="3" fill="none" stroke="#79747e" stroke-width="0.8"/>
+  <text x="290" y="139" font-family="sans-serif" font-size="7" fill="#6200ee" font-weight="500">Full Name</text>
+  <text x="290" y="170" font-family="sans-serif" font-size="9" fill="#1c1b1f">John Doe</text>
+
+  <rect x="280" y="196" width="108" height="36" rx="3" fill="none" stroke="#79747e" stroke-width="0.8"/>
+  <text x="290" y="187" font-family="sans-serif" font-size="7" fill="#79747e">Email Address</text>
+  <rect x="290" y="210" rx="1" width="60" height="5" fill="#cac4d0" opacity="0.4"/>
+
+  <rect x="280" y="243" width="108" height="18" rx="9" fill="#6200ee"/>
+  <text x="334" y="256" font-family="sans-serif" font-size="8" fill="white" font-weight="500" text-anchor="middle">Sign Up</text>
+
+  <!-- List items -->
+  <rect x="12" y="270" width="250" height="22" rx="11" fill="transparent"/>
+  <circle cx="26" cy="281" r="10" fill="#f3e8fd"/>
+  <text x="22" y="285" font-size="10">&#128100;</text>
+  <text x="42" y="280" font-family="sans-serif" font-size="8" fill="#1c1b1f">Profile Settings</text>
+  <text x="42" y="290" font-family="sans-serif" font-size="6" fill="#79747e">Edit your profile info</text>
+
+  <!-- FAB -->
+  <rect x="338" y="268" width="52" height="24" rx="8" fill="#f3e8fd" filter="url(#mm-shadow-2)"/>
+  <text x="347" y="284" font-family="sans-serif" font-size="10" fill="#6200ee">&#9998;</text>
+  <text x="358" y="284" font-family="sans-serif" font-size="8" fill="#6200ee" font-weight="500">Edit</text>
+
+  <!-- Border -->
+  <rect x="0.5" y="0.5" width="399" height="299" fill="none" stroke="#cac4d0" stroke-width="0.5" rx="4"/>
+</svg>

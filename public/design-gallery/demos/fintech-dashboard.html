@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fintech Dashboard — Design System Demo</title>
+  <link rel="stylesheet" href="../styles/fintech-dashboard.css">
+</head>
+<body>
+  <div class="ft-app">
+
+    <!-- ─── Top Navigation ─── -->
+    <nav class="ft-topnav">
+      <a href="#" class="ft-topnav__brand">
+        <div class="ft-topnav__brand-icon">FP</div>
+        FinancePro
+      </a>
+
+      <div class="ft-topnav__search">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7f99" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search transactions, accounts...">
+      </div>
+
+      <div class="ft-topnav__actions">
+        <button class="ft-icon-btn" title="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="ft-icon-btn__badge"></span>
+        </button>
+        <div class="ft-topnav__user">
+          <div class="ft-topnav__avatar">JD</div>
+          <span style="font-size: 0.85rem; color: #93a5be;">John Doe</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6b7f99" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ─── Sidebar ─── -->
+    <aside class="ft-sidebar">
+      <div class="ft-sidebar__section">
+        <div class="ft-sidebar__title">Main</div>
+        <a href="#" class="ft-sidebar__item ft-sidebar__item--active">
+          <span class="ft-sidebar__item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          </span>
+          Dashboard
+        </a>
+        <a href="#" class="ft-sidebar__item">
+          <span class="ft-sidebar__item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </span>
+          Transactions
+        </a>
+        <a href="#" class="ft-sidebar__item">
+          <span class="ft-sidebar__item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          </span>
+          Accounts
+        </a>
+        <a href="#" class="ft-sidebar__item">
+          <span class="ft-sidebar__item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </span>
+          Analytics
+        </a>
+        <a href="#" class="ft-sidebar__item">
+          <span class="ft-sidebar__item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6M23 11h-6"/></svg>
+          </span>
+          Payees
+        </a>
+      </div>
+
+      <div class="ft-sidebar__section">
+        <div class="ft-sidebar__title">Banking</div>
+        <a href="#" class="ft-sidebar__item">
+          <span class="ft-sidebar__item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4h-4z"/></svg>
+          </span>
+          Wallets
+        </a>
+        <a href="#" class="ft-sidebar__item">
+          <span class="ft-sidebar__item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </span>
+          Invoices
+        </a>
+        <a href="#" class="ft-sidebar__item">
+          <span class="ft-sidebar__item-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </span>
+          Settings
+        </a>
+      </div>
+    </aside>
+
+    <!-- ─── Main Content ─── -->
+    <main class="ft-main">
+      <div class="ft-main__header">
+        <div>
+          <h1 class="ft-main__title">Dashboard</h1>
+          <p class="ft-main__subtitle">Overview of your financial activity</p>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <select class="ft-select">
+            <option>Last 30 days</option>
+            <option>Last 7 days</option>
+            <option>Last 90 days</option>
+            <option>This year</option>
+          </select>
+          <button class="ft-btn ft-btn--primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export
+          </button>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="ft-kpis">
+        <div class="ft-kpi">
+          <div class="ft-kpi__header">
+            <span class="ft-kpi__label">Total Balance</span>
+            <div class="ft-kpi__icon ft-kpi__icon--blue">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+          </div>
+          <div class="ft-kpi__value">$284,592.40</div>
+          <div class="ft-kpi__change ft-kpi__change--up">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            +12.5%
+            <span class="ft-kpi__period">vs last month</span>
+          </div>
+        </div>
+
+        <div class="ft-kpi">
+          <div class="ft-kpi__header">
+            <span class="ft-kpi__label">Monthly Income</span>
+            <div class="ft-kpi__icon ft-kpi__icon--green">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            </div>
+          </div>
+          <div class="ft-kpi__value">$42,850.00</div>
+          <div class="ft-kpi__change ft-kpi__change--up">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            +8.2%
+            <span class="ft-kpi__period">vs last month</span>
+          </div>
+        </div>
+
+        <div class="ft-kpi">
+          <div class="ft-kpi__header">
+            <span class="ft-kpi__label">Monthly Expenses</span>
+            <div class="ft-kpi__icon ft-kpi__icon--red">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg>
+            </div>
+          </div>
+          <div class="ft-kpi__value">$28,340.15</div>
+          <div class="ft-kpi__change ft-kpi__change--down">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg>
+            +3.1%
+            <span class="ft-kpi__period">vs last month</span>
+          </div>
+        </div>
+
+        <div class="ft-kpi">
+          <div class="ft-kpi__header">
+            <span class="ft-kpi__label">Pending</span>
+            <div class="ft-kpi__icon ft-kpi__icon--yellow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+          </div>
+          <div class="ft-kpi__value">$6,420.00</div>
+          <div class="ft-kpi__change" style="color: var(--ft-text-muted);">
+            7 transactions
+            <span class="ft-kpi__period">awaiting</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="ft-chart-section">
+        <div class="ft-chart">
+          <div class="ft-chart__header">
+            <h3 class="ft-chart__title">Revenue Overview</h3>
+            <div class="ft-chart__tabs">
+              <button class="ft-chart__tab">1W</button>
+              <button class="ft-chart__tab ft-chart__tab--active">1M</button>
+              <button class="ft-chart__tab">3M</button>
+              <button class="ft-chart__tab">1Y</button>
+            </div>
+          </div>
+          <div class="ft-chart__placeholder">
+            <div class="ft-chart__bar" style="height: 45%"></div>
+            <div class="ft-chart__bar" style="height: 62%"></div>
+            <div class="ft-chart__bar" style="height: 55%"></div>
+            <div class="ft-chart__bar" style="height: 78%"></div>
+            <div class="ft-chart__bar" style="height: 40%"></div>
+            <div class="ft-chart__bar" style="height: 95%"></div>
+            <div class="ft-chart__bar" style="height: 72%"></div>
+            <div class="ft-chart__bar" style="height: 68%"></div>
+            <div class="ft-chart__bar" style="height: 82%"></div>
+            <div class="ft-chart__bar" style="height: 58%"></div>
+            <div class="ft-chart__bar" style="height: 90%"></div>
+            <div class="ft-chart__bar" style="height: 75%"></div>
+            <div class="ft-chart__bar" style="height: 48%"></div>
+            <div class="ft-chart__bar" style="height: 66%"></div>
+            <div class="ft-chart__bar" style="height: 85%"></div>
+            <div class="ft-chart__bar" style="height: 52%"></div>
+            <div class="ft-chart__bar" style="height: 70%"></div>
+            <div class="ft-chart__bar" style="height: 60%"></div>
+            <div class="ft-chart__bar" style="height: 88%"></div>
+            <div class="ft-chart__bar" style="height: 73%"></div>
+          </div>
+        </div>
+
+        <div class="ft-chart">
+          <div class="ft-chart__header">
+            <h3 class="ft-chart__title">Allocation</h3>
+          </div>
+          <div class="ft-donut">
+            <div class="ft-donut__chart"></div>
+            <div class="ft-donut__legend">
+              <div class="ft-donut__legend-item">
+                <span class="ft-donut__legend-dot" style="background: var(--ft-primary)"></span>
+                Stocks 40%
+              </div>
+              <div class="ft-donut__legend-item">
+                <span class="ft-donut__legend-dot" style="background: var(--ft-success)"></span>
+                Bonds 24%
+              </div>
+              <div class="ft-donut__legend-item">
+                <span class="ft-donut__legend-dot" style="background: var(--ft-warning)"></span>
+                Crypto 20%
+              </div>
+              <div class="ft-donut__legend-item">
+                <span class="ft-donut__legend-dot" style="background: var(--ft-danger)"></span>
+                Cash 16%
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transactions Table -->
+      <div class="ft-table-card">
+        <div class="ft-table-card__header">
+          <h3 class="ft-table-card__title">Recent Transactions</h3>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" class="ft-input" placeholder="Filter transactions..." style="width: 200px;">
+            <button class="ft-btn ft-btn--ghost ft-btn--sm">View All</button>
+          </div>
+        </div>
+        <table class="ft-table">
+          <thead>
+            <tr>
+              <th>Transaction</th>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: 500;">Wire Transfer — Acme Corp</td>
+              <td style="color: var(--ft-text-muted);">Mar 10, 2026</td>
+              <td><span class="ft-badge ft-badge--info"><span class="ft-badge__dot"></span> Business</span></td>
+              <td class="ft-table__amount ft-table__amount--positive">+$12,500.00</td>
+              <td><span class="ft-badge ft-badge--success"><span class="ft-badge__dot"></span> Completed</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">AWS Cloud Services</td>
+              <td style="color: var(--ft-text-muted);">Mar 09, 2026</td>
+              <td><span class="ft-badge ft-badge--warning"><span class="ft-badge__dot"></span> Software</span></td>
+              <td class="ft-table__amount ft-table__amount--negative">-$2,340.00</td>
+              <td><span class="ft-badge ft-badge--success"><span class="ft-badge__dot"></span> Completed</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Salary Deposit — March</td>
+              <td style="color: var(--ft-text-muted);">Mar 08, 2026</td>
+              <td><span class="ft-badge ft-badge--info"><span class="ft-badge__dot"></span> Payroll</span></td>
+              <td class="ft-table__amount ft-table__amount--positive">+$8,750.00</td>
+              <td><span class="ft-badge ft-badge--success"><span class="ft-badge__dot"></span> Completed</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Office Rent Payment</td>
+              <td style="color: var(--ft-text-muted);">Mar 07, 2026</td>
+              <td><span class="ft-badge ft-badge--danger"><span class="ft-badge__dot"></span> Rent</span></td>
+              <td class="ft-table__amount ft-table__amount--negative">-$4,200.00</td>
+              <td><span class="ft-badge ft-badge--warning"><span class="ft-badge__dot"></span> Pending</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">Client Payment — TechStart Inc</td>
+              <td style="color: var(--ft-text-muted);">Mar 06, 2026</td>
+              <td><span class="ft-badge ft-badge--info"><span class="ft-badge__dot"></span> Business</span></td>
+              <td class="ft-table__amount ft-table__amount--positive">+$18,900.00</td>
+              <td><span class="ft-badge ft-badge--success"><span class="ft-badge__dot"></span> Completed</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: 500;">International Transfer — EU Office</td>
+              <td style="color: var(--ft-text-muted);">Mar 05, 2026</td>
+              <td><span class="ft-badge ft-badge--warning"><span class="ft-badge__dot"></span> Transfer</span></td>
+              <td class="ft-table__amount ft-table__amount--negative">-$15,000.00</td>
+              <td><span class="ft-badge ft-badge--danger"><span class="ft-badge__dot"></span> Failed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+  </div>
+</body>
+</html>

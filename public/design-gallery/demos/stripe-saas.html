@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stripe SaaS - Design System Demo</title>
+  <link rel="stylesheet" href="../styles/stripe-saas.css">
+  <style>
+    .demo-glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .demo-orb-purple {
+      width: 500px;
+      height: 500px;
+      background: rgba(99, 91, 255, 0.15);
+      top: -100px;
+      right: -150px;
+    }
+    .demo-orb-teal {
+      width: 400px;
+      height: 400px;
+      background: rgba(0, 212, 170, 0.1);
+      bottom: -100px;
+      left: -100px;
+    }
+    .demo-code-window {
+      background: #0f2d4d;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 640px;
+      margin: 48px auto 0;
+      text-align: left;
+    }
+    .demo-code-titlebar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .demo-code-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .demo-code-body {
+      padding: 20px 24px;
+      font-family: "SF Mono", "Fira Code", monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #adbdcc;
+    }
+    .demo-code-purple { color: #a78bfa; }
+    .demo-code-teal { color: #00d4aa; }
+    .demo-code-orange { color: #fb923c; }
+    .demo-code-white { color: #ffffff; }
+    .demo-code-comment { color: #4a6a8a; }
+    .demo-logo-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 40px 24px;
+      opacity: 0.4;
+      font-size: 18px;
+      font-weight: 600;
+      color: #adbdcc;
+    }
+    .demo-metric-card-value {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 12px 0 4px;
+    }
+    .demo-metric-card-change {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .demo-metric-card-change.positive { color: #00d4aa; }
+    .demo-metric-card-change.negative { color: #ff6b6b; }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="stripe-nav">
+    <div class="stripe-nav-inner">
+      <a href="#" class="stripe-nav-logo">Pay<span>flow</span></a>
+      <ul class="stripe-nav-links">
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Developers</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="#" class="stripe-btn stripe-btn-outline stripe-btn-sm">Sign in</a>
+        <a href="#" class="stripe-btn stripe-btn-primary stripe-btn-sm">Start now &#8594;</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="stripe-gradient-hero stripe-grid-bg" style="position: relative; overflow: hidden;">
+    <div class="demo-glow-orb demo-orb-purple"></div>
+    <div class="demo-glow-orb demo-orb-teal"></div>
+    <section class="stripe-hero">
+      <span class="stripe-overline">Financial Infrastructure</span>
+      <h1 class="stripe-h1" style="margin-top: 16px;">
+        Payments for the<br>
+        <span class="stripe-gradient-text">internet economy</span>
+      </h1>
+      <p class="stripe-body" style="font-size: 20px;">
+        Accept payments, send payouts, and automate financial processes with a fully integrated suite of APIs and tools.
+      </p>
+      <div class="stripe-hero-actions">
+        <a href="#" class="stripe-btn stripe-btn-primary stripe-btn-lg">Start now &#8594;</a>
+        <a href="#" class="stripe-btn stripe-btn-outline stripe-btn-lg">Contact sales</a>
+      </div>
+
+      <!-- Code Window -->
+      <div class="demo-code-window">
+        <div class="demo-code-titlebar">
+          <div class="demo-code-dot" style="background: #ff5f57;"></div>
+          <div class="demo-code-dot" style="background: #febc2e;"></div>
+          <div class="demo-code-dot" style="background: #28c840;"></div>
+          <span style="margin-left: 8px; color: #4a6a8a; font-size: 12px;">server.js</span>
+        </div>
+        <div class="demo-code-body">
+          <div><span class="demo-code-purple">const</span> <span class="demo-code-white">payflow</span> = <span class="demo-code-purple">require</span>(<span class="demo-code-teal">'payflow'</span>)(<span class="demo-code-orange">process.env.SECRET_KEY</span>);</div>
+          <br>
+          <div><span class="demo-code-purple">const</span> <span class="demo-code-white">payment</span> = <span class="demo-code-purple">await</span> payflow.charges.<span class="demo-code-white">create</span>({</div>
+          <div>&nbsp;&nbsp;amount: <span class="demo-code-orange">2000</span>,</div>
+          <div>&nbsp;&nbsp;currency: <span class="demo-code-teal">'usd'</span>,</div>
+          <div>&nbsp;&nbsp;source: <span class="demo-code-teal">'tok_visa'</span>,</div>
+          <div>&nbsp;&nbsp;description: <span class="demo-code-teal">'Pro subscription'</span></div>
+          <div>});</div>
+          <br>
+          <div class="demo-code-comment">// Payment processed in 230ms</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Logo Strip -->
+  <div class="demo-logo-strip">
+    <span>Amazon</span>
+    <span>Google</span>
+    <span>Shopify</span>
+    <span>Lyft</span>
+    <span>Slack</span>
+  </div>
+
+  <!-- Metrics Section -->
+  <section class="stripe-section">
+    <div class="stripe-section-title">
+      <span class="stripe-overline">By the numbers</span>
+      <h2 class="stripe-h2" style="color: #ffffff; margin-top: 12px;">Built for scale</h2>
+      <p class="stripe-body" style="max-width: 560px; margin: 12px auto 0;">
+        Powering millions of businesses in over 120 countries with industry-leading reliability.
+      </p>
+    </div>
+    <div class="stripe-grid stripe-grid-4">
+      <div class="stripe-card-dark" style="padding: 28px; border-radius: 12px; text-align: center;">
+        <div class="stripe-caption">Total Volume</div>
+        <div class="demo-metric-card-value" style="color: #ffffff;">$640B</div>
+        <div class="demo-metric-card-change positive">&#8593; 32% YoY</div>
+      </div>
+      <div class="stripe-card-dark" style="padding: 28px; border-radius: 12px; text-align: center;">
+        <div class="stripe-caption">Uptime SLA</div>
+        <div class="demo-metric-card-value" style="color: #ffffff;">99.99%</div>
+        <div class="demo-metric-card-change positive">Enterprise grade</div>
+      </div>
+      <div class="stripe-card-dark" style="padding: 28px; border-radius: 12px; text-align: center;">
+        <div class="stripe-caption">API Calls / Day</div>
+        <div class="demo-metric-card-value" style="color: #ffffff;">5.2B</div>
+        <div class="demo-metric-card-change positive">&#8593; 47% YoY</div>
+      </div>
+      <div class="stripe-card-dark" style="padding: 28px; border-radius: 12px; text-align: center;">
+        <div class="stripe-caption">Countries</div>
+        <div class="demo-metric-card-value" style="color: #ffffff;">120+</div>
+        <div class="demo-metric-card-change positive">Global coverage</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="stripe-section">
+    <div class="stripe-section-title">
+      <span class="stripe-overline">Products</span>
+      <h2 class="stripe-h2" style="color: #ffffff; margin-top: 12px;">A fully integrated suite</h2>
+      <p class="stripe-body">Everything you need to build, run, and grow your online business.</p>
+    </div>
+    <div class="stripe-grid stripe-grid-3">
+      <div class="stripe-card" style="text-align: left;">
+        <div class="stripe-feature-icon stripe-feature-icon-purple">&#128179;</div>
+        <h3 class="stripe-h3" style="color: #0a2540; margin-bottom: 10px;">Payments</h3>
+        <p class="stripe-body-dark">
+          Accept and process payments from anywhere in the world with a single integration. Support for 135+ currencies.
+        </p>
+        <a href="#" style="display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; color: #635bff; text-decoration: none;">
+          Learn more &#8594;
+        </a>
+      </div>
+      <div class="stripe-card" style="text-align: left;">
+        <div class="stripe-feature-icon stripe-feature-icon-teal">&#128202;</div>
+        <h3 class="stripe-h3" style="color: #0a2540; margin-bottom: 10px;">Billing</h3>
+        <p class="stripe-body-dark">
+          Flexible subscription and invoicing tools that adapt to any pricing model. Automate recurring revenue.
+        </p>
+        <a href="#" style="display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; color: #635bff; text-decoration: none;">
+          Learn more &#8594;
+        </a>
+      </div>
+      <div class="stripe-card" style="text-align: left;">
+        <div class="stripe-feature-icon stripe-feature-icon-purple">&#128272;</div>
+        <h3 class="stripe-h3" style="color: #0a2540; margin-bottom: 10px;">Fraud Prevention</h3>
+        <p class="stripe-body-dark">
+          Machine learning-powered fraud detection that blocks bad actors while minimizing false positives.
+        </p>
+        <a href="#" style="display: inline-block; margin-top: 16px; font-size: 14px; font-weight: 600; color: #635bff; text-decoration: none;">
+          Learn more &#8594;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <div class="stripe-section-light" style="padding: 100px 0;">
+    <div class="stripe-section-inner">
+      <div class="stripe-section-title">
+        <span class="stripe-overline" style="color: #635bff;">Pricing</span>
+        <h2 class="stripe-h2" style="color: #0a2540; margin-top: 12px;">Simple, transparent pricing</h2>
+        <p class="stripe-body-dark">No hidden fees. No surprise charges. Pay only for what you use.</p>
+      </div>
+      <div class="stripe-grid stripe-grid-3">
+        <!-- Starter -->
+        <div class="stripe-card" style="text-align: center;">
+          <div class="stripe-h4" style="color: #0a2540;">Starter</div>
+          <div class="stripe-pricing-price">
+            2.9%<span> + 30&#162;</span>
+          </div>
+          <p class="stripe-body-dark" style="font-size: 14px;">per successful charge</p>
+          <ul class="stripe-pricing-features">
+            <li>Full API access</li>
+            <li>Basic fraud protection</li>
+            <li>Email support</li>
+            <li>Standard payouts</li>
+          </ul>
+          <a href="#" class="stripe-btn stripe-btn-outline" style="width: 100%; border-color: #e6e9ec; color: #0a2540;">Get started</a>
+        </div>
+        <!-- Pro (Featured) -->
+        <div class="stripe-card stripe-card-featured" style="text-align: center;">
+          <div class="stripe-card-featured-badge">Most Popular</div>
+          <div class="stripe-h4" style="color: #0a2540;">Professional</div>
+          <div class="stripe-pricing-price">
+            2.5%<span> + 30&#162;</span>
+          </div>
+          <p class="stripe-body-dark" style="font-size: 14px;">per successful charge</p>
+          <ul class="stripe-pricing-features">
+            <li>Everything in Starter</li>
+            <li>Advanced fraud tools</li>
+            <li>Priority support</li>
+            <li>Instant payouts</li>
+          </ul>
+          <a href="#" class="stripe-btn stripe-btn-primary" style="width: 100%;">Get started</a>
+        </div>
+        <!-- Enterprise -->
+        <div class="stripe-card" style="text-align: center;">
+          <div class="stripe-h4" style="color: #0a2540;">Enterprise</div>
+          <div class="stripe-pricing-price">Custom</div>
+          <p class="stripe-body-dark" style="font-size: 14px;">volume-based pricing</p>
+          <ul class="stripe-pricing-features">
+            <li>Everything in Professional</li>
+            <li>Dedicated account manager</li>
+            <li>Custom integrations</li>
+            <li>SLA guarantee</li>
+          </ul>
+          <a href="#" class="stripe-btn stripe-btn-outline" style="width: 100%; border-color: #e6e9ec; color: #0a2540;">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Section -->
+  <section class="stripe-section" style="max-width: 480px; margin: 0 auto;">
+    <h3 class="stripe-h3" style="text-align: center; margin-bottom: 24px;">Stay updated</h3>
+    <div style="display: flex; gap: 12px;">
+      <input type="email" class="stripe-input stripe-input-dark" placeholder="Enter your email">
+      <a href="#" class="stripe-btn stripe-btn-teal" style="flex-shrink: 0;">Subscribe</a>
+    </div>
+    <div style="text-align: center; margin-top: 16px;">
+      <span class="stripe-badge stripe-badge-teal">No spam, ever</span>
+    </div>
+  </section>
+
+  <!-- Badges Showcase -->
+  <section class="stripe-section" style="text-align: center;">
+    <h3 class="stripe-h3" style="margin-bottom: 20px;">Status Badges</h3>
+    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+      <span class="stripe-badge stripe-badge-primary">Integration</span>
+      <span class="stripe-badge stripe-badge-teal">Active</span>
+      <span class="stripe-badge stripe-badge-light">Pending</span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <hr class="stripe-divider">
+  <footer class="stripe-footer">
+    <span class="stripe-footer-text">&copy; 2026 Payflow Inc.</span>
+    <ul class="stripe-footer-links">
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Docs</a></li>
+      <li><a href="#">Status</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>

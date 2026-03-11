@@ -44,6 +44,24 @@ export default function Home() {
         </Link>
       </div>
 
+      {/* Design Gallery CTA */}
+      <div className="max-w-5xl mx-auto px-6 pb-4">
+        <a
+          href="/design-gallery/"
+          className="group block rounded-lg border border-gray-200 bg-white p-5 transition-all hover:border-purple-300 hover:shadow-sm"
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-2xl">🎨</span>
+            <h2 className="text-lg font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
+              Design Gallery
+            </h2>
+          </div>
+          <p className="text-sm text-gray-900 leading-relaxed">
+            12 מערכות עיצוב מוכנות לשימוש — דמו חי, קוד CSS, ו-Skill Prompt להפעלת Claude
+          </p>
+        </a>
+      </div>
+
       {/* Category Cards */}
       <main className="max-w-5xl mx-auto px-6 pb-20">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,0 +1,507 @@
+/* ============================================
+   Vercel Minimal Design System
+   Version: 1.0
+   ============================================ */
+
+/* --- CSS Custom Properties --- */
+:root {
+  --vercel-bg: #000000;
+  --vercel-bg-secondary: #0a0a0a;
+  --vercel-surface: #111111;
+  --vercel-text: #ffffff;
+  --vercel-text-secondary: #888888;
+  --vercel-text-tertiary: #666666;
+  --vercel-link: #0070f3;
+  --vercel-link-hover: #3291ff;
+  --vercel-border: #333333;
+  --vercel-border-light: #222222;
+  --vercel-success: #0070f3;
+  --vercel-error: #ee0000;
+  --vercel-warning: #f5a623;
+  --vercel-radius: 8px;
+  --vercel-radius-sm: 5px;
+  --vercel-radius-lg: 12px;
+  --vercel-radius-pill: 100px;
+  --vercel-font: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --vercel-mono: "Geist Mono", "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+  --vercel-transition: 0.15s ease;
+  --vercel-max-width: 1100px;
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--vercel-font);
+  background-color: var(--vercel-bg);
+  color: var(--vercel-text);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--vercel-link);
+  text-decoration: none;
+  transition: color var(--vercel-transition);
+}
+
+a:hover {
+  color: var(--vercel-link-hover);
+}
+
+/* --- Typography --- */
+.vercel-h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.vercel-h2 {
+  font-size: 40px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.vercel-h3 {
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.vercel-h4 {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.vercel-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--vercel-text-secondary);
+}
+
+.vercel-body-sm {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--vercel-text-secondary);
+}
+
+.vercel-caption {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--vercel-text-tertiary);
+}
+
+.vercel-mono {
+  font-family: var(--vercel-mono);
+}
+
+/* --- Navigation --- */
+.vercel-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--vercel-border);
+}
+
+.vercel-nav-inner {
+  max-width: var(--vercel-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vercel-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.vercel-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vercel-text);
+  text-decoration: none;
+}
+
+.vercel-nav-triangle {
+  width: 0;
+  height: 0;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 19px solid var(--vercel-text);
+}
+
+.vercel-nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.vercel-nav-links a {
+  font-size: 14px;
+  color: var(--vercel-text-secondary);
+  text-decoration: none;
+  transition: color var(--vercel-transition);
+}
+
+.vercel-nav-links a:hover {
+  color: var(--vercel-text);
+}
+
+.vercel-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* --- Hero Section --- */
+.vercel-hero {
+  text-align: center;
+  padding: 120px 24px 80px;
+  max-width: var(--vercel-max-width);
+  margin: 0 auto;
+}
+
+.vercel-hero .vercel-h1 {
+  margin-bottom: 24px;
+}
+
+.vercel-hero .vercel-body {
+  font-size: 20px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.vercel-hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- Buttons --- */
+.vercel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--vercel-font);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: var(--vercel-radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--vercel-transition);
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.vercel-btn-primary {
+  background: var(--vercel-text);
+  color: var(--vercel-bg);
+  border-color: var(--vercel-text);
+}
+
+.vercel-btn-primary:hover {
+  background: var(--vercel-text-secondary);
+  border-color: var(--vercel-text-secondary);
+}
+
+.vercel-btn-secondary {
+  background: transparent;
+  color: var(--vercel-text);
+  border-color: var(--vercel-border);
+}
+
+.vercel-btn-secondary:hover {
+  border-color: var(--vercel-text);
+}
+
+.vercel-btn-ghost {
+  background: transparent;
+  color: var(--vercel-text-secondary);
+  border-color: transparent;
+}
+
+.vercel-btn-ghost:hover {
+  color: var(--vercel-text);
+}
+
+.vercel-btn-sm {
+  font-size: 13px;
+  padding: 6px 12px;
+}
+
+.vercel-btn-lg {
+  font-size: 16px;
+  padding: 12px 28px;
+}
+
+.vercel-btn-pill {
+  border-radius: var(--vercel-radius-pill);
+}
+
+/* --- Code Block --- */
+.vercel-code-block {
+  background: var(--vercel-surface);
+  border: 1px solid var(--vercel-border);
+  border-radius: var(--vercel-radius);
+  padding: 24px;
+  font-family: var(--vercel-mono);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--vercel-text-secondary);
+  overflow-x: auto;
+  position: relative;
+}
+
+.vercel-code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--vercel-border);
+  font-family: var(--vercel-font);
+  font-size: 13px;
+  color: var(--vercel-text-tertiary);
+}
+
+.vercel-code-inline {
+  font-family: var(--vercel-mono);
+  font-size: 14px;
+  background: var(--vercel-surface);
+  border: 1px solid var(--vercel-border);
+  border-radius: var(--vercel-radius-sm);
+  padding: 2px 8px;
+  color: var(--vercel-text);
+}
+
+.vercel-code-keyword { color: #ff7b72; }
+.vercel-code-string { color: #a5d6ff; }
+.vercel-code-func { color: #d2a8ff; }
+.vercel-code-comment { color: var(--vercel-text-tertiary); }
+.vercel-code-tag { color: #7ee787; }
+
+/* --- Cards --- */
+.vercel-card {
+  background: var(--vercel-bg);
+  border: 1px solid var(--vercel-border);
+  border-radius: var(--vercel-radius-lg);
+  padding: 24px;
+  transition: border-color var(--vercel-transition);
+}
+
+.vercel-card:hover {
+  border-color: var(--vercel-text-secondary);
+}
+
+.vercel-card-surface {
+  background: var(--vercel-surface);
+}
+
+/* --- Feature Grid --- */
+.vercel-grid {
+  display: grid;
+  gap: 24px;
+  max-width: var(--vercel-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.vercel-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.vercel-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.vercel-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* --- Sections --- */
+.vercel-section {
+  padding: 80px 24px;
+  max-width: var(--vercel-max-width);
+  margin: 0 auto;
+}
+
+.vercel-section-title {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.vercel-section-title .vercel-body {
+  max-width: 540px;
+  margin: 16px auto 0;
+}
+
+/* --- Form Inputs --- */
+.vercel-input {
+  font-family: var(--vercel-font);
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--vercel-border);
+  border-radius: var(--vercel-radius);
+  background: var(--vercel-bg);
+  color: var(--vercel-text);
+  width: 100%;
+  transition: border-color var(--vercel-transition), box-shadow var(--vercel-transition);
+  outline: none;
+}
+
+.vercel-input:focus {
+  border-color: var(--vercel-text);
+  box-shadow: none;
+}
+
+.vercel-input::placeholder {
+  color: var(--vercel-text-tertiary);
+}
+
+/* --- Badges --- */
+.vercel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--vercel-radius-pill);
+  border: 1px solid var(--vercel-border);
+  color: var(--vercel-text-secondary);
+}
+
+.vercel-badge-blue {
+  border-color: var(--vercel-link);
+  color: var(--vercel-link);
+  background: rgba(0, 112, 243, 0.1);
+}
+
+.vercel-badge-success {
+  border-color: #0070f3;
+  color: #0070f3;
+  background: rgba(0, 112, 243, 0.1);
+}
+
+.vercel-badge-error {
+  border-color: var(--vercel-error);
+  color: var(--vercel-error);
+  background: rgba(238, 0, 0, 0.1);
+}
+
+.vercel-badge-warning {
+  border-color: var(--vercel-warning);
+  color: var(--vercel-warning);
+  background: rgba(245, 166, 35, 0.1);
+}
+
+/* --- Geometric Separator --- */
+.vercel-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+.vercel-separator-line {
+  height: 1px;
+  flex: 1;
+  background: var(--vercel-border);
+}
+
+.vercel-separator-diamond {
+  width: 6px;
+  height: 6px;
+  background: var(--vercel-border);
+  transform: rotate(45deg);
+  margin: 0 16px;
+}
+
+/* --- Divider --- */
+.vercel-divider {
+  border: none;
+  height: 1px;
+  background: var(--vercel-border);
+}
+
+/* --- Footer --- */
+.vercel-footer {
+  border-top: 1px solid var(--vercel-border);
+  padding: 40px 24px;
+  max-width: var(--vercel-max-width);
+  margin: 0 auto;
+}
+
+.vercel-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.vercel-footer-col h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--vercel-text);
+  margin-bottom: 16px;
+}
+
+.vercel-footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vercel-footer-col a {
+  font-size: 14px;
+  color: var(--vercel-text-secondary);
+  text-decoration: none;
+  transition: color var(--vercel-transition);
+}
+
+.vercel-footer-col a:hover {
+  color: var(--vercel-text);
+}
+
+.vercel-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--vercel-border);
+  font-size: 14px;
+  color: var(--vercel-text-secondary);
+}
+
+/* --- Responsive --- */
+@media (max-width: 767px) {
+  .vercel-h1 { font-size: 36px; }
+  .vercel-h2 { font-size: 28px; }
+  .vercel-h3 { font-size: 20px; }
+  .vercel-hero { padding: 80px 24px 48px; }
+  .vercel-section { padding: 48px 24px; }
+  .vercel-grid-2,
+  .vercel-grid-3,
+  .vercel-grid-4 { grid-template-columns: 1fr; }
+  .vercel-nav-links { display: none; }
+  .vercel-footer-inner { flex-direction: column; gap: 32px; }
+  .vercel-footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}

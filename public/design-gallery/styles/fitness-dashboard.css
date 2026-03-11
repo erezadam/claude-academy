@@ -1,0 +1,542 @@
+/*
+ * Fitness Dashboard Design System
+ * Bold, energetic dark theme for workout tracking
+ * Version: 1.0
+ */
+
+/* ─── CSS Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Primary Palette */
+  --fit-bg: #1a1a2e;
+  --fit-bg-secondary: #16162a;
+  --fit-card: #2d2d44;
+  --fit-card-hover: #353550;
+  --fit-border: #3d3d5c;
+
+  /* Accent Colors */
+  --fit-primary: #ff6b35;
+  --fit-primary-hover: #ff5519;
+  --fit-accent: #ffc857;
+  --fit-gradient: linear-gradient(135deg, #ff6b35 0%, #ffc857 100%);
+  --fit-gradient-hover: linear-gradient(135deg, #ff5519 0%, #f0b830 100%);
+  --fit-success: #27c93f;
+  --fit-danger: #ff3b5c;
+  --fit-info: #5b8def;
+
+  /* Text Colors */
+  --fit-text: #f0f0f8;
+  --fit-text-secondary: #a0a0be;
+  --fit-text-muted: #6e6e8a;
+
+  /* Typography */
+  --fit-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fit-font-heading: 'Impact', 'Arial Narrow', system-ui, sans-serif;
+
+  /* Spacing */
+  --fit-space-xs: 4px;
+  --fit-space-sm: 8px;
+  --fit-space-md: 16px;
+  --fit-space-lg: 24px;
+  --fit-space-xl: 32px;
+  --fit-space-2xl: 48px;
+
+  /* Borders & Radius */
+  --fit-radius-sm: 8px;
+  --fit-radius: 16px;
+  --fit-radius-lg: 20px;
+  --fit-radius-full: 100px;
+
+  /* Shadows */
+  --fit-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --fit-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --fit-shadow-glow: 0 4px 20px rgba(255, 107, 53, 0.3);
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  font-family: var(--fit-font);
+  background: var(--fit-bg);
+  color: var(--fit-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Layout ─── */
+.fit-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--fit-space-lg);
+}
+
+/* ─── Profile Header ─── */
+.fit-profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--fit-space-lg) 0;
+  margin-bottom: var(--fit-space-lg);
+}
+
+.fit-profile-header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--fit-space-md);
+}
+
+.fit-profile-header__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--fit-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  box-shadow: var(--fit-shadow-glow);
+}
+
+.fit-profile-header__greeting {
+  color: var(--fit-text-secondary);
+  font-size: 0.875rem;
+}
+
+.fit-profile-header__name {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.fit-profile-header__streak {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--fit-card);
+  border: 1px solid var(--fit-border);
+  border-radius: var(--fit-radius-full);
+  padding: 8px 18px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.fit-profile-header__streak-fire {
+  font-size: 1.2rem;
+}
+
+/* ─── Workout Stats Row ─── */
+.fit-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--fit-space-md);
+  margin-bottom: var(--fit-space-lg);
+}
+
+.fit-stat {
+  background: var(--fit-card);
+  border-radius: var(--fit-radius);
+  padding: var(--fit-space-lg);
+  text-align: center;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.fit-stat:hover {
+  border-color: var(--fit-border);
+  transform: translateY(-2px);
+  box-shadow: var(--fit-shadow);
+}
+
+.fit-stat__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin: 0 auto var(--fit-space-sm);
+}
+
+.fit-stat__icon--orange {
+  background: rgba(255, 107, 53, 0.15);
+}
+
+.fit-stat__icon--yellow {
+  background: rgba(255, 200, 87, 0.15);
+}
+
+.fit-stat__icon--green {
+  background: rgba(39, 201, 63, 0.15);
+}
+
+.fit-stat__icon--blue {
+  background: rgba(91, 141, 239, 0.15);
+}
+
+.fit-stat__value {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.fit-stat__label {
+  font-size: 0.78rem;
+  color: var(--fit-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ─── Progress Circles ─── */
+.fit-progress-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--fit-space-md);
+  margin-bottom: var(--fit-space-lg);
+}
+
+.fit-progress-card {
+  background: var(--fit-card);
+  border-radius: var(--fit-radius);
+  padding: var(--fit-space-xl) var(--fit-space-lg);
+  text-align: center;
+}
+
+.fit-progress-card__title {
+  font-size: 0.85rem;
+  color: var(--fit-text-secondary);
+  margin-bottom: var(--fit-space-md);
+  font-weight: 600;
+}
+
+.fit-progress-ring {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto var(--fit-space-md);
+  position: relative;
+}
+
+.fit-progress-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.fit-progress-ring__bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 8;
+}
+
+.fit-progress-ring__fill {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.fit-progress-ring__fill--orange {
+  stroke: var(--fit-primary);
+}
+
+.fit-progress-ring__fill--yellow {
+  stroke: var(--fit-accent);
+}
+
+.fit-progress-ring__fill--green {
+  stroke: var(--fit-success);
+}
+
+.fit-progress-ring__value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.fit-progress-card__meta {
+  font-size: 0.8rem;
+  color: var(--fit-text-muted);
+}
+
+/* ─── Main Content Grid ─── */
+.fit-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--fit-space-md);
+  margin-bottom: var(--fit-space-lg);
+}
+
+/* ─── Weekly Chart ─── */
+.fit-weekly-chart {
+  background: var(--fit-card);
+  border-radius: var(--fit-radius);
+  padding: var(--fit-space-lg);
+}
+
+.fit-weekly-chart__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--fit-space-lg);
+}
+
+.fit-weekly-chart__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.fit-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 180px;
+  padding-top: var(--fit-space-md);
+}
+
+.fit-chart-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.fit-chart-bar {
+  width: 100%;
+  max-width: 40px;
+  border-radius: 8px 8px 4px 4px;
+  background: var(--fit-gradient);
+  min-height: 8px;
+  transition: all 0.3s;
+}
+
+.fit-chart-bar:hover {
+  box-shadow: var(--fit-shadow-glow);
+}
+
+.fit-chart-bar--rest {
+  background: var(--fit-border);
+  opacity: 0.5;
+}
+
+.fit-chart-bar__label {
+  font-size: 0.72rem;
+  color: var(--fit-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ─── Activity Feed ─── */
+.fit-activity {
+  background: var(--fit-card);
+  border-radius: var(--fit-radius);
+  padding: var(--fit-space-lg);
+}
+
+.fit-activity__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: var(--fit-space-md);
+}
+
+.fit-activity__item {
+  display: flex;
+  align-items: center;
+  gap: var(--fit-space-md);
+  padding: var(--fit-space-sm) 0;
+  border-bottom: 1px solid rgba(61, 61, 92, 0.5);
+}
+
+.fit-activity__item:last-child {
+  border-bottom: none;
+}
+
+.fit-activity__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  background: rgba(255, 107, 53, 0.12);
+}
+
+.fit-activity__info {
+  flex: 1;
+}
+
+.fit-activity__name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.fit-activity__detail {
+  font-size: 0.78rem;
+  color: var(--fit-text-muted);
+}
+
+.fit-activity__time {
+  font-size: 0.75rem;
+  color: var(--fit-text-muted);
+  white-space: nowrap;
+}
+
+/* ─── Buttons ─── */
+.fit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: var(--fit-font);
+  border-radius: var(--fit-radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fit-btn--gradient {
+  background: var(--fit-gradient);
+  color: #fff;
+  box-shadow: var(--fit-shadow-glow);
+}
+
+.fit-btn--gradient:hover {
+  background: var(--fit-gradient-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(255, 107, 53, 0.4);
+}
+
+.fit-btn--outline {
+  background: transparent;
+  color: var(--fit-primary);
+  border: 2px solid var(--fit-primary);
+}
+
+.fit-btn--outline:hover {
+  background: rgba(255, 107, 53, 0.1);
+}
+
+.fit-btn--ghost {
+  background: none;
+  color: var(--fit-text-secondary);
+}
+
+.fit-btn--ghost:hover {
+  color: var(--fit-text);
+}
+
+.fit-btn--sm {
+  padding: 8px 16px;
+  font-size: 0.78rem;
+}
+
+/* ─── Badges ─── */
+.fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: var(--fit-radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fit-badge--orange {
+  background: rgba(255, 107, 53, 0.15);
+  color: var(--fit-primary);
+}
+
+.fit-badge--yellow {
+  background: rgba(255, 200, 87, 0.15);
+  color: var(--fit-accent);
+}
+
+.fit-badge--green {
+  background: rgba(39, 201, 63, 0.15);
+  color: var(--fit-success);
+}
+
+/* ─── Form Inputs ─── */
+.fit-input {
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--fit-border);
+  border-radius: var(--fit-radius-full);
+  padding: 12px 20px;
+  color: var(--fit-text);
+  font-size: 0.9rem;
+  font-family: var(--fit-font);
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.fit-input:focus {
+  border-color: var(--fit-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+}
+
+.fit-input::placeholder {
+  color: var(--fit-text-muted);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .fit-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .fit-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .fit-progress-section {
+    grid-template-columns: 1fr;
+  }
+
+  .fit-profile-header {
+    flex-direction: column;
+    gap: var(--fit-space-md);
+    text-align: center;
+  }
+
+  .fit-profile-header__left {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .fit-stats {
+    grid-template-columns: 1fr;
+  }
+}

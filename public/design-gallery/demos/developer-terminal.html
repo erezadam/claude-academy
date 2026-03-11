@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developer Terminal — Design System Demo</title>
+  <link rel="stylesheet" href="../styles/developer-terminal.css">
+</head>
+<body>
+  <div class="dev-app">
+
+    <!-- ─── Activity Bar ─── -->
+    <nav class="dev-activitybar">
+      <div class="dev-activitybar__item dev-activitybar__item--active" title="Explorer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+      </div>
+      <div class="dev-activitybar__item" title="Search">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+      <div class="dev-activitybar__item" title="Source Control">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+        <span class="dev-activitybar__badge">3</span>
+      </div>
+      <div class="dev-activitybar__item" title="Debug">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+      <div class="dev-activitybar__item" title="Extensions">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      </div>
+    </nav>
+
+    <!-- ─── Tab Bar ─── -->
+    <div class="dev-tabbar">
+      <div class="dev-tab dev-tab--active">
+        <span class="dev-tab__icon" style="color: #519aba;">TS</span>
+        app.controller.ts
+        <span class="dev-tab__close">&times;</span>
+      </div>
+      <div class="dev-tab">
+        <span class="dev-tab__icon" style="color: #4ec9b0;">TS</span>
+        auth.service.ts
+        <span class="dev-tab__close">&times;</span>
+      </div>
+      <div class="dev-tab">
+        <span class="dev-tab__icon" style="color: #e37933;">{ }</span>
+        package.json
+        <span class="dev-tab__close">&times;</span>
+      </div>
+      <div class="dev-tab">
+        <span class="dev-tab__icon" style="color: #6a9955;">&#9881;</span>
+        .env.example
+        <span class="dev-tab__close">&times;</span>
+      </div>
+    </div>
+
+    <!-- ─── File Explorer ─── -->
+    <aside class="dev-explorer">
+      <div class="dev-explorer__header">
+        <span>Explorer</span>
+        <span style="font-size: 0.85rem; cursor: pointer;">...</span>
+      </div>
+
+      <div class="dev-explorer__section">
+        <div class="dev-explorer__section-title">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+          MY-PROJECT
+        </div>
+
+        <div class="dev-explorer__file dev-explorer__file--folder">
+          <span class="dev-explorer__file-icon" style="color: #dcb67a;">&#128193;</span>
+          src
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-1 dev-explorer__file--folder">
+          <span class="dev-explorer__file-icon" style="color: #dcb67a;">&#128193;</span>
+          controllers
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-2 dev-explorer__file--active">
+          <span class="dev-explorer__file-icon" style="color: #519aba;">TS</span>
+          app.controller.ts
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-2">
+          <span class="dev-explorer__file-icon" style="color: #519aba;">TS</span>
+          user.controller.ts
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-1 dev-explorer__file--folder">
+          <span class="dev-explorer__file-icon" style="color: #dcb67a;">&#128193;</span>
+          services
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-2">
+          <span class="dev-explorer__file-icon" style="color: #4ec9b0;">TS</span>
+          auth.service.ts
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-2">
+          <span class="dev-explorer__file-icon" style="color: #4ec9b0;">TS</span>
+          database.service.ts
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-1 dev-explorer__file--folder">
+          <span class="dev-explorer__file-icon" style="color: #dcb67a;">&#128193;</span>
+          middleware
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-2">
+          <span class="dev-explorer__file-icon" style="color: #519aba;">TS</span>
+          auth.middleware.ts
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-1 dev-explorer__file--folder">
+          <span class="dev-explorer__file-icon" style="color: #dcb67a;">&#128193;</span>
+          models
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-2">
+          <span class="dev-explorer__file-icon" style="color: #519aba;">TS</span>
+          user.model.ts
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-1">
+          <span class="dev-explorer__file-icon" style="color: #519aba;">TS</span>
+          app.module.ts
+        </div>
+        <div class="dev-explorer__file dev-explorer__file--indent-1">
+          <span class="dev-explorer__file-icon" style="color: #519aba;">TS</span>
+          main.ts
+        </div>
+        <div class="dev-explorer__file">
+          <span class="dev-explorer__file-icon" style="color: #e37933;">{ }</span>
+          package.json
+        </div>
+        <div class="dev-explorer__file">
+          <span class="dev-explorer__file-icon" style="color: #6a9955;">{ }</span>
+          tsconfig.json
+        </div>
+        <div class="dev-explorer__file">
+          <span class="dev-explorer__file-icon" style="color: #6a9955;">&#9881;</span>
+          .env.example
+        </div>
+        <div class="dev-explorer__file">
+          <span class="dev-explorer__file-icon" style="color: #41535b;">&#128196;</span>
+          README.md
+        </div>
+      </div>
+    </aside>
+
+    <!-- ─── Editor Area ─── -->
+    <div class="dev-editor">
+      <!-- Breadcrumbs -->
+      <div class="dev-breadcrumbs">
+        <span class="dev-breadcrumbs__item">src</span>
+        <span class="dev-breadcrumbs__sep">&#9656;</span>
+        <span class="dev-breadcrumbs__item">controllers</span>
+        <span class="dev-breadcrumbs__sep">&#9656;</span>
+        <span class="dev-breadcrumbs__item">app.controller.ts</span>
+      </div>
+
+      <div class="dev-editor__content">
+        <div class="dev-editor__gutter">
+          <div class="dev-editor__line-num">1</div>
+          <div class="dev-editor__line-num">2</div>
+          <div class="dev-editor__line-num">3</div>
+          <div class="dev-editor__line-num">4</div>
+          <div class="dev-editor__line-num">5</div>
+          <div class="dev-editor__line-num">6</div>
+          <div class="dev-editor__line-num">7</div>
+          <div class="dev-editor__line-num">8</div>
+          <div class="dev-editor__line-num">9</div>
+          <div class="dev-editor__line-num dev-editor__line-num--active">10</div>
+          <div class="dev-editor__line-num">11</div>
+          <div class="dev-editor__line-num">12</div>
+          <div class="dev-editor__line-num">13</div>
+          <div class="dev-editor__line-num">14</div>
+          <div class="dev-editor__line-num">15</div>
+          <div class="dev-editor__line-num">16</div>
+          <div class="dev-editor__line-num">17</div>
+          <div class="dev-editor__line-num">18</div>
+          <div class="dev-editor__line-num">19</div>
+          <div class="dev-editor__line-num">20</div>
+          <div class="dev-editor__line-num">21</div>
+          <div class="dev-editor__line-num">22</div>
+          <div class="dev-editor__line-num">23</div>
+          <div class="dev-editor__line-num">24</div>
+          <div class="dev-editor__line-num">25</div>
+          <div class="dev-editor__line-num">26</div>
+          <div class="dev-editor__line-num">27</div>
+          <div class="dev-editor__line-num">28</div>
+          <div class="dev-editor__line-num">29</div>
+          <div class="dev-editor__line-num">30</div>
+          <div class="dev-editor__line-num">31</div>
+          <div class="dev-editor__line-num">32</div>
+          <div class="dev-editor__line-num">33</div>
+          <div class="dev-editor__line-num">34</div>
+          <div class="dev-editor__line-num">35</div>
+          <div class="dev-editor__line-num">36</div>
+          <div class="dev-editor__line-num">37</div>
+          <div class="dev-editor__line-num">38</div>
+          <div class="dev-editor__line-num">39</div>
+        </div>
+        <div class="dev-editor__code"><div class="dev-editor__line"><span class="dev-syn-keyword">import</span> { <span class="dev-syn-type">Controller</span>, <span class="dev-syn-type">Get</span>, <span class="dev-syn-type">Post</span>, <span class="dev-syn-type">Body</span> } <span class="dev-syn-keyword">from</span> <span class="dev-syn-string">'@nestjs/common'</span>;</div>
+<div class="dev-editor__line"><span class="dev-syn-keyword">import</span> { <span class="dev-syn-type">AuthService</span> } <span class="dev-syn-keyword">from</span> <span class="dev-syn-string">'../services/auth.service'</span>;</div>
+<div class="dev-editor__line"><span class="dev-syn-keyword">import</span> { <span class="dev-syn-type">CreateUserDto</span> } <span class="dev-syn-keyword">from</span> <span class="dev-syn-string">'../models/user.model'</span>;</div>
+<div class="dev-editor__line"></div>
+<div class="dev-editor__line"><span class="dev-syn-comment">/**</span></div>
+<div class="dev-editor__line"><span class="dev-syn-comment"> * Main application controller</span></div>
+<div class="dev-editor__line"><span class="dev-syn-comment"> * Handles authentication and user management routes</span></div>
+<div class="dev-editor__line"><span class="dev-syn-comment"> */</span></div>
+<div class="dev-editor__line"><span class="dev-syn-purple">@Controller</span>(<span class="dev-syn-string">'api/v1'</span>)</div>
+<div class="dev-editor__line dev-editor__line--active"><span class="dev-syn-keyword">export class</span> <span class="dev-syn-type">AppController</span> {</div>
+<div class="dev-editor__line">  <span class="dev-syn-keyword">constructor</span>(</div>
+<div class="dev-editor__line">    <span class="dev-syn-keyword">private readonly</span> <span class="dev-syn-variable">authService</span>: <span class="dev-syn-type">AuthService</span>,</div>
+<div class="dev-editor__line">  ) {}</div>
+<div class="dev-editor__line"></div>
+<div class="dev-editor__line">  <span class="dev-syn-purple">@Get</span>(<span class="dev-syn-string">'health'</span>)</div>
+<div class="dev-editor__line">  <span class="dev-syn-function">getHealth</span>(): <span class="dev-syn-type">Record</span>&lt;<span class="dev-syn-type">string</span>, <span class="dev-syn-type">unknown</span>&gt; {</div>
+<div class="dev-editor__line">    <span class="dev-syn-keyword">return</span> {</div>
+<div class="dev-editor__line">      status: <span class="dev-syn-string">'ok'</span>,</div>
+<div class="dev-editor__line">      timestamp: <span class="dev-syn-keyword">new</span> <span class="dev-syn-type">Date</span>().<span class="dev-syn-function">toISOString</span>(),</div>
+<div class="dev-editor__line">      version: process.env.<span class="dev-syn-variable">APP_VERSION</span> ?? <span class="dev-syn-string">'1.0.0'</span>,</div>
+<div class="dev-editor__line">    };</div>
+<div class="dev-editor__line">  }</div>
+<div class="dev-editor__line"></div>
+<div class="dev-editor__line">  <span class="dev-syn-purple">@Post</span>(<span class="dev-syn-string">'auth/register'</span>)</div>
+<div class="dev-editor__line">  <span class="dev-syn-keyword">async</span> <span class="dev-syn-function">register</span>(</div>
+<div class="dev-editor__line">    <span class="dev-syn-purple">@Body</span>() <span class="dev-syn-variable">createUserDto</span>: <span class="dev-syn-type">CreateUserDto</span>,</div>
+<div class="dev-editor__line">  ) {</div>
+<div class="dev-editor__line">    <span class="dev-syn-keyword">const</span> <span class="dev-syn-variable">user</span> = <span class="dev-syn-keyword">await</span> <span class="dev-syn-keyword">this</span>.<span class="dev-syn-variable">authService</span>.<span class="dev-syn-function">createUser</span>(createUserDto);</div>
+<div class="dev-editor__line">    <span class="dev-syn-keyword">const</span> <span class="dev-syn-variable">token</span> = <span class="dev-syn-keyword">await</span> <span class="dev-syn-keyword">this</span>.<span class="dev-syn-variable">authService</span>.<span class="dev-syn-function">generateToken</span>(user);</div>
+<div class="dev-editor__line">    <span class="dev-syn-keyword">return</span> { user, token };</div>
+<div class="dev-editor__line">  }</div>
+<div class="dev-editor__line"></div>
+<div class="dev-editor__line">  <span class="dev-syn-purple">@Post</span>(<span class="dev-syn-string">'auth/login'</span>)</div>
+<div class="dev-editor__line">  <span class="dev-syn-keyword">async</span> <span class="dev-syn-function">login</span>(</div>
+<div class="dev-editor__line">    <span class="dev-syn-purple">@Body</span>() <span class="dev-syn-variable">credentials</span>: { email: <span class="dev-syn-type">string</span>; password: <span class="dev-syn-type">string</span> },</div>
+<div class="dev-editor__line">  ) {</div>
+<div class="dev-editor__line">    <span class="dev-syn-keyword">return</span> <span class="dev-syn-keyword">this</span>.<span class="dev-syn-variable">authService</span>.<span class="dev-syn-function">validateUser</span>(</div>
+<div class="dev-editor__line">      credentials.email,</div>
+<div class="dev-editor__line">      credentials.password,</div>
+<div class="dev-editor__line">    );</div>
+<div class="dev-editor__line">  }</div>
+<div class="dev-editor__line">}</div>
+</div>
+      </div>
+
+      <!-- Minimap -->
+      <div class="dev-minimap">
+        <div class="dev-minimap__line dev-minimap__line--keyword" style="width: 70%;"></div>
+        <div class="dev-minimap__line dev-minimap__line--keyword" style="width: 55%;"></div>
+        <div class="dev-minimap__line dev-minimap__line--keyword" style="width: 50%;"></div>
+        <div class="dev-minimap__line" style="width: 0;"></div>
+        <div class="dev-minimap__line" style="width: 20%; background: rgba(106,153,85,0.3);"></div>
+        <div class="dev-minimap__line" style="width: 40%; background: rgba(106,153,85,0.3);"></div>
+        <div class="dev-minimap__line" style="width: 50%; background: rgba(106,153,85,0.3);"></div>
+        <div class="dev-minimap__line" style="width: 15%; background: rgba(106,153,85,0.3);"></div>
+        <div class="dev-minimap__line" style="width: 35%;"></div>
+        <div class="dev-minimap__line dev-minimap__line--keyword" style="width: 45%;"></div>
+        <div class="dev-minimap__line" style="width: 25%;"></div>
+        <div class="dev-minimap__line" style="width: 55%;"></div>
+        <div class="dev-minimap__line" style="width: 15%;"></div>
+        <div class="dev-minimap__line" style="width: 0;"></div>
+        <div class="dev-minimap__line" style="width: 25%;"></div>
+        <div class="dev-minimap__line" style="width: 50%;"></div>
+        <div class="dev-minimap__line" style="width: 20%;"></div>
+        <div class="dev-minimap__line dev-minimap__line--string" style="width: 30%;"></div>
+        <div class="dev-minimap__line" style="width: 60%;"></div>
+        <div class="dev-minimap__line dev-minimap__line--string" style="width: 45%;"></div>
+        <div class="dev-minimap__line" style="width: 10%;"></div>
+        <div class="dev-minimap__line" style="width: 10%;"></div>
+        <div class="dev-minimap__line" style="width: 0;"></div>
+        <div class="dev-minimap__line" style="width: 35%;"></div>
+        <div class="dev-minimap__line" style="width: 25%;"></div>
+        <div class="dev-minimap__line" style="width: 50%;"></div>
+        <div class="dev-minimap__line" style="width: 15%;"></div>
+        <div class="dev-minimap__line" style="width: 60%;"></div>
+        <div class="dev-minimap__line" style="width: 60%;"></div>
+        <div class="dev-minimap__line" style="width: 30%;"></div>
+        <div class="dev-minimap__line" style="width: 10%;"></div>
+      </div>
+    </div>
+
+    <!-- ─── Terminal Panel ─── -->
+    <div class="dev-terminal">
+      <div class="dev-terminal__header">
+        <div class="dev-terminal__tabs">
+          <div class="dev-terminal__tab dev-terminal__tab--active">Terminal</div>
+          <div class="dev-terminal__tab">Problems</div>
+          <div class="dev-terminal__tab">Output</div>
+          <div class="dev-terminal__tab">Debug Console</div>
+        </div>
+        <div class="dev-terminal__actions">
+          <button class="dev-btn dev-btn--icon" title="New Terminal">+</button>
+          <button class="dev-btn dev-btn--icon" title="Split Terminal">&#9647;</button>
+          <button class="dev-btn dev-btn--icon" title="Maximize">&#9645;</button>
+          <button class="dev-btn dev-btn--icon" title="Close">&times;</button>
+        </div>
+      </div>
+      <div class="dev-terminal__body">
+        <div>
+          <span class="dev-terminal__prompt">~/my-project $</span>
+          <span class="dev-terminal__command"> npm run build</span>
+        </div>
+        <div class="dev-terminal__output">
+<span style="color: var(--dev-text-muted);">> my-project@1.0.0 build
+> nest build</span>
+        </div>
+        <div class="dev-terminal__success">Successfully compiled 14 files.</div>
+        <br>
+        <div>
+          <span class="dev-terminal__prompt">~/my-project $</span>
+          <span class="dev-terminal__command"> npm test</span>
+        </div>
+        <div class="dev-terminal__output">
+<span style="color: var(--dev-text-muted);">> my-project@1.0.0 test
+> jest --coverage</span>
+        </div>
+        <div>
+          <span class="dev-terminal__success"> PASS </span> src/controllers/app.controller.spec.ts
+        </div>
+        <div>
+          <span class="dev-terminal__success"> PASS </span> src/services/auth.service.spec.ts
+        </div>
+        <div>
+          <span class="dev-terminal__error"> FAIL </span> src/middleware/auth.middleware.spec.ts
+        </div>
+        <div class="dev-terminal__error">
+  ● Authentication Middleware › should reject expired tokens
+
+    expect(received).toEqual(expected)
+    Expected: 401
+    Received: 500
+        </div>
+        <br>
+        <div style="color: var(--dev-text-secondary);">
+Test Suites: <span class="dev-terminal__error">1 failed</span>, <span class="dev-terminal__success">2 passed</span>, 3 total
+Tests:       <span class="dev-terminal__error">1 failed</span>, <span class="dev-terminal__success">11 passed</span>, 12 total
+Time:        2.847s
+        </div>
+        <br>
+        <div>
+          <span class="dev-terminal__prompt">~/my-project $</span>
+          <span class="dev-terminal__command"> </span><span class="dev-terminal__cursor"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Status Bar ─── -->
+    <footer class="dev-statusbar">
+      <div class="dev-statusbar__left">
+        <div class="dev-statusbar__item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+          main*
+        </div>
+        <div class="dev-statusbar__item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          1 Error
+        </div>
+        <div class="dev-statusbar__item">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          0 Warnings
+        </div>
+      </div>
+      <div class="dev-statusbar__right">
+        <div class="dev-statusbar__item">Ln 10, Col 24</div>
+        <div class="dev-statusbar__item">Spaces: 2</div>
+        <div class="dev-statusbar__item">UTF-8</div>
+        <div class="dev-statusbar__item">CRLF</div>
+        <div class="dev-statusbar__item">TypeScript</div>
+        <div class="dev-statusbar__item">Prettier</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
