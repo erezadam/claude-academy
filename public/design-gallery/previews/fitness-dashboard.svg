@@ -1,102 +1,139 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
   <defs>
-    <linearGradient id="fit-grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#ff6b35"/>
-      <stop offset="100%" stop-color="#ffc857"/>
+    <clipPath id="fit-clip"><rect width="400" height="300" rx="8"/></clipPath>
+    <linearGradient id="fit-bar-g" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#F97316"/>
     </linearGradient>
-    <linearGradient id="fit-grad-v" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0%" stop-color="#ff6b35"/>
-      <stop offset="100%" stop-color="#ffc857"/>
+    <linearGradient id="fit-bar-glow" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#FB923C"/>
     </linearGradient>
   </defs>
+  <g clip-path="url(#fit-clip)">
+    <!-- Background -->
+    <rect width="400" height="300" fill="#111827"/>
 
-  <!-- Background -->
-  <rect width="400" height="300" fill="#1a1a2e"/>
+    <!-- Header -->
+    <rect width="400" height="46" fill="#111827"/>
+    <line x1="0" y1="46" x2="400" y2="46" stroke="#374151" stroke-width="0.5"/>
+    <!-- Avatar -->
+    <circle cx="28" cy="23" r="16" fill="#F97316"/>
+    <text x="28" y="28" font-family="Inter,system-ui,sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="800">M</text>
+    <circle cx="40" cy="35" r="4" fill="#22C55E" stroke="#111827" stroke-width="1.5"/>
+    <!-- Name -->
+    <text x="50" y="20" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#F9FAFB" font-weight="700">Marcus Rivera</text>
+    <rect x="50" y="26" width="58" height="12" rx="6" fill="rgba(249,115,22,0.15)"/>
+    <text x="79" y="35" font-family="Inter,system-ui,sans-serif" font-size="7" fill="#F97316" font-weight="700" text-anchor="middle">24-day streak</text>
+    <!-- Buttons -->
+    <rect x="310" y="12" width="76" height="22" rx="6" fill="#F97316"/>
+    <text x="348" y="27" font-family="Inter,system-ui,sans-serif" font-size="7" fill="#fff" font-weight="600" text-anchor="middle">+ Log Workout</text>
 
-  <!-- Profile Header -->
-  <circle cx="28" cy="22" r="14" fill="url(#fit-grad)"/>
-  <rect x="48" y="13" width="35" height="5" rx="1" fill="#a0a0be" opacity="0.5"/>
-  <rect x="48" y="22" width="60" height="8" rx="1" fill="#f0f0f8" opacity="0.9"/>
-  <!-- Streak -->
-  <rect x="280" y="12" width="50" height="20" rx="10" fill="#2d2d44"/>
-  <rect x="292" y="18" width="28" height="6" rx="1" fill="#f0f0f8" opacity="0.6"/>
-  <!-- CTA Button -->
-  <rect x="340" y="12" width="50" height="20" rx="10" fill="url(#fit-grad)"/>
-  <rect x="350" y="19" width="30" height="5" rx="1" fill="#fff" opacity="0.9"/>
+    <!-- Stat Cards -->
+    <!-- Calories -->
+    <rect x="10" y="56" width="91" height="52" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <rect x="10" y="56" width="91" height="2.5" rx="1" fill="#F97316"/>
+    <text x="18" y="72" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" font-weight="600" letter-spacing="0.5">CALORIES</text>
+    <text x="18" y="92" font-family="Inter,system-ui,sans-serif" font-size="20" fill="#F97316" font-weight="800">2,847</text>
+    <text x="74" y="92" font-family="Inter,system-ui,sans-serif" font-size="8" fill="#F97316" font-weight="600" opacity="0.6">kcal</text>
+    <text x="18" y="103" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#22C55E" font-weight="700">+340 above goal</text>
 
-  <!-- Stats Row -->
-  <rect x="10" y="46" width="88" height="52" rx="10" fill="#2d2d44"/>
-  <circle cx="54" cy="60" r="10" fill="rgba(255,107,53,0.15)"/>
-  <rect x="35" y="76" width="38" height="10" rx="1" fill="#f0f0f8" opacity="0.9"/>
-  <rect x="32" y="89" width="44" height="4" rx="1" fill="#6e6e8a" opacity="0.4"/>
+    <!-- Workouts -->
+    <rect x="107" y="56" width="91" height="52" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <rect x="107" y="56" width="91" height="2.5" rx="1" fill="#3B82F6"/>
+    <text x="115" y="72" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" font-weight="600" letter-spacing="0.5">WORKOUTS</text>
+    <text x="115" y="92" font-family="Inter,system-ui,sans-serif" font-size="20" fill="#3B82F6" font-weight="800">24</text>
+    <text x="115" y="103" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#22C55E" font-weight="700">+6 vs last month</text>
 
-  <rect x="106" y="46" width="88" height="52" rx="10" fill="#2d2d44"/>
-  <circle cx="150" cy="60" r="10" fill="rgba(255,200,87,0.15)"/>
-  <rect x="140" y="76" width="20" height="10" rx="1" fill="#f0f0f8" opacity="0.9"/>
-  <rect x="128" y="89" width="44" height="4" rx="1" fill="#6e6e8a" opacity="0.4"/>
+    <!-- Duration -->
+    <rect x="204" y="56" width="91" height="52" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <rect x="204" y="56" width="91" height="2.5" rx="1" fill="#A855F7"/>
+    <text x="212" y="72" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" font-weight="600" letter-spacing="0.5">DURATION</text>
+    <text x="212" y="92" font-family="Inter,system-ui,sans-serif" font-size="20" fill="#A855F7" font-weight="800">18.5</text>
+    <text x="260" y="92" font-family="Inter,system-ui,sans-serif" font-size="8" fill="#A855F7" font-weight="600" opacity="0.6">h</text>
+    <text x="212" y="103" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#22C55E" font-weight="700">+2.3h vs last month</text>
 
-  <rect x="202" y="46" width="88" height="52" rx="10" fill="#2d2d44"/>
-  <circle cx="246" cy="60" r="10" fill="rgba(39,201,63,0.15)"/>
-  <rect x="228" y="76" width="36" height="10" rx="1" fill="#f0f0f8" opacity="0.9"/>
-  <rect x="224" y="89" width="44" height="4" rx="1" fill="#6e6e8a" opacity="0.4"/>
+    <!-- PRs -->
+    <rect x="301" y="56" width="89" height="52" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <rect x="301" y="56" width="89" height="2.5" rx="1" fill="#22C55E"/>
+    <text x="309" y="72" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" font-weight="600" letter-spacing="0.5">PRs</text>
+    <text x="309" y="92" font-family="Inter,system-ui,sans-serif" font-size="20" fill="#22C55E" font-weight="800">7</text>
+    <text x="309" y="103" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#22C55E" font-weight="700">+3 new this month</text>
 
-  <rect x="298" y="46" width="88" height="52" rx="10" fill="#2d2d44"/>
-  <circle cx="342" cy="60" r="10" fill="rgba(91,141,239,0.15)"/>
-  <rect x="330" y="76" width="24" height="10" rx="1" fill="#f0f0f8" opacity="0.9"/>
-  <rect x="320" y="89" width="44" height="4" rx="1" fill="#6e6e8a" opacity="0.4"/>
+    <!-- Progress Rings -->
+    <!-- Protein Ring -->
+    <rect x="10" y="118" width="122" height="80" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <circle cx="48" cy="154" r="22" fill="none" stroke="#374151" stroke-width="4"/>
+    <circle cx="48" cy="154" r="22" fill="none" stroke="#F97316" stroke-width="4" stroke-linecap="round"
+      stroke-dasharray="138.23" stroke-dashoffset="34.56" transform="rotate(-90 48 154)"/>
+    <text x="48" y="156" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#F97316" font-weight="800" text-anchor="middle">75%</text>
+    <text x="48" y="164" font-family="Inter,system-ui,sans-serif" font-size="5" fill="#6B7280" text-anchor="middle">of goal</text>
+    <text x="96" y="150" font-family="Inter,system-ui,sans-serif" font-size="7" fill="#F9FAFB" font-weight="700" text-anchor="middle">Protein</text>
+    <text x="96" y="162" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#9CA3AF" text-anchor="middle">142g / 190g</text>
 
-  <!-- Progress Circles -->
-  <rect x="10" y="106" width="122" height="78" rx="10" fill="#2d2d44"/>
-  <rect x="42" y="112" width="58" height="5" rx="1" fill="#a0a0be" opacity="0.4"/>
-  <!-- Ring 1 -->
-  <circle cx="71" cy="148" r="22" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="5"/>
-  <circle cx="71" cy="148" r="22" fill="none" stroke="#ff6b35" stroke-width="5" stroke-dasharray="104 138" stroke-linecap="round" transform="rotate(-90 71 148)"/>
-  <text x="71" y="152" text-anchor="middle" fill="#f0f0f8" font-size="10" font-weight="800" font-family="system-ui">75%</text>
-  <rect x="46" y="176" width="50" height="4" rx="1" fill="#6e6e8a" opacity="0.3"/>
+    <!-- Hydration Ring -->
+    <rect x="139" y="118" width="122" height="80" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <circle cx="177" cy="154" r="22" fill="none" stroke="#374151" stroke-width="4"/>
+    <circle cx="177" cy="154" r="22" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"
+      stroke-dasharray="138.23" stroke-dashoffset="48.38" transform="rotate(-90 177 154)"/>
+    <text x="177" y="156" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#3B82F6" font-weight="800" text-anchor="middle">65%</text>
+    <text x="177" y="164" font-family="Inter,system-ui,sans-serif" font-size="5" fill="#6B7280" text-anchor="middle">of goal</text>
+    <text x="225" y="150" font-family="Inter,system-ui,sans-serif" font-size="7" fill="#F9FAFB" font-weight="700" text-anchor="middle">Hydration</text>
+    <text x="225" y="162" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#9CA3AF" text-anchor="middle">2.1L / 3.2L</text>
 
-  <rect x="140" y="106" width="122" height="78" rx="10" fill="#2d2d44"/>
-  <rect x="172" y="112" width="58" height="5" rx="1" fill="#a0a0be" opacity="0.4"/>
-  <circle cx="201" cy="148" r="22" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="5"/>
-  <circle cx="201" cy="148" r="22" fill="none" stroke="#ffc857" stroke-width="5" stroke-dasharray="90 138" stroke-linecap="round" transform="rotate(-90 201 148)"/>
-  <text x="201" y="152" text-anchor="middle" fill="#f0f0f8" font-size="10" font-weight="800" font-family="system-ui">65%</text>
-  <rect x="176" y="176" width="50" height="4" rx="1" fill="#6e6e8a" opacity="0.3"/>
+    <!-- Recovery Ring -->
+    <rect x="268" y="118" width="122" height="80" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <circle cx="306" cy="154" r="22" fill="none" stroke="#374151" stroke-width="4"/>
+    <circle cx="306" cy="154" r="22" fill="none" stroke="#22C55E" stroke-width="4" stroke-linecap="round"
+      stroke-dasharray="138.23" stroke-dashoffset="20.73" transform="rotate(-90 306 154)"/>
+    <text x="306" y="156" font-family="Inter,system-ui,sans-serif" font-size="10" fill="#22C55E" font-weight="800" text-anchor="middle">85%</text>
+    <text x="306" y="164" font-family="Inter,system-ui,sans-serif" font-size="5" fill="#6B7280" text-anchor="middle">score</text>
+    <text x="354" y="150" font-family="Inter,system-ui,sans-serif" font-size="7" fill="#F9FAFB" font-weight="700" text-anchor="middle">Recovery</text>
+    <text x="354" y="162" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#9CA3AF" text-anchor="middle">7.2h sleep</text>
 
-  <rect x="270" y="106" width="122" height="78" rx="10" fill="#2d2d44"/>
-  <rect x="302" y="112" width="58" height="5" rx="1" fill="#a0a0be" opacity="0.4"/>
-  <circle cx="331" cy="148" r="22" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="5"/>
-  <circle cx="331" cy="148" r="22" fill="none" stroke="#27c93f" stroke-width="5" stroke-dasharray="117 138" stroke-linecap="round" transform="rotate(-90 331 148)"/>
-  <text x="331" y="152" text-anchor="middle" fill="#f0f0f8" font-size="10" font-weight="800" font-family="system-ui">85%</text>
-  <rect x="306" y="176" width="50" height="4" rx="1" fill="#6e6e8a" opacity="0.3"/>
+    <!-- Weekly Activity Chart -->
+    <rect x="10" y="208" width="236" height="84" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <text x="20" y="224" font-family="Inter,system-ui,sans-serif" font-size="8" fill="#F9FAFB" font-weight="700">Weekly Activity</text>
+    <!-- Bars -->
+    <rect x="24" y="248" width="20" height="28" rx="4" fill="url(#fit-bar-g)"/>
+    <text x="34" y="284" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" text-anchor="middle" font-weight="600">Mon</text>
 
-  <!-- Weekly Chart -->
-  <rect x="10" y="192" width="248" height="100" rx="10" fill="#2d2d44"/>
-  <rect x="20" y="200" width="60" height="7" rx="1" fill="#f0f0f8" opacity="0.7"/>
-  <!-- Chart Bars -->
-  <rect x="25" y="258" width="22" height="26" rx="5" fill="url(#fit-grad-v)"/>
-  <rect x="55" y="240" width="22" height="44" rx="5" fill="url(#fit-grad-v)"/>
-  <rect x="85" y="262" width="22" height="22" rx="5" fill="url(#fit-grad-v)"/>
-  <rect x="115" y="234" width="22" height="50" rx="5" fill="url(#fit-grad-v)"/>
-  <rect x="145" y="250" width="22" height="34" rx="5" fill="url(#fit-grad-v)"/>
-  <rect x="175" y="270" width="22" height="14" rx="5" fill="#3d3d5c" opacity="0.5"/>
-  <rect x="205" y="256" width="22" height="28" rx="5" fill="url(#fit-grad-v)"/>
+    <rect x="52" y="238" width="20" height="38" rx="4" fill="url(#fit-bar-g)"/>
+    <text x="62" y="284" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" text-anchor="middle" font-weight="600">Tue</text>
 
-  <!-- Activity Feed -->
-  <rect x="266" y="192" width="126" height="100" rx="10" fill="#2d2d44"/>
-  <rect x="276" y="200" width="50" height="7" rx="1" fill="#f0f0f8" opacity="0.7"/>
-  <!-- Activity items -->
-  <rect x="276" y="216" width="10" height="10" rx="3" fill="rgba(255,107,53,0.15)"/>
-  <rect x="292" y="217" width="50" height="4" rx="1" fill="#f0f0f8" opacity="0.6"/>
-  <rect x="292" y="223" width="35" height="3" rx="1" fill="#6e6e8a" opacity="0.3"/>
+    <rect x="80" y="256" width="20" height="20" rx="4" fill="url(#fit-bar-g)"/>
+    <text x="90" y="284" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" text-anchor="middle" font-weight="600">Wed</text>
 
-  <rect x="276" y="234" width="10" height="10" rx="3" fill="rgba(255,200,87,0.15)"/>
-  <rect x="292" y="235" width="45" height="4" rx="1" fill="#f0f0f8" opacity="0.6"/>
-  <rect x="292" y="241" width="30" height="3" rx="1" fill="#6e6e8a" opacity="0.3"/>
+    <rect x="108" y="234" width="20" height="42" rx="4" fill="url(#fit-bar-g)"/>
+    <text x="118" y="284" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" text-anchor="middle" font-weight="600">Thu</text>
 
-  <rect x="276" y="252" width="10" height="10" rx="3" fill="rgba(39,201,63,0.15)"/>
-  <rect x="292" y="253" width="55" height="4" rx="1" fill="#f0f0f8" opacity="0.6"/>
-  <rect x="292" y="259" width="38" height="3" rx="1" fill="#6e6e8a" opacity="0.3"/>
+    <rect x="136" y="264" width="20" height="12" rx="4" fill="#374151" opacity="0.5"/>
+    <text x="146" y="284" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" text-anchor="middle" font-weight="600">Fri</text>
 
-  <rect x="276" y="270" width="10" height="10" rx="3" fill="rgba(255,107,53,0.15)"/>
-  <rect x="292" y="271" width="40" height="4" rx="1" fill="#f0f0f8" opacity="0.6"/>
-  <rect x="292" y="277" width="32" height="3" rx="1" fill="#6e6e8a" opacity="0.3"/>
+    <rect x="164" y="242" width="20" height="34" rx="4" fill="url(#fit-bar-g)"/>
+    <text x="174" y="284" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#6B7280" text-anchor="middle" font-weight="600">Sat</text>
+
+    <rect x="192" y="246" width="20" height="30" rx="4" fill="url(#fit-bar-glow)"/>
+    <rect x="192" y="246" width="20" height="30" rx="4" fill="url(#fit-bar-glow)" opacity="0.3" filter="blur(3)"/>
+    <text x="202" y="284" font-family="Inter,system-ui,sans-serif" font-size="5.5" fill="#F97316" text-anchor="middle" font-weight="600">Sun</text>
+
+    <!-- Activity Feed -->
+    <rect x="254" y="208" width="136" height="84" rx="8" fill="#1F2937" stroke="#374151" stroke-width="0.5"/>
+    <text x="264" y="224" font-family="Inter,system-ui,sans-serif" font-size="8" fill="#F9FAFB" font-weight="700">Activity Feed</text>
+    <!-- Items -->
+    <circle cx="270" cy="240" r="5" fill="rgba(249,115,22,0.15)"/>
+    <text x="280" y="238" font-family="Inter,system-ui,sans-serif" font-size="6" fill="#F9FAFB" font-weight="600">Upper Body</text>
+    <text x="280" y="246" font-family="Inter,system-ui,sans-serif" font-size="5" fill="#6B7280">Today, 52 min</text>
+    <text x="378" y="242" font-family="Inter,system-ui,sans-serif" font-size="6" fill="#F9FAFB" font-weight="700" text-anchor="end">486 kcal</text>
+
+    <circle cx="270" cy="258" r="5" fill="rgba(59,130,246,0.15)"/>
+    <text x="280" y="256" font-family="Inter,system-ui,sans-serif" font-size="6" fill="#F9FAFB" font-weight="600">HIIT Cardio</text>
+    <text x="280" y="264" font-family="Inter,system-ui,sans-serif" font-size="5" fill="#6B7280">Yesterday, 35 min</text>
+    <text x="378" y="260" font-family="Inter,system-ui,sans-serif" font-size="6" fill="#F9FAFB" font-weight="700" text-anchor="end">412 kcal</text>
+
+    <circle cx="270" cy="276" r="5" fill="rgba(168,85,247,0.15)"/>
+    <text x="280" y="274" font-family="Inter,system-ui,sans-serif" font-size="6" fill="#F9FAFB" font-weight="600">5K Run</text>
+    <text x="280" y="282" font-family="Inter,system-ui,sans-serif" font-size="5" fill="#6B7280">Mar 9, 28 min</text>
+    <text x="378" y="278" font-family="Inter,system-ui,sans-serif" font-size="6" fill="#F9FAFB" font-weight="700" text-anchor="end">320 kcal</text>
+  </g>
 </svg>

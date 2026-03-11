@@ -1,9 +1,7 @@
 /* ============================================
    Glassmorphism — Design System
-   Translucent glass, vibrant gradients, blur
+   Frosted glass layers, blur backgrounds, transparent surfaces
    ============================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
   --gm-gradient-start: #667eea;
@@ -13,9 +11,9 @@
   --gm-gradient-cool-start: #4facfe;
   --gm-gradient-cool-end: #00f2fe;
 
-  --gm-glass: rgba(255, 255, 255, 0.15);
-  --gm-glass-strong: rgba(255, 255, 255, 0.25);
-  --gm-glass-subtle: rgba(255, 255, 255, 0.08);
+  --gm-glass: rgba(255, 255, 255, 0.12);
+  --gm-glass-strong: rgba(255, 255, 255, 0.22);
+  --gm-glass-subtle: rgba(255, 255, 255, 0.06);
   --gm-glass-border: rgba(255, 255, 255, 0.2);
   --gm-glass-border-strong: rgba(255, 255, 255, 0.35);
 
@@ -25,16 +23,15 @@
 
   --gm-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   --gm-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.18);
-  --gm-shadow-glow: 0 0 30px rgba(102, 126, 234, 0.3);
 
-  --gm-font: 'Poppins', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --gm-font: Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
   --gm-blur: blur(20px);
   --gm-blur-strong: blur(30px);
   --gm-blur-subtle: blur(12px);
 
-  --gm-radius: 16px;
-  --gm-radius-lg: 24px;
+  --gm-radius: 12px;
+  --gm-radius-lg: 20px;
   --gm-radius-full: 50px;
 
   --gm-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -52,7 +49,7 @@
 body {
   font-family: var(--gm-font);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.6;
   color: var(--gm-text);
   min-height: 100vh;
@@ -90,30 +87,33 @@ body::after {
 
 /* === Typography === */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.3;
   color: var(--gm-text);
 }
 
 h1 {
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: 32px;
+  font-weight: 400;
   margin-bottom: 16px;
 }
 
 h3 {
   font-size: 22px;
+  font-weight: 400;
   margin-bottom: 12px;
 }
 
 p {
   margin-bottom: 16px;
   color: var(--gm-text-secondary);
+  font-weight: 300;
 }
 
 a {
@@ -177,7 +177,7 @@ a:hover {
 
 .gm-nav-logo {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.02em;
 }
 
@@ -190,7 +190,7 @@ a:hover {
 
 .gm-nav-links a {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   text-decoration: none;
   color: var(--gm-text-secondary);
   transition: color var(--gm-transition);
@@ -245,7 +245,7 @@ a:hover {
 
 .gm-card-title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 8px;
 }
 
@@ -253,79 +253,7 @@ a:hover {
   font-size: 14px;
   color: var(--gm-text-muted);
   line-height: 1.6;
-}
-
-/* === Profile Card === */
-.gm-profile {
-  text-align: center;
-  padding: 40px 32px;
-}
-
-.gm-profile-avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gm-gradient-alt-start), var(--gm-gradient-alt-end));
-  margin: 0 auto 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  box-shadow: 0 4px 20px rgba(240, 147, 251, 0.3);
-}
-
-.gm-profile-name {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.gm-profile-role {
-  font-size: 14px;
-  color: var(--gm-text-muted);
-  margin-bottom: 20px;
-}
-
-.gm-profile-stats {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-}
-
-.gm-profile-stat-value {
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.gm-profile-stat-label {
-  font-size: 12px;
-  color: var(--gm-text-muted);
-  margin-top: 2px;
-}
-
-/* === Stats Row === */
-.gm-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  margin: 24px 0;
-}
-
-.gm-stat {
-  text-align: center;
-  padding: 24px 16px;
-}
-
-.gm-stat-value {
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.gm-stat-label {
-  font-size: 13px;
-  color: var(--gm-text-muted);
+  font-weight: 300;
 }
 
 /* === Buttons === */
@@ -336,9 +264,9 @@ a:hover {
   gap: 8px;
   font-family: var(--gm-font);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   padding: 10px 24px;
-  border-radius: var(--gm-radius-full);
+  border-radius: var(--gm-radius);
   border: 1px solid var(--gm-glass-border);
   background: var(--gm-glass);
   backdrop-filter: var(--gm-blur-subtle);
@@ -359,7 +287,7 @@ a:hover {
   background: var(--gm-text);
   color: var(--gm-gradient-start);
   border-color: transparent;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .gm-btn--filled:hover {
@@ -370,7 +298,7 @@ a:hover {
 .gm-btn--gradient {
   background: linear-gradient(135deg, var(--gm-gradient-alt-start), var(--gm-gradient-alt-end));
   border-color: transparent;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .gm-btn--gradient:hover {
@@ -387,38 +315,13 @@ a:hover {
   font-size: 13px;
 }
 
-/* === Floating Action Button === */
-.gm-fab {
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gm-gradient-alt-start), var(--gm-gradient-alt-end));
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 4px 20px rgba(240, 147, 251, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--gm-transition);
-  z-index: 50;
-}
-
-.gm-fab:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 28px rgba(240, 147, 251, 0.5);
-}
-
 /* === Form Inputs === */
 .gm-input {
   width: 100%;
   padding: 12px 18px;
   font-family: var(--gm-font);
   font-size: 14px;
+  font-weight: 300;
   background: var(--gm-glass-subtle);
   backdrop-filter: var(--gm-blur-subtle);
   -webkit-backdrop-filter: var(--gm-blur-subtle);
@@ -441,7 +344,7 @@ a:hover {
 .gm-input-label {
   display: block;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--gm-text-secondary);
   margin-bottom: 6px;
 }
@@ -452,7 +355,7 @@ a:hover {
   align-items: center;
   padding: 4px 12px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
   border-radius: var(--gm-radius-full);
   background: var(--gm-glass);
   backdrop-filter: var(--gm-blur-subtle);
@@ -509,36 +412,56 @@ a:hover {
   margin: 40px 0;
 }
 
-/* === Table === */
-.gm-table-wrapper {
-  overflow-x: auto;
-  margin: 24px 0;
+/* === Pricing === */
+.gm-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 32px 0;
+  align-items: start;
 }
 
-.gm-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
+.gm-pricing-card {
+  background: var(--gm-glass);
+  backdrop-filter: var(--gm-blur);
+  -webkit-backdrop-filter: var(--gm-blur);
+  border: 1px solid var(--gm-glass-border);
+  border-radius: var(--gm-radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--gm-shadow);
+  transition: transform var(--gm-transition), box-shadow var(--gm-transition);
 }
 
-.gm-table th {
+.gm-pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--gm-shadow-lg);
+}
+
+.gm-pricing-card--featured {
+  background: var(--gm-glass-strong);
+  border-color: var(--gm-glass-border-strong);
+  transform: scale(1.05);
+}
+
+.gm-pricing-card--featured:hover {
+  transform: scale(1.05) translateY(-4px);
+}
+
+.gm-pricing-price {
+  font-size: 42px;
+  font-weight: 400;
+  margin: 16px 0;
+  line-height: 1;
+}
+
+.gm-pricing-features {
   text-align: left;
-  font-weight: 500;
-  font-size: 12px;
-  color: var(--gm-text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--gm-glass-border);
-}
-
-.gm-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.gm-table tr:hover td {
-  background: rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+  color: var(--gm-text-secondary);
+  line-height: 2.2;
+  margin-bottom: 24px;
+  font-weight: 300;
 }
 
 /* === Responsive === */
@@ -565,16 +488,11 @@ a:hover {
     grid-template-columns: 1fr;
   }
 
-  .gm-stats {
-    grid-template-columns: 1fr 1fr;
+  .gm-pricing-grid {
+    grid-template-columns: 1fr;
   }
 
-  .gm-profile-stats {
-    gap: 20px;
-  }
-
-  .gm-fab {
-    bottom: 20px;
-    right: 20px;
+  .gm-pricing-card--featured {
+    transform: none;
   }
 }

@@ -1,43 +1,43 @@
 /* ============================================
    Material Modern — Design System
-   Material Design 3 inspired, elevation, pills
+   Material Design 3, vibrant accents, clear elevation
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
-  --mm-bg: #fafafa;
-  --mm-surface: #ffffff;
-  --mm-surface-variant: #e7e0ec;
-  --mm-surface-container: #f3edf7;
-  --mm-surface-container-high: #ece6f0;
+  --mm-bg: #F8F9FA;
+  --mm-surface: #FFFFFF;
+  --mm-surface-variant: #E7E0EC;
+  --mm-surface-container: #F3EDF7;
+  --mm-surface-container-high: #ECE6F0;
 
-  --mm-primary: #6200ee;
-  --mm-primary-light: #f3e8fd;
-  --mm-primary-dark: #4a00b4;
-  --mm-on-primary: #ffffff;
+  --mm-primary: #6200EE;
+  --mm-primary-light: #F3E8FD;
+  --mm-primary-dark: #4A00B4;
+  --mm-on-primary: #FFFFFF;
 
-  --mm-secondary: #03dac6;
-  --mm-secondary-light: #e0f7f5;
+  --mm-secondary: #03DAC6;
+  --mm-secondary-light: #E0F7F5;
   --mm-on-secondary: #000000;
 
-  --mm-error: #b3261e;
-  --mm-error-light: #f9dedc;
-  --mm-on-error: #ffffff;
+  --mm-error: #B3261E;
+  --mm-error-light: #F9DEDC;
+  --mm-on-error: #FFFFFF;
 
-  --mm-text: #1c1b1f;
-  --mm-text-secondary: #49454f;
-  --mm-text-muted: #79747e;
-  --mm-outline: #79747e;
-  --mm-outline-variant: #cac4d0;
+  --mm-text: #1C1B1F;
+  --mm-text-secondary: #49454F;
+  --mm-text-muted: #79747E;
+  --mm-outline: #79747E;
+  --mm-outline-variant: #CAC4D0;
 
   --mm-font: 'Roboto', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
-  --mm-elevation-1: 0 1px 2px rgba(0,0,0,0.08), 0 1px 3px 1px rgba(0,0,0,0.05);
-  --mm-elevation-2: 0 1px 2px rgba(0,0,0,0.08), 0 2px 6px 2px rgba(0,0,0,0.06);
-  --mm-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.08);
-  --mm-elevation-4: 0 6px 10px 4px rgba(0,0,0,0.06), 0 2px 3px rgba(0,0,0,0.1);
-  --mm-elevation-5: 0 8px 12px 6px rgba(0,0,0,0.06), 0 4px 4px rgba(0,0,0,0.1);
+  --mm-elevation-1: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --mm-elevation-2: 0 3px 6px rgba(0, 0, 0, 0.16);
+  --mm-elevation-3: 0 10px 20px rgba(0, 0, 0, 0.19);
+  --mm-elevation-4: 0 6px 10px 4px rgba(0, 0, 0, 0.06), 0 2px 3px rgba(0, 0, 0, 0.1);
+  --mm-elevation-5: 0 8px 12px 6px rgba(0, 0, 0, 0.06), 0 4px 4px rgba(0, 0, 0, 0.1);
 
   --mm-radius-xs: 4px;
   --mm-radius-sm: 8px;
@@ -68,11 +68,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* === Typography (Material Type Scale) === */
+/* === Typography === */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   line-height: 1.3;
   color: var(--mm-text);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .mm-display-large {
@@ -80,27 +95,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 1.12;
   letter-spacing: -0.25px;
-}
-
-.mm-display-medium {
-  font-size: 45px;
-  font-weight: 400;
-  line-height: 1.16;
-}
-
-h1, .mm-headline-large {
-  font-size: 32px;
-  font-weight: 500;
-}
-
-h2, .mm-headline-medium {
-  font-size: 28px;
-  font-weight: 500;
-}
-
-h3, .mm-headline-small {
-  font-size: 24px;
-  font-weight: 500;
 }
 
 .mm-title-large {
@@ -112,12 +106,6 @@ h3, .mm-headline-small {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.15px;
-}
-
-.mm-title-small {
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.1px;
 }
 
 .mm-body-large {
@@ -133,12 +121,6 @@ h3, .mm-headline-small {
   letter-spacing: 0.25px;
 }
 
-.mm-body-small {
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.4px;
-}
-
 .mm-label-large {
   font-size: 14px;
   font-weight: 500;
@@ -147,12 +129,6 @@ h3, .mm-headline-small {
 
 .mm-label-medium {
   font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.mm-label-small {
-  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -301,16 +277,14 @@ a:hover {
   margin: 24px 0;
 }
 
-/* Elevated card */
 .mm-card--elevated {
   box-shadow: var(--mm-elevation-2);
 }
 
 .mm-card--elevated:hover {
-  box-shadow: var(--mm-elevation-4);
+  box-shadow: var(--mm-elevation-3);
 }
 
-/* Outlined card */
 .mm-card--outlined {
   box-shadow: none;
   border: 1px solid var(--mm-outline-variant);
@@ -320,7 +294,6 @@ a:hover {
   box-shadow: var(--mm-elevation-1);
 }
 
-/* Filled card */
 .mm-card--filled {
   box-shadow: none;
   background: var(--mm-surface-container);
@@ -346,7 +319,6 @@ a:hover {
   overflow: hidden;
 }
 
-/* Filled button */
 .mm-btn--filled {
   background: var(--mm-primary);
   color: var(--mm-on-primary);
@@ -357,7 +329,6 @@ a:hover {
   background: var(--mm-primary-dark);
 }
 
-/* Filled tonal */
 .mm-btn--tonal {
   background: var(--mm-primary-light);
   color: var(--mm-primary);
@@ -365,10 +336,9 @@ a:hover {
 
 .mm-btn--tonal:hover {
   box-shadow: var(--mm-elevation-1);
-  background: #e8d5fa;
+  background: #E8D5FA;
 }
 
-/* Outlined button */
 .mm-btn--outlined {
   background: transparent;
   color: var(--mm-primary);
@@ -379,7 +349,6 @@ a:hover {
   background: var(--mm-primary-light);
 }
 
-/* Text button */
 .mm-btn--text {
   background: transparent;
   color: var(--mm-primary);
@@ -390,7 +359,6 @@ a:hover {
   background: var(--mm-primary-light);
 }
 
-/* Secondary color */
 .mm-btn--secondary {
   background: var(--mm-secondary);
   color: var(--mm-on-secondary);
@@ -400,10 +368,14 @@ a:hover {
   box-shadow: var(--mm-elevation-1);
 }
 
-/* Error color */
 .mm-btn--error {
   background: var(--mm-error);
   color: var(--mm-on-error);
+}
+
+.mm-btn--sm {
+  padding: 6px 16px;
+  font-size: 13px;
 }
 
 /* === Floating Action Button === */
@@ -428,21 +400,8 @@ a:hover {
 }
 
 .mm-fab:hover {
-  box-shadow: var(--mm-elevation-4);
-}
-
-.mm-fab--large {
-  width: 96px;
-  height: 96px;
-  border-radius: var(--mm-radius-xl);
-  font-size: 36px;
-}
-
-.mm-fab--small {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--mm-radius-md);
-  font-size: 18px;
+  box-shadow: var(--mm-elevation-3);
+  transform: scale(1.05);
 }
 
 .mm-fab--extended {
@@ -484,7 +443,7 @@ a:hover {
 }
 
 .mm-chip--selected:hover {
-  background: #e8d5fa;
+  background: #E8D5FA;
 }
 
 .mm-chip-group {
@@ -549,7 +508,6 @@ a:hover {
   letter-spacing: 0.4px;
 }
 
-/* Filled text field variant */
 .mm-field--filled .mm-field-input {
   background: var(--mm-surface-container);
   border: none;
@@ -574,61 +532,18 @@ a:hover {
   margin: 32px 0;
 }
 
-/* === Badges === */
-.mm-badge {
-  display: inline-flex;
-  align-items: center;
-  min-height: 20px;
-  padding: 0 8px;
-  font-size: 11px;
+/* === Section Header === */
+.mm-section-header {
+  margin-bottom: 24px;
+}
+
+.mm-section-overline {
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.5px;
-  border-radius: var(--mm-radius-full);
-  background: var(--mm-error);
-  color: var(--mm-on-error);
-}
-
-.mm-badge--small {
-  width: 6px;
-  height: 6px;
-  min-height: 0;
-  padding: 0;
-  border-radius: 50%;
-}
-
-.mm-badge--primary {
-  background: var(--mm-primary);
-}
-
-.mm-badge--secondary {
-  background: var(--mm-secondary);
-  color: var(--mm-on-secondary);
-}
-
-/* === Snackbar / Toast === */
-.mm-snackbar {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
-  background: #323232;
-  color: #ffffff;
-  border-radius: var(--mm-radius-xs);
-  font-size: 14px;
-  letter-spacing: 0.25px;
-  box-shadow: var(--mm-elevation-3);
-}
-
-.mm-snackbar-action {
-  color: var(--mm-secondary);
-  font-weight: 500;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: var(--mm-font);
-  font-size: 14px;
-  letter-spacing: 0.1px;
-  padding: 0;
+  text-transform: uppercase;
+  color: var(--mm-primary);
+  margin-bottom: 8px;
 }
 
 /* === Switch === */
@@ -665,51 +580,27 @@ a:hover {
   left: 22px;
 }
 
-/* === Hero Section === */
-.mm-hero {
-  text-align: center;
-  padding: 64px 24px;
-  background: var(--mm-surface);
-  box-shadow: var(--mm-elevation-1);
-  border-radius: 0 0 var(--mm-radius-xl) var(--mm-radius-xl);
-  margin-bottom: 32px;
-}
-
-.mm-hero h1 {
-  font-size: 45px;
-  font-weight: 400;
-  margin-bottom: 16px;
-  color: var(--mm-text);
-}
-
-.mm-hero-desc {
-  font-size: 16px;
-  color: var(--mm-text-secondary);
-  max-width: 560px;
-  margin: 0 auto 32px;
-  letter-spacing: 0.5px;
-  line-height: 1.6;
-}
-
-.mm-hero-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* === Section Header === */
-.mm-section-header {
-  margin-bottom: 24px;
-}
-
-.mm-section-overline {
-  font-size: 12px;
+/* === Badges === */
+.mm-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 8px;
+  font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.5px;
-  text-transform: uppercase;
-  color: var(--mm-primary);
-  margin-bottom: 8px;
+  border-radius: var(--mm-radius-full);
+  background: var(--mm-error);
+  color: var(--mm-on-error);
+}
+
+.mm-badge--primary {
+  background: var(--mm-primary);
+}
+
+.mm-badge--secondary {
+  background: var(--mm-secondary);
+  color: var(--mm-on-secondary);
 }
 
 /* === List Item === */
@@ -754,6 +645,65 @@ a:hover {
   font-size: 14px;
   color: var(--mm-text-muted);
   letter-spacing: 0.25px;
+}
+
+/* === Hero Section === */
+.mm-hero {
+  text-align: center;
+  padding: 64px 24px;
+  background: var(--mm-surface);
+  box-shadow: var(--mm-elevation-1);
+  border-radius: 0 0 var(--mm-radius-xl) var(--mm-radius-xl);
+  margin-bottom: 32px;
+}
+
+.mm-hero h1 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--mm-text);
+}
+
+.mm-hero-desc {
+  font-size: 16px;
+  color: var(--mm-text-secondary);
+  max-width: 560px;
+  margin: 0 auto 32px;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+.mm-hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* === Snackbar === */
+.mm-snackbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #323232;
+  color: #ffffff;
+  border-radius: var(--mm-radius-xs);
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  box-shadow: var(--mm-elevation-3);
+}
+
+.mm-snackbar-action {
+  color: var(--mm-secondary);
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--mm-font);
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  padding: 0;
 }
 
 /* === Responsive === */

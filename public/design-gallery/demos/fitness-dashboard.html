@@ -3,228 +3,290 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fitness Dashboard — Design System Demo</title>
+  <title>Fitness Dashboard — FitPulse</title>
   <link rel="stylesheet" href="../styles/fitness-dashboard.css">
 </head>
 <body>
   <div class="fit-app">
-
-    <!-- ─── Profile Header ─── -->
-    <header class="fit-profile-header">
-      <div class="fit-profile-header__left">
-        <div class="fit-profile-header__avatar">AK</div>
-        <div>
-          <div class="fit-profile-header__greeting">Good morning</div>
-          <div class="fit-profile-header__name">Alex Kingston</div>
+    <!-- Header -->
+    <header class="fit-header">
+      <div class="fit-header-left">
+        <div class="fit-profile">
+          <div class="fit-avatar">
+            M
+            <span class="fit-avatar-status"></span>
+          </div>
+          <div class="fit-profile-info">
+            <h1>Marcus Rivera</h1>
+            <div class="fit-profile-sub">
+              <span class="fit-streak">&#x1F525; 24-day streak</span>
+              <span>Level 18 &bull; Intermediate</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <div class="fit-profile-header__streak">
-          <span class="fit-profile-header__streak-fire">&#128293;</span>
-          14 Day Streak
-        </div>
-        <button class="fit-btn fit-btn--gradient">
-          + New Workout
+      <div class="fit-header-right">
+        <button class="fit-header-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          History
+        </button>
+        <button class="fit-header-btn fit-header-btn--primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Log Workout
         </button>
       </div>
     </header>
 
-    <!-- ─── Workout Stats ─── -->
-    <div class="fit-stats">
-      <div class="fit-stat">
-        <div class="fit-stat__icon fit-stat__icon--orange">&#9889;</div>
-        <div class="fit-stat__value">2,847</div>
-        <div class="fit-stat__label">Calories Burned</div>
-      </div>
-      <div class="fit-stat">
-        <div class="fit-stat__icon fit-stat__icon--yellow">&#128170;</div>
-        <div class="fit-stat__value">5</div>
-        <div class="fit-stat__label">Workouts This Week</div>
-      </div>
-      <div class="fit-stat">
-        <div class="fit-stat__icon fit-stat__icon--green">&#9201;</div>
-        <div class="fit-stat__value">4h 32m</div>
-        <div class="fit-stat__label">Total Duration</div>
-      </div>
-      <div class="fit-stat">
-        <div class="fit-stat__icon fit-stat__icon--blue">&#127942;</div>
-        <div class="fit-stat__value">12</div>
-        <div class="fit-stat__label">Personal Records</div>
-      </div>
-    </div>
-
-    <!-- ─── Progress Circles ─── -->
-    <div class="fit-progress-section">
-      <div class="fit-progress-card">
-        <div class="fit-progress-card__title">Daily Calories</div>
-        <div class="fit-progress-ring">
-          <svg viewBox="0 0 120 120">
-            <circle class="fit-progress-ring__bg" cx="60" cy="60" r="50"/>
-            <circle class="fit-progress-ring__fill fit-progress-ring__fill--orange" cx="60" cy="60" r="50"
-              stroke-dasharray="314" stroke-dashoffset="78"/>
-          </svg>
-          <div class="fit-progress-ring__value">75%</div>
-        </div>
-        <div class="fit-progress-card__meta">1,847 / 2,500 kcal</div>
-      </div>
-
-      <div class="fit-progress-card">
-        <div class="fit-progress-card__title">Weekly Goal</div>
-        <div class="fit-progress-ring">
-          <svg viewBox="0 0 120 120">
-            <circle class="fit-progress-ring__bg" cx="60" cy="60" r="50"/>
-            <circle class="fit-progress-ring__fill fit-progress-ring__fill--yellow" cx="60" cy="60" r="50"
-              stroke-dasharray="314" stroke-dashoffset="110"/>
-          </svg>
-          <div class="fit-progress-ring__value">65%</div>
-        </div>
-        <div class="fit-progress-card__meta">5 / 7 workouts</div>
-      </div>
-
-      <div class="fit-progress-card">
-        <div class="fit-progress-card__title">Monthly Steps</div>
-        <div class="fit-progress-ring">
-          <svg viewBox="0 0 120 120">
-            <circle class="fit-progress-ring__bg" cx="60" cy="60" r="50"/>
-            <circle class="fit-progress-ring__fill fit-progress-ring__fill--green" cx="60" cy="60" r="50"
-              stroke-dasharray="314" stroke-dashoffset="47"/>
-          </svg>
-          <div class="fit-progress-ring__value">85%</div>
-        </div>
-        <div class="fit-progress-card__meta">212,450 / 250,000</div>
-      </div>
-    </div>
-
-    <!-- ─── Main Content: Chart + Activity ─── -->
-    <div class="fit-content">
-      <!-- Weekly Chart -->
-      <div class="fit-weekly-chart">
-        <div class="fit-weekly-chart__header">
-          <h3 class="fit-weekly-chart__title">Weekly Activity</h3>
-          <div style="display: flex; gap: 8px;">
-            <span class="fit-badge fit-badge--orange">This Week</span>
-            <button class="fit-btn fit-btn--ghost fit-btn--sm">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button class="fit-btn fit-btn--ghost fit-btn--sm">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
+    <main class="fit-main">
+      <!-- Stat Cards -->
+      <div class="fit-stat-grid">
+        <div class="fit-stat-card fit-stat-card--calories">
+          <div class="fit-stat-label">Calories Burned</div>
+          <div class="fit-stat-value">2,847 <span class="fit-stat-unit">kcal</span></div>
+          <div class="fit-stat-sub">
+            <span class="fit-stat-change fit-stat-change--up">+340</span>
+            above daily goal
           </div>
         </div>
-        <div class="fit-chart-bars">
-          <div class="fit-chart-bar-group">
-            <div class="fit-chart-bar" style="height: 65%"></div>
-            <span class="fit-chart-bar__label">Mon</span>
+        <div class="fit-stat-card fit-stat-card--workouts">
+          <div class="fit-stat-label">Workouts This Month</div>
+          <div class="fit-stat-value">24</div>
+          <div class="fit-stat-sub">
+            <span class="fit-stat-change fit-stat-change--up">+6</span>
+            vs last month
           </div>
-          <div class="fit-chart-bar-group">
-            <div class="fit-chart-bar" style="height: 85%"></div>
-            <span class="fit-chart-bar__label">Tue</span>
+        </div>
+        <div class="fit-stat-card fit-stat-card--duration">
+          <div class="fit-stat-label">Total Duration</div>
+          <div class="fit-stat-value">18.5<span class="fit-stat-unit">h</span></div>
+          <div class="fit-stat-sub">
+            <span class="fit-stat-change fit-stat-change--up">+2.3h</span>
+            vs last month
           </div>
-          <div class="fit-chart-bar-group">
-            <div class="fit-chart-bar" style="height: 45%"></div>
-            <span class="fit-chart-bar__label">Wed</span>
-          </div>
-          <div class="fit-chart-bar-group">
-            <div class="fit-chart-bar" style="height: 92%"></div>
-            <span class="fit-chart-bar__label">Thu</span>
-          </div>
-          <div class="fit-chart-bar-group">
-            <div class="fit-chart-bar" style="height: 70%"></div>
-            <span class="fit-chart-bar__label">Fri</span>
-          </div>
-          <div class="fit-chart-bar-group">
-            <div class="fit-chart-bar fit-chart-bar--rest" style="height: 20%"></div>
-            <span class="fit-chart-bar__label">Sat</span>
-          </div>
-          <div class="fit-chart-bar-group">
-            <div class="fit-chart-bar" style="height: 55%"></div>
-            <span class="fit-chart-bar__label">Sun</span>
+        </div>
+        <div class="fit-stat-card fit-stat-card--prs">
+          <div class="fit-stat-label">Personal Records</div>
+          <div class="fit-stat-value">7</div>
+          <div class="fit-stat-sub">
+            <span class="fit-stat-change fit-stat-change--up">+3</span>
+            new PRs this month
           </div>
         </div>
       </div>
 
-      <!-- Activity Feed -->
-      <div class="fit-activity">
-        <h3 class="fit-activity__title">Recent Activity</h3>
-
-        <div class="fit-activity__item">
-          <div class="fit-activity__icon">&#127947;</div>
-          <div class="fit-activity__info">
-            <div class="fit-activity__name">Upper Body Strength</div>
-            <div class="fit-activity__detail">Bench Press, OHP, Rows - 45 min</div>
+      <!-- Progress Rings -->
+      <div class="fit-rings-grid">
+        <!-- Protein -->
+        <div class="fit-ring-card">
+          <div class="fit-ring-wrap">
+            <svg class="fit-ring-svg" viewBox="0 0 120 120">
+              <circle class="fit-ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="fit-ring-progress" cx="60" cy="60" r="50"
+                stroke="#F97316"
+                stroke-dasharray="314.16"
+                stroke-dashoffset="78.54"/>
+            </svg>
+            <div class="fit-ring-label-center">
+              <span class="fit-ring-percent" style="color: #F97316;">75%</span>
+              <span class="fit-ring-small">of goal</span>
+            </div>
           </div>
-          <div class="fit-activity__time">2h ago</div>
+          <div class="fit-ring-title">Protein Intake</div>
+          <div class="fit-ring-detail">142g / 190g daily target</div>
         </div>
-
-        <div class="fit-activity__item">
-          <div class="fit-activity__icon" style="background: rgba(255, 200, 87, 0.12);">&#127939;</div>
-          <div class="fit-activity__info">
-            <div class="fit-activity__name">Morning Run</div>
-            <div class="fit-activity__detail">5.2 km - 28:15 pace</div>
+        <!-- Hydration -->
+        <div class="fit-ring-card">
+          <div class="fit-ring-wrap">
+            <svg class="fit-ring-svg" viewBox="0 0 120 120">
+              <circle class="fit-ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="fit-ring-progress" cx="60" cy="60" r="50"
+                stroke="#3B82F6"
+                stroke-dasharray="314.16"
+                stroke-dashoffset="109.96"/>
+            </svg>
+            <div class="fit-ring-label-center">
+              <span class="fit-ring-percent" style="color: #3B82F6;">65%</span>
+              <span class="fit-ring-small">of goal</span>
+            </div>
           </div>
-          <div class="fit-activity__time">6h ago</div>
+          <div class="fit-ring-title">Hydration</div>
+          <div class="fit-ring-detail">2.1L / 3.2L daily target</div>
         </div>
-
-        <div class="fit-activity__item">
-          <div class="fit-activity__icon" style="background: rgba(39, 201, 63, 0.12);">&#129496;</div>
-          <div class="fit-activity__info">
-            <div class="fit-activity__name">Yoga & Stretching</div>
-            <div class="fit-activity__detail">Full body recovery - 30 min</div>
+        <!-- Recovery -->
+        <div class="fit-ring-card">
+          <div class="fit-ring-wrap">
+            <svg class="fit-ring-svg" viewBox="0 0 120 120">
+              <circle class="fit-ring-bg" cx="60" cy="60" r="50"/>
+              <circle class="fit-ring-progress" cx="60" cy="60" r="50"
+                stroke="#22C55E"
+                stroke-dasharray="314.16"
+                stroke-dashoffset="47.12"/>
+            </svg>
+            <div class="fit-ring-label-center">
+              <span class="fit-ring-percent" style="color: #22C55E;">85%</span>
+              <span class="fit-ring-small">score</span>
+            </div>
           </div>
-          <div class="fit-activity__time">Yesterday</div>
-        </div>
-
-        <div class="fit-activity__item">
-          <div class="fit-activity__icon">&#128690;</div>
-          <div class="fit-activity__info">
-            <div class="fit-activity__name">Leg Day</div>
-            <div class="fit-activity__detail">Squats, Deadlift, Lunges - 55 min</div>
-          </div>
-          <div class="fit-activity__time">Yesterday</div>
-        </div>
-
-        <div class="fit-activity__item">
-          <div class="fit-activity__icon" style="background: rgba(91, 141, 239, 0.12);">&#127946;</div>
-          <div class="fit-activity__info">
-            <div class="fit-activity__name">Swimming</div>
-            <div class="fit-activity__detail">Freestyle 1,500m - 35 min</div>
-          </div>
-          <div class="fit-activity__time">2 days ago</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─── Bottom Section: Badges & Input ─── -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px;">
-      <div class="fit-progress-card" style="padding: 24px;">
-        <div class="fit-progress-card__title" style="text-align: left; margin-bottom: 16px;">Achievements</div>
-        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-          <span class="fit-badge fit-badge--orange">&#127942; First 5K</span>
-          <span class="fit-badge fit-badge--yellow">&#11088; 10 Day Streak</span>
-          <span class="fit-badge fit-badge--green">&#128170; 100 Workouts</span>
-          <span class="fit-badge fit-badge--orange">&#128293; Calorie Crusher</span>
-          <span class="fit-badge fit-badge--yellow">&#9889; Speed Demon</span>
-          <span class="fit-badge fit-badge--green">&#127793; Early Riser</span>
+          <div class="fit-ring-title">Recovery Score</div>
+          <div class="fit-ring-detail">7.2h sleep &bull; Low stress</div>
         </div>
       </div>
 
-      <div class="fit-progress-card" style="padding: 24px;">
-        <div class="fit-progress-card__title" style="text-align: left; margin-bottom: 16px;">Quick Log</div>
-        <div style="display: flex; flex-direction: column; gap: 12px;">
-          <input type="text" class="fit-input" placeholder="Exercise name...">
-          <div style="display: flex; gap: 8px;">
-            <input type="text" class="fit-input" placeholder="Sets" style="flex: 1;">
-            <input type="text" class="fit-input" placeholder="Reps" style="flex: 1;">
-            <input type="text" class="fit-input" placeholder="Weight" style="flex: 1;">
+      <!-- Weekly Chart + Activity Feed -->
+      <div class="fit-grid-2col">
+        <!-- Weekly Activity -->
+        <div class="fit-section">
+          <div class="fit-section-header">
+            <h2 class="fit-section-title">Weekly Activity</h2>
+            <a href="#" class="fit-section-link">Full Report &rarr;</a>
           </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="fit-btn fit-btn--gradient" style="flex: 1;">Log Exercise</button>
-            <button class="fit-btn fit-btn--outline">Clear</button>
+          <div class="fit-week-chart">
+            <div class="fit-week-bar-group">
+              <div class="fit-week-bar" style="height: 65%"></div>
+              <span class="fit-week-label">Mon</span>
+            </div>
+            <div class="fit-week-bar-group">
+              <div class="fit-week-bar" style="height: 85%"></div>
+              <span class="fit-week-label">Tue</span>
+            </div>
+            <div class="fit-week-bar-group">
+              <div class="fit-week-bar" style="height: 45%"></div>
+              <span class="fit-week-label">Wed</span>
+            </div>
+            <div class="fit-week-bar-group">
+              <div class="fit-week-bar" style="height: 92%"></div>
+              <span class="fit-week-label">Thu</span>
+            </div>
+            <div class="fit-week-bar-group">
+              <div class="fit-week-bar fit-week-bar--rest" style="height: 20%"></div>
+              <span class="fit-week-label">Fri</span>
+            </div>
+            <div class="fit-week-bar-group">
+              <div class="fit-week-bar" style="height: 78%"></div>
+              <span class="fit-week-label">Sat</span>
+            </div>
+            <div class="fit-week-bar-group fit-week-bar-group--today">
+              <div class="fit-week-bar fit-week-bar--today" style="height: 70%"></div>
+              <span class="fit-week-label">Sun</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="fit-section">
+          <div class="fit-section-header">
+            <h2 class="fit-section-title">Activity Feed</h2>
+            <a href="#" class="fit-section-link">All &rarr;</a>
+          </div>
+          <div class="fit-activity-list">
+            <div class="fit-activity-item">
+              <div class="fit-activity-icon" style="background: rgba(249, 115, 22, 0.15); color: #F97316;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+              </div>
+              <div class="fit-activity-info">
+                <div class="fit-activity-title">Upper Body Strength</div>
+                <div class="fit-activity-meta">Today, 7:30 AM &bull; 52 min</div>
+              </div>
+              <div class="fit-activity-value">
+                486
+                <div class="fit-activity-cals">kcal</div>
+              </div>
+            </div>
+            <div class="fit-activity-item">
+              <div class="fit-activity-icon" style="background: rgba(59, 130, 246, 0.15); color: #3B82F6;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="fit-activity-info">
+                <div class="fit-activity-title">HIIT Cardio</div>
+                <div class="fit-activity-meta">Yesterday &bull; 35 min</div>
+              </div>
+              <div class="fit-activity-value">
+                412
+                <div class="fit-activity-cals">kcal</div>
+              </div>
+            </div>
+            <div class="fit-activity-item">
+              <div class="fit-activity-icon" style="background: rgba(168, 85, 247, 0.15); color: #A855F7;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+              </div>
+              <div class="fit-activity-info">
+                <div class="fit-activity-title">5K Morning Run</div>
+                <div class="fit-activity-meta">Mar 9 &bull; 28 min</div>
+              </div>
+              <div class="fit-activity-value">
+                320
+                <div class="fit-activity-cals">kcal</div>
+              </div>
+            </div>
+            <div class="fit-activity-item">
+              <div class="fit-activity-icon" style="background: rgba(34, 197, 94, 0.15); color: #22C55E;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="fit-activity-info">
+                <div class="fit-activity-title">Yoga & Stretching</div>
+                <div class="fit-activity-meta">Mar 8 &bull; 45 min</div>
+              </div>
+              <div class="fit-activity-value">
+                180
+                <div class="fit-activity-cals">kcal</div>
+              </div>
+            </div>
+            <div class="fit-activity-item">
+              <div class="fit-activity-icon" style="background: rgba(234, 179, 8, 0.15); color: #EAB308;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/></svg>
+              </div>
+              <div class="fit-activity-info">
+                <div class="fit-activity-title">Leg Day</div>
+                <div class="fit-activity-meta">Mar 7 &bull; 58 min</div>
+              </div>
+              <div class="fit-activity-value">
+                520
+                <div class="fit-activity-cals">kcal</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
+      <!-- Achievements -->
+      <div class="fit-achievements">
+        <div class="fit-achievement">
+          <div class="fit-achievement-icon" style="background: rgba(249, 115, 22, 0.15);">&#x1F3C6;</div>
+          <div class="fit-achievement-info">
+            <div class="fit-achievement-name">Iron Will</div>
+            <div class="fit-achievement-desc">20+ workouts in a month</div>
+          </div>
+        </div>
+        <div class="fit-achievement">
+          <div class="fit-achievement-icon" style="background: rgba(59, 130, 246, 0.15);">&#x1F4AA;</div>
+          <div class="fit-achievement-info">
+            <div class="fit-achievement-name">PR Crusher</div>
+            <div class="fit-achievement-desc">5 personal records</div>
+          </div>
+        </div>
+        <div class="fit-achievement">
+          <div class="fit-achievement-icon" style="background: rgba(34, 197, 94, 0.15);">&#x1F525;</div>
+          <div class="fit-achievement-info">
+            <div class="fit-achievement-name">On Fire</div>
+            <div class="fit-achievement-desc">21-day streak achieved</div>
+          </div>
+        </div>
+        <div class="fit-achievement">
+          <div class="fit-achievement-icon" style="background: rgba(168, 85, 247, 0.15);">&#x26A1;</div>
+          <div class="fit-achievement-info">
+            <div class="fit-achievement-name">Speed Demon</div>
+            <div class="fit-achievement-desc">Sub-6 min/km pace</div>
+          </div>
+        </div>
+        <div class="fit-achievement">
+          <div class="fit-achievement-icon" style="background: rgba(234, 179, 8, 0.15);">&#x1F3AF;</div>
+          <div class="fit-achievement-info">
+            <div class="fit-achievement-name">Goal Getter</div>
+            <div class="fit-achievement-desc">Weekly calorie target hit</div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 </body>
 </html>

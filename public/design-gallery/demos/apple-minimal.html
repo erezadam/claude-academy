@@ -3,224 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apple Minimal - Design System Demo</title>
+  <title>AirFlow - Focus on what matters</title>
   <link rel="stylesheet" href="../styles/apple-minimal.css">
-  <style>
-    .demo-hero-image {
-      width: 100%;
-      max-width: 720px;
-      height: 400px;
-      margin: 40px auto 0;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 48px;
-      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
-    }
-    .demo-feature-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-    .demo-icon-blue { background: rgba(0, 113, 227, 0.1); color: #0071e3; }
-    .demo-icon-green { background: rgba(52, 199, 89, 0.1); color: #34c759; }
-    .demo-icon-purple { background: rgba(175, 82, 222, 0.1); color: #af52de; }
-    .demo-icon-orange { background: rgba(255, 149, 0, 0.1); color: #ff9500; }
-    .demo-form-group { margin-bottom: 16px; }
-    .demo-form-label {
-      display: block;
-      font-size: 14px;
-      font-weight: 500;
-      color: #1d1d1f;
-      margin-bottom: 6px;
-    }
-    .demo-cta-section {
-      text-align: center;
-      padding: 80px 22px;
-      background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
-    }
-    .demo-stats {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-top: 40px;
-    }
-    .demo-stat-number {
-      font-size: 44px;
-      font-weight: 600;
-      color: #1d1d1f;
-      line-height: 1.1;
-    }
-    .demo-stat-label {
-      font-size: 14px;
-      color: #6e6e73;
-      margin-top: 4px;
-    }
-  </style>
 </head>
 <body>
 
   <!-- Navigation -->
   <nav class="apple-nav">
     <div class="apple-nav-inner">
-      <a href="#" class="apple-nav-logo">Acme</a>
+      <a href="#" class="apple-nav-logo">AirFlow</a>
       <ul class="apple-nav-links">
-        <li><a href="#">Features</a></li>
-        <li><a href="#">Pricing</a></li>
-        <li><a href="#">Resources</a></li>
-        <li><a href="#">Company</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#signup">Sign Up</a></li>
       </ul>
-      <a href="#" class="apple-btn apple-btn-primary apple-btn-sm">Get Started</a>
+      <div class="apple-nav-cta">
+        <a href="#" class="apple-btn apple-btn-secondary apple-btn-sm">Sign In</a>
+        <a href="#" class="apple-btn apple-btn-primary apple-btn-sm">Try Free</a>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="apple-hero">
-    <div class="apple-eyebrow">Introducing Acme Cloud</div>
-    <h1 class="apple-headline-1">The future of<br>cloud computing.</h1>
+    <div class="apple-eyebrow">Introducing AirFlow</div>
+    <h1 class="apple-display">Focus on what<br>actually matters.</h1>
     <p class="apple-subhead">
-      Beautifully fast. Remarkably intelligent. Designed to transform the way you build, deploy, and scale your applications.
+      The productivity app designed to remove distractions and help your team
+      ship work that moves the needle. Beautifully simple. Remarkably powerful.
     </p>
-    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+    <div class="apple-hero-actions">
       <a href="#" class="apple-btn apple-btn-primary">Start Free Trial</a>
       <a href="#" class="apple-btn apple-btn-secondary">Watch the film &#8250;</a>
     </div>
-    <div class="demo-hero-image">
-      <span>&#9678;</span>
+    <div class="apple-hero-image">
+      <div class="apple-hero-image-content">
+        <div class="logo-icon">&#9678;</div>
+        <div>AirFlow Dashboard</div>
+      </div>
     </div>
   </section>
 
   <!-- Stats Section -->
-  <div class="demo-stats">
-    <div>
-      <div class="demo-stat-number">99.9%</div>
-      <div class="demo-stat-label">Uptime guarantee</div>
+  <div class="apple-stats">
+    <div class="apple-stat">
+      <div class="apple-stat-number">2.4M+</div>
+      <div class="apple-stat-label">Teams worldwide</div>
     </div>
-    <div>
-      <div class="demo-stat-number">2M+</div>
-      <div class="demo-stat-label">Developers worldwide</div>
+    <div class="apple-stat">
+      <div class="apple-stat-number">37%</div>
+      <div class="apple-stat-label">Faster delivery</div>
     </div>
-    <div>
-      <div class="demo-stat-number">150ms</div>
-      <div class="demo-stat-label">Average response time</div>
+    <div class="apple-stat">
+      <div class="apple-stat-number">99.99%</div>
+      <div class="apple-stat-label">Uptime guaranteed</div>
     </div>
   </div>
 
   <!-- Features Grid -->
-  <section class="apple-section">
+  <section class="apple-section" id="features">
     <div class="apple-section-title">
-      <h2 class="apple-headline-2">Why Acme Cloud?</h2>
-      <p class="apple-subhead" style="margin-top: 12px;">
-        Every detail has been considered and reconsidered to deliver the best possible experience.
+      <div class="apple-eyebrow">Why AirFlow</div>
+      <h2 class="apple-headline-2">Less noise. More impact.</h2>
+      <p class="apple-subhead">
+        Every feature exists for a reason. Nothing extra, nothing missing.
       </p>
     </div>
     <div class="apple-grid apple-grid-3">
-      <div class="apple-card apple-card-secondary" style="text-align: center; padding: 48px 32px;">
-        <div class="demo-feature-icon demo-icon-blue" style="margin: 0 auto 16px;">&#9889;</div>
-        <h3 class="apple-headline-3" style="margin-bottom: 10px;">Lightning Fast</h3>
-        <p class="apple-body" style="color: #6e6e73;">
-          Edge-optimized infrastructure delivers content in milliseconds, no matter where your users are located.
-        </p>
+      <div class="apple-card" style="text-align: center;">
+        <div class="apple-feature-icon apple-feature-icon-blue" style="margin: 0 auto 20px;">&#9889;</div>
+        <div class="apple-feature-title">Instant Capture</div>
+        <div class="apple-feature-desc">
+          Capture thoughts, tasks, and ideas the moment they arrive. Our smart inbox
+          categorizes and prioritizes so nothing falls through the cracks.
+        </div>
       </div>
-      <div class="apple-card apple-card-secondary" style="text-align: center; padding: 48px 32px;">
-        <div class="demo-feature-icon demo-icon-green" style="margin: 0 auto 16px;">&#9744;</div>
-        <h3 class="apple-headline-3" style="margin-bottom: 10px;">Secure by Design</h3>
-        <p class="apple-body" style="color: #6e6e73;">
-          End-to-end encryption, SOC 2 compliance, and zero-trust architecture built into every layer.
-        </p>
+      <div class="apple-card" style="text-align: center;">
+        <div class="apple-feature-icon apple-feature-icon-green" style="margin: 0 auto 20px;">&#9203;</div>
+        <div class="apple-feature-title">Deep Focus Mode</div>
+        <div class="apple-feature-desc">
+          Block distractions with a single tap. AirFlow silences notifications, hides
+          non-essential UI, and keeps your attention where it belongs.
+        </div>
       </div>
-      <div class="apple-card apple-card-secondary" style="text-align: center; padding: 48px 32px;">
-        <div class="demo-feature-icon demo-icon-purple" style="margin: 0 auto 16px;">&#9881;</div>
-        <h3 class="apple-headline-3" style="margin-bottom: 10px;">Effortless Scaling</h3>
-        <p class="apple-body" style="color: #6e6e73;">
-          Auto-scaling that adapts to your workload in real time. Handle millions of requests without breaking a sweat.
-        </p>
+      <div class="apple-card" style="text-align: center;">
+        <div class="apple-feature-icon apple-feature-icon-purple" style="margin: 0 auto 20px;">&#9670;</div>
+        <div class="apple-feature-title">Team Sync</div>
+        <div class="apple-feature-desc">
+          Real-time collaboration without the chaos. Shared boards, threaded updates,
+          and smart status tracking keep everyone aligned.
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Feature Highlight -->
-  <div class="apple-section-secondary" style="padding: 80px 0;">
-    <div class="apple-section-inner">
-      <div class="apple-grid apple-grid-2" style="align-items: center;">
-        <div style="padding-right: 40px;">
-          <div class="apple-eyebrow" style="margin-bottom: 12px;">Developer Experience</div>
-          <h2 class="apple-headline-2" style="margin-bottom: 16px;">Build with confidence.</h2>
-          <p class="apple-subhead" style="margin-bottom: 24px;">
-            Intuitive APIs, comprehensive documentation, and a CLI that feels like magic. Deploy in seconds, not hours.
-          </p>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <span class="apple-badge apple-badge-accent">TypeScript</span>
-            <span class="apple-badge apple-badge-accent">Python</span>
-            <span class="apple-badge apple-badge-accent">Go</span>
-            <span class="apple-badge apple-badge-accent">Rust</span>
-          </div>
-        </div>
-        <div style="background: #1d1d1f; border-radius: 18px; padding: 32px; color: #a1a1a6; font-family: monospace; font-size: 14px; line-height: 1.8;">
-          <div><span style="color: #bf5af2;">import</span> <span style="color: #64d2ff;">{ deploy }</span> <span style="color: #bf5af2;">from</span> <span style="color: #ffa14f;">'acme-cloud'</span>;</div>
-          <br>
-          <div><span style="color: #bf5af2;">const</span> <span style="color: #64d2ff;">app</span> = <span style="color: #ffa14f;">deploy</span>({</div>
-          <div style="padding-left: 20px;"><span style="color: #64d2ff;">name</span>: <span style="color: #ffa14f;">'my-app'</span>,</div>
-          <div style="padding-left: 20px;"><span style="color: #64d2ff;">region</span>: <span style="color: #ffa14f;">'auto'</span>,</div>
-          <div style="padding-left: 20px;"><span style="color: #64d2ff;">scale</span>: <span style="color: #ffa14f;">'elastic'</span></div>
-          <div>});</div>
-          <br>
-          <div style="color: #636366;">// Deployed in 2.3 seconds</div>
-        </div>
+  <!-- Pricing Section -->
+  <section class="apple-section" id="pricing" style="padding-top: 40px;">
+    <div class="apple-section-title">
+      <div class="apple-eyebrow">Pricing</div>
+      <h2 class="apple-headline-2">Simple, transparent pricing.</h2>
+      <p class="apple-subhead">
+        No hidden fees. No surprises. Cancel anytime.
+      </p>
+    </div>
+    <div class="apple-pricing-grid">
+      <!-- Free -->
+      <div class="apple-pricing-card">
+        <div class="apple-pricing-name">Personal</div>
+        <div class="apple-pricing-price">$0<span>/mo</span></div>
+        <div class="apple-pricing-desc">For individuals getting started</div>
+        <ul class="apple-pricing-features">
+          <li>Up to 3 projects</li>
+          <li>Basic task management</li>
+          <li>1 GB storage</li>
+          <li>Mobile and web access</li>
+        </ul>
+        <a href="#" class="apple-btn apple-btn-outline" style="width: 100%;">Get Started</a>
+      </div>
+      <!-- Pro -->
+      <div class="apple-pricing-card featured">
+        <div class="apple-pricing-badge">Most Popular</div>
+        <div class="apple-pricing-name">Team</div>
+        <div class="apple-pricing-price">$12<span>/mo</span></div>
+        <div class="apple-pricing-desc">Per user, billed annually</div>
+        <ul class="apple-pricing-features">
+          <li>Unlimited projects</li>
+          <li>Deep Focus Mode</li>
+          <li>50 GB storage</li>
+          <li>Team Sync and shared boards</li>
+          <li>Priority email support</li>
+        </ul>
+        <a href="#" class="apple-btn apple-btn-primary" style="width: 100%;">Start Free Trial</a>
+      </div>
+      <!-- Enterprise -->
+      <div class="apple-pricing-card">
+        <div class="apple-pricing-name">Enterprise</div>
+        <div class="apple-pricing-price">Custom</div>
+        <div class="apple-pricing-desc">For large organizations</div>
+        <ul class="apple-pricing-features">
+          <li>Everything in Team</li>
+          <li>SSO and SAML</li>
+          <li>Unlimited storage</li>
+          <li>Dedicated account manager</li>
+          <li>Custom integrations</li>
+        </ul>
+        <a href="#" class="apple-btn apple-btn-outline" style="width: 100%;">Contact Sales</a>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Form Section -->
-  <section class="apple-section" style="max-width: 560px;">
+  <!-- Signup Form -->
+  <div class="apple-form-section" id="signup">
     <div class="apple-section-title">
       <h2 class="apple-headline-3">Get early access</h2>
       <p class="apple-subhead" style="font-size: 17px; margin-top: 8px;">
-        Join the waitlist and be among the first to experience Acme Cloud.
+        Join the waitlist and be among the first to experience AirFlow 2.0.
       </p>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <div class="demo-form-group">
-        <label class="demo-form-label">Full name</label>
+    <form onsubmit="return false;">
+      <div class="apple-form-group">
+        <label class="apple-form-label">Full name</label>
         <input type="text" class="apple-input" placeholder="Jane Appleseed">
       </div>
-      <div class="demo-form-group">
-        <label class="demo-form-label">Email address</label>
-        <input type="email" class="apple-input" placeholder="jane@example.com">
+      <div class="apple-form-group">
+        <label class="apple-form-label">Work email</label>
+        <input type="email" class="apple-input" placeholder="jane@company.com">
       </div>
-      <div class="demo-form-group">
-        <label class="demo-form-label">Company</label>
+      <div class="apple-form-group">
+        <label class="apple-form-label">Company</label>
         <input type="text" class="apple-input" placeholder="Acme Inc.">
       </div>
-      <a href="#" class="apple-btn apple-btn-primary" style="width: 100%; margin-top: 8px;">Request Access</a>
-    </div>
-  </section>
-
-  <!-- Badges Showcase -->
-  <section class="apple-section" style="text-align: center;">
-    <h3 class="apple-headline-3" style="margin-bottom: 20px;">Status Badges</h3>
-    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-      <span class="apple-badge">Default</span>
-      <span class="apple-badge apple-badge-accent">Active</span>
-      <span class="apple-badge apple-badge-success">Deployed</span>
-    </div>
-  </section>
+      <a href="#" class="apple-btn apple-btn-primary" style="width: 100%; margin-top: 12px;">Request Access</a>
+    </form>
+  </div>
 
   <!-- CTA Section -->
-  <div class="demo-cta-section">
-    <h2 class="apple-headline-2">Ready to get started?</h2>
-    <p class="apple-subhead" style="margin: 12px auto 28px; max-width: 480px;">
+  <div class="apple-cta">
+    <h2 class="apple-headline-2">Ready to focus?</h2>
+    <p class="apple-subhead">
       Start building for free. No credit card required.
     </p>
-    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+    <div class="apple-cta-actions">
       <a href="#" class="apple-btn apple-btn-primary apple-btn-lg">Start Building Free</a>
       <a href="#" class="apple-btn apple-btn-outline apple-btn-lg">Contact Sales</a>
     </div>
@@ -229,7 +192,7 @@
   <!-- Footer -->
   <hr class="apple-divider">
   <footer class="apple-footer">
-    <p>Copyright &copy; 2026 Acme Inc. All rights reserved.</p>
+    <p>Copyright &copy; 2026 AirFlow, Inc. All rights reserved. &nbsp;|&nbsp; Privacy &nbsp;|&nbsp; Terms &nbsp;|&nbsp; Legal</p>
   </footer>
 
 </body>

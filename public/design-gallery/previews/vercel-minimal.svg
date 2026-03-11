@@ -1,66 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
 
   <!-- Background -->
-  <rect width="400" height="300" fill="#000000"/>
+  <rect width="400" height="300" fill="#FFFFFF"/>
 
   <!-- Nav Bar -->
-  <line x1="0" y1="32" x2="400" y2="32" stroke="#333333" stroke-width="0.5"/>
-  <!-- Triangle Logo -->
-  <polygon points="20,22 30,8 40,22" fill="#ffffff"/>
-  <rect x="46" y="13" width="36" height="7" rx="2" fill="#ffffff"/>
-  <rect x="140" y="14" width="24" height="5" rx="1.5" fill="#888888"/>
-  <rect x="172" y="14" width="24" height="5" rx="1.5" fill="#888888"/>
-  <rect x="204" y="14" width="24" height="5" rx="1.5" fill="#888888"/>
-  <rect x="310" y="9" width="34" height="14" rx="4" fill="transparent" stroke="#333333" stroke-width="0.8"/>
-  <rect x="350" y="9" width="34" height="14" rx="4" fill="#ffffff"/>
-  <rect x="355" y="13" width="24" height="6" rx="1.5" fill="#000000"/>
+  <rect width="400" height="30" fill="#FFFFFF"/>
+  <!-- Logo triangle -->
+  <polygon points="18,20 24,8 30,20" fill="#000000"/>
+  <rect x="34" y="12" width="40" height="7" rx="2" fill="#000000"/>
+  <!-- Nav links -->
+  <rect x="130" y="13" width="26" height="5" rx="1.5" fill="#666666"/>
+  <rect x="164" y="13" width="18" height="5" rx="1.5" fill="#666666"/>
+  <rect x="190" y="13" width="30" height="5" rx="1.5" fill="#666666"/>
+  <rect x="228" y="13" width="34" height="5" rx="1.5" fill="#666666"/>
+  <!-- Sign Up button -->
+  <rect x="340" y="8" width="46" height="16" rx="5" fill="#000000"/>
+  <rect x="349" y="13" width="28" height="6" rx="1.5" fill="#FFFFFF"/>
+  <line x1="0" y1="30" x2="400" y2="30" stroke="#EAEAEA" stroke-width="0.5"/>
 
   <!-- Hero Section -->
-  <text x="200" y="72" text-anchor="middle" font-family="Inter,-apple-system,system-ui,sans-serif" font-size="32" font-weight="700" fill="#ffffff" letter-spacing="-2">Develop.</text>
-  <text x="200" y="104" text-anchor="middle" font-family="Inter,-apple-system,system-ui,sans-serif" font-size="32" font-weight="700" fill="#ffffff" letter-spacing="-2">Preview.</text>
-  <text x="200" y="136" text-anchor="middle" font-family="Inter,-apple-system,system-ui,sans-serif" font-size="32" font-weight="700" fill="#ffffff" letter-spacing="-2">Ship.</text>
+  <rect x="80" y="50" width="240" height="16" rx="3" fill="#000000"/>
 
-  <rect x="115" y="150" width="170" height="5" rx="1.5" fill="#888888"/>
-  <rect x="130" y="160" width="140" height="5" rx="1.5" fill="#888888"/>
+  <!-- Subtitle -->
+  <rect x="100" y="78" width="200" height="5" rx="1.5" fill="#666666"/>
+  <rect x="115" y="88" width="170" height="5" rx="1.5" fill="#666666"/>
 
   <!-- CTA Buttons -->
-  <rect x="130" y="176" width="70" height="18" rx="5" fill="#ffffff"/>
-  <rect x="140" y="181" width="50" height="8" rx="2" fill="#000000"/>
-  <rect x="210" y="176" width="60" height="18" rx="5" fill="transparent" stroke="#333333" stroke-width="1"/>
+  <rect x="118" y="104" width="80" height="18" rx="6" fill="#000000"/>
+  <rect x="126" y="109" width="64" height="8" rx="1.5" fill="#FFFFFF"/>
+  <rect x="206" y="104" width="76" height="18" rx="6" fill="none" stroke="#EAEAEA" stroke-width="1"/>
+  <rect x="216" y="109" width="56" height="8" rx="1.5" fill="#000000"/>
 
-  <!-- Code Block -->
-  <rect x="100" y="206" width="200" height="14" rx="5" fill="#111111" stroke="#333333" stroke-width="0.5"/>
-  <rect x="108" y="210" width="6" height="5" rx="1" fill="#666666"/>
-  <rect x="118" y="210" width="100" height="5" rx="1" fill="#ffffff"/>
+  <!-- Terminal Command -->
+  <rect x="100" y="132" width="200" height="20" rx="5" fill="#0A0A0A"/>
+  <rect x="108" y="138" width="6" height="6" rx="1" fill="#666666"/>
+  <rect x="118" y="139" width="16" height="5" rx="1" fill="#0070F3"/>
+  <rect x="138" y="139" width="80" height="5" rx="1" fill="#E5E5E5"/>
 
-  <!-- Feature Grid -->
-  <rect x="20" y="234" width="110" height="50" rx="6" fill="#000000" stroke="#333333" stroke-width="0.5"/>
-  <rect x="145" y="234" width="110" height="50" rx="6" fill="#000000" stroke="#333333" stroke-width="0.5"/>
-  <rect x="270" y="234" width="110" height="50" rx="6" fill="#000000" stroke="#333333" stroke-width="0.5"/>
+  <!-- Framework logos divider -->
+  <line x1="0" y1="162" x2="400" y2="162" stroke="#EAEAEA" stroke-width="0.5"/>
 
-  <!-- Card Content -->
-  <rect x="30" y="244" width="12" height="12" rx="2" fill="#111111"/>
-  <rect x="30" y="260" width="50" height="5" rx="1.5" fill="#ffffff"/>
-  <rect x="30" y="269" width="80" height="4" rx="1" fill="#888888"/>
+  <!-- Framework label -->
+  <rect x="130" y="170" width="140" height="4" rx="1" fill="#999999"/>
 
-  <rect x="155" y="244" width="12" height="12" rx="2" fill="#111111"/>
-  <rect x="155" y="260" width="50" height="5" rx="1.5" fill="#ffffff"/>
-  <rect x="155" y="269" width="80" height="4" rx="1" fill="#888888"/>
+  <!-- Framework icons -->
+  <rect x="62" y="182" width="24" height="24" rx="6" fill="#FAFAFA" stroke="#EAEAEA" stroke-width="0.5"/>
+  <text x="74" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#000" font-family="system-ui">N</text>
+  <rect x="62" y="210" width="24" height="4" rx="1" fill="#999"/>
 
-  <rect x="280" y="244" width="12" height="12" rx="2" fill="#111111"/>
-  <rect x="280" y="260" width="50" height="5" rx="1.5" fill="#ffffff"/>
-  <rect x="280" y="269" width="80" height="4" rx="1" fill="#888888"/>
+  <rect x="108" y="182" width="24" height="24" rx="6" fill="#FAFAFA" stroke="#EAEAEA" stroke-width="0.5"/>
+  <text x="120" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#000" font-family="system-ui">R</text>
+  <rect x="110" y="210" width="20" height="4" rx="1" fill="#999"/>
 
-  <!-- Link Accents -->
-  <rect x="30" y="276" width="40" height="3" rx="1" fill="#0070f3"/>
-  <rect x="155" y="276" width="40" height="3" rx="1" fill="#0070f3"/>
-  <rect x="280" y="276" width="40" height="3" rx="1" fill="#0070f3"/>
+  <rect x="154" y="182" width="24" height="24" rx="6" fill="#FAFAFA" stroke="#EAEAEA" stroke-width="0.5"/>
+  <text x="166" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#000" font-family="system-ui">V</text>
+  <rect x="158" y="210" width="16" height="4" rx="1" fill="#999"/>
 
-  <!-- Separator -->
-  <line x1="40" y1="230" x2="180" y2="230" stroke="#333333" stroke-width="0.5"/>
-  <rect x="188" y="228" width="4" height="4" rx="0" fill="#333333" transform="rotate(45 190 230)"/>
-  <line x1="200" y1="230" x2="360" y2="230" stroke="#333333" stroke-width="0.5"/>
+  <rect x="200" y="182" width="24" height="24" rx="6" fill="#FAFAFA" stroke="#EAEAEA" stroke-width="0.5"/>
+  <text x="212" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#000" font-family="system-ui">S</text>
+  <rect x="202" y="210" width="20" height="4" rx="1" fill="#999"/>
+
+  <rect x="246" y="182" width="24" height="24" rx="6" fill="#FAFAFA" stroke="#EAEAEA" stroke-width="0.5"/>
+  <text x="258" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#000" font-family="system-ui">A</text>
+  <rect x="249" y="210" width="18" height="4" rx="1" fill="#999"/>
+
+  <rect x="292" y="182" width="24" height="24" rx="6" fill="#FAFAFA" stroke="#EAEAEA" stroke-width="0.5"/>
+  <text x="304" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#000" font-family="system-ui">N</text>
+  <rect x="294" y="210" width="20" height="4" rx="1" fill="#999"/>
+
+  <line x1="0" y1="222" x2="400" y2="222" stroke="#EAEAEA" stroke-width="0.5"/>
+
+  <!-- Feature Cards -->
+  <rect x="18" y="234" width="116" height="48" rx="6" fill="#FFFFFF" stroke="#EAEAEA" stroke-width="0.8"/>
+  <rect x="28" y="242" width="16" height="16" rx="4" fill="#000000"/>
+  <text x="36" y="254" text-anchor="middle" font-size="9" fill="white" font-family="system-ui">&#9889;</text>
+  <rect x="28" y="264" width="50" height="4" rx="1" fill="#000000"/>
+  <rect x="28" y="272" width="80" height="3" rx="1" fill="#666666"/>
+
+  <rect x="142" y="234" width="116" height="48" rx="6" fill="#FFFFFF" stroke="#EAEAEA" stroke-width="0.8"/>
+  <rect x="152" y="242" width="16" height="16" rx="4" fill="#000000"/>
+  <text x="160" y="254" text-anchor="middle" font-size="9" fill="white" font-family="system-ui">&#9678;</text>
+  <rect x="152" y="264" width="56" height="4" rx="1" fill="#000000"/>
+  <rect x="152" y="272" width="80" height="3" rx="1" fill="#666666"/>
+
+  <rect x="266" y="234" width="116" height="48" rx="6" fill="#FFFFFF" stroke="#EAEAEA" stroke-width="0.8"/>
+  <rect x="276" y="242" width="16" height="16" rx="4" fill="#000000"/>
+  <text x="284" y="254" text-anchor="middle" font-size="9" fill="white" font-family="system-ui">&#9881;</text>
+  <rect x="276" y="264" width="40" height="4" rx="1" fill="#000000"/>
+  <rect x="276" y="272" width="80" height="3" rx="1" fill="#666666"/>
 
   <!-- Label -->
-  <text x="200" y="296" text-anchor="middle" font-family="Inter,-apple-system,system-ui,sans-serif" font-size="8" fill="#666666">Vercel Minimal</text>
+  <text x="200" y="296" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#999999">Vercel Minimal</text>
 </svg>

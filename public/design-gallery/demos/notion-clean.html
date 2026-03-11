@@ -6,7 +6,6 @@
   <title>Notion Clean — Design System Demo</title>
   <link rel="stylesheet" href="../styles/notion-clean.css">
   <style>
-    /* Demo-specific helpers */
     .demo-nav {
       position: sticky;
       top: 0;
@@ -36,27 +35,7 @@
       align-items: center;
       gap: 8px;
     }
-    .demo-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--nc-space-lg);
-    }
-    @media (max-width: 767px) {
-      .demo-columns { grid-template-columns: 1fr; }
-    }
     .demo-section { margin-bottom: var(--nc-space-3xl); }
-    .demo-color-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin: var(--nc-space-md) 0;
-    }
-    .demo-color-chip {
-      width: 48px;
-      height: 48px;
-      border-radius: var(--nc-radius-md);
-      border: 1px solid var(--nc-border);
-    }
   </style>
 </head>
 <body>
@@ -86,11 +65,15 @@
       <h1 class="nc-page-title">Product Roadmap 2026</h1>
       <p class="nc-page-description">Strategic plan for Q1-Q2 product development, team goals, and key milestones.</p>
 
-      <!-- Properties -->
+      <!-- Properties Bar -->
       <div style="margin-top: 16px;">
         <div class="nc-property">
           <span class="nc-property-label">Status</span>
           <span class="nc-property-value"><span class="nc-tag nc-tag--green">In Progress</span></span>
+        </div>
+        <div class="nc-property">
+          <span class="nc-property-label">Due Date</span>
+          <span class="nc-property-value">June 30, 2026</span>
         </div>
         <div class="nc-property">
           <span class="nc-property-label">Owner</span>
@@ -113,7 +96,7 @@
 
     <hr class="nc-divider">
 
-    <!-- Content Blocks -->
+    <!-- Overview Section -->
     <div class="demo-section">
       <h2>&#127919; Overview</h2>
       <p>This document outlines our product strategy for the first half of 2026. We're focusing on three major initiatives that will drive growth and improve the user experience across all platforms.</p>
@@ -160,10 +143,16 @@
       <div class="nc-toggle">
         <div class="nc-toggle-header" onclick="this.parentElement.classList.toggle('open')">
           <span class="nc-toggle-arrow">&#9654;</span>
-          <span><strong>AI-Powered Search & Discovery</strong></span>
+          <span><strong>AI-Powered Search &amp; Discovery</strong></span>
         </div>
         <div class="nc-toggle-body">
           <p>Semantic search across all workspace content, with natural language queries and smart suggestions. Uses our fine-tuned embedding model.</p>
+          <ul class="nc-list nc-list--bulleted">
+            <li>Vector-based semantic search with hybrid BM25 ranking</li>
+            <li>Natural language query parsing</li>
+            <li>Smart content recommendations</li>
+            <li>Integration with Slack and Google Drive</li>
+          </ul>
         </div>
       </div>
 
@@ -182,7 +171,7 @@
 
     <!-- Table -->
     <div class="demo-section">
-      <h2>&#128197; Timeline & Milestones</h2>
+      <h2>&#128197; Timeline &amp; Milestones</h2>
       <div class="nc-table-wrapper">
         <table class="nc-table">
           <thead>
@@ -235,7 +224,7 @@
       </div>
     </div>
 
-    <!-- Todo List -->
+    <!-- Todo Checklist -->
     <div class="demo-section">
       <h2>&#9989; Action Items</h2>
       <div class="nc-todo checked">
@@ -245,6 +234,10 @@
       <div class="nc-todo checked">
         <input type="checkbox" checked disabled>
         <span>Review competitive analysis with leadership</span>
+      </div>
+      <div class="nc-todo checked">
+        <input type="checkbox" checked disabled>
+        <span>Finalize budget allocation for Q1 initiatives</span>
       </div>
       <div class="nc-todo">
         <input type="checkbox" disabled>
@@ -258,52 +251,13 @@
         <input type="checkbox" disabled>
         <span>Prepare Q1 demo for all-hands meeting</span>
       </div>
+      <div class="nc-todo">
+        <input type="checkbox" disabled>
+        <span>Hire two additional frontend engineers</span>
+      </div>
     </div>
 
     <hr class="nc-divider">
-
-    <!-- Gallery Cards -->
-    <div class="demo-section">
-      <h2>&#128218; Team Resources</h2>
-      <div class="nc-gallery">
-        <div class="nc-gallery-card">
-          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #d3e5ef, #e8deee);"></div>
-          <div class="nc-gallery-card-body">
-            <div class="nc-gallery-card-title">&#128209; Engineering Handbook</div>
-            <div class="nc-gallery-card-meta">Updated 2 days ago</div>
-          </div>
-        </div>
-        <div class="nc-gallery-card">
-          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #dbeddb, #fdecc8);"></div>
-          <div class="nc-gallery-card-body">
-            <div class="nc-gallery-card-title">&#127912; Design System Guide</div>
-            <div class="nc-gallery-card-meta">Updated 5 days ago</div>
-          </div>
-        </div>
-        <div class="nc-gallery-card">
-          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #fdecc8, #ffe2dd);"></div>
-          <div class="nc-gallery-card-body">
-            <div class="nc-gallery-card-title">&#128200; Analytics Dashboard</div>
-            <div class="nc-gallery-card-meta">Updated 1 week ago</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Form Section -->
-    <div class="demo-section">
-      <h2>&#128172; Feedback</h2>
-      <p>Have thoughts on the roadmap? Share them below.</p>
-      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px;">
-        <input class="nc-input" type="text" placeholder="Your name">
-        <input class="nc-input" type="email" placeholder="Email address">
-        <textarea class="nc-input" rows="4" placeholder="Share your thoughts..." style="resize: vertical;"></textarea>
-        <div style="display: flex; gap: 8px;">
-          <button class="nc-btn nc-btn--primary">Submit Feedback</button>
-          <button class="nc-btn">Cancel</button>
-        </div>
-      </div>
-    </div>
 
     <!-- Callout Section -->
     <div class="demo-section">
@@ -336,6 +290,49 @@
     team: 'engineering'
   })
 });</code></pre>
+    </div>
+
+    <!-- Gallery Cards -->
+    <div class="demo-section">
+      <h2>&#128218; Team Resources</h2>
+      <div class="nc-gallery">
+        <div class="nc-gallery-card">
+          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #D3E5EF, #E8DEEE);"></div>
+          <div class="nc-gallery-card-body">
+            <div class="nc-gallery-card-title">&#128209; Engineering Handbook</div>
+            <div class="nc-gallery-card-meta">Updated 2 days ago</div>
+          </div>
+        </div>
+        <div class="nc-gallery-card">
+          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #DBEDDB, #FDECC8);"></div>
+          <div class="nc-gallery-card-body">
+            <div class="nc-gallery-card-title">&#127912; Design System Guide</div>
+            <div class="nc-gallery-card-meta">Updated 5 days ago</div>
+          </div>
+        </div>
+        <div class="nc-gallery-card">
+          <div class="nc-gallery-card-cover" style="background: linear-gradient(135deg, #FDECC8, #FFE2DD);"></div>
+          <div class="nc-gallery-card-body">
+            <div class="nc-gallery-card-title">&#128200; Analytics Dashboard</div>
+            <div class="nc-gallery-card-meta">Updated 1 week ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="demo-section">
+      <h2>&#128172; Feedback</h2>
+      <p>Have thoughts on the roadmap? Share them below.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px; max-width: 480px;">
+        <input class="nc-input" type="text" placeholder="Your name">
+        <input class="nc-input" type="email" placeholder="Email address">
+        <textarea class="nc-input" rows="4" placeholder="Share your thoughts..." style="resize: vertical;"></textarea>
+        <div style="display: flex; gap: 8px;">
+          <button class="nc-btn nc-btn--primary">Submit Feedback</button>
+          <button class="nc-btn">Cancel</button>
+        </div>
+      </div>
     </div>
 
     <hr class="nc-divider">

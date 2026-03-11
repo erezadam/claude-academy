@@ -1,71 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
   <defs>
     <style>
-      .nc-heading { font-family: Georgia, serif; font-weight: 700; fill: #37352f; }
-      .nc-body { font-family: -apple-system, system-ui, sans-serif; fill: #37352f; }
-      .nc-light { font-family: -apple-system, system-ui, sans-serif; fill: #787774; }
+      .nc-heading { font-family: Georgia, serif; fill: #2F3437; }
+      .nc-body { font-family: -apple-system, system-ui, sans-serif; fill: #2F3437; }
+      .nc-light { font-family: -apple-system, system-ui, sans-serif; fill: #9B9A97; }
     </style>
   </defs>
 
   <!-- Background -->
-  <rect width="400" height="300" fill="#ffffff"/>
+  <rect width="400" height="300" fill="#FFFFFF"/>
 
   <!-- Top Nav Bar -->
-  <rect x="0" y="0" width="400" height="36" fill="#ffffff"/>
-  <line x1="0" y1="36" x2="400" y2="36" stroke="#e9e5e0" stroke-width="1"/>
-  <text x="16" y="24" class="nc-heading" font-size="14">N</text>
+  <rect x="0" y="0" width="400" height="36" fill="#FFFFFF"/>
+  <line x1="0" y1="36" x2="400" y2="36" stroke="#E6E6E6" stroke-width="1"/>
+  <text x="16" y="24" class="nc-heading" font-size="14" font-weight="700">N</text>
   <text x="32" y="24" class="nc-light" font-size="10">/  Design Team  /  Roadmap</text>
-  <rect x="340" y="10" rx="2" ry="2" width="44" height="18" fill="#f7f6f3" stroke="#e9e5e0" stroke-width="0.5"/>
+  <rect x="340" y="10" rx="2" ry="2" width="44" height="18" fill="#FFFFFF" stroke="#E6E6E6" stroke-width="0.5"/>
   <text x="349" y="23" class="nc-light" font-size="9">Share</text>
 
   <!-- Page Icon -->
   <text x="48" y="72" font-size="28">&#128640;</text>
 
   <!-- Page Title -->
-  <text x="48" y="100" class="nc-heading" font-size="20">Product Roadmap 2026</text>
+  <text x="48" y="100" class="nc-heading" font-size="20" font-weight="700">Product Roadmap 2026</text>
 
-  <!-- Description -->
-  <rect x="48" y="108" rx="1" ry="1" width="260" height="8" fill="#e9e5e0"/>
-  <rect x="48" y="120" rx="1" ry="1" width="180" height="8" fill="#e9e5e0"/>
+  <!-- Description lines -->
+  <rect x="48" y="108" rx="1" ry="1" width="260" height="8" fill="#E6E6E6"/>
+  <rect x="48" y="120" rx="1" ry="1" width="180" height="8" fill="#E6E6E6"/>
 
   <!-- Properties -->
   <text x="48" y="148" class="nc-light" font-size="9">Status</text>
-  <rect x="120" y="139" rx="2" ry="2" width="60" height="15" fill="#dbeddb"/>
-  <text x="132" y="150" font-size="8" fill="#1a3a1a" font-family="sans-serif">In Progress</text>
+  <rect x="120" y="139" rx="2" ry="2" width="60" height="15" fill="#DBEDDB"/>
+  <text x="132" y="150" font-size="8" fill="#1A3A1A" font-family="sans-serif">In Progress</text>
 
   <text x="48" y="166" class="nc-light" font-size="9">Owner</text>
   <text x="120" y="166" class="nc-body" font-size="9">Sarah Chen</text>
 
-  <!-- Divider -->
-  <line x1="48" y1="180" x2="352" y2="180" stroke="#e9e5e0" stroke-width="1"/>
+  <!-- Tags -->
+  <rect x="200" y="139" rx="2" ry="2" width="36" height="15" fill="#D3E5EF"/>
+  <rect x="240" y="139" rx="2" ry="2" width="36" height="15" fill="#E8DEEE"/>
+  <rect x="280" y="139" rx="2" ry="2" width="36" height="15" fill="#FADEC9"/>
 
-  <!-- Content Blocks -->
-  <rect x="48" y="190" rx="1" ry="1" width="300" height="7" fill="#e9e5e0" opacity="0.7"/>
-  <rect x="48" y="201" rx="1" ry="1" width="270" height="7" fill="#e9e5e0" opacity="0.7"/>
-  <rect x="48" y="212" rx="1" ry="1" width="240" height="7" fill="#e9e5e0" opacity="0.7"/>
+  <!-- Divider -->
+  <line x1="48" y1="180" x2="352" y2="180" stroke="#E6E6E6" stroke-width="1"/>
+
+  <!-- Content text lines -->
+  <rect x="48" y="190" rx="1" ry="1" width="300" height="7" fill="#E6E6E6" opacity="0.7"/>
+  <rect x="48" y="201" rx="1" ry="1" width="270" height="7" fill="#E6E6E6" opacity="0.7"/>
+  <rect x="48" y="212" rx="1" ry="1" width="240" height="7" fill="#E6E6E6" opacity="0.7"/>
 
   <!-- Callout Box -->
-  <rect x="48" y="228" rx="4" ry="4" width="304" height="32" fill="#e7f3f8"/>
+  <rect x="48" y="228" rx="4" ry="4" width="304" height="32" fill="#E7F3F8"/>
   <text x="60" y="248" font-size="12">&#128161;</text>
-  <rect x="80" y="239" rx="1" ry="1" width="200" height="6" fill="#2eaadc" opacity="0.3"/>
-  <rect x="80" y="249" rx="1" ry="1" width="160" height="6" fill="#2eaadc" opacity="0.3"/>
+  <rect x="80" y="239" rx="1" ry="1" width="200" height="6" fill="#2EAADC" opacity="0.3"/>
+  <rect x="80" y="249" rx="1" ry="1" width="160" height="6" fill="#2EAADC" opacity="0.3"/>
 
-  <!-- Table Preview -->
-  <rect x="48" y="270" rx="2" ry="2" width="304" height="22" fill="#f7f6f3"/>
-  <line x1="48" y1="292" x2="352" y2="292" stroke="#e9e5e0" stroke-width="0.5"/>
-  <text x="56" y="285" class="nc-light" font-size="7">Milestone</text>
-  <text x="150" y="285" class="nc-light" font-size="7">Team</text>
-  <text x="220" y="285" class="nc-light" font-size="7">Date</text>
-  <text x="280" y="285" class="nc-light" font-size="7">Status</text>
+  <!-- Todo items -->
+  <rect x="48" y="270" width="10" height="10" rx="2" fill="#DBEDDB" stroke="#0F7B6C" stroke-width="0.5"/>
+  <text x="52" y="279" fill="#0F7B6C" font-size="7" font-weight="700">&#10003;</text>
+  <rect x="64" y="273" rx="1" width="120" height="5" fill="#E6E6E6" opacity="0.6"/>
 
-  <!-- Color Palette at bottom -->
-  <rect x="10" y="2" width="1" height="1" fill="none"/>
-
-  <!-- Tags row for color reference -->
-  <rect x="200" y="139" rx="2" ry="2" width="36" height="15" fill="#d3e5ef"/>
-  <rect x="240" y="139" rx="2" ry="2" width="36" height="15" fill="#e8deee"/>
-  <rect x="280" y="139" rx="2" ry="2" width="36" height="15" fill="#fadec9"/>
+  <rect x="48" y="284" width="10" height="10" rx="2" fill="#FFFFFF" stroke="#E6E6E6" stroke-width="1"/>
+  <rect x="64" y="287" rx="1" width="140" height="5" fill="#2F3437" opacity="0.12"/>
 
   <!-- Border frame -->
-  <rect x="0.5" y="0.5" width="399" height="299" fill="none" stroke="#e9e5e0" stroke-width="1" rx="4"/>
+  <rect x="0.5" y="0.5" width="399" height="299" fill="none" stroke="#E6E6E6" stroke-width="1" rx="4"/>
 </svg>

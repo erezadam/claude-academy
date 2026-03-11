@@ -3,277 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Console — Design System Demo</title>
+  <title>AI Console — Neural</title>
   <link rel="stylesheet" href="../styles/ai-console.css">
 </head>
-<body class="ai-scanlines">
+<body>
   <div class="ai-app">
-
-    <!-- ─── Top Bar ─── -->
+    <!-- Top Bar -->
     <header class="ai-topbar">
-      <div class="ai-topbar__brand">
-        <span class="ai-topbar__brand-cursor"></span>
-        NEURAL_CONSOLE v2.4
-      </div>
-
-      <div class="ai-topbar__center">
-        <div class="ai-topbar__model-select">
-          <span class="ai-topbar__model-dot"></span>
+      <div class="ai-topbar-left">
+        <div class="ai-logo">
+          <div class="ai-logo-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          Neural
+        </div>
+        <button class="ai-model-selector">
+          <span class="ai-model-dot"></span>
           claude-opus-4-6
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-        </div>
-
-        <div class="ai-topbar__tokens">
-          tokens:
-          <span class="ai-topbar__tokens-value">128,421</span>
-          /
-          <span style="color: var(--ai-text-muted);">200,000</span>
-        </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
       </div>
-
-      <div class="ai-topbar__right">
-        <span class="ai-badge ai-badge--green">ONLINE</span>
-        <button class="ai-btn ai-btn--ghost" style="font-size: 0.75rem;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9"/></svg>
-          settings
+      <div class="ai-topbar-right">
+        <div class="ai-token-counter">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <strong>1,247</strong> tokens
+        </div>
+        <button class="ai-topbar-btn">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.6.77 1.05 1.39 1.16H21a2 2 0 0 1 0 4h-.09"/></svg>
+          Settings
+        </button>
+        <button class="ai-topbar-btn">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Export
         </button>
       </div>
     </header>
 
-    <!-- ─── Left Sidebar: Conversations ─── -->
+    <!-- Sidebar -->
     <aside class="ai-sidebar">
-      <div class="ai-sidebar__header">
-        <button class="ai-sidebar__new-btn">+ new_session()</button>
+      <div class="ai-sidebar-header">
+        <span class="ai-sidebar-title">Conversations</span>
+        <button class="ai-sidebar-new">+</button>
       </div>
-      <div class="ai-sidebar__list">
-        <div class="ai-sidebar__date">Today</div>
-        <div class="ai-sidebar__item ai-sidebar__item--active">Code review: auth module</div>
-        <div class="ai-sidebar__item">Debug memory leak in worker</div>
-        <div class="ai-sidebar__item">API schema design</div>
-
-        <div class="ai-sidebar__date">Yesterday</div>
-        <div class="ai-sidebar__item">Regex pattern matching</div>
-        <div class="ai-sidebar__item">Database migration plan</div>
-        <div class="ai-sidebar__item">Performance optimization</div>
-
-        <div class="ai-sidebar__date">Mar 8</div>
-        <div class="ai-sidebar__item">Docker compose setup</div>
-        <div class="ai-sidebar__item">React hooks refactor</div>
-        <div class="ai-sidebar__item">CI/CD pipeline config</div>
+      <div class="ai-conv-list">
+        <div class="ai-conv-item ai-conv-item--active">
+          <span class="ai-conv-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </span>
+          <div class="ai-conv-info">
+            <div class="ai-conv-name">Code Review: auth handler</div>
+            <div class="ai-conv-time">Just now</div>
+          </div>
+        </div>
+        <div class="ai-conv-item">
+          <span class="ai-conv-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </span>
+          <div class="ai-conv-info">
+            <div class="ai-conv-name">Debug: memory leak in workers</div>
+            <div class="ai-conv-time">2 hours ago</div>
+          </div>
+        </div>
+        <div class="ai-conv-item">
+          <span class="ai-conv-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </span>
+          <div class="ai-conv-info">
+            <div class="ai-conv-name">SQL query optimization</div>
+            <div class="ai-conv-time">Yesterday</div>
+          </div>
+        </div>
+        <div class="ai-conv-item">
+          <span class="ai-conv-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </span>
+          <div class="ai-conv-info">
+            <div class="ai-conv-name">API design: REST vs GraphQL</div>
+            <div class="ai-conv-time">Mar 9</div>
+          </div>
+        </div>
+        <div class="ai-conv-item">
+          <span class="ai-conv-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </span>
+          <div class="ai-conv-info">
+            <div class="ai-conv-name">Docker compose setup</div>
+            <div class="ai-conv-time">Mar 8</div>
+          </div>
+        </div>
+        <div class="ai-conv-item">
+          <span class="ai-conv-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </span>
+          <div class="ai-conv-info">
+            <div class="ai-conv-name">TypeScript strict mode migration</div>
+            <div class="ai-conv-time">Mar 7</div>
+          </div>
+        </div>
       </div>
     </aside>
 
-    <!-- ─── Chat Area ─── -->
+    <!-- Chat Area -->
     <main class="ai-chat">
-      <div class="ai-chat__messages">
-
-        <!-- System message -->
-        <div class="ai-message ai-message--assistant">
-          <div class="ai-message__label">// system</div>
-          <div class="ai-message__body" style="border-color: rgba(0, 255, 65, 0.15); font-size: 0.78rem; color: var(--ai-text-muted);">
-            Session initialized. Model: claude-opus-4-6 | Context: 200K tokens | Temperature: 0.7<br>
-            Type your prompt below. Use /help for commands.
-          </div>
-        </div>
-
-        <!-- User message -->
-        <div class="ai-message ai-message--user">
-          <div class="ai-message__label">user@local ~$</div>
-          <div class="ai-message__body">
-            Review this authentication middleware and suggest improvements for security and performance:
-
-            <div class="ai-message__code">
-              <div class="ai-message__code-header">
-                <span>auth.middleware.ts</span>
-                <span style="color: var(--ai-purple);">typescript</span>
-              </div>
-<span style="color: #c586c0;">export const</span> <span style="color: #dcdcaa;">authenticate</span> = <span style="color: #c586c0;">async</span> (req, res, next) => {
-  <span style="color: #c586c0;">const</span> token = req.headers.authorization?.split(<span style="color: #ce9178;">' '</span>)[<span style="color: #b5cea8;">1</span>];
-  <span style="color: #c586c0;">if</span> (!token) <span style="color: #c586c0;">return</span> res.status(<span style="color: #b5cea8;">401</span>).json({ error: <span style="color: #ce9178;">'No token'</span> });
-  <span style="color: #c586c0;">const</span> user = <span style="color: #c586c0;">await</span> <span style="color: #dcdcaa;">verifyToken</span>(token);
-  req.user = user;
-  <span style="color: #dcdcaa;">next</span>();
-}</div>
-          </div>
-        </div>
-
-        <!-- Assistant response -->
-        <div class="ai-message ai-message--assistant">
-          <div class="ai-message__label">[neural_console] response</div>
-          <div class="ai-message__body">
-            I see several areas for improvement in this middleware. Here is the analysis:
-
-            <div style="margin: 12px 0;">
-              <span class="ai-badge ai-badge--purple" style="margin-right: 4px;">SECURITY</span>
-              <span class="ai-badge ai-badge--cyan" style="margin-right: 4px;">PERFORMANCE</span>
-              <span class="ai-badge ai-badge--green">BEST PRACTICE</span>
+      <div class="ai-messages">
+        <!-- System Message -->
+        <div class="ai-msg ai-msg--system">
+          <div class="ai-msg-avatar">SYS</div>
+          <div class="ai-msg-body">
+            <div class="ai-msg-header">
+              <span class="ai-msg-name">System Prompt</span>
+              <span class="ai-msg-time">Active</span>
             </div>
+            <div class="ai-msg-content">
+              You are a senior software engineer with expertise in TypeScript, Node.js, and cloud architecture. Review code for correctness, performance, and security. Be concise and actionable.
+            </div>
+          </div>
+        </div>
 
-            <strong style="color: var(--ai-text-bright);">1. Missing error handling</strong> &mdash; The <code style="color: var(--ai-green); background: rgba(0,0,0,0.3); padding: 1px 5px; border-radius: 3px;">verifyToken()</code> call has no try/catch. If the token is malformed or expired, the middleware will throw an unhandled exception.
+        <!-- User Message -->
+        <div class="ai-msg ai-msg--user">
+          <div class="ai-msg-avatar">AK</div>
+          <div class="ai-msg-body">
+            <div class="ai-msg-header">
+              <span class="ai-msg-name">You</span>
+              <span class="ai-msg-time">11:42 AM</span>
+            </div>
+            <div class="ai-msg-content">
+              Can you review this authentication handler? I think there might be a timing attack vulnerability in the token comparison:
 
-            <br><br>
-            <strong style="color: var(--ai-text-bright);">2. No token format validation</strong> &mdash; You should validate the Bearer prefix and token format before attempting verification.
-
-            <br><br>
-            <strong style="color: var(--ai-text-bright);">3. Missing rate limiting</strong> &mdash; Auth endpoints should have rate limiting to prevent brute force attacks.
-
-            <br><br>
-            Here is the improved version:
-
-            <div class="ai-message__code">
-              <div class="ai-message__code-header">
-                <span>auth.middleware.ts (improved)</span>
-                <span style="color: var(--ai-green);">copy</span>
-              </div>
-<span style="color: #c586c0;">export const</span> <span style="color: #dcdcaa;">authenticate</span> = <span style="color: #c586c0;">async</span> (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
-  <span style="color: #c586c0;">try</span> {
-    <span style="color: #c586c0;">const</span> authHeader = req.headers.authorization;
-    <span style="color: #c586c0;">if</span> (!authHeader?.startsWith(<span style="color: #ce9178;">'Bearer '</span>)) {
-      <span style="color: #c586c0;">return</span> res.status(<span style="color: #b5cea8;">401</span>).json({
-        error: <span style="color: #ce9178;">'Missing or malformed token'</span>
-      });
-    }
-
-    <span style="color: #c586c0;">const</span> token = authHeader.slice(<span style="color: #b5cea8;">7</span>);
-    <span style="color: #c586c0;">const</span> user = <span style="color: #c586c0;">await</span> <span style="color: #dcdcaa;">verifyToken</span>(token);
-    req.user = user;
-    <span style="color: #dcdcaa;">next</span>();
-  } <span style="color: #c586c0;">catch</span> (err) {
-    <span style="color: #c586c0;">return</span> res.status(<span style="color: #b5cea8;">403</span>).json({
-      error: <span style="color: #ce9178;">'Invalid or expired token'</span>
-    });
+              <div class="ai-code-block">
+                <div class="ai-code-header">
+                  <span class="ai-code-lang">typescript</span>
+                  <button class="ai-code-copy">Copy</button>
+                </div>
+                <div class="ai-code-body">
+<code><span class="ai-syn-keyword">async function</span> <span class="ai-syn-function">verifyToken</span>(<span class="ai-syn-param">token</span>: <span class="ai-syn-type">string</span>, <span class="ai-syn-param">expected</span>: <span class="ai-syn-type">string</span>): <span class="ai-syn-type">Promise</span>&lt;<span class="ai-syn-type">boolean</span>&gt; {
+  <span class="ai-syn-keyword">if</span> (token.length !== expected.length) {
+    <span class="ai-syn-keyword">return</span> <span class="ai-syn-number">false</span>;
   }
-};</div>
-          </div>
-        </div>
-
-        <!-- Another user message -->
-        <div class="ai-message ai-message--user">
-          <div class="ai-message__label">user@local ~$</div>
-          <div class="ai-message__body">
-            Can you also add token caching with Redis to avoid verifying the same token on every request?
-          </div>
-        </div>
-
-        <!-- Typing indicator -->
-        <div class="ai-message ai-message--assistant">
-          <div class="ai-message__label">[neural_console] generating...</div>
-          <div class="ai-message__body">
-            <div class="ai-typing">
-              <div class="ai-typing__dot"></div>
-              <div class="ai-typing__dot"></div>
-              <div class="ai-typing__dot"></div>
+  <span class="ai-syn-keyword">return</span> token <span class="ai-syn-operator">===</span> expected;
+}</code>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Assistant Message -->
+        <div class="ai-msg ai-msg--assistant">
+          <div class="ai-msg-avatar">AI</div>
+          <div class="ai-msg-body">
+            <div class="ai-msg-header">
+              <span class="ai-msg-name">claude-opus-4-6</span>
+              <span class="ai-msg-time">11:42 AM</span>
+            </div>
+            <div class="ai-msg-content">
+              Good catch. You are correct -- this is vulnerable to a timing attack. The <code>===</code> operator performs a byte-by-byte comparison and returns early on the first mismatch, which leaks information about how many leading bytes match.
+
+              <strong>The fix:</strong> Use <code>crypto.timingSafeEqual</code> which performs a constant-time comparison:
+
+              <div class="ai-code-block">
+                <div class="ai-code-header">
+                  <span class="ai-code-lang">typescript</span>
+                  <button class="ai-code-copy">Copy</button>
+                </div>
+                <div class="ai-code-body">
+<code><span class="ai-syn-keyword">import</span> { <span class="ai-syn-function">timingSafeEqual</span> } <span class="ai-syn-keyword">from</span> <span class="ai-syn-string">'crypto'</span>;
+
+<span class="ai-syn-keyword">async function</span> <span class="ai-syn-function">verifyToken</span>(<span class="ai-syn-param">token</span>: <span class="ai-syn-type">string</span>, <span class="ai-syn-param">expected</span>: <span class="ai-syn-type">string</span>): <span class="ai-syn-type">Promise</span>&lt;<span class="ai-syn-type">boolean</span>&gt; {
+  <span class="ai-syn-keyword">if</span> (token.length !== expected.length) {
+    <span class="ai-syn-keyword">return</span> <span class="ai-syn-number">false</span>;
+  }
+
+  <span class="ai-syn-keyword">const</span> a = Buffer.<span class="ai-syn-function">from</span>(token);
+  <span class="ai-syn-keyword">const</span> b = Buffer.<span class="ai-syn-function">from</span>(expected);
+
+  <span class="ai-syn-keyword">return</span> <span class="ai-syn-function">timingSafeEqual</span>(a, b);
+}</code>
+                </div>
+              </div>
+
+              <strong>Additional recommendations:</strong>
+              <br>1. The length check still leaks info. Consider hashing both values first with HMAC so length is always consistent.
+              <br>2. Add rate limiting to your auth endpoint to further mitigate brute-force attacks.
+              <br>3. Consider using a well-tested auth library like <code>passport</code> or <code>jose</code> instead of rolling your own token verification.
+            </div>
+          </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="ai-typing">
+          <div class="ai-msg-avatar" style="width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;background:linear-gradient(135deg,#38BDF8,#A78BFA);color:#fff;flex-shrink:0;">AI</div>
+          <div class="ai-typing-dots">
+            <span class="ai-typing-dot"></span>
+            <span class="ai-typing-dot"></span>
+            <span class="ai-typing-dot"></span>
+          </div>
+        </div>
       </div>
 
-      <!-- ─── Input Area ─── -->
+      <!-- Input Area -->
       <div class="ai-input-area">
-        <div class="ai-input-wrapper">
-          <textarea rows="1" placeholder="Enter prompt... (Shift+Enter for new line)"></textarea>
-          <button class="ai-send-btn" title="Send">&#9654;</button>
+        <div class="ai-input-box">
+          <textarea class="ai-input-field" rows="1" placeholder="Type a message... (Shift+Enter for new line)"></textarea>
+          <button class="ai-send-btn" title="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
         </div>
-        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.7rem; color: var(--ai-text-muted);">
-          <div style="display: flex; gap: 12px;">
-            <button class="ai-btn ai-btn--ghost" style="padding: 2px 8px; font-size: 0.68rem;">/help</button>
-            <button class="ai-btn ai-btn--ghost" style="padding: 2px 8px; font-size: 0.68rem;">/clear</button>
-            <button class="ai-btn ai-btn--ghost" style="padding: 2px 8px; font-size: 0.68rem;">/export</button>
-          </div>
-          <span>Shift+Enter for newline | Enter to send</span>
+        <div class="ai-input-hints">
+          <span class="ai-input-hint"><span class="ai-kbd">Enter</span> to send</span>
+          <span class="ai-input-hint"><span class="ai-kbd">Shift</span>+<span class="ai-kbd">Enter</span> new line</span>
+          <span class="ai-input-hint"><span class="ai-kbd">/</span> commands</span>
         </div>
       </div>
     </main>
-
-    <!-- ─── Right Panel ─── -->
-    <aside class="ai-right-panel">
-      <!-- System Prompt -->
-      <div class="ai-right-panel__section">
-        <div class="ai-right-panel__title">System Prompt</div>
-        <textarea class="ai-system-prompt">You are an expert software engineer. Review code for security vulnerabilities, performance issues, and best practices. Provide concrete, actionable suggestions with code examples. Always explain the reasoning behind each recommendation.</textarea>
-      </div>
-
-      <!-- Model Parameters -->
-      <div class="ai-right-panel__section">
-        <div class="ai-right-panel__title">Parameters</div>
-        <div class="ai-param">
-          <span class="ai-param__label">temperature</span>
-          <span class="ai-param__value">0.7</span>
-        </div>
-        <div class="ai-param">
-          <span class="ai-param__label">max_tokens</span>
-          <span class="ai-param__value">4,096</span>
-        </div>
-        <div class="ai-param">
-          <span class="ai-param__label">top_p</span>
-          <span class="ai-param__value">0.95</span>
-        </div>
-        <div class="ai-param">
-          <span class="ai-param__label">top_k</span>
-          <span class="ai-param__value">40</span>
-        </div>
-        <div class="ai-param">
-          <span class="ai-param__label">stop_sequences</span>
-          <span class="ai-param__value">none</span>
-        </div>
-      </div>
-
-      <!-- Response Info -->
-      <div class="ai-right-panel__section">
-        <div class="ai-right-panel__title">Last Response</div>
-        <div class="ai-response-info">
-          <div class="ai-response-info__row">
-            <span>latency</span>
-            <span class="ai-response-info__value" style="color: var(--ai-green);">1.24s</span>
-          </div>
-          <div class="ai-response-info__row">
-            <span>input_tokens</span>
-            <span class="ai-response-info__value">842</span>
-          </div>
-          <div class="ai-response-info__row">
-            <span>output_tokens</span>
-            <span class="ai-response-info__value">1,247</span>
-          </div>
-          <div class="ai-response-info__row">
-            <span>total_cost</span>
-            <span class="ai-response-info__value" style="color: var(--ai-cyan);">$0.0312</span>
-          </div>
-          <div class="ai-response-info__row">
-            <span>finish_reason</span>
-            <span class="ai-response-info__value">end_turn</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Session Stats -->
-      <div class="ai-right-panel__section">
-        <div class="ai-right-panel__title">Session Stats</div>
-        <div class="ai-response-info">
-          <div class="ai-response-info__row">
-            <span>messages</span>
-            <span class="ai-response-info__value">6</span>
-          </div>
-          <div class="ai-response-info__row">
-            <span>session_tokens</span>
-            <span class="ai-response-info__value">4,821</span>
-          </div>
-          <div class="ai-response-info__row">
-            <span>session_cost</span>
-            <span class="ai-response-info__value" style="color: var(--ai-cyan);">$0.1485</span>
-          </div>
-          <div class="ai-response-info__row">
-            <span>uptime</span>
-            <span class="ai-response-info__value" style="color: var(--ai-green);">24m 13s</span>
-          </div>
-        </div>
-      </div>
-    </aside>
-
   </div>
 </body>
 </html>

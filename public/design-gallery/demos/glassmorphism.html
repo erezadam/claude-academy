@@ -16,25 +16,19 @@
       grid-template-columns: 1fr 1fr;
       gap: 24px;
     }
-    .demo-grid-3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 24px;
-    }
     @media (max-width: 767px) {
-      .demo-grid-2, .demo-grid-3 {
+      .demo-grid-2 {
         grid-template-columns: 1fr;
       }
     }
     .demo-section-title {
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--gm-text-muted);
       margin-bottom: 20px;
     }
-    /* Extra floating shapes for visual richness */
     .demo-shape-1 {
       position: fixed;
       top: 30%;
@@ -64,9 +58,9 @@
 <div class="demo-shape-1"></div>
 <div class="demo-shape-2"></div>
 
-<!-- Navigation Bar -->
+<!-- Glass Navigation Bar -->
 <nav class="gm-nav" style="max-width: 1200px;">
-  <div class="gm-nav-logo">Prism</div>
+  <div class="gm-nav-logo">Prism Cloud</div>
   <ul class="gm-nav-links">
     <li><a href="#" class="active">Home</a></li>
     <li><a href="#">Features</a></li>
@@ -84,40 +78,18 @@
 
   <!-- Hero Section -->
   <section class="gm-hero">
-    <div class="gm-badge" style="margin-bottom: 20px;">New: Version 3.0 is here</div>
-    <h1>Build Beautiful<br>Interfaces Faster</h1>
-    <p class="gm-hero-desc">Create stunning glassmorphism designs with our comprehensive design system. Translucent surfaces, vibrant gradients, and smooth interactions.</p>
+    <div class="gm-badge" style="margin-bottom: 20px;">New: Prism Cloud 3.0 is here</div>
+    <h1>Build Beautiful<br>Cloud Interfaces</h1>
+    <p class="gm-hero-desc">Ship stunning SaaS products faster with Prism Cloud. Frosted glass surfaces, smooth interactions, and a design system that scales with your team.</p>
     <div class="gm-hero-actions">
       <button class="gm-btn gm-btn--lg gm-btn--filled">Get Started Free</button>
       <button class="gm-btn gm-btn--lg">Watch Demo</button>
     </div>
   </section>
 
-  <!-- Stats Row -->
-  <section class="demo-section">
-    <div class="gm-stats">
-      <div class="gm-card gm-stat">
-        <div class="gm-stat-value">12K+</div>
-        <div class="gm-stat-label">Active Users</div>
-      </div>
-      <div class="gm-card gm-stat">
-        <div class="gm-stat-value">98%</div>
-        <div class="gm-stat-label">Satisfaction</div>
-      </div>
-      <div class="gm-card gm-stat">
-        <div class="gm-stat-value">50+</div>
-        <div class="gm-stat-label">Components</div>
-      </div>
-      <div class="gm-card gm-stat">
-        <div class="gm-stat-value">4.9</div>
-        <div class="gm-stat-label">Rating</div>
-      </div>
-    </div>
-  </section>
-
   <hr class="gm-divider">
 
-  <!-- Feature Cards -->
+  <!-- 3 Glass Feature Cards -->
   <section class="demo-section">
     <div class="demo-section-title">Features</div>
     <h2>Everything you need to ship fast</h2>
@@ -125,170 +97,79 @@
       <div class="gm-card">
         <div class="gm-card-icon">&#9889;</div>
         <div class="gm-card-title">Lightning Fast</div>
-        <div class="gm-card-text">Optimized for performance with minimal CSS footprint. No JavaScript dependencies required for the base components.</div>
+        <div class="gm-card-text">Optimized for performance with minimal CSS footprint. No JavaScript dependencies required for the base components. Sub-100ms time to interactive.</div>
       </div>
       <div class="gm-card">
         <div class="gm-card-icon">&#127912;</div>
         <div class="gm-card-title">Beautiful by Default</div>
-        <div class="gm-card-text">Every component is designed to look stunning out of the box. Just add your content and the design does the rest.</div>
+        <div class="gm-card-text">Every component is designed to look stunning out of the box. Frosted glass layers with carefully tuned blur and transparency values.</div>
       </div>
       <div class="gm-card">
         <div class="gm-card-icon">&#128241;</div>
         <div class="gm-card-title">Fully Responsive</div>
-        <div class="gm-card-text">Works seamlessly across all screen sizes. From mobile to ultrawide, your interface adapts beautifully.</div>
-      </div>
-      <div class="gm-card">
-        <div class="gm-card-icon">&#128274;</div>
-        <div class="gm-card-title">Accessible</div>
-        <div class="gm-card-text">Built with accessibility in mind. Proper contrast ratios, keyboard navigation, and screen reader support.</div>
-      </div>
-      <div class="gm-card">
-        <div class="gm-card-icon">&#128640;</div>
-        <div class="gm-card-title">Easy Integration</div>
-        <div class="gm-card-text">Drop into any project. Works with React, Vue, Svelte, or plain HTML. No framework lock-in.</div>
-      </div>
-      <div class="gm-card">
-        <div class="gm-card-icon">&#127793;</div>
-        <div class="gm-card-title">Customizable</div>
-        <div class="gm-card-text">CSS custom properties make it easy to adapt the entire system to your brand colors and preferences.</div>
+        <div class="gm-card-text">Works seamlessly across all screen sizes. From mobile to ultrawide, your interface adapts beautifully with fluid layouts and breakpoints.</div>
       </div>
     </div>
   </section>
 
   <hr class="gm-divider">
 
-  <!-- Profile Card + Side Panel -->
-  <section class="demo-section">
-    <div class="demo-section-title">Dashboard Preview</div>
-    <h2>User profiles &amp; data</h2>
-    <div class="demo-grid-2" style="margin-top: 24px;">
-      <!-- Profile Card -->
-      <div class="gm-card gm-profile">
-        <div class="gm-profile-avatar">&#128105;&#8205;&#128187;</div>
-        <div class="gm-profile-name">Elena Rodriguez</div>
-        <div class="gm-profile-role">Senior Product Designer</div>
-        <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 24px;">
-          <span class="gm-badge gm-badge--success">Pro</span>
-          <span class="gm-badge">Team Lead</span>
-        </div>
-        <div class="gm-profile-stats">
-          <div>
-            <div class="gm-profile-stat-value">247</div>
-            <div class="gm-profile-stat-label">Projects</div>
-          </div>
-          <div>
-            <div class="gm-profile-stat-value">1.2K</div>
-            <div class="gm-profile-stat-label">Followers</div>
-          </div>
-          <div>
-            <div class="gm-profile-stat-value">89</div>
-            <div class="gm-profile-stat-label">Reviews</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Activity Panel -->
-      <div class="gm-card" style="padding: 24px;">
-        <h3>Recent Activity</h3>
-        <div class="gm-table-wrapper">
-          <table class="gm-table">
-            <thead>
-              <tr>
-                <th>Activity</th>
-                <th>Project</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Updated mockups</td>
-                <td>Prism v3</td>
-                <td><span class="gm-badge gm-badge--success" style="font-size: 11px;">Done</span></td>
-              </tr>
-              <tr>
-                <td>Code review</td>
-                <td>Dashboard</td>
-                <td><span class="gm-badge gm-badge--warning" style="font-size: 11px;">Pending</span></td>
-              </tr>
-              <tr>
-                <td>Design handoff</td>
-                <td>Mobile App</td>
-                <td><span class="gm-badge gm-badge--success" style="font-size: 11px;">Done</span></td>
-              </tr>
-              <tr>
-                <td>Sprint planning</td>
-                <td>Core API</td>
-                <td><span class="gm-badge" style="font-size: 11px;">Scheduled</span></td>
-              </tr>
-              <tr>
-                <td>Bug triage</td>
-                <td>Prism v3</td>
-                <td><span class="gm-badge gm-badge--error" style="font-size: 11px;">Urgent</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="gm-divider">
-
-  <!-- Pricing Cards -->
+  <!-- Pricing Section with Glass Cards -->
   <section class="demo-section">
     <div style="text-align: center; margin-bottom: 40px;">
       <div class="demo-section-title">Pricing</div>
       <h2>Simple, transparent pricing</h2>
-      <p style="max-width: 480px; margin: 0 auto;">No hidden fees, no surprises. Start free and upgrade when you need more.</p>
+      <p style="max-width: 480px; margin: 0 auto;">No hidden fees, no surprises. Start free and upgrade when you need more power.</p>
     </div>
-    <div class="demo-grid-3">
-      <div class="gm-card" style="text-align: center; padding: 32px 24px;">
-        <h3 style="font-weight: 500;">Starter</h3>
-        <div style="font-size: 42px; font-weight: 700; margin: 16px 0;">$0</div>
+    <div class="gm-pricing-grid">
+      <div class="gm-pricing-card">
+        <h3 style="font-weight: 400;">Starter</h3>
+        <div class="gm-pricing-price">$0</div>
         <p style="font-size: 14px; margin-bottom: 24px;">Perfect for trying out</p>
-        <div style="text-align: left; font-size: 14px; color: var(--gm-text-secondary); line-height: 2.2;">
+        <div class="gm-pricing-features">
           5 projects<br>
           Basic components<br>
           Community support<br>
           1 team member
         </div>
-        <button class="gm-btn" style="width: 100%; margin-top: 24px;">Get Started</button>
+        <button class="gm-btn" style="width: 100%;">Get Started</button>
       </div>
-      <div class="gm-card gm-glass--strong" style="text-align: center; padding: 32px 24px; transform: scale(1.05);">
+      <div class="gm-pricing-card gm-pricing-card--featured">
         <span class="gm-badge gm-badge--success" style="margin-bottom: 12px;">Most Popular</span>
-        <h3 style="font-weight: 500;">Pro</h3>
-        <div style="font-size: 42px; font-weight: 700; margin: 16px 0;">$19</div>
+        <h3 style="font-weight: 400;">Pro</h3>
+        <div class="gm-pricing-price">$19</div>
         <p style="font-size: 14px; margin-bottom: 24px;">For growing teams</p>
-        <div style="text-align: left; font-size: 14px; color: var(--gm-text-secondary); line-height: 2.2;">
+        <div class="gm-pricing-features">
           Unlimited projects<br>
           All components<br>
           Priority support<br>
           10 team members
         </div>
-        <button class="gm-btn gm-btn--gradient" style="width: 100%; margin-top: 24px;">Upgrade to Pro</button>
+        <button class="gm-btn gm-btn--gradient" style="width: 100%;">Upgrade to Pro</button>
       </div>
-      <div class="gm-card" style="text-align: center; padding: 32px 24px;">
-        <h3 style="font-weight: 500;">Enterprise</h3>
-        <div style="font-size: 42px; font-weight: 700; margin: 16px 0;">$49</div>
+      <div class="gm-pricing-card">
+        <h3 style="font-weight: 400;">Enterprise</h3>
+        <div class="gm-pricing-price">$49</div>
         <p style="font-size: 14px; margin-bottom: 24px;">For large organizations</p>
-        <div style="text-align: left; font-size: 14px; color: var(--gm-text-secondary); line-height: 2.2;">
+        <div class="gm-pricing-features">
           Everything in Pro<br>
           Custom branding<br>
           Dedicated support<br>
           Unlimited members
         </div>
-        <button class="gm-btn" style="width: 100%; margin-top: 24px;">Contact Sales</button>
+        <button class="gm-btn" style="width: 100%;">Contact Sales</button>
       </div>
     </div>
   </section>
 
   <hr class="gm-divider">
 
-  <!-- Contact Form -->
+  <!-- Email Signup Form with Glass Styling -->
   <section class="demo-section">
     <div style="text-align: center; margin-bottom: 32px;">
-      <div class="demo-section-title">Contact</div>
-      <h2>Get in touch</h2>
+      <div class="demo-section-title">Stay Updated</div>
+      <h2>Join our newsletter</h2>
+      <p style="max-width: 480px; margin: 0 auto;">Get the latest updates on new components, design tips, and product news delivered straight to your inbox.</p>
     </div>
     <div class="gm-card" style="max-width: 560px; margin: 0 auto; padding: 36px;">
       <div class="demo-grid-2" style="margin-bottom: 16px;">
@@ -302,16 +183,16 @@
         </div>
       </div>
       <div style="margin-bottom: 16px;">
-        <label class="gm-input-label">Email</label>
+        <label class="gm-input-label">Email Address</label>
         <input class="gm-input" type="email" placeholder="elena@example.com">
       </div>
       <div style="margin-bottom: 24px;">
-        <label class="gm-input-label">Message</label>
-        <textarea class="gm-input" rows="4" placeholder="Tell us about your project..." style="resize: vertical;"></textarea>
+        <label class="gm-input-label">What interests you most?</label>
+        <textarea class="gm-input" rows="3" placeholder="Design systems, UI kits, developer tools..." style="resize: vertical;"></textarea>
       </div>
       <div style="display: flex; gap: 12px;">
-        <button class="gm-btn gm-btn--filled" style="flex: 1;">Send Message</button>
-        <button class="gm-btn">Cancel</button>
+        <button class="gm-btn gm-btn--filled" style="flex: 1;">Subscribe</button>
+        <button class="gm-btn">Maybe Later</button>
       </div>
     </div>
   </section>
@@ -321,26 +202,23 @@
     <div class="demo-section-title">Status Badges</div>
     <div style="display: flex; gap: 12px; flex-wrap: wrap;">
       <span class="gm-badge">Default</span>
-      <span class="gm-badge gm-badge--success">Success</span>
-      <span class="gm-badge gm-badge--warning">Warning</span>
-      <span class="gm-badge gm-badge--error">Error</span>
-      <span class="gm-badge">v3.0.0</span>
       <span class="gm-badge gm-badge--success">Active</span>
+      <span class="gm-badge gm-badge--warning">Pending</span>
+      <span class="gm-badge gm-badge--error">Urgent</span>
+      <span class="gm-badge">v3.0.0</span>
+      <span class="gm-badge gm-badge--success">Pro</span>
       <span class="gm-badge gm-badge--warning">Beta</span>
     </div>
   </section>
 
   <!-- Footer -->
   <footer style="text-align: center; padding: 40px 0 32px; position: relative; z-index: 1;">
-    <div style="font-size: 14px; color: var(--gm-text-muted);">
-      Built with Glassmorphism Design System &mdash; 2026 Prism
+    <div style="font-size: 14px; color: var(--gm-text-muted); font-weight: 300;">
+      Built with Glassmorphism Design System &mdash; 2026 Prism Cloud
     </div>
   </footer>
 
 </div>
-
-<!-- Floating Action Button -->
-<button class="gm-fab">+</button>
 
 </body>
 </html>

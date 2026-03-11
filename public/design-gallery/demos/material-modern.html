@@ -25,13 +25,13 @@
       }
     }
     .demo-gradient-1 {
-      background: linear-gradient(135deg, #f3e8fd 0%, #e0f7f5 100%);
+      background: linear-gradient(135deg, #F3E8FD 0%, #E0F7F5 100%);
     }
     .demo-gradient-2 {
-      background: linear-gradient(135deg, #e0f7f5 0%, #e8f0fe 100%);
+      background: linear-gradient(135deg, #E0F7F5 0%, #E8F0FE 100%);
     }
     .demo-gradient-3 {
-      background: linear-gradient(135deg, #fce4ec 0%, #f3e8fd 100%);
+      background: linear-gradient(135deg, #FCE4EC 0%, #F3E8FD 100%);
     }
   </style>
 </head>
@@ -41,15 +41,15 @@
 <header class="mm-app-bar">
   <div class="mm-app-bar-inner">
     <div style="display: flex; align-items: center; gap: 12px;">
-      <div style="width: 32px; height: 32px; background: var(--mm-primary); border-radius: var(--mm-radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">M</div>
-      <span class="mm-app-bar-title">Material Studio</span>
+      <div style="width: 32px; height: 32px; background: var(--mm-primary); border-radius: var(--mm-radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">T</div>
+      <span class="mm-app-bar-title">TaskFlow</span>
     </div>
     <nav>
       <ul class="mm-app-bar-nav">
-        <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Components</a></li>
-        <li><a href="#">Templates</a></li>
-        <li><a href="#">Resources</a></li>
+        <li><a href="#" class="active">Tasks</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Reports</a></li>
       </ul>
     </nav>
     <div style="display: flex; align-items: center; gap: 8px;">
@@ -61,43 +61,42 @@
 
 <!-- Hero Section -->
 <section class="mm-hero">
-  <div class="mm-section-overline">Material Design 3</div>
-  <h1>Design with purpose,<br>build with confidence</h1>
-  <p class="mm-hero-desc">A modern design system built on Material Design 3 principles. Expressive, accessible, and adaptable to any brand or product.</p>
+  <div class="mm-section-overline">Task Management</div>
+  <h1>Stay organized,<br>ship with confidence</h1>
+  <p class="mm-hero-desc">A modern task management app built on Material Design 3 principles. Track progress, collaborate with your team, and deliver projects on time.</p>
   <div class="mm-hero-actions">
-    <button class="mm-btn mm-btn--filled">Get Started</button>
-    <button class="mm-btn mm-btn--tonal">View Components</button>
+    <button class="mm-btn mm-btn--filled">Create Project</button>
+    <button class="mm-btn mm-btn--tonal">View Templates</button>
     <button class="mm-btn mm-btn--outlined">Learn More</button>
   </div>
 </section>
 
 <div class="mm-container">
 
-  <!-- Chips Section -->
+  <!-- Chip Filters Row -->
   <section class="demo-section">
     <div class="mm-section-header">
       <div class="mm-section-overline">Filter</div>
       <h2>Browse by category</h2>
     </div>
     <div class="mm-chip-group">
-      <span class="mm-chip mm-chip--selected">All</span>
+      <span class="mm-chip mm-chip--selected">All Tasks</span>
       <span class="mm-chip">Design</span>
       <span class="mm-chip">Engineering</span>
       <span class="mm-chip">Product</span>
       <span class="mm-chip">Marketing</span>
       <span class="mm-chip">Research</span>
-      <span class="mm-chip">Data Science</span>
       <span class="mm-chip">DevOps</span>
     </div>
   </section>
 
   <hr class="mm-divider">
 
-  <!-- Cards with Media -->
+  <!-- 3 Task Cards with Media Headers -->
   <section class="demo-section">
     <div class="mm-section-header">
-      <div class="mm-section-overline">Featured</div>
-      <h2>Latest projects</h2>
+      <div class="mm-section-overline">Active</div>
+      <h2>Current tasks</h2>
     </div>
     <div class="mm-card-grid">
       <!-- Card 1 -->
@@ -105,11 +104,11 @@
         <div class="mm-card-media--placeholder demo-gradient-1" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#127912;</div>
         <div class="mm-card-body">
           <div class="mm-card-title">Design System Workshop</div>
-          <div class="mm-card-subtitle">March 15, 2026 &middot; 3 min read</div>
-          <div class="mm-card-text">Learn how to create scalable design systems that adapt to your brand while maintaining consistency across products.</div>
+          <div class="mm-card-subtitle">Due March 15 &middot; High Priority</div>
+          <div class="mm-card-text">Create scalable design tokens and component library. Review with stakeholders and finalize documentation for the engineering handoff.</div>
         </div>
         <div class="mm-card-actions">
-          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">Read More</button>
+          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">View Task</button>
           <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
         </div>
       </div>
@@ -118,12 +117,12 @@
       <div class="mm-card mm-card--elevated">
         <div class="mm-card-media--placeholder demo-gradient-2" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#128187;</div>
         <div class="mm-card-body">
-          <div class="mm-card-title">Frontend Architecture</div>
-          <div class="mm-card-subtitle">March 12, 2026 &middot; 5 min read</div>
-          <div class="mm-card-text">Modern approaches to building maintainable frontends. From micro-frontends to server components and beyond.</div>
+          <div class="mm-card-title">API Integration Sprint</div>
+          <div class="mm-card-subtitle">Due March 20 &middot; Medium Priority</div>
+          <div class="mm-card-text">Integrate the new payment provider APIs. Implement webhook handlers, error recovery, and comprehensive logging for all transaction flows.</div>
         </div>
         <div class="mm-card-actions">
-          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">Read More</button>
+          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">View Task</button>
           <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
         </div>
       </div>
@@ -132,12 +131,12 @@
       <div class="mm-card mm-card--elevated">
         <div class="mm-card-media--placeholder demo-gradient-3" style="display: flex; align-items: center; justify-content: center; font-size: 48px;">&#128640;</div>
         <div class="mm-card-body">
-          <div class="mm-card-title">Shipping Faster</div>
-          <div class="mm-card-subtitle">March 10, 2026 &middot; 4 min read</div>
-          <div class="mm-card-text">How top teams deliver features faster without sacrificing quality. CI/CD, feature flags, and progressive rollouts.</div>
+          <div class="mm-card-title">Production Deployment</div>
+          <div class="mm-card-subtitle">Due March 25 &middot; Critical</div>
+          <div class="mm-card-text">Ship v2.0 with feature flags for gradual rollout. Coordinate with QA team for final regression testing and performance benchmarks.</div>
         </div>
         <div class="mm-card-actions">
-          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">Read More</button>
+          <button class="mm-btn mm-btn--filled" style="padding: 8px 20px; font-size: 13px;">View Task</button>
           <button class="mm-btn mm-btn--text" style="padding: 8px 12px; font-size: 13px;">Share</button>
         </div>
       </div>
@@ -146,40 +145,10 @@
 
   <hr class="mm-divider">
 
-  <!-- Card Variants -->
+  <!-- All Button Variants and Chips -->
   <section class="demo-section">
     <div class="mm-section-header">
-      <div class="mm-section-overline">Variants</div>
-      <h2>Card styles</h2>
-    </div>
-    <div class="demo-grid-3">
-      <div class="mm-card mm-card--elevated">
-        <div class="mm-card-body">
-          <div class="mm-card-title">Elevated Card</div>
-          <div class="mm-card-text">Uses shadow elevation to create depth. The default Material card style for most use cases.</div>
-        </div>
-      </div>
-      <div class="mm-card mm-card--filled">
-        <div class="mm-card-body">
-          <div class="mm-card-title">Filled Card</div>
-          <div class="mm-card-text">Uses a tinted surface color instead of elevation. Great for lower-emphasis content sections.</div>
-        </div>
-      </div>
-      <div class="mm-card mm-card--outlined">
-        <div class="mm-card-body">
-          <div class="mm-card-title">Outlined Card</div>
-          <div class="mm-card-text">Uses a border instead of shadow. Best for grouping related content without visual weight.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="mm-divider">
-
-  <!-- Buttons Showcase -->
-  <section class="demo-section">
-    <div class="mm-section-header">
-      <div class="mm-section-overline">Interactive</div>
+      <div class="mm-section-overline">Components</div>
       <h2>Buttons &amp; controls</h2>
     </div>
     <div class="mm-card mm-card--outlined" style="padding: 32px;">
@@ -208,8 +177,6 @@
         <span class="mm-badge">3</span>
         <span class="mm-badge mm-badge--primary">New</span>
         <span class="mm-badge mm-badge--secondary">Pro</span>
-        <span class="mm-badge--small mm-badge" style="display: inline-block;"></span>
-        <span style="font-size: 14px; color: var(--mm-text-muted);">Notification dot</span>
       </div>
 
       <h3 style="margin-bottom: 20px;">Switches</h3>
@@ -232,7 +199,7 @@
 
   <hr class="mm-divider">
 
-  <!-- Text Fields -->
+  <!-- Form Inputs with Floating Labels -->
   <section class="demo-section">
     <div class="mm-section-header">
       <div class="mm-section-overline">Inputs</div>
@@ -242,25 +209,25 @@
       <div class="mm-card mm-card--outlined" style="padding: 32px;">
         <h3 style="margin-bottom: 24px;">Outlined Fields</h3>
         <div class="mm-field">
-          <input class="mm-field-input" type="text" placeholder=" " value="John Doe">
-          <label class="mm-field-label">Full Name</label>
+          <input class="mm-field-input" type="text" placeholder=" " value="Design System Workshop">
+          <label class="mm-field-label">Task Name</label>
         </div>
         <div class="mm-field">
           <input class="mm-field-input" type="email" placeholder=" ">
-          <label class="mm-field-label">Email Address</label>
-          <div class="mm-field-helper">We'll never share your email</div>
+          <label class="mm-field-label">Assignee Email</label>
+          <div class="mm-field-helper">Enter the team member's email address</div>
         </div>
         <div class="mm-field">
-          <input class="mm-field-input" type="password" placeholder=" ">
-          <label class="mm-field-label">Password</label>
+          <input class="mm-field-input" type="date" placeholder=" ">
+          <label class="mm-field-label">Due Date</label>
         </div>
-        <button class="mm-btn mm-btn--filled" style="width: 100%; margin-top: 8px;">Sign Up</button>
+        <button class="mm-btn mm-btn--filled" style="width: 100%; margin-top: 8px;">Create Task</button>
       </div>
 
       <div class="mm-card mm-card--outlined" style="padding: 32px;">
         <h3 style="margin-bottom: 24px;">Filled Fields</h3>
         <div class="mm-field mm-field--filled">
-          <input class="mm-field-input" type="text" placeholder=" " value="Material Studio">
+          <input class="mm-field-input" type="text" placeholder=" " value="TaskFlow">
           <label class="mm-field-label">Project Name</label>
         </div>
         <div class="mm-field mm-field--filled">
@@ -269,21 +236,21 @@
         </div>
         <div class="mm-field mm-field--filled">
           <input class="mm-field-input" type="url" placeholder=" ">
-          <label class="mm-field-label">Website URL</label>
+          <label class="mm-field-label">Repository URL</label>
           <div class="mm-field-helper">Include https://</div>
         </div>
-        <button class="mm-btn mm-btn--tonal" style="width: 100%; margin-top: 8px;">Create Project</button>
+        <button class="mm-btn mm-btn--tonal" style="width: 100%; margin-top: 8px;">Save Project</button>
       </div>
     </div>
   </section>
 
   <hr class="mm-divider">
 
-  <!-- List Items -->
+  <!-- List Items / Navigation -->
   <section class="demo-section">
     <div class="mm-section-header">
       <div class="mm-section-overline">Navigation</div>
-      <h2>List items</h2>
+      <h2>Settings</h2>
     </div>
     <div class="mm-card mm-card--outlined" style="padding: 8px; max-width: 480px;">
       <div class="mm-list-item">
@@ -315,13 +282,6 @@
           <div class="mm-list-item-subtitle">Theme, colors, layout</div>
         </div>
       </div>
-      <div class="mm-list-item">
-        <div class="mm-list-item-icon" style="background: var(--mm-error-light); color: var(--mm-error);">&#128682;</div>
-        <div class="mm-list-item-content">
-          <div class="mm-list-item-title" style="color: var(--mm-error);">Sign Out</div>
-          <div class="mm-list-item-subtitle">End your current session</div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -335,11 +295,11 @@
     </div>
     <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
       <div class="mm-snackbar">
-        Project saved successfully
+        Task created successfully
         <button class="mm-snackbar-action">Undo</button>
       </div>
       <div class="mm-snackbar">
-        3 items moved to archive
+        3 tasks moved to "Done"
         <button class="mm-snackbar-action">View</button>
       </div>
     </div>
@@ -348,7 +308,7 @@
   <!-- Footer -->
   <footer style="text-align: center; padding: 48px 0 32px;">
     <p style="font-size: 14px; color: var(--mm-text-muted); letter-spacing: 0.25px;">
-      Built with Material Modern Design System &mdash; 2026
+      Built with Material Modern Design System &mdash; 2026 TaskFlow
     </p>
   </footer>
 
@@ -356,8 +316,8 @@
 
 <!-- FAB -->
 <button class="mm-fab mm-fab--extended">
-  <span style="font-size: 20px;">&#9998;</span>
-  <span>Compose</span>
+  <span style="font-size: 20px;">+</span>
+  <span>New Task</span>
 </button>
 
 </body>

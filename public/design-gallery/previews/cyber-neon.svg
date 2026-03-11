@@ -1,39 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
   <defs>
-    <filter id="glow-green">
+    <filter id="glow-primary">
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="glow-pink">
+    <filter id="glow-secondary">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="glow-cyan">
+    <filter id="glow-accent">
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <linearGradient id="scanlines" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="transparent"/>
-      <stop offset="50%" stop-color="transparent"/>
-      <stop offset="50%" stop-color="rgba(0,0,0,0.08)"/>
-      <stop offset="100%" stop-color="rgba(0,0,0,0.08)"/>
-    </linearGradient>
   </defs>
 
   <!-- Dark Background -->
-  <rect width="400" height="300" fill="#0a0a0f"/>
+  <rect width="400" height="300" fill="#0A0A0A"/>
 
   <!-- Grid Pattern -->
-  <g opacity="0.06" stroke="#00ff88" stroke-width="0.5">
+  <g opacity="0.06" stroke="#00FFC8" stroke-width="0.5">
     <line x1="0" y1="40" x2="400" y2="40"/>
     <line x1="0" y1="80" x2="400" y2="80"/>
     <line x1="0" y1="120" x2="400" y2="120"/>
@@ -48,63 +42,74 @@
   </g>
 
   <!-- Header Bar -->
-  <rect x="0" y="0" width="400" height="36" fill="#0a0a0f" opacity="0.95"/>
-  <line x1="0" y1="36" x2="400" y2="36" stroke="#2a2a45" stroke-width="1"/>
-  <text x="16" y="24" font-family="monospace" font-size="12" font-weight="700" fill="#00ff88" filter="url(#glow-green)">NEXUS_OS</text>
-  <circle cx="372" cy="18" r="4" fill="#00ff88" filter="url(#glow-green)"/>
+  <rect x="0" y="0" width="400" height="36" fill="#0A0A0A" opacity="0.95"/>
+  <line x1="0" y1="36" x2="400" y2="36" stroke="#222233" stroke-width="1"/>
+  <text x="16" y="24" font-family="monospace" font-size="11" font-weight="700" fill="#00FFC8" filter="url(#glow-primary)">NEXUS_CMD</text>
+  <circle cx="372" cy="18" r="4" fill="#00FFC8" filter="url(#glow-primary)"/>
 
   <!-- Hero Text -->
-  <text x="200" y="72" font-family="sans-serif" font-size="9" fill="#00ccff" text-anchor="middle" letter-spacing="3" opacity="0.7">// SYSTEM INTERFACE</text>
-  <text x="200" y="95" font-family="sans-serif" font-size="18" font-weight="700" fill="#00ff88" text-anchor="middle" filter="url(#glow-green)" letter-spacing="2">COMMAND CENTER</text>
+  <text x="200" y="62" font-family="monospace" font-size="8" fill="#00A2FF" text-anchor="middle" letter-spacing="3" opacity="0.7">// SYSTEM CONTROL INTERFACE</text>
+  <text x="200" y="85" font-family="monospace" font-size="16" font-weight="700" fill="#00FFC8" text-anchor="middle" filter="url(#glow-primary)" letter-spacing="2">COMMAND CENTER</text>
 
-  <!-- Stat Cards -->
-  <!-- Card 1 - Green -->
+  <!-- Neon divider -->
+  <line x1="0" y1="100" x2="400" y2="100" stroke="#00FFC8" stroke-width="0.5" opacity="0.3" filter="url(#glow-primary)"/>
+
+  <!-- 4 Stat Cards -->
+  <!-- Card 1 - Primary (Green/Teal) -->
   <g>
-    <polygon points="20,120 178,120 186,128 186,185 28,185 20,177" fill="#1a1a2f" stroke="#2a2a45" stroke-width="1"/>
-    <line x1="20" y1="121" x2="186" y2="121" stroke="#00ff88" stroke-width="2" filter="url(#glow-green)"/>
-    <text x="32" y="140" font-family="monospace" font-size="8" fill="#8888aa" letter-spacing="1">ACTIVE NODES</text>
-    <text x="32" y="168" font-family="monospace" font-size="24" font-weight="700" fill="#00ff88" filter="url(#glow-green)">2,847</text>
+    <polygon points="16,112 186,112 194,120 194,174 24,174 16,166" fill="#111111" stroke="#222233" stroke-width="1"/>
+    <line x1="16" y1="113" x2="194" y2="113" stroke="#00FFC8" stroke-width="2" filter="url(#glow-primary)"/>
+    <text x="28" y="130" font-family="monospace" font-size="7" fill="#888899" letter-spacing="1">ACTIVE NODES</text>
+    <text x="28" y="156" font-family="monospace" font-size="22" font-weight="700" fill="#00FFC8" filter="url(#glow-primary)">2,847</text>
   </g>
 
-  <!-- Card 2 - Pink -->
+  <!-- Card 2 - Secondary (Magenta) -->
   <g>
-    <polygon points="214,120 372,120 380,128 380,185 222,185 214,177" fill="#1a1a2f" stroke="#2a2a45" stroke-width="1"/>
-    <line x1="214" y1="121" x2="380" y2="121" stroke="#ff0066" stroke-width="2" filter="url(#glow-pink)"/>
-    <text x="226" y="140" font-family="monospace" font-size="8" fill="#8888aa" letter-spacing="1">THREAT LEVEL</text>
-    <text x="226" y="168" font-family="monospace" font-size="24" font-weight="700" fill="#ff0066" filter="url(#glow-pink)">LOW</text>
+    <polygon points="206,112 376,112 384,120 384,174 214,174 206,166" fill="#111111" stroke="#222233" stroke-width="1"/>
+    <line x1="206" y1="113" x2="384" y2="113" stroke="#FF00FF" stroke-width="2" filter="url(#glow-secondary)"/>
+    <text x="218" y="130" font-family="monospace" font-size="7" fill="#888899" letter-spacing="1">THREAT LEVEL</text>
+    <text x="218" y="156" font-family="monospace" font-size="22" font-weight="700" fill="#FF00FF" filter="url(#glow-secondary)">LOW</text>
   </g>
 
   <!-- Progress Bars -->
-  <rect x="20" y="198" width="360" height="4" fill="#2a2a45" rx="2"/>
-  <rect x="20" y="198" width="262" height="4" fill="#00ff88" rx="2" filter="url(#glow-green)"/>
+  <rect x="16" y="188" width="368" height="4" fill="#222233" rx="2"/>
+  <rect x="16" y="188" width="268" height="4" fill="#00FFC8" rx="2" filter="url(#glow-primary)"/>
 
-  <rect x="20" y="212" width="360" height="4" fill="#2a2a45" rx="2"/>
-  <rect x="20" y="212" width="320" height="4" fill="#ff0066" rx="2" filter="url(#glow-pink)"/>
+  <rect x="16" y="200" width="368" height="4" fill="#222233" rx="2"/>
+  <rect x="16" y="200" width="325" height="4" fill="#FF00FF" rx="2" filter="url(#glow-secondary)"/>
 
-  <rect x="20" y="226" width="360" height="4" fill="#2a2a45" rx="2"/>
-  <rect x="20" y="226" width="162" height="4" fill="#00ccff" rx="2" filter="url(#glow-cyan)"/>
+  <rect x="16" y="212" width="368" height="4" fill="#222233" rx="2"/>
+  <rect x="16" y="212" width="165" height="4" fill="#00A2FF" rx="2" filter="url(#glow-accent)"/>
 
-  <!-- Data Grid Row -->
-  <rect x="20" y="244" width="360" height="20" fill="#1a1a2f"/>
-  <line x1="20" y1="264" x2="380" y2="264" stroke="#2a2a45" stroke-width="0.5"/>
-  <text x="32" y="258" font-family="monospace" font-size="8" fill="#00ff88">NX-4721</text>
-  <text x="120" y="258" font-family="monospace" font-size="8" fill="#8888aa">Tokyo, JP</text>
-  <text x="220" y="258" font-family="monospace" font-size="8" fill="#00ff88">Active</text>
-  <text x="300" y="258" font-family="monospace" font-size="8" fill="#8888aa">12ms</text>
+  <!-- Data Grid Rows -->
+  <rect x="16" y="228" width="368" height="18" fill="#111111"/>
+  <line x1="16" y1="246" x2="384" y2="246" stroke="#222233" stroke-width="0.5"/>
+  <text x="28" y="240" font-family="monospace" font-size="7" fill="#00FFC8">NX-4721</text>
+  <text x="110" y="240" font-family="monospace" font-size="7" fill="#888899">Tokyo, JP</text>
+  <text x="210" y="240" font-family="monospace" font-size="7" fill="#00FFC8">Active</text>
+  <text x="290" y="240" font-family="monospace" font-size="7" fill="#888899">12ms</text>
 
-  <rect x="20" y="266" width="360" height="20" fill="rgba(26,26,47,0.5)"/>
-  <line x1="20" y1="286" x2="380" y2="286" stroke="#2a2a45" stroke-width="0.5"/>
-  <text x="32" y="280" font-family="monospace" font-size="8" fill="#ff0066">NX-2210</text>
-  <text x="120" y="280" font-family="monospace" font-size="8" fill="#8888aa">Mumbai, IN</text>
-  <text x="220" y="280" font-family="monospace" font-size="8" fill="#ff0066">Offline</text>
-  <text x="300" y="280" font-family="monospace" font-size="8" fill="#555570">---</text>
+  <rect x="16" y="248" width="368" height="18" fill="rgba(17,17,17,0.5)"/>
+  <line x1="16" y1="266" x2="384" y2="266" stroke="#222233" stroke-width="0.5"/>
+  <text x="28" y="260" font-family="monospace" font-size="7" fill="#FF00FF">NX-2210</text>
+  <text x="110" y="260" font-family="monospace" font-size="7" fill="#888899">Mumbai, IN</text>
+  <text x="210" y="260" font-family="monospace" font-size="7" fill="#FF00FF">Offline</text>
+  <text x="290" y="260" font-family="monospace" font-size="7" fill="#555566">---</text>
 
-  <!-- Neon divider line -->
-  <line x1="0" y1="108" x2="400" y2="108" stroke="#00ff88" stroke-width="0.5" opacity="0.3" filter="url(#glow-green)"/>
+  <rect x="16" y="268" width="368" height="18" fill="#111111"/>
+  <line x1="16" y1="286" x2="384" y2="286" stroke="#222233" stroke-width="0.5"/>
+  <text x="28" y="280" font-family="monospace" font-size="7" fill="#00A2FF">NX-0093</text>
+  <text x="110" y="280" font-family="monospace" font-size="7" fill="#888899">Sao Paulo, BR</text>
+  <text x="210" y="280" font-family="monospace" font-size="7" fill="#FFCC00">Degraded</text>
+  <text x="290" y="280" font-family="monospace" font-size="7" fill="#888899">145ms</text>
 
-  <!-- Scanline overlay -->
-  <rect width="400" height="300" fill="url(#scanlines)" opacity="0.15" style="background-size: 100% 4px;"/>
+  <!-- Scanline overlay hint -->
+  <g opacity="0.05">
+    <line x1="0" y1="1" x2="400" y2="1" stroke="#00FFC8"/>
+    <line x1="0" y1="5" x2="400" y2="5" stroke="#00FFC8"/>
+    <line x1="0" y1="9" x2="400" y2="9" stroke="#00FFC8"/>
+  </g>
 
   <!-- Border -->
-  <rect x="0.5" y="0.5" width="399" height="299" fill="none" stroke="#2a2a45" stroke-width="1" rx="2"/>
+  <rect x="0.5" y="0.5" width="399" height="299" fill="none" stroke="#222233" stroke-width="1" rx="2"/>
 </svg>

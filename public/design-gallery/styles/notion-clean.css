@@ -1,32 +1,31 @@
 /* ============================================
    Notion Clean — Design System
-   Book-like feel, generous spacing, clean dividers
+   Document style interface, content first, soft borders
    ============================================ */
 
 :root {
-  --nc-bg: #ffffff;
-  --nc-bg-secondary: #f7f6f3;
-  --nc-text: #37352f;
-  --nc-text-light: #787774;
-  --nc-text-lighter: #9b9a97;
-  --nc-accent: #2eaadc;
-  --nc-accent-light: #e7f3f8;
-  --nc-border: #e9e5e0;
-  --nc-border-light: #f0eeeb;
-  --nc-red: #e03e3e;
-  --nc-orange: #d9730d;
-  --nc-yellow: #dfab01;
-  --nc-green: #0f7b6c;
-  --nc-blue: #2eaadc;
-  --nc-purple: #6940a5;
-  --nc-pink: #ad1a72;
-  --nc-brown: #64473a;
+  --nc-bg: #FFFFFF;
+  --nc-bg-secondary: #F7F6F3;
+  --nc-text: #2F3437;
+  --nc-text-light: #73726E;
+  --nc-text-lighter: #9B9A97;
+  --nc-accent: #2EAADC;
+  --nc-accent-light: #E7F3F8;
+  --nc-border: #E6E6E6;
+  --nc-border-light: #F0EEEB;
+  --nc-red: #E03E3E;
+  --nc-orange: #D9730D;
+  --nc-yellow: #DFAB01;
+  --nc-green: #0F7B6C;
+  --nc-blue: #2EAADC;
+  --nc-purple: #6940A5;
+  --nc-pink: #AD1A72;
 
   --nc-font-heading: Georgia, 'Times New Roman', serif;
-  --nc-font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --nc-font-body: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --nc-font-mono: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
 
-  --nc-line-height: 1.7;
+  --nc-line-height: 1.8;
   --nc-line-height-tight: 1.3;
 
   --nc-space-xs: 4px;
@@ -128,6 +127,7 @@ pre {
   overflow-x: auto;
   font-size: 14px;
   line-height: 1.5;
+  margin: var(--nc-space-md) 0;
 }
 
 pre code {
@@ -196,42 +196,6 @@ pre code {
   margin: 0 2px;
 }
 
-/* === Sidebar Navigation === */
-.nc-sidebar {
-  width: 240px;
-  background: var(--nc-bg-secondary);
-  padding: var(--nc-space-md);
-  border-right: 1px solid var(--nc-border);
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
-}
-
-.nc-sidebar-item {
-  display: flex;
-  align-items: center;
-  gap: var(--nc-space-sm);
-  padding: 4px 8px;
-  border-radius: var(--nc-radius);
-  font-size: 14px;
-  color: var(--nc-text-light);
-  cursor: pointer;
-  transition: background 0.1s;
-}
-
-.nc-sidebar-item:hover {
-  background: var(--nc-border-light);
-  color: var(--nc-text);
-}
-
-.nc-sidebar-item.active {
-  background: var(--nc-border-light);
-  color: var(--nc-text);
-  font-weight: 500;
-}
-
 /* === Divider === */
 .nc-divider {
   height: 1px;
@@ -262,7 +226,7 @@ pre code {
 }
 
 .nc-callout--warning {
-  background: #fdecc8;
+  background: #FDECC8;
 }
 
 .nc-callout--info {
@@ -270,7 +234,7 @@ pre code {
 }
 
 .nc-callout--success {
-  background: #dbeddb;
+  background: #DBEDDB;
 }
 
 /* === Toggle Block === */
@@ -312,16 +276,6 @@ pre code {
 
 .nc-toggle.open .nc-toggle-body {
   display: block;
-}
-
-/* === Content Block === */
-.nc-block {
-  padding: var(--nc-space-xs) 0;
-  position: relative;
-}
-
-.nc-block + .nc-block {
-  margin-top: var(--nc-space-xs);
 }
 
 /* === Table === */
@@ -368,13 +322,13 @@ pre code {
 }
 
 .nc-tag--default { background: var(--nc-bg-secondary); color: var(--nc-text-light); }
-.nc-tag--blue { background: #d3e5ef; color: #183b56; }
-.nc-tag--green { background: #dbeddb; color: #1a3a1a; }
-.nc-tag--red { background: #ffe2dd; color: #5a1a1a; }
-.nc-tag--yellow { background: #fdecc8; color: #5a3e0c; }
-.nc-tag--purple { background: #e8deee; color: #3b1a5a; }
-.nc-tag--orange { background: #fadec9; color: #4a2510; }
-.nc-tag--pink { background: #f5e0e9; color: #5a1a3a; }
+.nc-tag--blue { background: #D3E5EF; color: #183B56; }
+.nc-tag--green { background: #DBEDDB; color: #1A3A1A; }
+.nc-tag--red { background: #FFE2DD; color: #5A1A1A; }
+.nc-tag--yellow { background: #FDECC8; color: #5A3E0C; }
+.nc-tag--purple { background: #E8DEEE; color: #3B1A5A; }
+.nc-tag--orange { background: #FADEC9; color: #4A2510; }
+.nc-tag--pink { background: #F5E0E9; color: #5A1A3A; }
 
 /* === Buttons === */
 .nc-btn {
@@ -404,7 +358,7 @@ pre code {
 }
 
 .nc-btn--primary:hover {
-  background: #2999c8;
+  background: #2999C8;
 }
 
 .nc-btn--text {
@@ -487,15 +441,6 @@ pre code {
 
 .nc-list--numbered {
   list-style-type: decimal;
-}
-
-/* === Cover / Banner === */
-.nc-cover {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0;
-  margin-bottom: var(--nc-space-xl);
 }
 
 /* === Database Gallery === */

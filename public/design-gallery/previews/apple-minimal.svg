@@ -1,64 +1,82 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
   <defs>
-    <filter id="apple-shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="1" stdDeviation="3" flood-color="#000" flood-opacity="0.06"/>
+    <linearGradient id="apple-hero-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="50%" stop-color="#764ba2"/>
+      <stop offset="100%" stop-color="#f093fb"/>
+    </linearGradient>
+    <filter id="apple-card-shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.06"/>
     </filter>
   </defs>
 
   <!-- Background -->
-  <rect width="400" height="300" fill="#ffffff"/>
+  <rect width="400" height="300" fill="#f5f5f7"/>
 
   <!-- Nav Bar -->
-  <rect width="400" height="28" fill="#ffffff" opacity="0.95"/>
-  <rect x="20" y="10" width="40" height="8" rx="2" fill="#1d1d1f"/>
-  <rect x="160" y="11" width="24" height="6" rx="2" fill="#6e6e73"/>
-  <rect x="192" y="11" width="24" height="6" rx="2" fill="#6e6e73"/>
-  <rect x="224" y="11" width="24" height="6" rx="2" fill="#6e6e73"/>
-  <rect x="320" y="7" width="60" height="14" rx="7" fill="#0071e3"/>
-  <rect x="332" y="10" width="36" height="8" rx="2" fill="#ffffff"/>
-  <line x1="0" y1="28" x2="400" y2="28" stroke="#d2d2d7" stroke-width="0.5"/>
+  <rect width="400" height="26" fill="#f5f5f7" opacity="0.9"/>
+  <rect x="20" y="9" width="42" height="8" rx="2" fill="#1d1d1f"/>
+  <rect x="150" y="10" width="22" height="5" rx="1.5" fill="#86868b"/>
+  <rect x="180" y="10" width="20" height="5" rx="1.5" fill="#86868b"/>
+  <rect x="208" y="10" width="22" height="5" rx="1.5" fill="#86868b"/>
+  <rect x="330" y="6" width="52" height="14" rx="7" fill="#0071e3"/>
+  <rect x="339" y="9" width="34" height="8" rx="1.5" fill="#ffffff"/>
+  <line x1="0" y1="26" x2="400" y2="26" stroke="#d2d2d7" stroke-width="0.5"/>
 
-  <!-- Hero Section -->
-  <rect x="100" y="38" width="200" height="6" rx="2" fill="#0071e3" opacity="0.6"/>
-  <rect x="60" y="52" width="280" height="14" rx="3" fill="#1d1d1f"/>
-  <rect x="80" y="72" width="240" height="14" rx="3" fill="#1d1d1f"/>
-  <rect x="100" y="96" width="200" height="6" rx="2" fill="#6e6e73"/>
-  <rect x="120" y="108" width="160" height="6" rx="2" fill="#6e6e73"/>
+  <!-- Hero Eyebrow -->
+  <rect x="148" y="38" width="104" height="4" rx="2" fill="#0071e3" opacity="0.7"/>
+
+  <!-- Hero Headline -->
+  <rect x="80" y="50" width="240" height="12" rx="3" fill="#1d1d1f"/>
+  <rect x="100" y="68" width="200" height="12" rx="3" fill="#1d1d1f"/>
+
+  <!-- Hero Subhead -->
+  <rect x="110" y="90" width="180" height="5" rx="1.5" fill="#86868b"/>
+  <rect x="120" y="100" width="160" height="5" rx="1.5" fill="#86868b"/>
 
   <!-- CTA Buttons -->
-  <rect x="120" y="122" width="80" height="18" rx="9" fill="#0071e3"/>
-  <rect x="210" y="122" width="70" height="18" rx="9" fill="none" stroke="#0071e3" stroke-width="1"/>
+  <rect x="124" y="114" width="72" height="16" rx="8" fill="#0071e3"/>
+  <rect x="204" y="114" width="72" height="16" rx="8" fill="none" stroke="#0071e3" stroke-width="1"/>
 
-  <!-- Hero Image Placeholder -->
-  <rect x="60" y="150" width="280" height="60" rx="12" fill="url(#apple-grad)" filter="url(#apple-shadow)"/>
-  <defs>
-    <linearGradient id="apple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#667eea"/>
-      <stop offset="100%" stop-color="#764ba2"/>
-    </linearGradient>
-  </defs>
+  <!-- Hero Image -->
+  <rect x="50" y="140" width="300" height="54" rx="10" fill="url(#apple-hero-grad)"/>
+  <circle cx="200" cy="162" r="8" fill="rgba(255,255,255,0.25)"/>
+  <rect x="186" y="172" width="28" height="3" rx="1" fill="rgba(255,255,255,0.4)"/>
+
+  <!-- Stats Row -->
+  <rect x="60" y="204" width="36" height="7" rx="1.5" fill="#1d1d1f"/>
+  <rect x="56" y="214" width="44" height="4" rx="1" fill="#86868b"/>
+  <rect x="182" y="204" width="36" height="7" rx="1.5" fill="#1d1d1f"/>
+  <rect x="178" y="214" width="44" height="4" rx="1" fill="#86868b"/>
+  <rect x="302" y="204" width="36" height="7" rx="1.5" fill="#1d1d1f"/>
+  <rect x="298" y="214" width="44" height="4" rx="1" fill="#86868b"/>
 
   <!-- Feature Cards -->
-  <rect x="20" y="225" width="110" height="60" rx="10" fill="#f5f5f7"/>
-  <rect x="145" y="225" width="110" height="60" rx="10" fill="#f5f5f7"/>
-  <rect x="270" y="225" width="110" height="60" rx="10" fill="#f5f5f7"/>
+  <rect x="18" y="230" width="116" height="55" rx="10" fill="#ffffff" filter="url(#apple-card-shadow)"/>
+  <rect x="142" y="230" width="116" height="55" rx="10" fill="#ffffff" filter="url(#apple-card-shadow)"/>
+  <rect x="266" y="230" width="116" height="55" rx="10" fill="#ffffff" filter="url(#apple-card-shadow)"/>
 
   <!-- Card Icons -->
-  <circle cx="50" cy="245" r="10" fill="rgba(0,113,227,0.1)"/>
-  <circle cx="50" cy="245" r="4" fill="#0071e3"/>
-  <circle cx="175" cy="245" r="10" fill="rgba(52,199,89,0.1)"/>
-  <circle cx="175" cy="245" r="4" fill="#34c759"/>
-  <circle cx="300" cy="245" r="10" fill="rgba(175,82,222,0.1)"/>
-  <circle cx="300" cy="245" r="4" fill="#af52de"/>
+  <circle cx="48" cy="246" r="8" fill="rgba(0,113,227,0.08)"/>
+  <text x="48" y="249" text-anchor="middle" font-size="8" fill="#0071e3">&#9889;</text>
+  <circle cx="172" cy="246" r="8" fill="rgba(52,199,89,0.08)"/>
+  <text x="172" y="249" text-anchor="middle" font-size="8" fill="#34c759">&#9203;</text>
+  <circle cx="296" cy="246" r="8" fill="rgba(175,82,222,0.08)"/>
+  <text x="296" y="249" text-anchor="middle" font-size="8" fill="#af52de">&#9670;</text>
 
-  <!-- Card Text Lines -->
-  <rect x="35" y="260" width="60" height="5" rx="1.5" fill="#1d1d1f"/>
-  <rect x="30" y="270" width="80" height="4" rx="1.5" fill="#6e6e73"/>
-  <rect x="160" y="260" width="60" height="5" rx="1.5" fill="#1d1d1f"/>
-  <rect x="155" y="270" width="80" height="4" rx="1.5" fill="#6e6e73"/>
-  <rect x="285" y="260" width="60" height="5" rx="1.5" fill="#1d1d1f"/>
-  <rect x="280" y="270" width="80" height="4" rx="1.5" fill="#6e6e73"/>
+  <!-- Card Text -->
+  <rect x="32" y="259" width="52" height="4" rx="1" fill="#1d1d1f"/>
+  <rect x="28" y="267" width="72" height="3" rx="1" fill="#86868b"/>
+  <rect x="30" y="273" width="68" height="3" rx="1" fill="#86868b"/>
+
+  <rect x="156" y="259" width="52" height="4" rx="1" fill="#1d1d1f"/>
+  <rect x="152" y="267" width="72" height="3" rx="1" fill="#86868b"/>
+  <rect x="154" y="273" width="68" height="3" rx="1" fill="#86868b"/>
+
+  <rect x="280" y="259" width="52" height="4" rx="1" fill="#1d1d1f"/>
+  <rect x="276" y="267" width="72" height="3" rx="1" fill="#86868b"/>
+  <rect x="278" y="273" width="68" height="3" rx="1" fill="#86868b"/>
 
   <!-- Label -->
-  <text x="200" y="296" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="8" fill="#6e6e73">Apple Minimal</text>
+  <text x="200" y="296" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif" font-size="8" fill="#86868b">Apple Minimal</text>
 </svg>

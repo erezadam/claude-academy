@@ -21,8 +21,8 @@
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image:
-        linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
       background-size: 40px 40px;
       pointer-events: none;
     }
@@ -33,7 +33,7 @@
 <!-- HUD Header -->
 <header class="cn-header">
   <div class="cn-header-inner">
-    <div class="cn-header-logo">NEXUS<span style="color: var(--cn-neon-pink);">_</span>OS</div>
+    <div class="cn-header-logo">NEXUS<span style="color: var(--cn-secondary);">_</span>CMD</div>
     <nav>
       <ul class="cn-header-nav">
         <li><a href="#" class="active">Dashboard</a></li>
@@ -57,17 +57,17 @@
     <div class="cn-hero-grid-bg"></div>
     <div class="cn-hero-subtitle">// System Control Interface v4.2</div>
     <h1>Network Operations<br>Command Center</h1>
-    <p class="cn-hero-desc">Real-time monitoring and control of distributed systems across 47 global edge nodes. Full operational visibility.</p>
+    <p class="cn-hero-desc">Real-time monitoring and control of distributed systems across 47 global edge nodes. Full operational visibility with zero-trust security architecture.</p>
     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
       <button class="cn-btn cn-btn--filled">Initialize Scan</button>
-      <button class="cn-btn cn-btn--cyan">View Documentation</button>
-      <button class="cn-btn cn-btn--pink">Emergency Protocol</button>
+      <button class="cn-btn cn-btn--accent">View Documentation</button>
+      <button class="cn-btn cn-btn--secondary">Emergency Protocol</button>
     </div>
   </section>
 
   <hr class="cn-divider">
 
-  <!-- Stat Cards -->
+  <!-- 4 Stat Cards -->
   <section class="demo-section">
     <h2>// System Metrics</h2>
     <div class="cn-stat-grid">
@@ -76,70 +76,25 @@
         <div class="cn-stat-value">2,847</div>
         <div class="cn-stat-change">+12.4% from last cycle</div>
       </div>
-      <div class="cn-stat-card cn-stat-card--pink">
+      <div class="cn-stat-card cn-stat-card--secondary">
         <div class="cn-stat-label">Threat Level</div>
         <div class="cn-stat-value">LOW</div>
         <div class="cn-stat-change cn-stat-change--down">3 incidents detected</div>
       </div>
-      <div class="cn-stat-card cn-stat-card--cyan">
+      <div class="cn-stat-card cn-stat-card--accent">
         <div class="cn-stat-label">Data Throughput</div>
-        <div class="cn-stat-value">94.7<span style="font-size:18px;">TB/s</span></div>
+        <div class="cn-stat-value">94.7<span style="font-size:16px;">TB/s</span></div>
         <div class="cn-stat-change">+3.2% avg bandwidth</div>
       </div>
       <div class="cn-stat-card">
         <div class="cn-stat-label">Uptime</div>
-        <div class="cn-stat-value">99.97<span style="font-size:18px;">%</span></div>
+        <div class="cn-stat-value">99.97<span style="font-size:16px;">%</span></div>
         <div class="cn-stat-change">142 days since last outage</div>
       </div>
     </div>
   </section>
 
-  <!-- Progress Bars -->
-  <section class="demo-section">
-    <h2>// Resource Allocation</h2>
-    <div class="cn-panel cn-panel--glow-green">
-      <div style="margin-bottom: 24px;">
-        <div class="cn-progress-label">
-          <span>CPU Utilization</span>
-          <span style="color: var(--cn-neon-green);">73%</span>
-        </div>
-        <div class="cn-progress">
-          <div class="cn-progress-bar cn-progress-bar--green" style="width: 73%;"></div>
-        </div>
-      </div>
-      <div style="margin-bottom: 24px;">
-        <div class="cn-progress-label">
-          <span>Memory Usage</span>
-          <span style="color: var(--cn-neon-pink);">89%</span>
-        </div>
-        <div class="cn-progress">
-          <div class="cn-progress-bar cn-progress-bar--pink" style="width: 89%;"></div>
-        </div>
-      </div>
-      <div style="margin-bottom: 24px;">
-        <div class="cn-progress-label">
-          <span>Network I/O</span>
-          <span style="color: var(--cn-neon-cyan);">45%</span>
-        </div>
-        <div class="cn-progress">
-          <div class="cn-progress-bar cn-progress-bar--cyan" style="width: 45%;"></div>
-        </div>
-      </div>
-      <div>
-        <div class="cn-progress-label">
-          <span>Storage</span>
-          <span style="color: var(--cn-neon-green);">62%</span>
-        </div>
-        <div class="cn-progress">
-          <div class="cn-progress-bar cn-progress-bar--green" style="width: 62%;"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="cn-divider">
-
-  <!-- Data Grid -->
+  <!-- Data Grid / Log -->
   <section class="demo-section">
     <h2>// Active Connections</h2>
     <div style="overflow-x: auto;">
@@ -156,49 +111,49 @@
         </thead>
         <tbody>
           <tr>
-            <td style="color: var(--cn-neon-green);">NX-4721</td>
+            <td style="color: var(--cn-primary);">NX-4721</td>
             <td>Tokyo, JP</td>
-            <td><span class="cn-badge cn-badge--green">Active</span></td>
+            <td><span class="cn-badge cn-badge--primary">Active</span></td>
             <td>12ms</td>
             <td>WSS/TLS</td>
             <td>2s ago</td>
           </tr>
           <tr>
-            <td style="color: var(--cn-neon-green);">NX-1138</td>
+            <td style="color: var(--cn-primary);">NX-1138</td>
             <td>Frankfurt, DE</td>
-            <td><span class="cn-badge cn-badge--green">Active</span></td>
+            <td><span class="cn-badge cn-badge--primary">Active</span></td>
             <td>28ms</td>
             <td>QUIC</td>
             <td>1s ago</td>
           </tr>
           <tr>
-            <td style="color: var(--cn-neon-pink);">NX-0093</td>
+            <td style="color: var(--cn-accent);">NX-0093</td>
             <td>Sao Paulo, BR</td>
-            <td><span class="cn-badge cn-badge--yellow">Degraded</span></td>
+            <td><span class="cn-badge cn-badge--warning">Degraded</span></td>
             <td>145ms</td>
             <td>WSS/TLS</td>
             <td>14s ago</td>
           </tr>
           <tr>
-            <td style="color: var(--cn-neon-cyan);">NX-8844</td>
+            <td style="color: var(--cn-primary);">NX-8844</td>
             <td>Singapore, SG</td>
-            <td><span class="cn-badge cn-badge--green">Active</span></td>
+            <td><span class="cn-badge cn-badge--primary">Active</span></td>
             <td>8ms</td>
             <td>gRPC</td>
             <td>0s ago</td>
           </tr>
           <tr>
-            <td style="color: var(--cn-neon-pink);">NX-2210</td>
+            <td style="color: var(--cn-secondary);">NX-2210</td>
             <td>Mumbai, IN</td>
-            <td><span class="cn-badge cn-badge--pink">Offline</span></td>
+            <td><span class="cn-badge cn-badge--secondary">Offline</span></td>
             <td>---</td>
             <td>---</td>
             <td>47m ago</td>
           </tr>
           <tr>
-            <td style="color: var(--cn-neon-green);">NX-5567</td>
+            <td style="color: var(--cn-primary);">NX-5567</td>
             <td>New York, US</td>
-            <td><span class="cn-badge cn-badge--green">Active</span></td>
+            <td><span class="cn-badge cn-badge--primary">Active</span></td>
             <td>3ms</td>
             <td>QUIC</td>
             <td>0s ago</td>
@@ -208,27 +163,47 @@
     </div>
   </section>
 
-  <!-- Panels Grid -->
+  <hr class="cn-divider">
+
+  <!-- Alert Section -->
+  <section class="demo-section">
+    <h2>// Alerts &amp; Notifications</h2>
+    <div class="cn-alert" style="border-left-color: var(--cn-secondary);">
+      <span style="color: var(--cn-secondary);">[CRITICAL]</span>
+      <span>Node NX-2210 has been offline for 47 minutes. Auto-recovery failed. Manual intervention required.</span>
+    </div>
+    <div class="cn-alert cn-alert--warning">
+      <span style="color: #FFCC00;">[WARNING]</span>
+      <span>NX-0093 latency exceeding 100ms threshold. Route optimization in progress.</span>
+    </div>
+    <div class="cn-alert cn-alert--info">
+      <span style="color: var(--cn-accent);">[INFO]</span>
+      <span>Scheduled maintenance window: March 15, 02:00-04:00 UTC. 12 nodes affected.</span>
+    </div>
+  </section>
+
+  <!-- Operations Panels -->
   <section class="demo-section">
     <h2>// Operations</h2>
     <div class="demo-grid-2">
-      <div class="cn-panel cn-panel--glow-green">
+      <div class="cn-panel cn-panel--glow-primary">
         <div class="cn-panel-title">System Log</div>
-        <div style="font-family: var(--cn-font-mono); font-size: 12px; line-height: 2; color: var(--cn-text-dim);">
-          <div><span style="color: var(--cn-neon-green);">[INFO]</span> Node NX-8844 synchronized</div>
-          <div><span style="color: var(--cn-neon-cyan);">[SYNC]</span> Database replication complete</div>
-          <div><span style="color: var(--cn-neon-yellow);">[WARN]</span> NX-0093 latency exceeding threshold</div>
-          <div><span style="color: var(--cn-neon-pink);">[ALRT]</span> NX-2210 connection lost</div>
-          <div><span style="color: var(--cn-neon-green);">[INFO]</span> Auto-scaling triggered: +3 instances</div>
-          <div><span style="color: var(--cn-neon-green);">[INFO]</span> SSL certificates renewed</div>
+        <div style="font-family: var(--cn-font-mono); font-size: 11px; line-height: 2; color: var(--cn-text-dim);">
+          <div><span style="color: var(--cn-primary);">[INFO]</span> Node NX-8844 synchronized</div>
+          <div><span style="color: var(--cn-accent);">[SYNC]</span> Database replication complete</div>
+          <div><span style="color: #FFCC00;">[WARN]</span> NX-0093 latency exceeding threshold</div>
+          <div><span style="color: var(--cn-secondary);">[ALRT]</span> NX-2210 connection lost</div>
+          <div><span style="color: var(--cn-primary);">[INFO]</span> Auto-scaling triggered: +3 instances</div>
+          <div><span style="color: var(--cn-primary);">[INFO]</span> SSL certificates renewed</div>
+          <div><span style="color: var(--cn-accent);">[SYNC]</span> Edge cache invalidated globally</div>
         </div>
       </div>
-      <div class="cn-panel cn-panel--glow-pink">
+      <div class="cn-panel cn-panel--glow-secondary">
         <div class="cn-panel-title">Quick Actions</div>
         <div style="display: flex; flex-direction: column; gap: 12px;">
           <button class="cn-btn cn-btn--sm" style="width: 100%;">Deploy Latest Build</button>
-          <button class="cn-btn cn-btn--sm cn-btn--cyan" style="width: 100%;">Run Diagnostics</button>
-          <button class="cn-btn cn-btn--sm cn-btn--pink" style="width: 100%;">Restart Node NX-2210</button>
+          <button class="cn-btn cn-btn--sm cn-btn--accent" style="width: 100%;">Run Diagnostics</button>
+          <button class="cn-btn cn-btn--sm cn-btn--secondary" style="width: 100%;">Restart Node NX-2210</button>
           <button class="cn-btn cn-btn--sm" style="width: 100%;">Flush Cache Layer</button>
         </div>
       </div>
@@ -237,7 +212,7 @@
 
   <hr class="cn-divider">
 
-  <!-- Form Section -->
+  <!-- Command Input -->
   <section class="demo-section">
     <h2>// Command Interface</h2>
     <div class="cn-panel">
@@ -262,27 +237,53 @@
     </div>
   </section>
 
-  <!-- Badges Section -->
+  <!-- Badges & Progress -->
   <section class="demo-section">
-    <h2>// Status Badges</h2>
-    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
-      <span class="cn-badge cn-badge--green">Active</span>
-      <span class="cn-badge cn-badge--pink">Critical</span>
-      <span class="cn-badge cn-badge--cyan">Syncing</span>
-      <span class="cn-badge cn-badge--yellow">Warning</span>
-      <span class="cn-badge cn-badge--green">Deployed</span>
-      <span class="cn-badge cn-badge--pink">Offline</span>
-      <span class="cn-badge cn-badge--cyan">Queued</span>
+    <h2>// Resource Allocation</h2>
+    <div class="cn-panel cn-panel--glow-primary">
+      <div style="margin-bottom: 24px;">
+        <div class="cn-progress-label">
+          <span>CPU Utilization</span>
+          <span style="color: var(--cn-primary);">73%</span>
+        </div>
+        <div class="cn-progress">
+          <div class="cn-progress-bar cn-progress-bar--primary" style="width: 73%;"></div>
+        </div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="cn-progress-label">
+          <span>Memory Usage</span>
+          <span style="color: var(--cn-secondary);">89%</span>
+        </div>
+        <div class="cn-progress">
+          <div class="cn-progress-bar cn-progress-bar--secondary" style="width: 89%;"></div>
+        </div>
+      </div>
+      <div style="margin-bottom: 24px;">
+        <div class="cn-progress-label">
+          <span>Network I/O</span>
+          <span style="color: var(--cn-accent);">45%</span>
+        </div>
+        <div class="cn-progress">
+          <div class="cn-progress-bar cn-progress-bar--accent" style="width: 45%;"></div>
+        </div>
+      </div>
+      <div>
+        <div class="cn-progress-label">
+          <span>Storage</span>
+          <span style="color: var(--cn-primary);">62%</span>
+        </div>
+        <div class="cn-progress">
+          <div class="cn-progress-bar cn-progress-bar--primary" style="width: 62%;"></div>
+        </div>
+      </div>
     </div>
-    <p style="font-family: var(--cn-font-mono); font-size: 13px; color: var(--cn-text-muted);">
-      // Badges use angular clip-path for the distinctive cyber-cut style. Pair with monospace font and uppercase text.
-    </p>
   </section>
 
   <!-- Footer -->
   <footer style="text-align: center; padding: 48px 0 32px; border-top: 1px solid var(--cn-border);">
-    <div style="font-family: var(--cn-font-mono); font-size: 12px; color: var(--cn-text-muted);">
-      NEXUS_OS v4.2.1 // SESSION: <span style="color: var(--cn-neon-green);">0x7F3A9C</span> // UPTIME: 142d 07h 23m
+    <div style="font-family: var(--cn-font-mono); font-size: 11px; color: var(--cn-text-muted);">
+      NEXUS_CMD v4.2.1 // SESSION: <span style="color: var(--cn-primary);">0x7F3A9C</span> // UPTIME: 142d 07h 23m
     </div>
   </footer>
 
