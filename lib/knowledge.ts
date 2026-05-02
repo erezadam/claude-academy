@@ -48,6 +48,12 @@ const CATEGORY_META: Record<
     description: "תרחישים מעשיים ותהליכי עבודה מומלצים",
     icon: "⚡",
   },
+  "project-docs": {
+    name: "תיעוד פרויקט",
+    description:
+      "שלושה פרומפטים גנריים שמייצרים תיעוד מקצועי לכל פרויקט - מה, איך, ולמה.",
+    icon: "📚",
+  },
 };
 
 const WORKFLOWS_ARTICLES: Article[] = [
