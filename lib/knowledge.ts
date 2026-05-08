@@ -9,6 +9,7 @@ export interface Article {
   whatItDoes: string;
   firstCodeBlock: string;
   content: string;
+  layer?: "basic" | "intermediate" | "advanced";
 }
 
 export interface Category {
@@ -231,6 +232,7 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       whatItDoes: extractWhatItDoes(content),
       firstCodeBlock: extractFirstCodeBlock(content),
       content,
+      layer: data.layer ?? undefined,
     };
   });
 }

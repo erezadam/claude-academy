@@ -62,6 +62,24 @@ export default function Home() {
         </a>
       </div>
 
+      {/* Commands List CTA */}
+      <div className="max-w-5xl mx-auto px-6 pb-4">
+        <Link
+          href="/commands-list"
+          className="group block rounded-lg border border-gray-200 bg-white p-5 transition-all hover:border-green-300 hover:shadow-sm"
+        >
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-2xl">📋</span>
+            <h2 className="text-lg font-bold text-gray-900 group-hover:text-green-700 transition-colors">
+              רשימת פקודות
+            </h2>
+          </div>
+          <p className="text-sm text-gray-900 leading-relaxed">
+            כל פקודות Claude Code בטבלה אחת — חיפוש, מיון, סינון.
+          </p>
+        </Link>
+      </div>
+
       {/* Category Cards */}
       <main className="max-w-5xl mx-auto px-6 pb-20">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
