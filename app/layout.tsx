@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
+import { getLastUpdated } from "@/lib/knowledge";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -18,9 +19,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lastUpdated = getLastUpdated();
+  const lastUpdatedLabel = lastUpdated
+    ? new Date(lastUpdated).toLocaleDateString("he-IL")
+    : null;
+
   return (
     <html lang="he" dir="rtl">
-      <body className={`${heebo.variable} antialiased`}>{children}</body>
+      <body className={`${heebo.variable} antialiased`}>
+        {children}
+        {lastUpdatedLabel && (
+          <footer className="border-t border-gray-200 mt-12">
+            <div className="max-w-5xl mx-auto px-6 py-4 text-sm text-gray-500">
+              עודכן לאחרונה: {lastUpdatedLabel}
+            </div>
+          </footer>
+        )}
+      </body>
     </html>
   );
 }
