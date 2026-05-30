@@ -1,155 +1,78 @@
 ---
-title: "CLAUDE.md — המדריך המלא"
+title: "שיטות עבודה מומלצות עם Claude Code"
 category: claude-code
 layer: basic
-last_verified: 2026-03-07
-status: current
+last_verified: 2026-05-30
+status: needs-review
 source_url: https://code.claude.com/docs/en/best-practices
 related: [/init, /memory, slash-commands-all]
 ---
 
-## CLAUDE.md — קובץ הזיכרון המרכזי
+## שיטות עבודה מומלצות עם Claude Code
 
-מה זה עושה: קובץ Markdown שClaudeCode קורא אוטומטית בתחילת כל session — הזיכרון הקבוע של הפרויקט.
+Claude Code הוא סביבת קידוד אג'נטית — הוא קורא קבצים, מריץ פקודות, עושה שינויים ועובד עצמאית על בעיות. זה משנה את אופן העבודה: במקום לכתוב קוד בעצמך ולבקש review, אתה מתאר מה אתה רוצה ו-Claude מגלה כיצד לבנות אותו.
 
----
-
-### למה זה קריטי
-
-Claude Code **לא זוכר כלום** בין sessions. בלי CLAUDE.md:
-```
-Session 1: "השתמש תמיד ב-TypeScript strict"
-Session 2: Claude שכח ← כותב JavaScript רגיל
-```
-
-עם CLAUDE.md:
-```
-כל session: Claude קורא → זוכר → מיישם
-```
+משאב מפתח לניהול: **context window** — הוא מתמלא מהר, וביצועים יורדים ככל שמתמלא. כל קריאת קובץ, כל פקודה, כל תשובה — הכל נכנס לcontext.
 
 ---
 
-### מיקומים אפשריים
+## תן ל-Claude דרך לאמת את עבודתו
+
+תן ל-Claude בדיקה שהוא יכול להריץ: tests, build, screenshot להשוואה. זה ההבדל בין session שאתה צופה בו לsession שאתה הולך ממנו.
+
+בלי בדיקה, "נראה שסיימתי" הוא האות היחיד הזמין. עם בדיקה, הלולאה נסגרת לבד: Claude עושה את העבודה, מריץ את הבדיקה, קורא את התוצאה ומבצע iteration.
+
+| אסטרטגיה | לפני | אחרי |
+|:--|:--|:--|
+| קריטריון אימות | "implement email validation" | "write validateEmail. run tests after implementing" |
+| אימות UI | "make dashboard look better" | "[screenshot] implement this design. screenshot result and compare" |
+| שורש בעיה | "the build is failing" | "build fails with [error]. fix it, verify build succeeds, address root cause" |
+
+**אפשרויות עצמת סגירה:**
+- **בprompt אחד:** בקש מ-Claude להריץ ולבצע iteration באותו הודעה
+- **עם `/goal`:** evaluator נפרד בודק מחדש לאחר כל תור
+- **Stop hook:** סקריפט חוסם את סיום התור עד שהבדיקה עוברת
+- **Verification subagent:** מודל חדש מנסה להפריך את התוצאה
+
+---
+
+## חקור קודם, אז תכנן, אז קדד
+
+הסתעפות ישירה לקידוד יכולה לייצר קוד שפותר את הבעיה הלא נכונה. השתמש ב-plan mode להפריד חקירה מביצוע.
+
+**ארבעת שלבי העבודה המומלצים:**
+
+**1 — חקור:** היכנס ל-plan mode. Claude קורא קבצים ועונה על שאלות ללא שינויים.
+
+```text
+read /src/auth and understand how we handle sessions and login.
+```
+
+**2 — תכנן:** בקש מ-Claude לצור תוכנית יישום מפורטת. לחץ `Ctrl+G` לפתיחת התוכנית בעורך לעריכה ישירה לפני שClaude ממשיך.
+
+**3 — יישם:** צא מplan mode ותן ל-Claude לקדד, תוך אימות מול התוכנית שלו.
+
+**4 — commit:** בקש מ-Claude לעשות commit עם הודעה תיאורית ולפתוח PR.
+
+---
+
+## CLAUDE.md — הזיכרון הקבוע
+
+Claude Code לא זוכר כלום בין sessions. `CLAUDE.md` הוא קובץ Markdown שClaudeקורא אוטומטית בתחילת כל session.
 
 ```
 ~/.claude/CLAUDE.md           ← גלובלי — כל הפרויקטים
 ./CLAUDE.md                   ← פרויקט — נטען אוטומטית
-./src/CLAUDE.md               ← תת-תיקייה — נטען לפי דרישה
 ./.claude/CLAUDE.local.md     ← אישי — ב-.gitignore
 ```
 
-**מה לשים איפה:**
-- גלובלי: סגנון עבודה אישי, העדפות שחוזרות
-- פרויקט: stack, commands, conventions הספציפיים
-- תת-תיקייה: הנחיות לחלק ספציפי (backend/, frontend/)
+**כלל הזהב:** שאל כל שורה — "האם הסרת שורה זו תגרום ל-Claude לטעות?" שמור רק מה שהתשובה עליו חיובית. **יעד: מתחת ל-100 שורות.**
+
+CLAUDE.md מנופח (500+ שורות) גורם ל-Claude Code להכניס system-reminder שClaudeמתעלם ממנו. פחות = יותר.
 
 ---
 
-### מבנה מומלץ — WHAT / WHY / HOW
+## בקש ראיות, לא הצהרות
 
-```markdown
-# CLAUDE.md — [שם הפרויקט]
+בקש מ-Claude להציג ראיות ולא לטעון הצלחה: פלט ה-tests, הפקודה שהריץ ומה היא החזירה, screenshot של התוצאה. סקירת ראיות מהירה יותר מהפעלה חוזרת של האימות.
 
-## WHAT — מה הפרויקט
-[משפט אחד. מה המוצר עושה.]
-Stack: [רשימה קצרה]
-
-## WHY — למה ואיך עובדים כאן
-[מה מיוחד בפרויקט הזה שClaudeלא יכול לנחש]
-
-## HOW — איך עובדים
-
-### פקודות חיוניות
-```bash
-[הפקודות שClaudeישתמש בהן]
-```
-
-### כללי קוד
-- [כלל 1]
-- [כלל 2]
-
-### Git workflow
-- [קצר ומדויק]
-
-### ✅ לפני commit
-- [ ] [בדיקה 1]
-- [ ] [בדיקה 2]
-
-### ⚠️ NEVER
-- NEVER [דבר קריטי לאסור]
-```
-
----
-
-### כלל הזהב: שאל כל שורה
-
-```
-"האם הסרת שורה זו תגרום לClaudeלטעות?"
-
-כן → שמור את השורה
-לא → מחק אותה
-```
-
-**יעד: מתחת ל-100 שורות.**
-
----
-
-### imports — לקבצים נוספים
-
-```markdown
-# בתוך CLAUDE.md — הפניה לקבצים אחרים
-@README.md
-@package.json
-@docs/api.md
-@docs/git-instructions.md
-```
-
-Claude קורא אותם לפי דרישה — לא טוענים הכל לcontext.
-
----
-
-### שגיאה נפוצה: CLAUDE.md מנופח
-
-```
-❌ הבעיה:
-CLAUDE.md עם 500 שורות של הכל
-
-✅ מה קורה:
-Claude Code מכניס system-reminder:
-"This context may or may not be relevant.
- You should not respond unless highly relevant."
-
-תוצאה: Claude מתעלם מההוראות שלך
-```
-
-**הפתרון:** גזום ללא רחמים. פחות = יותר.
-
----
-
-### Check into Git
-
-```bash
-# תמיד
-git add CLAUDE.md
-git commit -m "docs: update CLAUDE.md"
-
-# CLAUDE.local.md — אישי, לא לshare
-echo "CLAUDE.local.md" >> .gitignore
-```
-
----
-
-### עדכון שוטף
-
-CLAUDE.md הוא קוד. עדכן כש:
-- Claude טועה שוב ושוב באותו דבר → הוסף כלל
-- הוספת library חדשה לפרויקט → עדכן stack
-- שינוי convention בצוות → עדכן
-
-```bash
-# עדכון מהיר בלי /memory
-# הקש בתחילת שורה:
-# [הכלל החדש] ← Claude שומר אוטומטית
-```
-
-→ קשור ל: /init, /memory, /clear
