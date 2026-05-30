@@ -10,6 +10,7 @@ export interface Article {
   firstCodeBlock: string;
   content: string;
   layer?: "basic" | "intermediate" | "advanced";
+  lastVerified?: string;
 }
 
 export interface Category {
@@ -96,6 +97,15 @@ function extractFirstCodeBlock(content: string): string {
   return "";
 }
 
+// gray-matter (js-yaml) parses an unquoted YAML date like `2026-03-07` as a
+// Date object; a quoted one stays a string. Normalize both to "YYYY-MM-DD".
+function normalizeDate(value: unknown): string | undefined {
+  if (!value) return undefined;
+  if (value instanceof Date) return value.toISOString().slice(0, 10);
+  const str = String(value).trim();
+  return str || undefined;
+}
+
 function readArticlesFromDir(dirPath: string, category: string): Article[] {
   if (!fs.existsSync(dirPath)) return [];
 
@@ -114,6 +124,7 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       firstCodeBlock: extractFirstCodeBlock(content),
       content,
       layer: data.layer ?? undefined,
+      lastVerified: normalizeDate(data.last_verified),
     };
   });
 }
@@ -143,4 +154,15 @@ export function getArticle(
 
 export function getAllArticles(): Article[] {
   return getCategories().flatMap((c) => c.articles);
+}
+
+// Most recent last_verified across all articles, as "YYYY-MM-DD", or null if
+// none carry the field. ISO date strings sort lexically, so max == newest.
+export function getLastUpdated(): string | null {
+  const dates = getAllArticles()
+    .map((a) => a.lastVerified)
+    .filter((d): d is string => Boolean(d));
+
+  if (dates.length === 0) return null;
+  return dates.reduce((max, d) => (d > max ? d : max));
 }
