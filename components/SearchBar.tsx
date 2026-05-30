@@ -14,6 +14,9 @@ const CATEGORY_NAMES: Record<string, string> = {
   git: "Git",
   "claude-code": "Claude Code",
   workflows: "תהליכי עבודה",
+  scheduling: "תזמון ולולאות",
+  guides: "מדריכים",
+  "project-docs": "תיעוד פרויקט",
 };
 
 export default function SearchBar({ items }: { items: SearchItem[] }) {
