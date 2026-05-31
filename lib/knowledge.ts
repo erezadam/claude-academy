@@ -166,3 +166,32 @@ export function getLastUpdated(): string | null {
   if (dates.length === 0) return null;
   return dates.reduce((max, d) => (d > max ? d : max));
 }
+
+export interface ChangelogItem {
+  title: string;
+  category: string;
+  slug: string;
+  type: "new" | "changed";
+}
+
+export interface ChangelogEntry {
+  date: string;
+  summary: string;
+  items: ChangelogItem[];
+}
+
+// Reads data/changelog.json (server-side). Returns [] on any problem — missing
+// file, empty content, invalid JSON, or a missing/non-array `entries` — never
+// throws, so a malformed changelog can't break the build or the homepage.
+export function getChangelog(): ChangelogEntry[] {
+  try {
+    const file = path.join(process.cwd(), "data", "changelog.json");
+    if (!fs.existsSync(file)) return [];
+    const raw = fs.readFileSync(file, "utf-8").trim();
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed?.entries) ? parsed.entries : [];
+  } catch {
+    return [];
+  }
+}
