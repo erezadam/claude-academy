@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { getCategories, getAllArticles, getChangelog } from "@/lib/knowledge";
+import {
+  getCategories,
+  getAllArticles,
+  getChangelog,
+  getCategoryNameMap,
+} from "@/lib/knowledge";
 import SearchBar from "@/components/SearchBar";
 import WhatsNew from "@/components/WhatsNew";
 
@@ -7,6 +12,7 @@ export default function Home() {
   const categories = getCategories();
   const allArticles = getAllArticles();
   const changelog = getChangelog();
+  const categoryNames = getCategoryNameMap();
 
   return (
     <div className="min-h-screen font-sans bg-white">
@@ -24,12 +30,12 @@ export default function Home() {
 
       {/* Search */}
       <div className="max-w-5xl mx-auto px-6 py-6">
-        <SearchBar items={allArticles} />
+        <SearchBar items={allArticles} categoryNames={categoryNames} />
       </div>
 
       {/* What's New */}
       <div className="max-w-5xl mx-auto px-6 pb-4">
-        <WhatsNew entries={changelog} />
+        <WhatsNew entries={changelog} categoryNames={categoryNames} />
       </div>
 
       {/* Wizard CTA */}

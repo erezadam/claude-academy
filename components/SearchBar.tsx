@@ -10,16 +10,13 @@ interface SearchItem {
   whatItDoes: string;
 }
 
-const CATEGORY_NAMES: Record<string, string> = {
-  git: "Git",
-  "claude-code": "Claude Code",
-  workflows: "תהליכי עבודה",
-  scheduling: "תזמון ולולאות",
-  guides: "מדריכים",
-  "project-docs": "תיעוד פרויקט",
-};
-
-export default function SearchBar({ items }: { items: SearchItem[] }) {
+export default function SearchBar({
+  items,
+  categoryNames,
+}: {
+  items: SearchItem[];
+  categoryNames: Record<string, string>;
+}) {
   const [query, setQuery] = useState("");
 
   const filtered =
@@ -68,7 +65,7 @@ export default function SearchBar({ items }: { items: SearchItem[] }) {
                 {item.title}
               </div>
               <div className="text-xs text-gray-500 mt-0.5">
-                {CATEGORY_NAMES[item.category]}
+                {categoryNames[item.category] ?? item.category}
                 {item.whatItDoes && ` · ${item.whatItDoes}`}
               </div>
             </Link>

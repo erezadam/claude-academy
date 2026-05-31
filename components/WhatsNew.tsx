@@ -6,16 +6,13 @@ import Link from "next/link";
 // `fs` usage into the client bundle.
 import type { ChangelogEntry } from "@/lib/knowledge";
 
-const CATEGORY_NAMES: Record<string, string> = {
-  git: "Git",
-  "claude-code": "Claude Code",
-  scheduling: "תזמון ולולאות",
-  guides: "מדריכים",
-  workflows: "תהליכי עבודה",
-  "project-docs": "תיעוד פרויקט",
-};
-
-export default function WhatsNew({ entries }: { entries: ChangelogEntry[] }) {
+export default function WhatsNew({
+  entries,
+  categoryNames,
+}: {
+  entries: ChangelogEntry[];
+  categoryNames: Record<string, string>;
+}) {
   const [open, setOpen] = useState(false);
 
   if (entries.length === 0) return null;
@@ -69,7 +66,7 @@ export default function WhatsNew({ entries }: { entries: ChangelogEntry[] }) {
                           {item.title}
                         </span>
                         <span className="flex-shrink-0 text-xs text-gray-500">
-                          {CATEGORY_NAMES[item.category] ?? item.category}
+                          {categoryNames[item.category] ?? item.category}
                         </span>
                       </span>
                       <span

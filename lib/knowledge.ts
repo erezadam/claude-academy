@@ -144,6 +144,13 @@ export function getCategoryBySlug(slug: string): Category | undefined {
   return getCategories().find((c) => c.slug === slug);
 }
 
+// slug -> Hebrew display name, built from the single source of truth
+// (getCategories). Pass this to client components so they never hardcode
+// category names — a new category shows up automatically.
+export function getCategoryNameMap(): Record<string, string> {
+  return Object.fromEntries(getCategories().map((c) => [c.slug, c.name]));
+}
+
 export function getArticle(
   categorySlug: string,
   articleSlug: string
