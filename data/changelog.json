@@ -1,0 +1,52 @@
+{
+  "entries": [
+    {
+      "date": "2026-05-30",
+      "summary": "נוספו 7 מאמרים חדשים בסריקה האוטומטית — Claude Code, תזמון ולולאות, תהליכי עבודה.",
+      "items": [
+        {
+          "title": "שיטות עבודה מומלצות עם Claude Code",
+          "category": "claude-code",
+          "slug": "claude-md-guide",
+          "type": "new"
+        },
+        {
+          "title": "Plugins — חבילות הרחבה לשיתוף",
+          "category": "claude-code",
+          "slug": "plugins-guide",
+          "type": "new"
+        },
+        {
+          "title": "Skills — הרחבת יכולות Claude Code",
+          "category": "claude-code",
+          "slug": "skills",
+          "type": "new"
+        },
+        {
+          "title": "Subagents — סוכנים ייעודיים ב-Claude Code",
+          "category": "claude-code",
+          "slug": "sub-agents",
+          "type": "new"
+        },
+        {
+          "title": "תזמון משימות בתוך Session — /loop וכלי Cron",
+          "category": "scheduling",
+          "slug": "scheduled-tasks",
+          "type": "new"
+        },
+        {
+          "title": "Routines — אוטומציה בענן עם Claude Code",
+          "category": "scheduling",
+          "slug": "routines",
+          "type": "new"
+        },
+        {
+          "title": "וורקפלואו דינמי — תזמור סוכנים בקנה מידה",
+          "category": "workflows",
+          "slug": "dynamic-workflows",
+          "type": "new"
+        }
+      ]
+    }
+  ]
+}
