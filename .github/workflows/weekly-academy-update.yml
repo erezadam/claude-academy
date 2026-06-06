@@ -2,7 +2,9 @@ name: weekly-academy-update
 
 on:
   schedule:
-    - cron: "0 6 * * SAT"
+    # 06:17 UTC ולא 06:00 — תחילת שעה עגולה היא ה-slot העמוס ביותר ב-GitHub Actions,
+    # שבו ריצות schedule מתעכבות או נשמטות. דקה לא-עגולה מקטינה את הסיכון.
+    - cron: "17 6 * * SAT"
   workflow_dispatch: {}
 
 permissions:
