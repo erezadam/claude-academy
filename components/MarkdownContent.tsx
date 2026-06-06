@@ -12,7 +12,7 @@ function CopyBtn({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="absolute top-2 left-2 px-2 py-1 text-xs rounded bg-gray-600 text-gray-200 hover:bg-gray-500 transition-colors"
+      className="absolute top-2 right-2 px-2 py-1 text-xs rounded bg-gray-600 text-gray-200 hover:bg-gray-500 transition-colors"
     >
       {copied ? "הועתק!" : "העתק"}
     </button>
@@ -30,7 +30,7 @@ export default function MarkdownContent({ content }: { content: string }) {
             <div key={i} className="relative">
               <pre
                 dir="ltr"
-                className="bg-gray-900 text-gray-100 rounded-lg p-4 pr-4 text-sm leading-relaxed overflow-x-auto"
+                className="bg-gray-900 text-gray-100 rounded-lg p-4 pr-16 text-sm leading-relaxed overflow-x-auto"
               >
                 <code>{block.text}</code>
               </pre>
