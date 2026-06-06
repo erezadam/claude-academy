@@ -1,6 +1,48 @@
 {
   "entries": [
     {
+      "date": "2026-06-06",
+      "summary": "נוספו 6 מאמרים חדשים: /goal, Agent View, Desktop Scheduled Tasks, Worktrees, זיכרון, Ultrareview.",
+      "items": [
+        {
+          "title": "/goal — עבודה עצמאית עד השגת מטרה",
+          "category": "claude-code",
+          "slug": "slash-goal",
+          "type": "new"
+        },
+        {
+          "title": "Agent View — ניהול סשנים מקבילים מסך אחד",
+          "category": "workflows",
+          "slug": "agent-view",
+          "type": "new"
+        },
+        {
+          "title": "Desktop Scheduled Tasks — משימות מתוזמנות ב-Claude Code Desktop",
+          "category": "scheduling",
+          "slug": "desktop-scheduled-tasks",
+          "type": "new"
+        },
+        {
+          "title": "Worktrees — סשנים מקבילים מבודדים ב-git",
+          "category": "workflows",
+          "slug": "worktrees",
+          "type": "new"
+        },
+        {
+          "title": "זיכרון — CLAUDE.md ו-Auto Memory לאורך סשנים",
+          "category": "claude-code",
+          "slug": "memory",
+          "type": "new"
+        },
+        {
+          "title": "Ultrareview — סקירת קוד עמוקה רב-סוכנית בענן",
+          "category": "guides",
+          "slug": "ultrareview",
+          "type": "new"
+        }
+      ]
+    },
+    {
       "date": "2026-05-30",
       "summary": "נוספו 7 מאמרים חדשים בסריקה האוטומטית — Claude Code, תזמון ולולאות, תהליכי עבודה.",
       "items": [
