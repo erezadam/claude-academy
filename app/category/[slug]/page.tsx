@@ -77,7 +77,7 @@ export default async function CategoryPage({
                 <div className="relative mt-3">
                   <pre
                     dir="ltr"
-                    className="bg-gray-900 text-gray-100 rounded-lg p-3 text-sm leading-relaxed overflow-x-auto"
+                    className="bg-gray-900 text-gray-100 rounded-lg p-3 pr-16 text-sm leading-relaxed overflow-x-auto"
                   >
                     <code>{article.firstCodeBlock}</code>
                   </pre>
