@@ -31,7 +31,7 @@ export default function ViewCounter() {
         <span className="font-semibold text-gray-900 tabular-nums">
           {views.toLocaleString("he-IL")}
         </span>{" "}
-        כניסות
+        מבקרים
       </span>
     </div>
   );
