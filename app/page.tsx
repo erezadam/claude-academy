@@ -7,6 +7,7 @@ import {
 } from "@/lib/knowledge";
 import SearchBar from "@/components/SearchBar";
 import WhatsNew from "@/components/WhatsNew";
+import ViewCounter from "@/components/ViewCounter";
 
 export default function Home() {
   const categories = getCategories();
@@ -25,6 +26,7 @@ export default function Home() {
           <p className="text-base text-gray-900">
             מאגר ידע מקיף ל-Claude Code ו-Git — הכל בעברית, הכל במקום אחד
           </p>
+          <ViewCounter />
         </div>
       </header>
 
