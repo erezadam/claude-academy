@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export default function ViewCounter() {
@@ -29,7 +30,11 @@ export default function ViewCounter() {
   if (views === null) return null;
 
   return (
-    <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-600">
+    <Link
+      href="/admin"
+      aria-label="כניסה לאזור האישי"
+      className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-600 transition-colors hover:border-gray-400 hover:bg-gray-100"
+    >
       <span aria-hidden="true">👁️</span>
       <span>
         <span className="font-semibold text-gray-900 tabular-nums">
@@ -37,6 +42,6 @@ export default function ViewCounter() {
         </span>{" "}
         כניסות
       </span>
-    </div>
+    </Link>
   );
 }
