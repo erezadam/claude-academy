@@ -1,6 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getCategoryBySlug } from "@/lib/knowledge";
 import CommandsTable from "@/components/CommandsTable";
+
+export const metadata: Metadata = {
+  title: "רשימת כל פקודות Claude Code",
+  description:
+    "כל פקודות Claude Code בטבלה אחת — חיפוש, מיון וסינון, עם הסבר בעברית לכל פקודה.",
+  alternates: { canonical: "/commands-list" },
+  openGraph: {
+    type: "website",
+    title: "רשימת כל פקודות Claude Code",
+    description:
+      "כל פקודות Claude Code בטבלה אחת — חיפוש, מיון וסינון, עם הסבר בעברית.",
+    url: "/commands-list",
+    locale: "he_IL",
+  },
+};
 
 export default async function CommandsListPage() {
   const articles = getCategoryBySlug("claude-code")?.articles ?? [];

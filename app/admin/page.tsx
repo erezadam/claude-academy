@@ -7,6 +7,11 @@ import LogoutButton from "./LogoutButton";
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "אזור אישי",
+  robots: { index: false, follow: false },
+};
+
 const VERCEL_ANALYTICS_URL =
   "https://vercel.com/erez1964-gmailcoms-projects/claude-academy/analytics";
 
