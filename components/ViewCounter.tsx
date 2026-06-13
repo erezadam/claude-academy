@@ -11,7 +11,11 @@ export default function ViewCounter() {
     if (counted.current) return;
     counted.current = true;
 
-    fetch("/api/views", { method: "POST" })
+    // opt-out: בעלי האתר (שביקרו ב-/optout) קוראים את המספר בלי להגדיל אותו
+    const optedOut = localStorage.getItem("academy_no_count") === "1";
+    const method = optedOut ? "GET" : "POST";
+
+    fetch("/api/views", { method })
       .then((res) => res.json())
       .then((data: { views: number | null }) => {
         if (typeof data.views === "number") setViews(data.views);

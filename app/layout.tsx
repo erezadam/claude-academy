@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { getLastUpdated } from "@/lib/knowledge";
 import "./globals.css";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="he" dir="rtl">
       <body className={`${heebo.variable} antialiased`}>
         {children}
+        <Analytics />
         {lastUpdatedLabel && (
           <footer className="border-t border-gray-200 mt-12">
             <div className="max-w-5xl mx-auto px-6 py-4 text-sm text-gray-500">
