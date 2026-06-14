@@ -24,6 +24,7 @@ jobs:
           node-version: 20
       - run: npm ci
       - uses: anthropics/claude-code-action@v1
+        id: claude
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           prompt: |
@@ -32,3 +33,34 @@ jobs:
             --model claude-sonnet-4-6
             --max-turns 40
             --allowedTools Read,Write,Edit,Bash,Glob,Grep,WebFetch
+
+      # שמירת פלט הריצה כ-artifact לדיבוג — נשמר תמיד, גם בכשל.
+      # בלי זה הפלט של קלוד מוסתר וקובץ הריצה נמחק עם ה-runner.
+      - name: Upload Claude execution log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-execution-output
+          path: ${{ runner.temp }}/claude-execution-output.json
+          if-no-files-found: warn
+
+      # חשיפת כשל: ה-action מחזיר success גם כש-is_error=true, מה שגרם
+      # לכשל שקט ב-13/06 (הריצה רצה, נכשלה, לא נפתח PR, וה-job היה ירוק).
+      # כאן אנו קוראים את תוצאת הריצה ומפילים את ה-job אם קלוד נכשל.
+      - name: Surface Claude execution failures
+        if: always()
+        run: |
+          OUT="${{ runner.temp }}/claude-execution-output.json"
+          if [ ! -f "$OUT" ]; then
+            echo "::error::Claude execution output not found at $OUT — cannot verify the weekly update ran."
+            exit 1
+          fi
+          IS_ERROR=$(jq -r '[.. | objects | select(.type? == "result")] | last | .is_error' "$OUT")
+          SUBTYPE=$(jq -r '[.. | objects | select(.type? == "result")] | last | .subtype // "unknown"' "$OUT")
+          TURNS=$(jq -r '[.. | objects | select(.type? == "result")] | last | .num_turns // "?"' "$OUT")
+          echo "Claude result: is_error=$IS_ERROR subtype=$SUBTYPE num_turns=$TURNS"
+          if [ "$IS_ERROR" != "false" ]; then
+            echo "::error::Weekly academy update FAILED — Claude ended with is_error=$IS_ERROR (subtype=$SUBTYPE, turns=$TURNS). No PR was produced. See the claude-execution-output artifact."
+            exit 1
+          fi
+          echo "Weekly academy update completed without execution errors."
