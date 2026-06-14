@@ -2,7 +2,7 @@
 title: "Subagents — סוכנים ייעודיים ב-Claude Code"
 category: claude-code
 layer: intermediate
-last_verified: 2026-05-30
+last_verified: 2026-06-14
 status: needs-review
 source_url: https://code.claude.com/docs/en/sub-agents
 related: ["skills", "plugins-guide", "/agents"]
@@ -32,7 +32,7 @@ Explore ו-Plan דולגים על קבצי CLAUDE.md ועל git status של ה-s
 | **Plan** | יורש מהשיחה | read-only (אין גישה ל-Write ו-Edit) | מחקר codebase במהלך plan mode, לאיסוף context לפני הצגת תוכנית |
 | **General-purpose** | יורש מהשיחה | כל הכלים | משימות מורכבות רב-שלביות שדורשות גם exploration וגם פעולה |
 
-בעת הפעלת Explore, Claude מציין רמת יסודיות: **quick** לחיפושים ממוקדים, **medium** ל-exploration מאוזן, או **very thorough** לניתוח מקיף. Plan מונע nesting אינסופי (subagents לא יכולים לייצר subagents נוספים) תוך איסוף ה-context הנדרש.
+בעת הפעלת Explore, Claude מציין רמת יסודיות: **quick** לחיפושים ממוקדים, **medium** ל-exploration מאוזן, או **very thorough** לניתוח מקיף. Plan מריץ את המחקר ב-context מבודד תוך איסוף ה-context הנדרש.
 
 בנוסף קיימים helper agents נוספים שמופעלים אוטומטית: `statusline-setup` (מודל Sonnet, כשמריצים `/statusline`) ו-`claude-code-guide` (מודל Haiku, כששואלים שאלות על פיצ'רים של Claude Code).
 
@@ -313,7 +313,7 @@ Use the code-reviewer subagent to find performance issues, then use the optimize
 
 כדאי לשקול **Skills** במקום זאת כשרוצים prompts או workflows לשימוש חוזר שרצים ב-context של השיחה הראשית במקום ב-context מבודד של subagent. לשאלה מהירה על משהו שכבר בשיחה, עדיף `/btw` — היא רואה את כל ה-context אך אין לה גישה לכלים, והתשובה נזרקת במקום להתווסף להיסטוריה.
 
-subagents לא יכולים לייצר subagents נוספים. אם ה-workflow דורש האצלה מקוננת, משתמשים ב-Skills או בשרשור subagents מהשיחה הראשית.
+החל מ-Claude Code v2.1.172, subagents יכולים לייצר subagents משלהם. Subagents ב-foreground יכולים לבצע nesting בכל עומק. Subagents ב-background מוגבלים ל-5 רמות עומק — הרמה החמישית אינה מקבלת את כלי ה-Agent ולא יכולה לפצל הלאה. כדי למנוע מ-subagent ספציפי לייצר subagents נוספים, יש להשמיט את `Agent` מרשימת ה-`tools` שלו.
 
 ## מה נטען בתחילת subagent
 
