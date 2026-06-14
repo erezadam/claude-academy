@@ -41,7 +41,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: claude-execution-output
-          path: ${{ runner.temp }}/claude-execution-output.json
+          # נתיב מתוך ה-output המתועד של ה-action ולא נתיב פנימי קשיח —
+          # יציב גם אם גרסה עתידית של ה-action תשנה היכן הקובץ נכתב.
+          path: ${{ steps.claude.outputs.execution_file }}
           if-no-files-found: warn
 
       # חשיפת כשל: ה-action מחזיר success גם כש-is_error=true, מה שגרם
@@ -50,9 +52,9 @@ jobs:
       - name: Surface Claude execution failures
         if: always()
         run: |
-          OUT="${{ runner.temp }}/claude-execution-output.json"
-          if [ ! -f "$OUT" ]; then
-            echo "::error::Claude execution output not found at $OUT — cannot verify the weekly update ran."
+          OUT="${{ steps.claude.outputs.execution_file }}"
+          if [ -z "$OUT" ] || [ ! -f "$OUT" ]; then
+            echo "::error::Claude execution output not found (execution_file='$OUT') — cannot verify the weekly update ran."
             exit 1
           fi
           IS_ERROR=$(jq -r '[.. | objects | select(.type? == "result")] | last | .is_error' "$OUT")
