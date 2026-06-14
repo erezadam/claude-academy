@@ -1,6 +1,66 @@
 {
   "entries": [
     {
+      "date": "2026-06-14",
+      "summary": "נוספו 7 מאמרים חדשים ועודכנו 2 קיימים: Advisor, Channels, Computer Use, Voice Dictation, Fast Mode, Sessions, Ultraplan, Dynamic Workflows ו-Sub-agents.",
+      "items": [
+        {
+          "title": "Advisor — ייעוץ ממודל חזק יותר באמצע משימה",
+          "category": "claude-code",
+          "slug": "advisor",
+          "type": "new"
+        },
+        {
+          "title": "Channels — הזרמת אירועים חיצוניים לתוך session פעיל",
+          "category": "claude-code",
+          "slug": "channels",
+          "type": "new"
+        },
+        {
+          "title": "Computer Use — שליטה במסך ואפליקציות מה-CLI",
+          "category": "claude-code",
+          "slug": "computer-use",
+          "type": "new"
+        },
+        {
+          "title": "Voice Dictation — הכתבה קולית לטרמינל",
+          "category": "claude-code",
+          "slug": "voice-dictation",
+          "type": "new"
+        },
+        {
+          "title": "Fast Mode — תגובות Opus מהירות יותר",
+          "category": "claude-code",
+          "slug": "fast-mode",
+          "type": "new"
+        },
+        {
+          "title": "Sessions — ניהול שיחות, המשך וסניפים",
+          "category": "claude-code",
+          "slug": "sessions",
+          "type": "new"
+        },
+        {
+          "title": "Ultraplan — תכנון בענן ועריכה שיתופית",
+          "category": "workflows",
+          "slug": "ultraplan",
+          "type": "new"
+        },
+        {
+          "title": "וורקפלואו דינמי — תזמור סוכנים בקנה מידה",
+          "category": "workflows",
+          "slug": "dynamic-workflows",
+          "type": "changed"
+        },
+        {
+          "title": "Subagents — סוכנים ייעודיים ב-Claude Code",
+          "category": "claude-code",
+          "slug": "sub-agents",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-06-06",
       "summary": "נוספו 6 מאמרים חדשים: /goal, Agent View, Desktop Scheduled Tasks, Worktrees, זיכרון, Ultrareview.",
       "items": [
