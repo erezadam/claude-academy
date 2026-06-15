@@ -8,6 +8,7 @@ import {
 } from "@/lib/knowledge";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import MarkdownContent from "@/components/MarkdownContent";
+import RelatedTopics from "@/components/RelatedTopics";
 
 export function generateStaticParams() {
   const categories = getCategories();
@@ -133,6 +134,7 @@ export default async function ArticlePage({
       {/* Article content */}
       <main className="max-w-3xl mx-auto px-6 py-8">
         <MarkdownContent content={article.content} />
+        <RelatedTopics article={article} />
       </main>
 
       {/* Footer nav */}

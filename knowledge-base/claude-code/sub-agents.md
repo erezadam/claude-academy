@@ -3,6 +3,8 @@ title: "Subagents — סוכנים ייעודיים ב-Claude Code"
 category: claude-code
 layer: intermediate
 last_verified: 2026-06-14
+updated: 2026-06-14
+created: 2026-05-30
 status: needs-review
 source_url: https://code.claude.com/docs/en/sub-agents
 related: ["skills", "plugins-guide", "/agents"]

@@ -3,6 +3,7 @@ title: "Ultraplan — תכנון בענן ועריכה שיתופית"
 category: workflows
 layer: intermediate
 last_verified: 2026-06-14
+created: 2026-06-14
 status: needs-review
 source_url: https://code.claude.com/docs/en/ultraplan
 related: ["dynamic-workflows", "agent-view", "worktrees"]

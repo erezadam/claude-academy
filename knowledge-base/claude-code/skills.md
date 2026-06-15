@@ -3,6 +3,7 @@ title: "Skills — הרחבת יכולות Claude Code"
 category: claude-code
 layer: intermediate
 last_verified: 2026-05-30
+created: 2026-05-30
 status: needs-review
 source_url: https://code.claude.com/docs/en/skills
 related: [plugins-guide, sub-agents, slash-commands]

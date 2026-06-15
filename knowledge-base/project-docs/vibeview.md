@@ -3,6 +3,7 @@ title: "VIBEVIEW.md - מפת הפרויקט"
 category: project-docs
 layer: basic
 last_verified: 2026-05-01
+created: 2026-05-02
 status: current
 related: [codeatlas, lessons]
 ---

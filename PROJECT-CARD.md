@@ -23,7 +23,7 @@ run:
 ---
 
 ## Future-me note
-התוכן מתעדכן אוטומטית דרך GitHub Action (`.github/workflows/weekly-academy-update.yml`) שרץ **שבת 06:17 UTC** (לא בתחילת שעה עגולה — כי GitHub משמיט ריצות schedule בשעות עומס; זה מה שקרה ב-6/6/2026). ה-Action קורא את `.claude/academy-update-spec.md`, סורק את המקורות הרשמיים, ו**פותח PR בלבד — לא דוחף ל-main**. כדי שהאתר יתעדכן צריך למזג את ה-PR. התאריך באתר נגזר מ-`last_verified` במאמרים ומ-`data/changelog.json`.
+התוכן מתעדכן אוטומטית דרך GitHub Action (`.github/workflows/weekly-academy-update.yml`) שרץ **שבת 06:17 UTC** (לא בתחילת שעה עגולה — כי GitHub משמיט ריצות schedule בשעות עומס; זה מה שקרה ב-6/6/2026). ה-Action קורא את `.claude/academy-update-spec.md`, סורק את המקורות הרשמיים, ו**פותח PR בלבד — לא דוחף ל-main**. כדי שהאתר יתעדכן צריך למזג את ה-PR. פיד "מה התעדכן" נגזר אוטומטית משדות `created`/`updated` ב-frontmatter של המאמרים (אין קובץ changelog) — המאמרים הם מקור האמת היחיד.
 
 ## How to run
 1. דרישות: Node 20, npm. התקנה: `npm install`

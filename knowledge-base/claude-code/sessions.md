@@ -3,6 +3,7 @@ title: "Sessions — ניהול שיחות, המשך וסניפים"
 category: claude-code
 layer: basic
 last_verified: 2026-06-14
+created: 2026-06-14
 status: needs-review
 source_url: https://code.claude.com/docs/en/sessions
 related: ["slash-export-resume", "slash-fork-rename-exit", "slash-compact-clear", "worktrees"]

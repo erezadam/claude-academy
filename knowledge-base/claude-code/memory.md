@@ -3,6 +3,7 @@ title: "זיכרון — CLAUDE.md ו-Auto Memory לאורך סשנים"
 category: claude-code
 layer: basic
 last_verified: 2026-06-06
+created: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/memory
 related: ["claude-md-guide", "slash-init", "slash-hooks"]

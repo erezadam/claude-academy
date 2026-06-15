@@ -3,6 +3,7 @@ title: "git merge"
 category: git
 layer: intermediate
 last_verified: 2026-03-07
+created: 2026-03-09
 status: current
 related: [git-rebase, git-branch, git-checkout]
 ---

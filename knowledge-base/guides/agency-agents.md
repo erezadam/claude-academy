@@ -3,6 +3,7 @@ title: "Agency Agents — ספריית סוכני AI לצוות מקצועי ש�
 category: guides
 layer: advanced
 last_verified: 2026-03-11
+created: 2026-03-11
 status: current
 source_url: https://github.com/msitarzewski/agency-agents
 related: [building-skills]

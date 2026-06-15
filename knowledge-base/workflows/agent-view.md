@@ -3,6 +3,7 @@ title: "Agent View — ניהול סשנים מקבילים מסך אחד"
 category: workflows
 layer: intermediate
 last_verified: 2026-06-06
+created: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/agent-view
 related: ["sub-agents", "dynamic-workflows", "slash-goal"]

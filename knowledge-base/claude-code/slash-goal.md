@@ -3,6 +3,7 @@ title: "/goal — עבודה עצמאית עד השגת מטרה"
 category: claude-code
 layer: intermediate
 last_verified: 2026-06-06
+created: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/goal
 related: ["scheduled-tasks", "slash-loop", "routines"]
