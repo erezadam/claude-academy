@@ -3,6 +3,7 @@ title: "git pull"
 category: git
 layer: basic
 last_verified: 2026-03-07
+created: 2026-03-09
 status: current
 related: [git-push, git-fetch, git-merge]
 ---

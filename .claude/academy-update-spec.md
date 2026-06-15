@@ -7,7 +7,7 @@
 - scope: קטגוריות claude-code, scheduling, workflows, guides, project-docs. אל תיגע ב-git.
 - אל תיצור קטגוריה חדשה לבד — רק המלץ בדוח.
 - markdown נתמך בלבד: h2, h3, פסקאות, code inline/block, טבלה, hr, inline. אסור: רשימות מקוננות, blockquote, תמונות, h1/h4. אם פריט דורש מבנה לא נתמך — סמן בדוח כ"דורש עיצוב ידני", אל תכתוב markdown שבור.
-- data/changelog.json הוא חלק מהפלט החובה של כל סריקה עם שינויים — עדכן אותו בכל ריצה שמייצרת פריטי NEW/CHANGED.
+- אין קובץ changelog לתחזק. פיד "מה התעדכן" נגזר אוטומטית משדות `created`/`updated` ב-frontmatter של המאמרים (lib/knowledge.ts getChangelog). כל מה שנדרש ממך: לקבוע `created` בפריטי NEW ו-`updated` בפריטי CHANGED.
 
 ## שלב 1 — איסוף מקורות (דרך Bash/curl)
 curl -s https://code.claude.com/docs/llms.txt
@@ -39,6 +39,7 @@ title: "<כותרת בעברית>"
 category: <category>
 layer: <basic|intermediate>
 last_verified: <תאריך היום YYYY-MM-DD>
+created: <תאריך היום YYYY-MM-DD>
 status: needs-review
 source_url: <ה-URL המלא והאמיתי מהמקור>
 related: []
@@ -52,22 +53,11 @@ related: []
 - **סעיפי ## נוספים לפי הצורך** (דגלים / אפשרויות / מיקומים / טבלאות) — רק אם המקור מספק את המידע.
 - **`related` ב-frontmatter** — מלא בפקודות/מאמרים קשורים (slugs או שמות פקודות), אל תשאיר ריק אם יש קשרים ברורים.
 
-לכל פריט CHANGED: עדכן את הקובץ הקיים, עדכן last_verified להיום, status: needs-review.
+לכל פריט CHANGED: עדכן את הקובץ הקיים, עדכן last_verified להיום, הוסף/עדכן `updated: <תאריך היום>` (רק על שינוי תוכן אמיתי — לא על בדיקה חוזרת בלבד), status: needs-review. אל תיגע ב-`created` הקיים.
 
 ## שלב 6 — אימות
 npm run build
 אם נכשל בגלל קובץ שכתבת — תקן או מחק וציין בדוח. אל תמשיך עם build שבור.
-
-## שלב: עדכון changelog.json
-אחרי שנקבעו פריטי NEW/CHANGED (שלב 3), עדכן את `data/changelog.json`:
-- בנה רשומה חדשה: `{ "date": "<תאריך הסריקה YYYY-MM-DD>", "summary": "<משפט עברי קצר: כמה פריטים וממה>", "items": [...] }`.
-- כל item: `{ "title", "category", "slug", "type" }` — `type` = `"new"` לפריט NEW, `"changed"` לפריט CHANGED.
-- כלל קריטי: כלול ב-items רק פריטים שה-status שלהם `needs-review` (אלה תוצרי הסריקה האמיתית). אל תכלול פריטים עם `status: current` — אלה backfill/refactor שחולקים תאריך אבל אינם עדכון תוכן. (תאריך לבד תופס יותר מדי; תאריך + needs-review מדויק.)
-- `slug` הוא שם הקובץ בלבד, בלי סיומת `.md` ובלי נתיב.
-- הוסף את הרשומה בראש המערך `entries` (החדש למעלה).
-- שמור עד 12 רשומות; גזום ישנות מזה.
-- אם אין פריטים מתאימים — אל תוסיף רשומה כלל.
-- ודא תקינות JSON: `jq . data/changelog.json`.
 
 ## שלב 7 — PR + דוח
 - ענף: academy-update/YYYY-MM-DD ; commit + push.

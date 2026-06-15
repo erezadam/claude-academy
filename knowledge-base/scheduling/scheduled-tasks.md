@@ -3,6 +3,7 @@ title: "תזמון משימות בתוך Session — /loop וכלי Cron"
 category: scheduling
 layer: intermediate
 last_verified: 2026-05-30
+created: 2026-05-30
 status: needs-review
 source_url: https://code.claude.com/docs/en/scheduled-tasks
 related: ["routines", "dynamic-workflows", "/loop"]

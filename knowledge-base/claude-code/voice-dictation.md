@@ -3,6 +3,7 @@ title: "Voice Dictation — הכתבה קולית לטרמינל"
 category: claude-code
 layer: basic
 last_verified: 2026-06-14
+created: 2026-06-14
 status: needs-review
 source_url: https://code.claude.com/docs/en/voice-dictation
 related: ["keyboard-shortcuts", "slash-config"]

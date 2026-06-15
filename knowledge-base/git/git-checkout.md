@@ -3,6 +3,7 @@ title: "git checkout / git switch"
 category: git
 layer: basic
 last_verified: 2026-03-07
+created: 2026-03-09
 status: current
 related: [git-branch, git-stash, git-merge]
 ---

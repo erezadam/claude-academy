@@ -3,6 +3,7 @@ title: "בניית סוכן ב-Claude Code — מדריך מקצה לקצה לפ
 category: guides
 layer: advanced
 last_verified: 2026-06-09
+created: 2026-06-09
 status: current
 source_url: https://code.claude.com/docs/en/best-practices
 related: [claude-md-guide, slash-plan, slash-permissions, slash-compact-clear, skills, slash-mcp, sub-agents, slash-hooks, plugins-guide, worktrees, slash-goal, slash-rewind, slash-context-cost]

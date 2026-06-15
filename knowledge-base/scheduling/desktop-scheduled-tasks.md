@@ -3,6 +3,7 @@ title: "Desktop Scheduled Tasks — משימות מתוזמנות ב-Claude Code
 category: scheduling
 layer: basic
 last_verified: 2026-06-06
+created: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/desktop-scheduled-tasks
 related: ["routines", "scheduled-tasks", "slash-loop"]

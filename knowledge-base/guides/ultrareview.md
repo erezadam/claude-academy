@@ -3,6 +3,7 @@ title: "Ultrareview — סקירת קוד עמוקה רב-סוכנית בענן"
 category: guides
 layer: intermediate
 last_verified: 2026-06-06
+created: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/ultrareview
 related: ["slash-code-review", "sub-agents", "dynamic-workflows"]

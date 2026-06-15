@@ -11,6 +11,14 @@ export interface Article {
   content: string;
   layer?: "basic" | "intermediate" | "advanced";
   lastVerified?: string;
+  // created: date the article was added (immutable). updated: date of the last
+  // genuine content change. Together they drive the derived updates feed
+  // (getChangelog) — lastVerified is a re-check date and does NOT feed it.
+  created?: string;
+  updated?: string;
+  // Cross-references to other article slugs (may span categories). Resolved to
+  // real articles by getRelatedArticles; unresolvable slugs are dropped.
+  related?: string[];
 }
 
 export interface Category {
@@ -125,8 +133,21 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       content,
       layer: data.layer ?? undefined,
       lastVerified: normalizeDate(data.last_verified),
+      created: normalizeDate(data.created),
+      updated: normalizeDate(data.updated),
+      related: normalizeRelated(data.related),
     };
   });
+}
+
+// Frontmatter `related` may be an array, a single string, or absent. Normalize
+// to a clean string[] (trimmed, non-empty), or undefined when there's nothing.
+function normalizeRelated(value: unknown): string[] | undefined {
+  const arr = Array.isArray(value) ? value : value != null ? [value] : [];
+  const slugs = arr
+    .map((v) => String(v).trim())
+    .filter((v) => v.length > 0);
+  return slugs.length > 0 ? slugs : undefined;
 }
 
 export function getCategories(): Category[] {
@@ -187,18 +208,95 @@ export interface ChangelogEntry {
   items: ChangelogItem[];
 }
 
-// Reads data/changelog.json (server-side). Returns [] on any problem — missing
-// file, empty content, invalid JSON, or a missing/non-array `entries` — never
-// throws, so a malformed changelog can't break the build or the homepage.
+// Maximum number of dated update entries surfaced in the "What's New" feed.
+const MAX_CHANGELOG_ENTRIES = 12;
+
+// Derives the "What's New" feed from the articles themselves — the single
+// source of truth. Each article contributes a "new" event on its `created`
+// date and a "changed" event on its `updated` date (when `updated` differs
+// from `created`). Events are grouped by date, newest first. There is no
+// separate changelog file to maintain, so the feed can never drift from the
+// catalog. `created` falls back to `lastVerified` so an article missing the
+// field is never lost from the feed.
 export function getChangelog(): ChangelogEntry[] {
-  try {
-    const file = path.join(process.cwd(), "data", "changelog.json");
-    if (!fs.existsSync(file)) return [];
-    const raw = fs.readFileSync(file, "utf-8").trim();
-    if (!raw) return [];
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed?.entries) ? parsed.entries : [];
-  } catch {
-    return [];
+  const byDate = new Map<string, ChangelogItem[]>();
+
+  const add = (date: string, item: ChangelogItem) => {
+    const list = byDate.get(date);
+    if (list) list.push(item);
+    else byDate.set(date, [item]);
+  };
+
+  for (const a of getAllArticles()) {
+    const created = a.created ?? a.lastVerified;
+    if (created) {
+      add(created, {
+        title: a.title,
+        category: a.category,
+        slug: a.slug,
+        type: "new",
+      });
+    }
+    if (a.updated && a.updated !== created) {
+      add(a.updated, {
+        title: a.title,
+        category: a.category,
+        slug: a.slug,
+        type: "changed",
+      });
+    }
   }
+
+  // ISO date strings sort lexically, so plain string compare == chronological.
+  return Array.from(byDate.entries())
+    .sort(([d1], [d2]) => (d1 < d2 ? 1 : d1 > d2 ? -1 : 0))
+    .slice(0, MAX_CHANGELOG_ENTRIES)
+    .map(([date, items]) => ({ date, items, summary: buildSummary(items) }));
+}
+
+// Auto-generates a short Hebrew summary from an entry's items, e.g.
+// "נוספו 7 מאמרים חדשים ועודכנו 2".
+function buildSummary(items: ChangelogItem[]): string {
+  const newCount = items.filter((i) => i.type === "new").length;
+  const changedCount = items.filter((i) => i.type === "changed").length;
+  const parts: string[] = [];
+  if (newCount > 0) {
+    parts.push(
+      newCount === 1 ? "נוסף מאמר חדש אחד" : `נוספו ${newCount} מאמרים חדשים`
+    );
+  }
+  if (changedCount > 0) {
+    parts.push(
+      changedCount === 1 ? "עודכן מאמר אחד" : `עודכנו ${changedCount} מאמרים`
+    );
+  }
+  // Join with the Hebrew conjunction ו attached to the next word (no hyphen):
+  // "נוספו 7 מאמרים חדשים ועודכנו 2 מאמרים".
+  if (parts.length === 2) return `${parts[0]} ו${parts[1]}`;
+  return parts.join("");
+}
+
+// Resolves a slug to its article across all categories (first match wins on the
+// rare duplicate slug). Backs getRelatedArticles and any slug-only reference.
+export function getArticleBySlug(slug: string): Article | undefined {
+  return getAllArticles().find((a) => a.slug === slug);
+}
+
+// Returns the subset of an article's `related` slugs that resolve to real
+// articles, as Article objects. Unresolvable references (e.g. "/agents",
+// "mcp", "slash-commands") are silently dropped so the UI never renders a
+// broken link. Self-references are excluded.
+export function getRelatedArticles(article: Article): Article[] {
+  if (!article.related) return [];
+  const seen = new Set<string>();
+  const out: Article[] = [];
+  for (const ref of article.related) {
+    const resolved = getArticleBySlug(ref);
+    if (!resolved) continue;
+    if (resolved.slug === article.slug) continue;
+    if (seen.has(resolved.slug)) continue;
+    seen.add(resolved.slug);
+    out.push(resolved);
+  }
+  return out;
 }

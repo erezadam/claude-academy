@@ -3,6 +3,7 @@ title: "git commit"
 category: git
 layer: basic
 last_verified: 2026-03-07
+created: 2026-03-09
 claude_code_version: ">=1.0"
 source_url: "https://git-scm.com/docs/git-commit"
 status: current

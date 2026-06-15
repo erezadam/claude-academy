@@ -3,6 +3,7 @@ title: "קיצורי מקלדת"
 category: claude-code
 layer: basic
 last_verified: 2026-03-09
+created: 2026-03-09
 status: current
 source_url: https://code.claude.com/docs/en/slash-commands
 related: [/rewind, /plan, /compact]

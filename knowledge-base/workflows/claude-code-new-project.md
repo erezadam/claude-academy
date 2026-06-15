@@ -3,6 +3,7 @@ title: "פתיחת פרויקט חדש עם Claude Code"
 category: workflows
 layer: basic
 last_verified: 2026-05-30
+created: 2026-05-30
 status: current
 ---
 

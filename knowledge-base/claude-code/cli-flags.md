@@ -3,6 +3,7 @@ title: "דגלי CLI — הפעלה מהטרמינל"
 category: claude-code
 layer: advanced
 last_verified: 2026-03-09
+created: 2026-03-09
 status: current
 source_url: https://code.claude.com/docs/en/cli
 related: [slash-commands-all]

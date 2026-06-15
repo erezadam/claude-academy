@@ -3,6 +3,7 @@ title: "המדריך המלא לבניית Skills ל-Claude"
 category: guides
 layer: advanced
 last_verified: 2026-03-08
+created: 2026-03-11
 status: current
 source_url: https://www.facebook.com/share/p/IwY2xjawQeFt1leHRuA2FlbQIxMABicmlkETFYMVpJZ2tRV0hibHFGU1Y3c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHo4vP3ehCzx6anUplTOCNgH75pDS8NFvEY34HjoNSKBqLFakBPEjjtiQbLHs_aem_EqWqeI4G9g1zVpaslrIg4w
 related: [slash-commands-all, claude-md-guide]

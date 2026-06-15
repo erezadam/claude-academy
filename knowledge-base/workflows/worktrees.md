@@ -3,6 +3,7 @@ title: "Worktrees — סשנים מקבילים מבודדים ב-git"
 category: workflows
 layer: intermediate
 last_verified: 2026-06-06
+created: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/worktrees
 related: ["sub-agents", "dynamic-workflows", "agent-view"]

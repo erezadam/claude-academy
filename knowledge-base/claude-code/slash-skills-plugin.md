@@ -3,6 +3,7 @@ title: "/skills, /plugin — skills ותוספים"
 category: claude-code
 layer: intermediate
 last_verified: 2026-03-09
+created: 2026-03-09
 status: current
 source_url: https://code.claude.com/docs/en/slash-commands
 related: [slash-agents, slash-config]
