@@ -70,6 +70,27 @@ jobs:
           npm ci
           npm run build
 
+      # שער אימות-מקור — זהה לזה שבריצה השבועית. גם ה-watchdog לא ימזג PR תקוע
+      # שמכיל טענות לא-מאומתות מול source_url.
+      - name: Verify sources gate
+        if: steps.stuck.outputs.found == 'true'
+        env:
+          PR_NUM: ${{ steps.stuck.outputs.pr_num }}
+        run: |
+          git fetch origin main
+          FILES=$(git diff --name-only --diff-filter=AM origin/main...HEAD -- 'knowledge-base/' | grep '\.md$' || true)
+          if [ -z "$FILES" ]; then
+            echo "אין קבצי תוכן שהשתנו — שער אימות מדלג."
+            exit 0
+          fi
+          if node scripts/verify-sources.mjs $FILES | tee verify-report.txt; then
+            echo "✅ שער אימות-מקור עבר — ניתן למזג."
+          else
+            echo "::error::שער אימות-מקור נכשל — ה-watchdog לא ימזג."
+            gh pr comment "$PR_NUM" --body "$(printf '🚫 ה-watchdog לא מיזג: שער אימות-מקור חסם. טענות שלא אומתו ב-source_url:\n\n```\n%s\n```\n\nתקן ודחוף שוב.' "$(cat verify-report.txt)")"
+            exit 1
+          fi
+
       - name: Merge the stuck PR
         id: merge_stuck
         if: steps.stuck.outputs.found == 'true'

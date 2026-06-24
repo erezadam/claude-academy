@@ -114,7 +114,30 @@ jobs:
           npm ci
           npm run build
 
-      # מיזוג אוטומטי ל-main אחרי build ירוק. squash + מחיקת הענף.
+      # שער אימות-מקור דטרמיניסטי: חוסם מיזוג אם מאמר מציג מזהה טכני "רשמי"
+      # (flag / פקודה / משתנה-סביבה / מפתח-קונפיג) שאינו מופיע ב-source_url.
+      # זה התיקון לכשל ה-sandbox.credentials שעבר לאתר על build ירוק בלבד.
+      - name: Verify sources gate
+        id: verify
+        if: success() && steps.find_pr.outputs.no_pr == 'false'
+        env:
+          PR_NUM: ${{ steps.find_pr.outputs.pr_num }}
+        run: |
+          git fetch origin main
+          FILES=$(git diff --name-only --diff-filter=AM origin/main...HEAD -- 'knowledge-base/' | grep '\.md$' || true)
+          if [ -z "$FILES" ]; then
+            echo "אין קבצי תוכן שהשתנו — שער אימות מדלג."
+            exit 0
+          fi
+          if node scripts/verify-sources.mjs $FILES | tee verify-report.txt; then
+            echo "✅ שער אימות-מקור עבר — ניתן למזג."
+          else
+            echo "::error::שער אימות-מקור נכשל — לא ממזגים את ה-PR."
+            gh pr comment "$PR_NUM" --body "$(printf '🚫 שער אימות-מקור חסם את המיזוג האוטומטי. הטענות הבאות מוצגות כרשמיות אך לא נמצאו ב-source_url:\n\n```\n%s\n```\n\nתקן את המאמרים מול המקור (או הסר את הטענות הלא-מאומתות) ודחוף שוב.' "$(cat verify-report.txt)")"
+            exit 1
+          fi
+
+      # מיזוג אוטומטי ל-main אחרי build ירוק + שער אימות. squash + מחיקת הענף.
       - name: Auto-merge the update
         id: merge
         if: success() && steps.find_pr.outputs.no_pr == 'false'
