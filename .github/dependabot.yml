@@ -1,0 +1,9 @@
+# מצמידים actions צד-שלישי ל-commit SHA (ראו weekly-academy-update.yml).
+# Dependabot יפתח PR כשיש גרסה חדשה, כדי שההצמדה תישאר עדכנית בלי לוותר על
+# האבטחה של pinning ל-SHA.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
