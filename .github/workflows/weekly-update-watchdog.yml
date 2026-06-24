@@ -60,7 +60,7 @@ jobs:
           fi
 
       - name: Build gate on the stuck branch
-        if: steps.stuck.outputs.found == 'true'
+        if: success() && steps.stuck.outputs.found == 'true'
         # שם הענף עלול לבוא מ-PR חיצוני — דרך env ולא אינטרפולציה ישירה ב-run.
         env:
           BRANCH: ${{ steps.stuck.outputs.branch }}
@@ -73,7 +73,7 @@ jobs:
       # שער אימות-מקור — זהה לזה שבריצה השבועית. גם ה-watchdog לא ימזג PR תקוע
       # שמכיל טענות לא-מאומתות מול source_url.
       - name: Verify sources gate
-        if: steps.stuck.outputs.found == 'true'
+        if: success() && steps.stuck.outputs.found == 'true'
         env:
           PR_NUM: ${{ steps.stuck.outputs.pr_num }}
         run: |
@@ -93,7 +93,9 @@ jobs:
 
       - name: Merge the stuck PR
         id: merge_stuck
-        if: steps.stuck.outputs.found == 'true'
+        # success() חיוני: בלעדיו שלב המיזוג ירוץ גם אם ה-build או שער האימות נכשלו,
+        # כי ציון if מותאם מבטל את ה-success() המשתמע ב-GitHub Actions.
+        if: success() && steps.stuck.outputs.found == 'true'
         env:
           PR_NUM: ${{ steps.stuck.outputs.pr_num }}
         run: |
