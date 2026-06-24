@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "date": "2026-06-24",
+      "summary": "נוספו 2 מאמרים חדשים ועודכן 1 קיים: Bash Sandbox, Auto Mode Config, ותיקון עומק nested subagents.",
+      "items": [
+        {
+          "title": "Sandbox של Bash — בידוד פקודות ב-Claude Code",
+          "category": "claude-code",
+          "slug": "sandboxing",
+          "type": "new"
+        },
+        {
+          "title": "הגדרת Auto Mode — שליטה בסיווג אוטומטי",
+          "category": "claude-code",
+          "slug": "auto-mode-config",
+          "type": "new"
+        },
+        {
+          "title": "Subagents — סוכנים ייעודיים ב-Claude Code",
+          "category": "claude-code",
+          "slug": "sub-agents",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-06-20",
       "summary": "נוספו 6 מאמרים חדשים: מדריך Hooks, Agent Teams, הרצת Agents במקביל, Checkpointing, Remote Control, ו-Keybindings.",
       "items": [
