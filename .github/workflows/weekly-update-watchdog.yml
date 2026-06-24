@@ -82,7 +82,7 @@ jobs:
 
       - name: Email — watchdog merged a stuck PR
         if: steps.merge_stuck.outputs.merged == 'true' && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
+        uses: dawidd6/action-send-mail@42942bc2f8fba4e611b459a018967a6a7c78c68c # v17
         with:
           server_address: smtp.gmail.com
           server_port: 465
@@ -141,7 +141,7 @@ jobs:
 
       - name: Email — watchdog re-triggered the weekly update
         if: steps.stale.outputs.retriggered == 'true' && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
+        uses: dawidd6/action-send-mail@42942bc2f8fba4e611b459a018967a6a7c78c68c # v17
         with:
           server_address: smtp.gmail.com
           server_port: 465
@@ -160,7 +160,7 @@ jobs:
       # מייל אם ה-watchdog עצמו נכשל (למשל build אדום בענף תקוע) — כדי שלא ייכשל בשקט.
       - name: Email — watchdog failure
         if: failure() && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
+        uses: dawidd6/action-send-mail@42942bc2f8fba4e611b459a018967a6a7c78c68c # v17
         with:
           server_address: smtp.gmail.com
           server_port: 465
