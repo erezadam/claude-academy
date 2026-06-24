@@ -2,7 +2,7 @@
 title: "Subagents — סוכנים ייעודיים ב-Claude Code"
 category: claude-code
 layer: intermediate
-last_verified: 2026-06-14
+last_verified: 2026-06-24
 status: needs-review
 source_url: https://code.claude.com/docs/en/sub-agents
 related: ["skills", "plugins-guide", "/agents"]
@@ -313,7 +313,9 @@ Use the code-reviewer subagent to find performance issues, then use the optimize
 
 כדאי לשקול **Skills** במקום זאת כשרוצים prompts או workflows לשימוש חוזר שרצים ב-context של השיחה הראשית במקום ב-context מבודד של subagent. לשאלה מהירה על משהו שכבר בשיחה, עדיף `/btw` — היא רואה את כל ה-context אך אין לה גישה לכלים, והתשובה נזרקת במקום להתווסף להיסטוריה.
 
-החל מ-Claude Code v2.1.172, subagents יכולים לייצר subagents משלהם. Subagents ב-foreground יכולים לבצע nesting בכל עומק. Subagents ב-background מוגבלים ל-5 רמות עומק — הרמה החמישית אינה מקבלת את כלי ה-Agent ולא יכולה לפצל הלאה. כדי למנוע מ-subagent ספציפי לייצר subagents נוספים, יש להשמיט את `Agent` מרשימת ה-`tools` שלו.
+החל מ-Claude Code v2.1.172, subagents יכולים לייצר subagents משלהם. **עומק מקסימלי: 5 רמות** מתחת לשיחה הראשית, ללא קשר לאם כל רמה רצה ב-foreground או ב-background — subagent ברמה חמישית אינו מקבל את כלי ה-Agent ולא יכול לפצל הלאה. המגבלה קבועה ואינה ניתנת להגדרה. כדי למנוע מ-subagent ספציפי לייצר subagents נוספים, יש להשמיט את `Agent` מרשימת ה-`tools` שלו.
+
+החל מ-v2.1.178, כשמספר תיקיות `.claude/agents/` נמצאות בדרך מתיקיית העבודה לשורש ה-repo, וכמה מהן מגדירות אותו `name` — הגדרת ה-subagent **הקרובה ביותר** לתיקיית העבודה גוברת.
 
 ## מה נטען בתחילת subagent
 
