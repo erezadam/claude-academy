@@ -1,11 +1,24 @@
 name: weekly-academy-update
 
+# העדכון השבועי: סוכן Claude סורק את התיעוד הרשמי של Anthropic, כותב/מעדכן
+# מאמרים, פותח PR — וה-workflow הזה מאמת build ירוק וממזג אוטומטית ל-main.
+# כך האתר מתעדכן בלי התערבות ידנית. כשל או "אין עדכונים" -> מייל למשתמש.
+#
+# רקע הכשל ההיסטורי (שתוקן כאן): עד 06/2026 הריצה הייתה "ירוקה" אבל רק פתחה
+# PR שאיש לא מיזג, אז האתר נשאר מיושן. עכשיו הריצה אחראית גם על המיזוג.
+
 on:
   schedule:
     # 06:17 UTC ולא 06:00 — תחילת שעה עגולה היא ה-slot העמוס ביותר ב-GitHub Actions,
     # שבו ריצות schedule מתעכבות או נשמטות. דקה לא-עגולה מקטינה את הסיכון.
     - cron: "17 6 * * SAT"
   workflow_dispatch: {}
+
+# שתי ריצות במקביל (למשל schedule + dispatch של ה-watchdog) ימזגו ענפים סותרים.
+# group יחיד מבטיח ריצה אחת בכל רגע; אנו לא מבטלים ריצה פעילה כדי לא לקטוע מיזוג.
+concurrency:
+  group: weekly-academy-update
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -17,12 +30,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # ממופה ל-env כדי שנוכל לבדוק קיום ב-if בלי לגעת בהקשר secrets ישירות.
+      MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
       - run: npm ci
+
       - uses: anthropics/claude-code-action@v1
         id: claude
         with:
@@ -35,20 +53,15 @@ jobs:
             --allowedTools Read,Write,Edit,Bash,Glob,Grep,WebFetch
 
       # שמירת פלט הריצה כ-artifact לדיבוג — נשמר תמיד, גם בכשל.
-      # בלי זה הפלט של קלוד מוסתר וקובץ הריצה נמחק עם ה-runner.
       - name: Upload Claude execution log
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: claude-execution-output
-          # נתיב מתוך ה-output המתועד של ה-action ולא נתיב פנימי קשיח —
-          # יציב גם אם גרסה עתידית של ה-action תשנה היכן הקובץ נכתב.
           path: ${{ steps.claude.outputs.execution_file }}
           if-no-files-found: warn
 
-      # חשיפת כשל: ה-action מחזיר success גם כש-is_error=true, מה שגרם
-      # לכשל שקט ב-13/06 (הריצה רצה, נכשלה, לא נפתח PR, וה-job היה ירוק).
-      # כאן אנו קוראים את תוצאת הריצה ומפילים את ה-job אם קלוד נכשל.
+      # חשיפת כשל לוגי של הסוכן: ה-action מחזיר success גם כש-is_error=true.
       - name: Surface Claude execution failures
         if: always()
         run: |
@@ -65,4 +78,109 @@ jobs:
             echo "::error::Weekly academy update FAILED — Claude ended with is_error=$IS_ERROR (subtype=$SUBTYPE, turns=$TURNS). No PR was produced. See the claude-execution-output artifact."
             exit 1
           fi
-          echo "Weekly academy update completed without execution errors."
+          echo "Claude finished without execution errors."
+
+      # איתור ה-PR שהסוכן פתח (אם פתח). הסוכן יוצר ענף academy-update/YYYY-MM-DD.
+      # אנו לא מסתמכים על תאריך מחושב (רגיש ל-timezone) אלא מחפשים לפי קידומת הענף.
+      - name: Find the update PR
+        id: find_pr
+        if: success()
+        run: |
+          PR_NUM=$(gh pr list --state open \
+            --json number,headRefName \
+            --jq '[.[] | select(.headRefName | startswith("academy-update/"))] | sort_by(.number) | last | .number // empty')
+          if [ -z "$PR_NUM" ]; then
+            echo "no_pr=true" >> "$GITHUB_OUTPUT"
+            echo "אין PR פתוח של עדכון — כנראה לא נמצאו עדכונים חדשים השבוע."
+          else
+            BRANCH=$(gh pr view "$PR_NUM" --json headRefName --jq .headRefName)
+            echo "no_pr=false" >> "$GITHUB_OUTPUT"
+            echo "pr_num=$PR_NUM" >> "$GITHUB_OUTPUT"
+            echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+            echo "נמצא PR #$PR_NUM על ענף $BRANCH"
+          fi
+
+      # שער איכות: בונים את הענף שהסוכן יצר לפני מיזוג. build אדום -> לא ממזגים.
+      - name: Build gate on the update branch
+        id: build_gate
+        if: success() && steps.find_pr.outputs.no_pr == 'false'
+        # שם הענף עלול לבוא מ-PR חיצוני (fork) — מעבירים דרך env ולא אינטרפולציה
+        # ישירה ב-run, כדי למנוע הזרקת פקודות דרך שם ענף זדוני.
+        env:
+          BRANCH: ${{ steps.find_pr.outputs.branch }}
+        run: |
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+          npm ci
+          npm run build
+
+      # מיזוג אוטומטי ל-main אחרי build ירוק. squash + מחיקת הענף.
+      - name: Auto-merge the update
+        id: merge
+        if: success() && steps.find_pr.outputs.no_pr == 'false'
+        env:
+          PR_NUM: ${{ steps.find_pr.outputs.pr_num }}
+        run: |
+          gh pr merge "$PR_NUM" --squash --delete-branch
+          echo "merged=true" >> "$GITHUB_OUTPUT"
+          echo "✅ מוזג PR #$PR_NUM ל-main."
+
+      # מייל הצלחה — נשלח רק אם הוגדר secret של מייל (אחרת מדלגים בלי להפיל).
+      - name: Email — success (update merged)
+        if: success() && steps.merge.outputs.merged == 'true' && env.MAIL_USERNAME != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "✅ העדכון השבועי של Claude Academy הושלם ופורסם"
+          to: erez1964@gmail.com
+          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            העדכון השבועי רץ בהצלחה, עבר build, ומוזג אוטומטית ל-main.
+
+            PR שמוזג: #${{ steps.find_pr.outputs.pr_num }}
+            ענף: ${{ steps.find_pr.outputs.branch }}
+            ריצה: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            האתר מתעדכן אוטומטית מ-main.
+
+      # מייל "אין עדכונים" — הריצה הצליחה אך לא נמצא תוכן חדש לפרסם.
+      - name: Email — no updates this week
+        if: success() && steps.find_pr.outputs.no_pr == 'true' && env.MAIL_USERNAME != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "ℹ️ העדכון השבועי של Claude Academy רץ — אין מאמרים חדשים השבוע"
+          to: erez1964@gmail.com
+          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            העדכון השבועי רץ בהצלחה אך לא נמצאו מאמרים חדשים או שינויים במקורות הרשמיים השבוע.
+            לא נפתח PR. אין צורך בפעולה.
+
+            ריצה: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+      # מייל כשל — כל כשל בריצה (סוכן, build, מיזוג). מאפשר התערבות מהירה.
+      - name: Email — failure
+        if: failure() && env.MAIL_USERNAME != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "❌ העדכון השבועי של Claude Academy נכשל — דרושה תשומת לב"
+          to: erez1964@gmail.com
+          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            העדכון השבועי נכשל ולא פורסם. ה-watchdog ינסה שוב בריצה היומית הבאה,
+            אך כדאי לבדוק את הלוג:
+
+            ריצה: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
