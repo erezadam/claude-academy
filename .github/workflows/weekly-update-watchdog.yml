@@ -1,0 +1,177 @@
+name: weekly-update-watchdog
+
+# מנגנון בקרה (watchdog) לעדכון השבועי. רץ כל יום ומוודא שהעדכון אכן נחת:
+#  1. אם יש PR פתוח של עדכון (academy-update/*) שתקוע ולא מוזג — בונה אותו
+#     וממזג אותו ל-main. זה בדיוק הכשל ההיסטורי: ריצה ירוקה שפתחה PR שאיש לא מיזג.
+#  2. אם לא נחת עדכון מוצלח ב-STALE_DAYS הימים האחרונים — מפעיל מחדש את
+#     weekly-academy-update. כיוון שה-watchdog רץ כל יום, הוא ימשיך להפעיל "עד
+#     שהושלם" — ברגע שריצה מוצלחת נוחתת בחלון, הוא מפסיק להפעיל.
+#  3. בכל התערבות (מיזוג PR תקוע / הפעלה מחדש) — נשלח מייל למשתמש.
+
+on:
+  schedule:
+    # 07:41 UTC יומי — מאוחר מספיק אחרי הריצה השבועית (06:17 בשבת) כדי לראות
+    # את תוצאתה, ובדקה לא-עגולה כדי להימנע מה-slot העמוס.
+    - cron: "41 7 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: weekly-update-watchdog
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+env:
+  STALE_DAYS: 8
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # ---------- שלב 1: מיזוג PR עדכון תקוע ----------
+      - name: Detect a stuck update PR
+        id: stuck
+        run: |
+          PR_NUM=$(gh pr list --state open \
+            --json number,headRefName,mergeable \
+            --jq '[.[] | select(.headRefName | startswith("academy-update/"))] | sort_by(.number) | last | .number // empty')
+          if [ -z "$PR_NUM" ]; then
+            echo "found=false" >> "$GITHUB_OUTPUT"
+            echo "אין PR עדכון תקוע."
+          else
+            BRANCH=$(gh pr view "$PR_NUM" --json headRefName --jq .headRefName)
+            echo "found=true" >> "$GITHUB_OUTPUT"
+            echo "pr_num=$PR_NUM" >> "$GITHUB_OUTPUT"
+            echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+            echo "::warning::נמצא PR עדכון תקוע #$PR_NUM ($BRANCH) — ה-watchdog ימזג אותו."
+          fi
+
+      - name: Build gate on the stuck branch
+        if: steps.stuck.outputs.found == 'true'
+        # שם הענף עלול לבוא מ-PR חיצוני — דרך env ולא אינטרפולציה ישירה ב-run.
+        env:
+          BRANCH: ${{ steps.stuck.outputs.branch }}
+        run: |
+          git fetch origin "$BRANCH"
+          git checkout "$BRANCH"
+          npm ci
+          npm run build
+
+      - name: Merge the stuck PR
+        id: merge_stuck
+        if: steps.stuck.outputs.found == 'true'
+        env:
+          PR_NUM: ${{ steps.stuck.outputs.pr_num }}
+        run: |
+          gh pr merge "$PR_NUM" --squash --delete-branch
+          echo "merged=true" >> "$GITHUB_OUTPUT"
+          echo "✅ ה-watchdog מיזג PR תקוע #$PR_NUM."
+
+      - name: Email — watchdog merged a stuck PR
+        if: steps.merge_stuck.outputs.merged == 'true' && env.MAIL_USERNAME != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "✅ ה-watchdog השלים עדכון תקוע ל-Claude Academy"
+          to: erez1964@gmail.com
+          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            מנגנון הבקרה זיהה PR עדכון שלא מוזג, אימת build ירוק, ומיזג אותו ל-main.
+
+            PR: #${{ steps.stuck.outputs.pr_num }}
+            ריצת ה-watchdog: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            העדכון פורסם והאתר מתעדכן אוטומטית מ-main.
+
+      # ---------- שלב 2: זיהוי עדכון "תקוע מאחור" והפעלה מחדש ----------
+      # נריץ רק אם לא היה PR תקוע למזג (אם מיזגנו עכשיו — העדכון נחת, אין צורך).
+      - name: Check staleness and re-trigger if needed
+        id: stale
+        if: steps.stuck.outputs.found == 'false'
+        run: |
+          LAST_SUCCESS=$(gh run list --workflow=weekly-academy-update.yml \
+            --status=success --limit 1 --json createdAt --jq '.[0].createdAt // empty')
+          if [ -z "$LAST_SUCCESS" ]; then
+            AGE_DAYS=9999
+          else
+            AGE_DAYS=$(( ( $(date -u +%s) - $(date -u -d "$LAST_SUCCESS" +%s) ) / 86400 ))
+          fi
+          echo "ריצה מוצלחת אחרונה: ${LAST_SUCCESS:-אף פעם} (לפני $AGE_DAYS ימים). סף: ${STALE_DAYS} ימים."
+
+          if [ "$AGE_DAYS" -le "$STALE_DAYS" ]; then
+            echo "retriggered=false" >> "$GITHUB_OUTPUT"
+            echo "העדכון עדכני — אין צורך להפעיל מחדש."
+            exit 0
+          fi
+
+          # מניעת הפעלה כפולה: אם כבר רצה ריצה כלשהי ב-12 השעות האחרונות, ייתכן
+          # שהיא בעיצומה — ניתן לה לסיים ולא נפעיל שוב במחזור הזה.
+          LAST_ANY=$(gh run list --workflow=weekly-academy-update.yml \
+            --limit 1 --json createdAt --jq '.[0].createdAt // empty')
+          if [ -n "$LAST_ANY" ]; then
+            ANY_AGE_H=$(( ( $(date -u +%s) - $(date -u -d "$LAST_ANY" +%s) ) / 3600 ))
+            if [ "$ANY_AGE_H" -lt 12 ]; then
+              echo "retriggered=false" >> "$GITHUB_OUTPUT"
+              echo "ריצה אחרונה לפני $ANY_AGE_H שעות — כנראה עדיין בתהליך. מדלגים על הפעלה כפולה."
+              exit 0
+            fi
+          fi
+
+          echo "::warning::העדכון תקוע מאחור ($AGE_DAYS ימים) — ה-watchdog מפעיל את weekly-academy-update."
+          gh workflow run weekly-academy-update.yml
+          echo "retriggered=true" >> "$GITHUB_OUTPUT"
+          echo "age_days=$AGE_DAYS" >> "$GITHUB_OUTPUT"
+
+      - name: Email — watchdog re-triggered the weekly update
+        if: steps.stale.outputs.retriggered == 'true' && env.MAIL_USERNAME != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "🔁 ה-watchdog הפעיל מחדש את העדכון השבועי של Claude Academy"
+          to: erez1964@gmail.com
+          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            מנגנון הבקרה זיהה שלא נחת עדכון שבועי מוצלח ב-${{ steps.stale.outputs.age_days }} הימים האחרונים,
+            והפעיל מחדש את weekly-academy-update. תקבל מייל נוסף מהריצה עצמה כשתסתיים.
+
+            ריצת ה-watchdog: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+      # מייל אם ה-watchdog עצמו נכשל (למשל build אדום בענף תקוע) — כדי שלא ייכשל בשקט.
+      - name: Email — watchdog failure
+        if: failure() && env.MAIL_USERNAME != ''
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "❌ ה-watchdog של Claude Academy נכשל — דרושה תשומת לב"
+          to: erez1964@gmail.com
+          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            מנגנון הבקרה נכשל (ייתכן build אדום בענף עדכון תקוע, או בעיית הרשאות).
+            כדאי לבדוק ידנית:
+
+            ריצת ה-watchdog: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
