@@ -64,18 +64,20 @@ related: [slash-security-sandbox, permissions, auto-mode-config]
 
 ### הגנה על credentials
 
-בגרסה 2.1.187 נוספה הגדרת `sandbox.credentials` לחסימת גישת פקודות sandboxed לקבצי credentials ומשתני סביבה סודיים:
+ברירת המחדל של הקריאה מתירה גישה לקבצי credentials כמו `~/.aws/credentials` ו-`~/.ssh/`. כדי לחסום אותם מפקודות sandboxed, הוסף אותם ל-`denyRead`:
 
 ```json
 {
   "sandbox": {
     "enabled": true,
-    "credentials": true
+    "filesystem": {
+      "denyRead": ["~/.aws", "~/.ssh"]
+    }
   }
 }
 ```
 
-כשמוגדר, פקודות sandboxed אינן יכולות לקרוא `~/.aws/credentials`, `~/.ssh/` ומשתני סביבה כמו `AWS_SECRET_ACCESS_KEY`.
+כדי להסיר משתני סביבה רגישים (credentials של Anthropic וספקי ענן) מ-subprocesses, הגדר את משתנה הסביבה `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB`.
 
 ### הגדרות רשת
 
