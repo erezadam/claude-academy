@@ -86,9 +86,31 @@ function parseFrontmatter(raw) {
   return { data, body: raw.slice(m[0].length) };
 }
 
+// allowlist של hosts רשמיים בלבד. מונע SSRF (source_url מ-PR/fork זדוני שמצביע
+// לכתובת פנימית כמו metadata endpoint) — וגם אוכף שהמקור הוא תיעוד רשמי.
+// השוואת hostname מדויקת, לא startsWith/includes.
+const ALLOWED_HOSTS = new Set([
+  "code.claude.com",
+  "docs.claude.com",
+  "docs.anthropic.com",
+  "anthropic.com",
+  "www.anthropic.com",
+  "claude.com",
+]);
+
+function isAllowedSource(u) {
+  try {
+    const parsed = new URL(u);
+    return parsed.protocol === "https:" && ALLOWED_HOSTS.has(parsed.hostname);
+  } catch {
+    return false;
+  }
+}
+
 // מושך את טקסט המקור: גם ה-URL כפי שהוא וגם גרסת ה-.md (טקסט נקי). מחזיר
 // מחרוזת מנורמלת מאוחדת, או null אם שום וריאנט לא החזיר 200.
 async function fetchSource(url) {
+  if (!isAllowedSource(url)) return null;
   const variants = [url];
   if (!url.endsWith(".md")) variants.push(url.replace(/\/?$/, "") + ".md");
   let combined = "";
@@ -114,6 +136,8 @@ async function verifyFile(file) {
   const { data, body } = parseFrontmatter(raw);
   const url = data.source_url;
   if (!url) return [`${file}: missing source_url in frontmatter`];
+  if (!isAllowedSource(url))
+    return [`${file}: source_url is not an official https host (allowlist): ${url}`];
 
   const sourceText = await fetchSource(url);
   if (sourceText === null) return [`${file}: source_url not reachable (no 200): ${url}`];
