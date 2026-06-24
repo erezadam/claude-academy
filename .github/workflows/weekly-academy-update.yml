@@ -128,7 +128,7 @@ jobs:
       # מייל הצלחה — נשלח רק אם הוגדר secret של מייל (אחרת מדלגים בלי להפיל).
       - name: Email — success (update merged)
         if: success() && steps.merge.outputs.merged == 'true' && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@v3
+        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
         with:
           server_address: smtp.gmail.com
           server_port: 465
@@ -150,7 +150,7 @@ jobs:
       # מייל "אין עדכונים" — הריצה הצליחה אך לא נמצא תוכן חדש לפרסם.
       - name: Email — no updates this week
         if: success() && steps.find_pr.outputs.no_pr == 'true' && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@v3
+        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
         with:
           server_address: smtp.gmail.com
           server_port: 465
@@ -169,7 +169,7 @@ jobs:
       # מייל כשל — כל כשל בריצה (סוכן, build, מיזוג). מאפשר התערבות מהירה.
       - name: Email — failure
         if: failure() && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@v3
+        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
         with:
           server_address: smtp.gmail.com
           server_port: 465
