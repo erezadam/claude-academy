@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import type { Article } from "@/lib/knowledge";
+import type { Article, RecentCommandUpdate } from "@/lib/knowledge";
 
 type SortBy = "title" | "whatItDoes" | "layer";
 type SortDir = "asc" | "desc";
@@ -34,14 +34,46 @@ function rankLayer(layer: Article["layer"]): number {
   return LAYER_RANK[layer] ?? Number.POSITIVE_INFINITY;
 }
 
-export default function CommandsTable({ articles }: { articles: Article[] }) {
+export default function CommandsTable({
+  articles,
+  recentUpdates = [],
+}: {
+  articles: Article[];
+  recentUpdates?: RecentCommandUpdate[];
+}) {
+  // slug -> "new" | "changed" for commands updated in the latest weekly batch.
+  const recentMap = useMemo(
+    () => new Map(recentUpdates.map((u) => [u.slug, u.type])),
+    [recentUpdates]
+  );
+
   const [query, setQuery] = useState("");
   const [sortBy, setSortBy] = useState<SortBy>("layer");
   const [sortDir, setSortDir] = useState<SortDir>("asc");
   const [levelFilter, setLevelFilter] = useState<LevelFilter>("all");
+  // Starts off so the FULL table is server-rendered into the static HTML (SEO);
+  // the "?updated=week" deep-link from the homepage red badge is applied after
+  // hydration via the effect below. Reading the param in an effect (not
+  // useSearchParams) avoids a Suspense bailout that would drop the table from
+  // the prerendered HTML.
+  const [recentOnly, setRecentOnly] = useState(false);
+
+  useEffect(() => {
+    const updated = new URLSearchParams(window.location.search).get("updated");
+    // Intentional post-hydration sync: SSR renders the full table (recentOnly
+    // false) so it stays in the static HTML; only after mount do we apply the
+    // client-only URL filter. Reading it during render would cause a hydration
+    // mismatch, so setState-in-effect is correct here.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (updated === "week" && recentUpdates.length > 0) setRecentOnly(true);
+  }, [recentUpdates.length]);
 
   const filtered = useMemo(() => {
     let list = articles;
+
+    if (recentOnly) {
+      list = list.filter((a) => recentMap.has(a.slug));
+    }
 
     if (levelFilter !== "all") {
       list = list.filter((a) => a.layer === levelFilter);
@@ -70,7 +102,7 @@ export default function CommandsTable({ articles }: { articles: Article[] }) {
     });
 
     return sorted;
-  }, [articles, query, levelFilter, sortBy, sortDir]);
+  }, [articles, query, levelFilter, sortBy, sortDir, recentOnly, recentMap]);
 
   function handleSort(col: SortBy) {
     if (sortBy === col) {
@@ -84,6 +116,7 @@ export default function CommandsTable({ articles }: { articles: Article[] }) {
   function clearFilters() {
     setQuery("");
     setLevelFilter("all");
+    setRecentOnly(false);
   }
 
   function sortIndicator(col: SortBy) {
@@ -126,6 +159,19 @@ export default function CommandsTable({ articles }: { articles: Article[] }) {
             );
           })}
         </div>
+        {recentUpdates.length > 0 && (
+          <button
+            onClick={() => setRecentOnly((v) => !v)}
+            className={
+              "rounded-full border px-3 py-1 text-base transition-colors " +
+              (recentOnly
+                ? "bg-red-100 text-red-800 border-red-300"
+                : "bg-white text-red-700 border-red-200 hover:bg-red-50")
+            }
+          >
+            עודכנו השבוע ({recentUpdates.length})
+          </button>
+        )}
         <button
           onClick={clearFilters}
           className="rounded-lg border border-gray-200 bg-white px-3 py-1 text-base text-gray-700 hover:bg-gray-50 transition-colors"
@@ -182,7 +228,23 @@ export default function CommandsTable({ articles }: { articles: Article[] }) {
                   className="hover:bg-gray-50"
                 >
                   <td className="p-4 text-lg border-b border-gray-200 font-medium text-gray-900">
-                    {article.title}
+                    <span className="flex flex-wrap items-center gap-2">
+                      {article.title}
+                      {recentMap.has(article.slug) && (
+                        <span
+                          className={
+                            "inline-block flex-shrink-0 rounded-full px-2 py-0.5 text-xs font-medium " +
+                            (recentMap.get(article.slug) === "new"
+                              ? "bg-green-100 text-green-800"
+                              : "bg-yellow-100 text-yellow-800")
+                          }
+                        >
+                          {recentMap.get(article.slug) === "new"
+                            ? "חדש"
+                            : "עודכן"}
+                        </span>
+                      )}
+                    </span>
                   </td>
                   <td className="p-4 text-lg border-b border-gray-200 text-gray-700">
                     {article.whatItDoes}

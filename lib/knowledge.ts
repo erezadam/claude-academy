@@ -202,3 +202,40 @@ export function getChangelog(): ChangelogEntry[] {
     return [];
   }
 }
+
+export interface RecentCommandUpdate {
+  slug: string;
+  title: string;
+  type: "new" | "changed";
+}
+
+// The claude-code items from the latest changelog batch (entries[0]) that
+// resolve to a real claude-code article. This is the SINGLE derivation behind
+// both the homepage red "updated this week" badge and the filtered
+// /commands-list view, so the two can never disagree with each other or with
+// the "What's New" panel. Intersecting with real article slugs (like
+// getRelatedArticles does) is the data-integrity guard: a changelog item that
+// points at a non-existent command is silently dropped — it never inflates the
+// count or produces a broken link.
+export function getLatestCommandUpdates(): RecentCommandUpdate[] {
+  const entries = getChangelog();
+  if (entries.length === 0) return [];
+
+  const realSlugs = new Set(
+    (getCategoryBySlug("claude-code")?.articles ?? []).map((a) => a.slug)
+  );
+
+  return entries[0].items
+    .filter((it) => it.category === "claude-code" && realSlugs.has(it.slug))
+    .map((it) => ({ slug: it.slug, title: it.title, type: it.type }));
+}
+
+// Integrity check: every changelog item whose {category, slug} does NOT resolve
+// to a real article. Empty array == the changelog and the catalog agree. Useful
+// in a test/CI step to catch drift between data/changelog.json and the articles.
+export function validateChangelogIntegrity(): ChangelogItem[] {
+  const real = new Set(getAllArticles().map((a) => `${a.category}/${a.slug}`));
+  return getChangelog()
+    .flatMap((e) => e.items)
+    .filter((it) => !real.has(`${it.category}/${it.slug}`));
+}
