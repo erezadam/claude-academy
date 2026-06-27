@@ -4,16 +4,25 @@ import {
   getAllArticles,
   getChangelog,
   getCategoryNameMap,
+  getLatestCommandUpdates,
 } from "@/lib/knowledge";
 import SearchBar from "@/components/SearchBar";
 import WhatsNew from "@/components/WhatsNew";
 import ViewCounter from "@/components/ViewCounter";
+
+// נוסח עברי תקין לכמות הפקודות שעודכנו השבוע (יחיד/רבים), כדפוס buildSummary.
+function updatedCommandsLabel(count: number): string {
+  return count === 1
+    ? "פקודה אחת עודכנה השבוע"
+    : `${count} פקודות עודכנו השבוע`;
+}
 
 export default function Home() {
   const categories = getCategories();
   const allArticles = getAllArticles();
   const changelog = getChangelog();
   const categoryNames = getCategoryNameMap();
+  const commandUpdates = getLatestCommandUpdates();
 
   return (
     <div className="min-h-screen font-sans bg-white">
@@ -38,6 +47,33 @@ export default function Home() {
       {/* What's New */}
       <div className="max-w-5xl mx-auto px-6 pb-4">
         <WhatsNew entries={changelog} categoryNames={categoryNames} />
+      </div>
+
+      {/* Commands List CTA — sits directly under What's New. A div (not a single
+          Link) so the red "updated this week" line can link to the filtered view
+          without nesting anchors inside the main tile link. */}
+      <div className="max-w-5xl mx-auto px-6 pb-4">
+        <div className="rounded-lg border border-gray-200 bg-white p-5 transition-all hover:border-green-300 hover:shadow-sm">
+          <Link href="/commands-list" className="group block">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-2xl">📋</span>
+              <h2 className="text-lg font-bold text-gray-900 group-hover:text-green-700 transition-colors">
+                רשימת פקודות
+              </h2>
+            </div>
+            <p className="text-sm text-gray-900 leading-relaxed">
+              כל פקודות Claude Code בטבלה אחת — חיפוש, מיון, סינון.
+            </p>
+          </Link>
+          {commandUpdates.length > 0 && (
+            <Link
+              href="/commands-list?updated=week"
+              className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-red-600 hover:text-red-700 hover:underline"
+            >
+              {updatedCommandsLabel(commandUpdates.length)} &larr;
+            </Link>
+          )}
+        </div>
       </div>
 
       {/* Wizard CTA */}
@@ -75,24 +111,6 @@ export default function Home() {
             12 מערכות עיצוב מוכנות לשימוש — דמו חי, קוד CSS, ו-Skill Prompt להפעלת Claude
           </p>
         </a>
-      </div>
-
-      {/* Commands List CTA */}
-      <div className="max-w-5xl mx-auto px-6 pb-4">
-        <Link
-          href="/commands-list"
-          className="group block rounded-lg border border-gray-200 bg-white p-5 transition-all hover:border-green-300 hover:shadow-sm"
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-2xl">📋</span>
-            <h2 className="text-lg font-bold text-gray-900 group-hover:text-green-700 transition-colors">
-              רשימת פקודות
-            </h2>
-          </div>
-          <p className="text-sm text-gray-900 leading-relaxed">
-            כל פקודות Claude Code בטבלה אחת — חיפוש, מיון, סינון.
-          </p>
-        </Link>
       </div>
 
       {/* Category Cards */}

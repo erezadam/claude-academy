@@ -6,7 +6,6 @@ name: weekly-update-watchdog
 #  2. אם לא נחת עדכון מוצלח ב-STALE_DAYS הימים האחרונים — מפעיל מחדש את
 #     weekly-academy-update. כיוון שה-watchdog רץ כל יום, הוא ימשיך להפעיל "עד
 #     שהושלם" — ברגע שריצה מוצלחת נוחתת בחלון, הוא מפסיק להפעיל.
-#  3. בכל התערבות (מיזוג PR תקוע / הפעלה מחדש) — נשלח מייל למשתמש.
 
 on:
   schedule:
@@ -32,7 +31,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -103,26 +101,6 @@ jobs:
           echo "merged=true" >> "$GITHUB_OUTPUT"
           echo "✅ ה-watchdog מיזג PR תקוע #$PR_NUM."
 
-      - name: Email — watchdog merged a stuck PR
-        if: steps.merge_stuck.outputs.merged == 'true' && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "✅ ה-watchdog השלים עדכון תקוע ל-Claude Academy"
-          to: erez1964@gmail.com
-          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
-          body: |
-            מנגנון הבקרה זיהה PR עדכון שלא מוזג, אימת build ירוק, ומיזג אותו ל-main.
-
-            PR: #${{ steps.stuck.outputs.pr_num }}
-            ריצת ה-watchdog: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-            העדכון פורסם והאתר מתעדכן אוטומטית מ-main.
-
       # ---------- שלב 2: זיהוי עדכון "תקוע מאחור" והפעלה מחדש ----------
       # נריץ רק אם לא היה PR תקוע למזג (אם מיזגנו עכשיו — העדכון נחת, אין צורך).
       - name: Check staleness and re-trigger if needed
@@ -161,40 +139,3 @@ jobs:
           gh workflow run weekly-academy-update.yml
           echo "retriggered=true" >> "$GITHUB_OUTPUT"
           echo "age_days=$AGE_DAYS" >> "$GITHUB_OUTPUT"
-
-      - name: Email — watchdog re-triggered the weekly update
-        if: steps.stale.outputs.retriggered == 'true' && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "🔁 ה-watchdog הפעיל מחדש את העדכון השבועי של Claude Academy"
-          to: erez1964@gmail.com
-          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
-          body: |
-            מנגנון הבקרה זיהה שלא נחת עדכון שבועי מוצלח ב-${{ steps.stale.outputs.age_days }} הימים האחרונים,
-            והפעיל מחדש את weekly-academy-update. תקבל מייל נוסף מהריצה עצמה כשתסתיים.
-
-            ריצת ה-watchdog: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-      # מייל אם ה-watchdog עצמו נכשל (למשל build אדום בענף תקוע) — כדי שלא ייכשל בשקט.
-      - name: Email — watchdog failure
-        if: failure() && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "❌ ה-watchdog של Claude Academy נכשל — דרושה תשומת לב"
-          to: erez1964@gmail.com
-          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
-          body: |
-            מנגנון הבקרה נכשל (ייתכן build אדום בענף עדכון תקוע, או בעיית הרשאות).
-            כדאי לבדוק ידנית:
-
-            ריצת ה-watchdog: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

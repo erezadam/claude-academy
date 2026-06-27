@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getCategoryBySlug } from "@/lib/knowledge";
+import { getCategoryBySlug, getLatestCommandUpdates } from "@/lib/knowledge";
 import CommandsTable from "@/components/CommandsTable";
 
 export const metadata: Metadata = {
@@ -20,6 +20,9 @@ export const metadata: Metadata = {
 
 export default async function CommandsListPage() {
   const articles = getCategoryBySlug("claude-code")?.articles ?? [];
+  // Same single derivation as the homepage red badge — guarantees the filtered
+  // view and the badge always agree (data integrity).
+  const recentUpdates = getLatestCommandUpdates();
 
   return (
     <div className="min-h-screen font-sans bg-white">
@@ -49,7 +52,7 @@ export default async function CommandsListPage() {
       </header>
 
       <main className="max-w-5xl mx-auto px-6 py-6">
-        <CommandsTable articles={articles} />
+        <CommandsTable articles={articles} recentUpdates={recentUpdates} />
       </main>
     </div>
   );

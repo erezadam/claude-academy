@@ -2,7 +2,7 @@ name: weekly-academy-update
 
 # העדכון השבועי: סוכן Claude סורק את התיעוד הרשמי של Anthropic, כותב/מעדכן
 # מאמרים, פותח PR — וה-workflow הזה מאמת build ירוק וממזג אוטומטית ל-main.
-# כך האתר מתעדכן בלי התערבות ידנית. כשל או "אין עדכונים" -> מייל למשתמש.
+# כך האתר מתעדכן בלי התערבות ידנית.
 #
 # רקע הכשל ההיסטורי (שתוקן כאן): עד 06/2026 הריצה הייתה "ירוקה" אבל רק פתחה
 # PR שאיש לא מיזג, אז האתר נשאר מיושן. עכשיו הריצה אחראית גם על המיזוג.
@@ -30,8 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # ממופה ל-env כדי שנוכל לבדוק קיום ב-if בלי לגעת בהקשר secrets ישירות.
-      MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -147,63 +145,3 @@ jobs:
           gh pr merge "$PR_NUM" --squash --delete-branch
           echo "merged=true" >> "$GITHUB_OUTPUT"
           echo "✅ מוזג PR #$PR_NUM ל-main."
-
-      # מייל הצלחה — נשלח רק אם הוגדר secret של מייל (אחרת מדלגים בלי להפיל).
-      - name: Email — success (update merged)
-        if: success() && steps.merge.outputs.merged == 'true' && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "✅ העדכון השבועי של Claude Academy הושלם ופורסם"
-          to: erez1964@gmail.com
-          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
-          body: |
-            העדכון השבועי רץ בהצלחה, עבר build, ומוזג אוטומטית ל-main.
-
-            PR שמוזג: #${{ steps.find_pr.outputs.pr_num }}
-            ענף: ${{ steps.find_pr.outputs.branch }}
-            ריצה: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-            האתר מתעדכן אוטומטית מ-main.
-
-      # מייל "אין עדכונים" — הריצה הצליחה אך לא נמצא תוכן חדש לפרסם.
-      - name: Email — no updates this week
-        if: success() && steps.find_pr.outputs.no_pr == 'true' && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "ℹ️ העדכון השבועי של Claude Academy רץ — אין מאמרים חדשים השבוע"
-          to: erez1964@gmail.com
-          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
-          body: |
-            העדכון השבועי רץ בהצלחה אך לא נמצאו מאמרים חדשים או שינויים במקורות הרשמיים השבוע.
-            לא נפתח PR. אין צורך בפעולה.
-
-            ריצה: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-      # מייל כשל — כל כשל בריצה (סוכן, build, מיזוג). מאפשר התערבות מהירה.
-      - name: Email — failure
-        if: failure() && env.MAIL_USERNAME != ''
-        uses: dawidd6/action-send-mail@2cea9617b09d79a095af21254fbcb7ae95903dde # v3.12.0
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          subject: "❌ העדכון השבועי של Claude Academy נכשל — דרושה תשומת לב"
-          to: erez1964@gmail.com
-          from: Claude Academy Bot <${{ secrets.MAIL_USERNAME }}>
-          body: |
-            העדכון השבועי נכשל ולא פורסם. ה-watchdog ינסה שוב בריצה היומית הבאה,
-            אך כדאי לבדוק את הלוג:
-
-            ריצה: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
