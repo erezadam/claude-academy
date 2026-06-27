@@ -2,7 +2,7 @@
 title: "מדריך Hooks — אוטומציה של פעולות ב-Claude Code"
 category: guides
 layer: intermediate
-last_verified: 2026-06-20
+last_verified: 2026-06-27
 status: needs-review
 source_url: https://code.claude.com/docs/en/hooks-guide
 related: [skills, sub-agents, plugins-guide, slash-hooks]
@@ -16,7 +16,9 @@ Hooks מאפשרים לאכוף כללי פרויקט, לאוטומט משימו
 
 ## איך משתמשים
 
-Hooks מוגדרים ב-`settings.json`. כל hook כולל event, matcher (ביטוי רגולרי לסינון), ופקודה להרצה.
+Hooks מוגדרים ב-`settings.json`. כל hook כולל event, matcher לסינון שם הכלי, ופקודה להרצה.
+
+**התאמת matchers:** matcher שמכיל רק אותיות, ספרות, `_`, רווחות, `,` ו-`|` משמש כהתאמה מדויקת של מחרוזת (לא ביטוי רגולרי). `Edit|Write` מתאים בדיוק לכלים בשם `Edit` ו-`Write`. לכיסוי כל הכלים של MCP server, הוסף `.*` לסיומת prefix השרת — לדוגמה `mcp__memory__.*`. ה-`.*` הכרחי: `mcp__memory` לבד מתאים רק לכלי ששמו בדיוק `mcp__memory`.
 
 **דוגמה: התראת desktop כשהמודל מחכה לקלט (macOS)**
 

@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "date": "2026-06-27",
+      "summary": "נוספו 2 מאמרים חדשים (Artifacts, Chrome) ועודכן 1 קיים (Hooks — תיקון התנהגות matchers).",
+      "items": [
+        {
+          "title": "Artifacts — שיתוף פלט session כעמוד חי ואינטראקטיבי",
+          "category": "workflows",
+          "slug": "artifacts",
+          "type": "new"
+        },
+        {
+          "title": "אינטגרציית Chrome — אוטומציה של דפדפן מה-CLI (בטא)",
+          "category": "claude-code",
+          "slug": "chrome-integration",
+          "type": "new"
+        },
+        {
+          "title": "מדריך Hooks — אוטומציה של פעולות ב-Claude Code",
+          "category": "guides",
+          "slug": "hooks-guide",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-06-24",
       "summary": "נוספו 2 מאמרים חדשים ועודכן 1 קיים: Bash Sandbox, Auto Mode Config, ותיקון עומק nested subagents.",
       "items": [
