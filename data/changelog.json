@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "date": "2026-07-04",
+      "summary": "נוספו 3 מאמרים חדשים: מצבי הרשאה, סגנונות פלט ושורת סטטוס מותאמת.",
+      "items": [
+        {
+          "title": "מצבי הרשאה — שליטה בתדירות אישורי פעולות",
+          "category": "claude-code",
+          "slug": "permission-modes",
+          "type": "new"
+        },
+        {
+          "title": "סגנונות פלט — התאמת תפקיד, טון ופורמט תגובה",
+          "category": "claude-code",
+          "slug": "output-styles",
+          "type": "new"
+        },
+        {
+          "title": "שורת סטטוס — מעקב שימוש, עלות ו-git בזמן אמת",
+          "category": "claude-code",
+          "slug": "statusline",
+          "type": "new"
+        }
+      ]
+    },
+    {
       "date": "2026-06-27",
       "summary": "נוספו 2 מאמרים חדשים (Artifacts, Chrome) ועודכן 1 קיים (Hooks — תיקון התנהגות matchers).",
       "items": [
