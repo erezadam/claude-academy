@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2026-07-11",
+      "summary": "נוספו 2 מאמרים חדשים: אבחון תצורה שלא עובדת וניהול עלויות ב-Claude Code.",
+      "items": [
+        {
+          "title": "לאבחן תצורה שלא עובדת",
+          "category": "guides",
+          "slug": "debug-your-config",
+          "type": "new"
+        },
+        {
+          "title": "ניהול עלויות ב-Claude Code",
+          "category": "claude-code",
+          "slug": "costs",
+          "type": "new"
+        }
+      ]
+    },
+    {
       "date": "2026-07-04",
       "summary": "נוספו 3 מאמרים חדשים: מצבי הרשאה, סגנונות פלט ושורת סטטוס מותאמת.",
       "items": [
