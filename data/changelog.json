@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2026-07-18",
+      "summary": "עודכנו 2 מאמרים: Artifacts (MCP connectors ושיתוף ב-Pro/Max) ו-/doctor (בדיקה מקיפה ומתקנת, /checkup).",
+      "items": [
+        {
+          "title": "Artifacts — שיתוף פלט session כעמוד חי ואינטראקטיבי",
+          "category": "workflows",
+          "slug": "artifacts",
+          "type": "changed"
+        },
+        {
+          "title": "/doctor — בדיקת תצורה מקיפה ומתקנת",
+          "category": "claude-code",
+          "slug": "slash-doctor",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-07-11",
       "summary": "נוספו 2 מאמרים חדשים: אבחון תצורה שלא עובדת וניהול עלויות ב-Claude Code.",
       "items": [
