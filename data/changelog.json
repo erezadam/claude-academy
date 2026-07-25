@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "date": "2026-07-25",
+      "summary": "נוספו 3 מאמרים חדשים: Headless Mode, הגדרת מודל, ו-Claude Code ב-Monorepo.",
+      "items": [
+        {
+          "title": "Headless Mode — הפעלת Claude Code ללא אינטראקציה",
+          "category": "claude-code",
+          "slug": "headless",
+          "type": "new"
+        },
+        {
+          "title": "הגדרת מודל ב-Claude Code",
+          "category": "claude-code",
+          "slug": "model-config",
+          "type": "new"
+        },
+        {
+          "title": "Claude Code ב-Monorepo ובקוד-בייס גדול",
+          "category": "guides",
+          "slug": "large-codebases",
+          "type": "new"
+        }
+      ]
+    },
+    {
       "date": "2026-07-18",
       "summary": "עודכנו 2 מאמרים: Artifacts (MCP connectors ושיתוף ב-Pro/Max) ו-/doctor (בדיקה מקיפה ומתקנת, /checkup).",
       "items": [
