@@ -41,27 +41,27 @@ export default function StartChecklist({ steps }: { steps: StartStep[] }) {
         return (
           <li
             key={key}
-            className="flex items-start gap-4 py-5 border-b border-gray-100 last:border-b-0"
+            className="flex items-start gap-4 py-5 border-b border-rule last:border-b-0"
           >
-            <span className="text-3xl font-bold text-gray-900 leading-none w-10 shrink-0 text-center">
+            <span className="text-h1 font-bold text-ink leading-none w-10 shrink-0 text-center">
               {i + 1}
             </span>
             <div className="flex-1">
               {step.slug ? (
                 <Link
                   href={`/a/${step.slug}`}
-                  className="font-bold text-gray-900 hover:text-blue-700"
+                  className="font-bold text-ink hover:text-accent"
                 >
                   {step.title}
                 </Link>
               ) : (
-                <span className="font-bold text-gray-700">
-                  {step.title} <span className="text-sm">(נכתב עכשיו)</span>
+                <span className="font-bold text-ink-soft">
+                  {step.title} <span className="text-small">(נכתב עכשיו)</span>
                 </span>
               )}
-              <p className="text-sm text-gray-700 mt-0.5">{step.summary}</p>
+              <p className="text-small text-ink-soft mt-0.5">{step.summary}</p>
               {step.timeMinutes && (
-                <p className="text-sm text-gray-700 mt-0.5">
+                <p className="text-small text-ink-soft mt-0.5">
                   ~{step.timeMinutes} דקות
                 </p>
               )}
@@ -70,10 +70,10 @@ export default function StartChecklist({ steps }: { steps: StartStep[] }) {
               type="button"
               onClick={() => toggle(key)}
               aria-pressed={Boolean(done[key])}
-              className={`text-sm border px-3 py-1 shrink-0 ${
+              className={`text-small border px-3 py-1 shrink-0 ${
                 done[key]
                   ? "border-green-700 text-green-800"
-                  : "border-gray-300 text-gray-700"
+                  : "border-rule text-ink-soft"
               }`}
             >
               {done[key] ? "הושלם ✓" : "סמן שהושלם"}

@@ -97,6 +97,8 @@ export default async function ArticlePage({
       ? missionSiblings[(missionSiblings.findIndex((a) => a.slug === article.slug) + 1) % missionSiblings.length]
       : undefined;
   const stepNext = nextArticle ?? fallbackNext;
+  // הכותרת מוצגת כ-h1 ע"י העמוד; שורת ה-## הראשונה בגוף כפולה לה ומוסרת.
+  const bodyWithoutLeadingTitle = article.content.replace(/^\s*## .*\n+/, "");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -139,44 +141,45 @@ export default async function ArticlePage({
         }}
       />
       {/* Top nav breadcrumbs */}
-      <nav className="border-b border-gray-200">
-        <div className="max-w-3xl mx-auto px-6 py-3 flex items-center gap-2 text-sm">
+      <nav className="border-b border-rule">
+        <div className="max-w-3xl mx-auto px-6 py-3 flex items-center gap-2 text-small">
           <Link
             href="/"
-            className="text-blue-700 hover:underline transition-colors"
+            className="text-accent hover:underline transition-colors"
           >
             האקדמיה של קלוד
           </Link>
-          <span className="text-gray-500">/</span>
+          <span className="text-ink-soft">/</span>
           <Link
             href={missionHref}
-            className="text-blue-700 hover:underline transition-colors"
+            className="text-accent hover:underline transition-colors"
           >
             {missionName}
           </Link>
-          <span className="text-gray-500">/</span>
-          <span className="text-gray-900 font-medium">{article.title}</span>
+          <span className="text-ink-soft">/</span>
+          <span className="text-ink font-bold">{article.title}</span>
         </div>
       </nav>
 
       {/* Article content */}
-      <main className="max-w-3xl mx-auto px-6 py-8">
+      <main className="max-w-[70ch] mx-auto px-6 py-8">
+        <h1 className="text-h1 font-bold text-ink mb-4">{article.title}</h1>
         {/* תגי רמה וזמן + "לפני זה כדאי" */}
-        <div className="mb-4 flex flex-wrap items-center gap-3 text-sm">
-          <span className="border border-gray-300 px-2 py-0.5 text-gray-900">
+        <div className="mb-4 flex flex-wrap items-center gap-3 text-small">
+          <span className="border border-rule px-2 py-0.5 text-ink">
             {LEVEL_NAMES[article.level]}
           </span>
           {article.timeMinutes && (
-            <span className="text-gray-700">~{article.timeMinutes} דקות קריאה</span>
+            <span className="text-ink-soft">~{article.timeMinutes} דקות קריאה</span>
           )}
         </div>
         {prerequisites.length > 0 && (
-          <p className="mb-4 text-sm text-gray-900">
+          <p className="mb-4 text-small text-ink">
             לפני זה כדאי:{" "}
             {prerequisites.map((pre, i) => (
               <span key={pre.slug}>
                 {i > 0 && " · "}
-                <Link href={`/a/${pre.slug}`} className="text-blue-700 hover:underline">
+                <Link href={`/a/${pre.slug}`} className="text-accent hover:underline">
                   {pre.title}
                 </Link>
               </span>
@@ -184,16 +187,16 @@ export default async function ArticlePage({
           </p>
         )}
         {article.whatItDoes && (
-          <p className="mb-6 text-base text-gray-900 border-r-2 border-gray-900 pr-3">
+          <p className="mb-6 text-body text-ink border-r-2 border-action pr-3">
             {article.whatItDoes}
           </p>
         )}
         {article.lastVerified && (
-          <div className="mb-6 text-sm text-gray-700">
+          <div className="mb-6 text-small">
             {article.origin === "original" ? (
-              <span>תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
+              <span className="text-ink-soft">תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
             ) : (
-              <span>
+              <span className="text-verified">
                 הפקודות והדגלים בעמוד אומתו מול התיעוד הרשמי · נבדק ב-
                 {article.lastVerified}
               </span>
@@ -202,29 +205,29 @@ export default async function ArticlePage({
               article.tool === "claude-code" &&
               article.lastReviewed &&
               isStale(article.lastReviewed) && (
-                <span className="block mt-1 text-amber-800">
+                <span className="block mt-1 text-stale bg-stale-bg px-2 py-1 w-fit">
                   ייתכן שהתיישן — Claude Code מתעדכן מהר.
                 </span>
               )}
           </div>
         )}
-        <MarkdownContent content={article.content} />
+        <MarkdownContent content={bodyWithoutLeadingTitle} />
       </main>
 
       {/* הצעד הבא */}
-      <footer className="border-t border-gray-200">
+      <footer className="border-t border-rule">
         <div className="max-w-3xl mx-auto px-6 py-6">
           {stepNext ? (
-            <Link href={`/a/${stepNext.slug}`} className="group block border-2 border-gray-900 p-5 hover:bg-gray-50">
-              <span className="text-sm text-gray-700 block">הצעד הבא</span>
-              <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+            <Link href={`/a/${stepNext.slug}`} className="group block bg-action text-white p-5">
+              <span className="text-small text-white block">הצעד הבא</span>
+              <span className="text-h2 font-bold text-white group-hover:underline">
                 {stepNext.title} ←
               </span>
             </Link>
           ) : (
-            <Link href={missionHref} className="group block border-2 border-gray-900 p-5 hover:bg-gray-50">
-              <span className="text-sm text-gray-700 block">להמשך</span>
-              <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+            <Link href={missionHref} className="group block bg-action text-white p-5">
+              <span className="text-small text-white block">להמשך</span>
+              <span className="text-h2 font-bold text-white group-hover:underline">
                 {missionName} ←
               </span>
             </Link>

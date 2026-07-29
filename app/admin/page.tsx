@@ -47,14 +47,14 @@ export default async function AdminPage() {
     <div className="min-h-screen font-sans bg-white">
       <div className="max-w-xl mx-auto px-6 py-16">
         <div className="flex items-center justify-between mb-10">
-          <h1 className="text-2xl font-bold text-gray-900">אזור אישי</h1>
+          <h1 className="text-h2 font-bold text-ink">אזור אישי</h1>
           <LogoutButton />
         </div>
 
         {/* מונה כניסות */}
-        <div className="rounded-xl border border-gray-200 bg-gray-50 p-6 mb-4">
-          <p className="text-sm text-gray-600 mb-1">סך כל הכניסות לדף הבית</p>
-          <p className="text-4xl font-bold text-gray-900 tabular-nums">
+        <div className="rounded-xl border border-rule bg-gray-50 p-6 mb-4">
+          <p className="text-small text-ink-soft mb-1">סך כל הכניסות לדף הבית</p>
+          <p className="text-h1 font-bold text-ink tabular-nums">
             {views === null ? "—" : views.toLocaleString("he-IL")}
           </p>
         </div>
@@ -64,15 +64,15 @@ export default async function AdminPage() {
           href={VERCEL_ANALYTICS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group block rounded-xl border border-gray-200 bg-white p-5 mb-4 transition-all hover:border-gray-900"
+          className="group block rounded-xl border border-rule bg-white p-5 mb-4 transition-all hover:border-action"
         >
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xl">📊</span>
-            <h2 className="text-base font-bold text-gray-900">
+            <span className="text-h2">📊</span>
+            <h2 className="text-body font-bold text-ink">
               דשבורד האנליטיקה המלא
             </h2>
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-small text-ink-soft">
             מבקרים, דפים מובילים, מקורות תנועה, מדינות ומכשירים — ב-Vercel
             (כניסה עם המייל שלך). נפתח בלשונית חדשה.
           </p>
@@ -81,21 +81,21 @@ export default async function AdminPage() {
         {/* הגדרת מונה */}
         <Link
           href="/optout"
-          className="group block rounded-xl border border-gray-200 bg-white p-5 transition-all hover:border-gray-900"
+          className="group block rounded-xl border border-rule bg-white p-5 transition-all hover:border-action"
         >
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xl">🙈</span>
-            <h2 className="text-base font-bold text-gray-900">
+            <span className="text-h2">🙈</span>
+            <h2 className="text-body font-bold text-ink">
               החרגת עצמי מהספירה
             </h2>
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-small text-ink-soft">
             שהכניסות שלך לא ייכללו במונה (לכל דפדפן בנפרד).
           </p>
         </Link>
 
         <div className="mt-10">
-          <Link href="/" className="text-sm text-blue-700 hover:underline">
+          <Link href="/" className="text-small text-accent hover:underline">
             &rarr; חזרה לדף הבית
           </Link>
         </div>

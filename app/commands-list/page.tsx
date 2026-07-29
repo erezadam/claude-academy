@@ -26,26 +26,26 @@ export default async function CommandsListPage() {
 
   return (
     <div className="min-h-screen font-sans bg-white">
-      <nav className="border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-6 py-3 flex items-center gap-2 text-sm">
+      <nav className="border-b border-rule">
+        <div className="max-w-5xl mx-auto px-6 py-3 flex items-center gap-2 text-small">
           <Link
             href="/"
-            className="text-blue-700 hover:underline transition-colors"
+            className="text-accent hover:underline transition-colors"
           >
             &larr; חזרה לעמוד הבית
           </Link>
         </div>
       </nav>
 
-      <header className="border-b border-gray-100">
+      <header className="border-b border-rule">
         <div className="max-w-5xl mx-auto px-6 py-8">
           <div className="flex items-center gap-3 mb-2">
-            <span className="text-3xl">📋</span>
-            <h1 className="text-2xl font-bold text-gray-900">
+            <span className="text-h1">📋</span>
+            <h1 className="text-h2 font-bold text-ink">
               רשימת פקודות — Claude Code
             </h1>
           </div>
-          <p className="text-gray-900">
+          <p className="text-ink">
             {articles.length} פקודות בטבלה אחת. חיפוש, מיון וסינון.
           </p>
         </div>

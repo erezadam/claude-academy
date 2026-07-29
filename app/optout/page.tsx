@@ -41,40 +41,40 @@ export default function OptOut() {
   return (
     <div className="min-h-screen font-sans bg-white">
       <div className="max-w-xl mx-auto px-6 py-16">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">
+        <h1 className="text-h2 font-bold text-ink mb-2">
           הגדרת מונה הכניסות
         </h1>
-        <p className="text-sm text-gray-600 mb-8">
+        <p className="text-small text-ink-soft mb-8">
           ההגדרה חלה על הדפדפן הנוכחי בלבד. כדי להחריג את עצמך מכל המכשירים שלך,
           בקר כאן פעם אחת מכל אחד מהם.
         </p>
 
         {optedOut ? (
-          <div className="rounded-lg border border-green-200 bg-green-50 p-5">
-            <p className="text-base font-semibold text-green-900 mb-1">
+          <div className="border border-green-200 bg-green-50 p-5">
+            <p className="text-body font-bold text-green-900 mb-1">
               ✓ אתה מוחרג מהספירה
             </p>
-            <p className="text-sm text-green-800 mb-4">
+            <p className="text-small text-green-800 mb-4">
               הכניסות שלך מהדפדפן הזה לא נספרות. אתה עדיין רואה את המונה.
             </p>
             <button
               onClick={() => optOutStore.set(false)}
-              className="text-sm font-medium text-green-800 underline hover:no-underline"
+              className="text-small font-bold text-green-800 underline hover:no-underline"
             >
               בטל החרגה — תחזור להיספר
             </button>
           </div>
         ) : (
-          <div className="rounded-lg border border-gray-200 bg-gray-50 p-5">
-            <p className="text-base font-semibold text-gray-900 mb-1">
+          <div className="border border-rule bg-gray-50 p-5">
+            <p className="text-body font-bold text-ink mb-1">
               הכניסות שלך כרגע נספרות
             </p>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-small text-ink-soft mb-4">
               לחץ כדי שהכניסות שלך מהדפדפן הזה יפסיקו להיכלל במונה.
             </p>
             <button
               onClick={() => optOutStore.set(true)}
-              className="rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700"
+              className="rounded-md bg-gray-900 px-4 py-2 text-small font-bold text-white transition-colors hover:bg-gray-700"
             >
               אל תספור אותי
             </button>
@@ -82,7 +82,7 @@ export default function OptOut() {
         )}
 
         <div className="mt-10">
-          <Link href="/" className="text-sm text-blue-700 hover:underline">
+          <Link href="/" className="text-small text-accent hover:underline">
             &rarr; חזרה לדף הבית
           </Link>
         </div>

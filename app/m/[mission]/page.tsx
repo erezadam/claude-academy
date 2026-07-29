@@ -38,18 +38,18 @@ const LEVEL_NAMES: Record<Level, string> = {
 
 function ArticleRow({ article }: { article: Article }) {
   return (
-    <li className="py-3 border-b border-gray-100 last:border-b-0">
+    <li className="py-3 border-b border-rule last:border-b-0">
       <Link href={`/a/${article.slug}`} className="group block">
-        <span className="font-bold text-gray-900 group-hover:text-blue-700">
+        <span className="font-bold text-ink group-hover:text-accent">
           {article.title}
         </span>
         {article.timeMinutes && (
-          <span className="text-sm text-gray-700 mr-2">
+          <span className="text-small text-ink-soft mr-2">
             · {article.timeMinutes} דק׳
           </span>
         )}
         {article.whatItDoes && (
-          <span className="block text-sm text-gray-700 mt-0.5">
+          <span className="block text-small text-ink-soft mt-0.5">
             {article.whatItDoes}
           </span>
         )}
@@ -76,17 +76,17 @@ export default async function MissionPage({
 
   return (
     <div className="min-h-screen font-sans bg-white">
-      <header className="border-b border-gray-200">
+      <header className="border-b border-rule">
         <div className="max-w-3xl mx-auto px-6 py-10">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{meta.name}</h1>
-          <p className="text-base text-gray-900">{meta.description}</p>
-          <p className="text-sm text-gray-700 mt-1">{articles.length} מאמרים</p>
+          <h1 className="text-h1 font-bold text-ink mb-2">{meta.name}</h1>
+          <p className="text-body text-ink">{meta.description}</p>
+          <p className="text-small text-ink-soft mt-1">{articles.length} מאמרים</p>
         </div>
       </header>
 
       <main className="max-w-3xl mx-auto px-6 py-8">
         {articles.length === 0 && (
-          <p className="text-gray-900">המאמרים למשימה הזו נכתבים עכשיו.</p>
+          <p className="text-ink">המאמרים למשימה הזו נכתבים עכשיו.</p>
         )}
         {!GROUPED_MISSIONS.has(mission as Mission) && (
           <ul>
@@ -102,7 +102,7 @@ export default async function MissionPage({
           lvl === "advanced" ? (
             // סקשן "מתקדם" מקופל כברירת מחדל.
             <details key={lvl} className="mb-8">
-              <summary className="text-lg font-bold text-gray-900 cursor-pointer mb-2">
+              <summary className="text-body font-bold text-ink cursor-pointer mb-2">
                 {LEVEL_NAMES[lvl]} ({list.length})
               </summary>
               <ul>
@@ -113,7 +113,7 @@ export default async function MissionPage({
             </details>
           ) : (
             <section key={lvl} className="mb-8">
-              <h2 className="text-lg font-bold text-gray-900 mb-2">
+              <h2 className="text-body font-bold text-ink mb-2">
                 {LEVEL_NAMES[lvl]}
               </h2>
               <ul>

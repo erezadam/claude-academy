@@ -12,7 +12,7 @@ function CopyBtn({ text }: { text: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="absolute top-2 right-2 px-2 py-1 text-xs rounded bg-gray-600 text-gray-200 hover:bg-gray-500 transition-colors"
+      className="absolute top-2 right-2 px-2 py-1 text-small rounded-token border border-gray-500 bg-transparent text-gray-200 hover:text-white transition-colors"
     >
       {copied ? "הועתק!" : "העתק"}
     </button>
@@ -30,7 +30,7 @@ export default function MarkdownContent({ content }: { content: string }) {
             <div key={i} className="relative">
               <pre
                 dir="ltr"
-                className="bg-gray-900 text-gray-100 rounded-lg p-4 pr-16 text-sm leading-relaxed overflow-x-auto"
+                className="bg-gray-900 text-gray-100 rounded-token p-4 pr-16 text-small leading-relaxed overflow-x-auto"
               >
                 <code>{block.text}</code>
               </pre>
@@ -40,14 +40,14 @@ export default function MarkdownContent({ content }: { content: string }) {
         }
         if (block.type === "h2") {
           return (
-            <h2 key={i} className="text-xl font-bold text-gray-900 mt-8 mb-2">
+            <h2 key={i} className="text-h2 font-bold text-ink mt-8 mb-2">
               {block.text}
             </h2>
           );
         }
         if (block.type === "h3") {
           return (
-            <h3 key={i} className="text-lg font-bold text-gray-900 mt-6 mb-2">
+            <h3 key={i} className="text-body font-bold text-ink mt-6 mb-2">
               {block.text}
             </h3>
           );
@@ -55,13 +55,13 @@ export default function MarkdownContent({ content }: { content: string }) {
         if (block.type === "table") {
           return (
             <div key={i} className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse">
+              <table className="w-full text-small border-collapse">
                 <thead>
                   <tr>
                     {block.headers!.map((h, j) => (
                       <th
                         key={j}
-                        className="border border-gray-200 bg-gray-50 px-3 py-2 text-right font-semibold text-gray-900"
+                        className="border border-rule bg-gray-50 px-3 py-2 text-right font-bold text-ink"
                       >
                         {h}
                       </th>
@@ -74,7 +74,7 @@ export default function MarkdownContent({ content }: { content: string }) {
                       {row.map((cell, k) => (
                         <td
                           key={k}
-                          className="border border-gray-200 px-3 py-2 text-gray-900"
+                          className="border border-rule px-3 py-2 text-ink"
                         >
                           <span
                             dangerouslySetInnerHTML={{
@@ -91,13 +91,13 @@ export default function MarkdownContent({ content }: { content: string }) {
           );
         }
         if (block.type === "hr") {
-          return <hr key={i} className="border-gray-200 my-6" />;
+          return <hr key={i} className="border-rule my-6" />;
         }
         // paragraph
         return (
           <p
             key={i}
-            className="text-gray-900 leading-relaxed"
+            className="text-ink leading-relaxed"
             dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }}
           />
         );
@@ -110,12 +110,12 @@ function inlineFormat(text: string): string {
   return text
     .replace(
       /`([^`]+)`/g,
-      '<code class="bg-gray-100 text-gray-900 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>'
+      '<code class="bg-gray-100 text-ink px-1.5 py-0.5 rounded-token text-small font-mono">$1</code>'
     )
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(
       /\[([^\]]+)\]\(([^)]+)\)/g,
-      '<a href="$2" class="text-blue-700 hover:underline">$1</a>'
+      '<a href="$2" class="text-accent hover:underline">$1</a>'
     );
 }
 

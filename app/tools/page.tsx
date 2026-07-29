@@ -25,10 +25,10 @@ const TOOLS = [
 export default function ToolsPage() {
   return (
     <div className="min-h-screen font-sans bg-white">
-      <header className="border-b border-gray-200">
+      <header className="border-b border-rule">
         <div className="max-w-3xl mx-auto px-6 py-10">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">כלים</h1>
-          <p className="text-base text-gray-900">
+          <h1 className="text-h1 font-bold text-ink mb-2">כלים</h1>
+          <p className="text-body text-ink">
             לא מאמרים — כלים שעובדים בשבילך.
           </p>
         </div>
@@ -36,22 +36,22 @@ export default function ToolsPage() {
       <main className="max-w-3xl mx-auto px-6 py-8">
         <ul>
           {TOOLS.map((tool) => (
-            <li key={tool.href} className="py-4 border-b border-gray-100 last:border-b-0">
+            <li key={tool.href} className="py-4 border-b border-rule last:border-b-0">
               {tool.external ? (
                 <a href={tool.href} className="group block">
-                  <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+                  <span className="text-h2 font-bold text-ink group-hover:text-accent">
                     {tool.title}
                   </span>
-                  <span className="block text-sm text-gray-700 mt-0.5">
+                  <span className="block text-small text-ink-soft mt-0.5">
                     {tool.description}
                   </span>
                 </a>
               ) : (
                 <Link href={tool.href} className="group block">
-                  <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+                  <span className="text-h2 font-bold text-ink group-hover:text-accent">
                     {tool.title}
                   </span>
-                  <span className="block text-sm text-gray-700 mt-0.5">
+                  <span className="block text-small text-ink-soft mt-0.5">
                     {tool.description}
                   </span>
                 </Link>

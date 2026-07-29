@@ -15,9 +15,9 @@ const LAYER_RANK: Record<string, number> = {
 };
 
 const LAYER_BADGE: Record<string, string> = {
-  basic: "bg-green-100 text-green-800",
-  intermediate: "bg-yellow-100 text-yellow-800",
-  advanced: "bg-red-100 text-red-800",
+  basic: "border border-rule text-ink-soft",
+  intermediate: "border border-rule text-ink-soft",
+  advanced: "border border-ink text-ink",
 };
 
 const LEVEL_LABELS: Record<LevelFilter, string> = {
@@ -126,19 +126,20 @@ export default function CommandsTable({
 
   if (articles.length === 0) {
     return (
-      <div className="py-8 text-center text-gray-700">אין פקודות להצגה</div>
+      <div className="py-8 text-center text-ink-soft">אין פקודות להצגה</div>
     );
   }
 
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-3 mb-4">
+      <div className="sticky top-0 z-10 bg-white border-b border-rule flex flex-wrap items-center gap-3 py-3 mb-4">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          aria-label="סינון פקודות"
           placeholder="חפש פקודה..."
-          className="flex-1 min-w-[200px] max-w-xs rounded-lg border border-gray-200 bg-white px-4 py-2 text-lg text-gray-900 placeholder:text-gray-500 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all"
+          className="flex-1 min-w-[200px] max-w-xs border border-rule bg-white px-4 py-2 text-body text-ink placeholder:text-ink-soft outline-none focus:border-ink transition-all"
         />
         <div className="flex gap-2 flex-wrap">
           {LEVELS.map((l) => {
@@ -148,10 +149,10 @@ export default function CommandsTable({
                 key={l}
                 onClick={() => setLevelFilter(l)}
                 className={
-                  "rounded-full border px-3 py-1 text-base transition-colors " +
+                  "rounded-token border px-3 py-1 text-body transition-colors " +
                   (active
-                    ? "bg-blue-100 text-blue-800 border-blue-300"
-                    : "bg-white text-gray-700 border-gray-200 hover:bg-gray-50")
+                    ? "bg-stale-bg text-accent border-rule"
+                    : "bg-white text-ink-soft border-rule hover:bg-gray-50")
                 }
               >
                 {LEVEL_LABELS[l]}
@@ -163,10 +164,10 @@ export default function CommandsTable({
           <button
             onClick={() => setRecentOnly((v) => !v)}
             className={
-              "rounded-full border px-3 py-1 text-base transition-colors " +
+              "rounded-token border px-3 py-1 text-body transition-colors " +
               (recentOnly
-                ? "bg-red-100 text-red-800 border-red-300"
-                : "bg-white text-red-700 border-red-200 hover:bg-red-50")
+                ? "bg-action text-white border-action"
+                : "bg-white text-accent border-rule")
             }
           >
             עודכנו השבוע ({recentUpdates.length})
@@ -174,49 +175,49 @@ export default function CommandsTable({
         )}
         <button
           onClick={clearFilters}
-          className="rounded-lg border border-gray-200 bg-white px-3 py-1 text-base text-gray-700 hover:bg-gray-50 transition-colors"
+          className="border border-rule bg-white px-3 py-1 text-body text-ink-soft transition-colors"
         >
           נקה
         </button>
       </div>
 
       {filtered.length === 0 ? (
-        <div className="py-8 text-center text-gray-700">
+        <div className="py-8 text-center text-ink-soft">
           לא נמצאו תוצאות. נסה לנקות את החיפוש.
         </div>
       ) : (
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
+          <table className="w-full border-collapse font-mono" dir="rtl">
             <thead>
               <tr>
                 <th
                   onClick={() => handleSort("title")}
-                  className="text-right p-4 text-lg border-b-2 border-gray-300 cursor-pointer hover:bg-gray-50 font-bold text-gray-900"
+                  className="text-right py-2 px-3 text-small border-b-2 border-rule cursor-pointer font-bold text-ink"
                 >
                   פקודה{" "}
-                  <span className="text-gray-500 ml-1">
+                  <span className="text-ink-soft ml-1">
                     {sortIndicator("title")}
                   </span>
                 </th>
                 <th
                   onClick={() => handleSort("whatItDoes")}
-                  className="text-right p-4 text-lg border-b-2 border-gray-300 cursor-pointer hover:bg-gray-50 font-bold text-gray-900"
+                  className="text-right py-2 px-3 text-small border-b-2 border-rule cursor-pointer font-bold text-ink"
                 >
                   מה עושה{" "}
-                  <span className="text-gray-500 ml-1">
+                  <span className="text-ink-soft ml-1">
                     {sortIndicator("whatItDoes")}
                   </span>
                 </th>
                 <th
                   onClick={() => handleSort("layer")}
-                  className="text-right p-4 text-lg border-b-2 border-gray-300 cursor-pointer hover:bg-gray-50 font-bold text-gray-900"
+                  className="text-right py-2 px-3 text-small border-b-2 border-rule cursor-pointer font-bold text-ink"
                 >
                   רמה{" "}
-                  <span className="text-gray-500 ml-1">
+                  <span className="text-ink-soft ml-1">
                     {sortIndicator("layer")}
                   </span>
                 </th>
-                <th className="text-right p-4 text-lg border-b-2 border-gray-300 font-bold text-gray-900">
+                <th className="text-right py-2 px-3 text-small border-b-2 border-rule font-bold text-ink">
                   פתח
                 </th>
               </tr>
@@ -225,15 +226,15 @@ export default function CommandsTable({
               {filtered.map((article) => (
                 <tr
                   key={`${article.category}/${article.slug}`}
-                  className="hover:bg-gray-50"
+                  className=""
                 >
-                  <td className="p-4 text-lg border-b border-gray-200 font-medium text-gray-900">
+                  <td className="py-2 px-3 text-small border-b border-rule font-bold text-ink">
                     <span className="flex flex-wrap items-center gap-2">
                       {article.title}
                       {recentMap.has(article.slug) && (
                         <span
                           className={
-                            "inline-block flex-shrink-0 rounded-full px-2 py-0.5 text-xs font-medium " +
+                            "inline-block flex-shrink-0 rounded-token px-2 py-0.5 text-small font-bold " +
                             (recentMap.get(article.slug) === "new"
                               ? "bg-green-100 text-green-800"
                               : "bg-yellow-100 text-yellow-800")
@@ -246,27 +247,28 @@ export default function CommandsTable({
                       )}
                     </span>
                   </td>
-                  <td className="p-4 text-lg border-b border-gray-200 text-gray-700">
+                  <td className="py-2 px-3 text-small border-b border-rule text-ink-soft">
                     {article.whatItDoes}
                   </td>
-                  <td className="p-4 text-lg border-b border-gray-200">
+                  <td className="py-2 px-3 text-small border-b border-rule">
                     {article.layer ? (
                       <span
                         className={
-                          "inline-block rounded-full px-2 py-0.5 text-xs font-medium " +
+                          "inline-block rounded-token px-2 py-0.5 text-small font-bold " +
                           LAYER_BADGE[article.layer]
                         }
                       >
                         {article.layer}
                       </span>
                     ) : (
-                      <span className="text-gray-500">—</span>
+                      <span className="text-ink-soft">—</span>
                     )}
                   </td>
-                  <td className="p-4 text-lg border-b border-gray-200">
+                  <td className="py-2 px-3 text-small border-b border-rule">
                     <Link
                       href={`/a/${article.slug}`}
-                      className="text-blue-700 hover:underline text-xl"
+                      aria-label={`פתח את ${article.title}`}
+                      className="text-accent hover:underline text-small"
                     >
                       &larr;
                     </Link>

@@ -1,10 +1,53 @@
 @import "tailwindcss";
 
+/*
+ * טוקני העיצוב — מקור האמת היחיד. אפס ערכי צבע/גודל/רדיוס בתוך קומפוננטות.
+ * הוגדרו ע"י Erez, 2026-07-29:
+ *   ink        — כל טקסט הגוף
+ *   ink-soft   — מטא-דאטה בלבד, אף פעם לא תוכן
+ *   accent     — קישורים בלבד
+ *   action     — פעולה ראשית (כפתור/בלוק שחור מלא), אחת לעמוד
+ *   verified   — תג האימות (טקסט, לא גלולה)
+ *   stale      — באנר ההתיישנות
+ *   rule       — קווי הפרדה, מחליפים כל צל וכל כרטיס
+ * סקאלה: 30/22/17/15 · משקלים 400/700 בלבד · רדיוס 3px רק על code וכפתורים
+ * מרווחים: 4/8/16/24/40
+ */
 @theme inline {
   --font-sans: var(--font-heebo);
 }
 
+@theme {
+  --color-ink: #111111;
+  --color-ink-soft: #555555;
+  --color-accent: #0b5d5d;
+  --color-action: #000000;
+  --color-verified: #1a6b2f;
+  --color-stale: #8a6100;
+  --color-stale-bg: #fdf6e3;
+  --color-rule: #e0e0e0;
+
+  --text-h1: 30px;
+  --text-h1--line-height: 1.3;
+  --text-h2: 22px;
+  --text-h2--line-height: 1.4;
+  --text-body: 17px;
+  --text-body--line-height: 1.8;
+  --text-small: 15px;
+  --text-small--line-height: 1.6;
+
+  --radius-token: 3px;
+
+  --spacing-t1: 4px;
+  --spacing-t2: 8px;
+  --spacing-t3: 16px;
+  --spacing-t4: 24px;
+  --spacing-t5: 40px;
+}
+
 body {
   background: #ffffff;
-  color: #111827;
+  color: var(--color-ink);
+  font-size: var(--text-body);
+  line-height: 1.8;
 }

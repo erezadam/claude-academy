@@ -19,12 +19,12 @@ export default function Home() {
   return (
     <div className="min-h-screen font-sans bg-white">
       {/* Header */}
-      <header className="border-b border-gray-200">
+      <header className="border-b border-rule">
         <div className="max-w-3xl mx-auto px-6 py-10">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <h1 className="text-h1 font-bold text-ink mb-2">
             האקדמיה של קלוד
           </h1>
-          <p className="text-base text-gray-900">
+          <p className="text-body text-ink">
             Claude Code ו-Git בעברית — כל מאמר מאומת מול המקור שלו.
           </p>
           <ViewCounter />
@@ -35,12 +35,12 @@ export default function Home() {
       <div className="max-w-3xl mx-auto px-6 pt-8">
         <Link
           href="/start"
-          className="block border-2 border-gray-900 p-8 hover:bg-gray-50"
+          className="block bg-action text-white p-8"
         >
-          <span className="text-2xl font-bold text-gray-900 block mb-1">
+          <span className="text-h2 font-bold text-white block mb-1">
             לא עבדת עם Claude Code מעולם? התחל כאן
           </span>
-          <span className="text-base text-gray-900">
+          <span className="text-body text-white">
             מסלול המתחיל — צעד אחרי צעד, מהתקנה ועד עבודה בטוחה ←
           </span>
         </Link>
@@ -60,16 +60,16 @@ export default function Home() {
             return (
               <li
                 key={mission}
-                className="py-4 border-b border-gray-100 last:border-b-0"
+                className="py-4 border-b border-rule last:border-b-0"
               >
-                <Link href={`/m/${mission}`} className="group block">
-                  <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+                <Link href={mission === "start" ? "/start" : `/m/${mission}`} className="group block">
+                  <span className="text-h2 font-bold text-ink group-hover:text-accent">
                     {meta.name}
                   </span>
-                  <span className="text-sm text-gray-700 mr-2">
+                  <span className="text-small text-ink-soft mr-2">
                     · {count} מאמרים
                   </span>
-                  <span className="block text-sm text-gray-700 mt-0.5">
+                  <span className="block text-small text-ink-soft mt-0.5">
                     {meta.description}
                   </span>
                 </Link>
@@ -78,10 +78,10 @@ export default function Home() {
           })}
           <li className="py-4">
             <Link href="/commands-list" className="group block">
-              <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+              <span className="text-h2 font-bold text-ink group-hover:text-accent">
                 טבלת כל הפקודות
               </span>
-              <span className="block text-sm text-gray-700 mt-0.5">
+              <span className="block text-small text-ink-soft mt-0.5">
                 כל פקודות Claude Code ו-Git במקום אחד — חיפוש, מיון, סינון.
               </span>
             </Link>

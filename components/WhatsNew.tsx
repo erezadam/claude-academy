@@ -20,7 +20,7 @@ export default function WhatsNew({
   const latestCount = entries[0].items.length;
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white transition-all hover:border-blue-300 hover:shadow-sm">
+    <div className="border border-rule bg-white transition-all hover:border-ink ">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -28,15 +28,15 @@ export default function WhatsNew({
         className="flex w-full items-center justify-between gap-2 p-5 text-right"
       >
         <span className="flex items-center gap-2">
-          <span className="text-2xl">🆕</span>
-          <span className="text-lg font-bold text-gray-900">
+          <span className="text-h2">🆕</span>
+          <span className="text-body font-bold text-ink">
             מה התעדכן?{" "}
-            <span className="text-blue-700">({latestCount})</span>
+            <span className="text-accent">({latestCount})</span>
           </span>
         </span>
         <span
           aria-hidden="true"
-          className={`text-gray-500 transition-transform ${
+          className={`text-ink-soft transition-transform ${
             open ? "rotate-180" : ""
           }`}
         >
@@ -45,14 +45,14 @@ export default function WhatsNew({
       </button>
 
       {open && (
-        <div className="space-y-6 border-t border-gray-100 px-5 pb-5 pt-4">
+        <div className="space-y-6 border-t border-rule px-5 pb-5 pt-4">
           {entries.map((entry) => (
             <section key={entry.date}>
               <div className="mb-2 flex flex-wrap items-baseline gap-2">
-                <span className="text-sm font-bold text-gray-900">
+                <span className="text-small font-bold text-ink">
                   {entry.date}
                 </span>
-                <span className="text-sm text-gray-700">{entry.summary}</span>
+                <span className="text-small text-ink-soft">{entry.summary}</span>
               </div>
               <ul className="divide-y divide-gray-100">
                 {entry.items.map((item) => (
@@ -62,16 +62,16 @@ export default function WhatsNew({
                       className="group flex items-center justify-between gap-3 py-2"
                     >
                       <span className="flex min-w-0 items-center gap-2">
-                        <span className="truncate font-medium text-gray-900 transition-colors group-hover:text-blue-700">
+                        <span className="truncate font-bold text-ink transition-colors group-hover:text-accent">
                           {item.title}
                         </span>
-                        <span className="flex-shrink-0 text-xs text-gray-700">
+                        <span className="flex-shrink-0 text-small text-ink-soft">
                           {categoryNames[item.category] ?? item.category}
                         </span>
                       </span>
                       <span
                         className={
-                          "flex-shrink-0 rounded-full px-2 py-0.5 text-xs font-medium " +
+                          "flex-shrink-0 rounded-full px-2 py-0.5 text-small font-bold " +
                           (item.type === "new"
                             ? "bg-green-100 text-green-800"
                             : "bg-yellow-100 text-yellow-800")

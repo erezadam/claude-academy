@@ -33,7 +33,7 @@ export default function SearchBar({
     <div className="relative w-full max-w-xl mx-auto">
       <div className="relative">
         <svg
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-soft"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -49,22 +49,23 @@ export default function SearchBar({
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          aria-label="חיפוש באתר"
           placeholder="חפש פקודה, מדריך או תהליך..."
-          className="w-full rounded-lg border border-gray-200 bg-white px-5 pr-11 py-3 text-gray-900 placeholder:text-gray-500 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+          className="w-full border border-rule bg-white px-5 pr-11 py-3 text-ink placeholder:text-ink-soft outline-none focus:border-ink transition-all text-small"
         />
       </div>
       {filtered.length > 0 && (
-        <div className="absolute top-full mt-1 w-full rounded-lg border border-gray-200 bg-white shadow-lg z-10 max-h-80 overflow-y-auto">
+        <div className="absolute top-full mt-1 w-full border border-rule bg-white z-10 max-h-80 overflow-y-auto">
           {filtered.map((item) => (
             <Link
               key={`${item.category}/${item.slug}`}
               href={`/a/${item.slug}`}
-              className="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
+              className="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-rule last:border-b-0"
             >
-              <div className="font-medium text-gray-900 text-sm">
+              <div className="font-bold text-ink text-small">
                 {item.title}
               </div>
-              <div className="text-xs text-gray-700 mt-0.5">
+              <div className="text-small text-ink-soft mt-0.5">
                 {categoryNames[item.category] ?? item.category}
                 {item.whatItDoes && ` · ${item.whatItDoes}`}
               </div>
@@ -73,7 +74,7 @@ export default function SearchBar({
         </div>
       )}
       {query.length >= 2 && filtered.length === 0 && (
-        <div className="absolute top-full mt-1 w-full rounded-lg border border-gray-200 bg-white shadow-lg z-10 px-4 py-3 text-center text-gray-900 text-sm">
+        <div className="absolute top-full mt-1 w-full border border-rule bg-white z-10 px-4 py-3 text-center text-ink text-small">
           לא נמצאו תוצאות
         </div>
       )}

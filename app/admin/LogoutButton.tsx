@@ -17,7 +17,7 @@ export default function LogoutButton() {
     <button
       onClick={logout}
       disabled={loading}
-      className="text-sm font-medium text-gray-700 underline hover:no-underline disabled:opacity-40"
+      className="text-small font-bold text-ink-soft underline hover:no-underline disabled:opacity-40"
     >
       {loading ? "יוצא…" : "יציאה"}
     </button>
