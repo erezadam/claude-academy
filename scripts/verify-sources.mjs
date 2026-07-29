@@ -189,10 +189,11 @@ async function verifyFile(file) {
   if (!fs.existsSync(file)) return [`${file}: file not found`];
   const raw = fs.readFileSync(file, "utf-8");
   const { data, body } = parseFrontmatter(raw);
-  // תוכן מקורי (ניסיון, לא תיעוד) — פטור מהשער, בהודעה גלויה.
+  // תוכן מקורי (ניסיון, לא תיעוד) — פטור מהשער, בהודעה גלויה. מחזיר סנטינל
+  // כדי שהקובץ לא ייספר "עובר" — פטור אינו אימות.
   if ((data.origin || "").trim() === "original") {
     console.log(`○ ${file}: origin: original — תוכן מקורי, פטור משער האימות.`);
-    return [];
+    return null;
   }
   const url = data.source_url;
   if (!url) return [`${file}: missing source_url in frontmatter`];
@@ -205,23 +206,27 @@ async function verifyFile(file) {
     );
   }
 
-  let sourceText = await fetchSource(url, !isAllowedSource(url) && !!exception);
-  // source_url_extra: עמודי תיעוד רשמיים נוספים שהמאמר נשען עליהם (מופרדים
-  // ברווח) — למשל דגלי CLI שמתועדים בעמוד נפרד. חייבים לעמוד ב-allowlist.
+  const sourceText = await fetchSource(url, !isAllowedSource(url) && !!exception);
+  // source_url_extra: עמודי תיעוד רשמיים נוספים (מופרדים ברווח). נשמרים
+  // בנפרד מהמקור הראשי: טוקן שמאומת רק דרך מקור משני מדווח גלוי עם ה-URL
+  // שסיפק אותו — אחרת המקור הראשי יכול למות ולהתחבא מאחורי המשני.
+  const extraSources = [];
   for (const extraUrl of (data.source_url_extra || "").split(/\s+/).filter(Boolean)) {
     if (!isAllowedSource(extraUrl)) continue;
     const extra = await fetchSource(extraUrl);
-    if (extra && sourceText) {
-      sourceText = { normalized: sourceText.normalized + " " + extra.normalized, raw: sourceText.raw + " " + extra.raw };
-    } else if (extra) sourceText = extra;
+    if (extra) extraSources.push({ url: extraUrl, text: extra });
   }
   if (sourceText === null) return [`${file}: source_url not reachable (no 200): ${url}`];
 
   const tokens = extractTokens(extractCodeRegions(body));
   for (const tok of tokens) {
-    if (!tokenFoundIn(sourceText, tok)) {
-      problems.push(`${file}: unverified token \`${tok}\` not found in source ${url}`);
+    if (tokenFoundIn(sourceText, tok)) continue;
+    const via = extraSources.find((s) => tokenFoundIn(s.text, tok));
+    if (via) {
+      console.log(`ℹ ${file}: \`${tok}\` אומת דרך מקור משני בלבד: ${via.url}`);
+      continue;
     }
+    problems.push(`${file}: unverified token \`${tok}\` not found in source ${url}`);
   }
   return problems;
 }
@@ -246,18 +251,26 @@ if (files.length === 0) {
 }
 
 const allProblems = [];
+let verified = 0;
+let exempt = 0;
 for (const file of files) {
   const problems = await verifyFile(file);
-  if (problems.length === 0) console.log(`✓ ${file}`);
-  else {
+  if (problems === null) exempt++;
+  else if (problems.length === 0) {
+    verified++;
+    console.log(`✓ ${file}`);
+  } else {
     for (const p of problems) console.log(`✗ ${p}`);
     allProblems.push(...problems);
   }
 }
 
+// מה בדיוק נבדק: מזהים טכניים בקטעי code (פקודות slash, דגלים, משתני-סביבה,
+// מפתחות-קונפיג) מול source_url. השער אינו מאמת טענות פרוזה, ערכי ברירת-מחדל
+// או סמנטיקה — "עובר" משמעו שאוצר-המילים הטכני קיים במקור, לא שהמאמר נכון.
 if (allProblems.length > 0) {
-  console.log(`\nשער אימות-מקור נכשל: ${allProblems.length} טענות לא אומתו.`);
+  console.log(`\nשער אימות-מקור נכשל: ${allProblems.length} טענות לא אומתו (${verified} אומתו-מילונית, ${exempt} פטורים כתוכן מקורי).`);
   process.exit(1);
 }
-console.log(`\n✅ שער אימות-מקור עבר: כל המזהים בכל ${files.length} הקבצים נתמכים במקור.`);
+console.log(`\n✅ שער אימות-מקור: המזהים הטכניים ב-${verified} קבצים קיימים במקורות; ${exempt} קבצים פטורים (origin: original) ולא נבדקו. אימות מילוני בלבד — לא אימות טענות.`);
 process.exit(0);
