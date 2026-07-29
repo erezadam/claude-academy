@@ -30,7 +30,7 @@ badge: new
 
 ### Skills לעומת Commands
 - **Commands** (`/clear`, `/compact`) — פעולות מובנות קבועות
-- **Skills** (`/new-project`, `/backup`) — פעולות מותאמות שאתה מגדיר
+- **Skills** (למשל **/new-project**, **/backup** — שמות שאתה בוחר) — פעולות מותאמות שאתה מגדיר
 
 ---
 

@@ -15,13 +15,12 @@ related: [/clear, /memory, /rewind]
 
 ## /export — ייצוא השיחה
 
-מה זה עושה: שומר את כל השיחה לקובץ או clipboard.
+מה זה עושה: מייצא את השיחה כטקסט — לקובץ או ל-clipboard.
 
 ### שימוש
 ```
-/export                        ← clipboard
-/export conversation.md        ← קובץ markdown
-/export --clipboard            ← clipboard מפורש
+/export                        ← פותח דיאלוג בחירה: העתקה ל-clipboard או שמירה לקובץ
+/export conversation.txt       ← שמירה ישירה לקובץ (plain text)
 ```
 
 ### מתי להשתמש

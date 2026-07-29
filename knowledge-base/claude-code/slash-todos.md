@@ -2,13 +2,16 @@
 title: "/todos"
 category: claude-code
 layer: basic
-last_verified: 2026-03-07
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
+source_url_extra: https://code.claude.com/docs/en/changelog
 related: [/plan, /review, /status]
 ---
 
 ## /todos
+
+> הערה: הפקודה `/todos` אינה מופיעה ברשימת הפקודות בתיעוד הרשמי הנוכחי (נבדק ב-2026-07-29). היא מתועדת רק ב-changelog (v1.0.93). ייתכן שהוסרה או שולבה בכלי אחר — נעדכן כשיתברר.
 
 מה זה עושה: מציג את רשימת המשימות של Claude לsession הנוכחי.
 

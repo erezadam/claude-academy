@@ -182,7 +182,7 @@ Result: Campaign created with confirmation link
 
 **Best Practices:**
 
-- ספציפיות: `"הרץ python scripts/validate.py --input {filename}"` במקום "תאמת את הנתונים"
+- ספציפיות: "הרץ python scripts/validate.py --input {filename}" במקום "תאמת את הנתונים"
 - טיפול בשגיאות: כללו הוראות ברורות לכל שגיאה נפוצה
 - הפנייה לקבצים: "לפני כתיבת שאילתות, עיין ב-`references/api-patterns.md`"
 - שמרו SKILL.md ממוקד, העבירו תיעוד מפורט ל-references/

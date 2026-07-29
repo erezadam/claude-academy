@@ -1,31 +1,31 @@
 ---
-title: "/extra-usage, /privacy-settings — מכסות ופרטיות"
+title: "/usage-credits, /privacy-settings — מכסות ופרטיות"
 category: claude-code
 layer: intermediate
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-login-logout-usage, slash-config]
 badge: new
 ---
 
-## /extra-usage, /privacy-settings — מכסות ופרטיות
+## /usage-credits (בעבר: /extra-usage), /privacy-settings — מכסות ופרטיות
 
 פקודות לניהול שימוש מעבר למכסה והגדרות פרטיות.
 
 ---
 
-## /extra-usage — שימוש נוסף
+## /usage-credits — שימוש נוסף
 
 מה זה עושה: מגדיר שימוש נוסף בעת הגעה למגבלות המכסה.
 
 ```bash
-/extra-usage
+/usage-credits
 ```
 
 ### מה קורה
 - כשמגיעים למכסה החודשית — Claude Code מאט או נעצר
-- עם `/extra-usage` אפשר להגדיר המשך שימוש מעבר למכסה
+- עם `/usage-credits` אפשר להגדיר המשך שימוש מעבר למכסה
 - חיוב נוסף לפי שימוש
 
 ### מתי להשתמש

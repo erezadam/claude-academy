@@ -2,10 +2,10 @@
 title: "כל פקודות Claude Code — מדריך מרכזי"
 category: claude-code
 layer: basic
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
-source_url_extra: https://code.claude.com/docs/en/cli-reference
+source_url_extra: https://code.claude.com/docs/en/cli-reference https://code.claude.com/docs/en/output-styles
 related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 ---
 
@@ -22,7 +22,8 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 | `/clear` | מחיקת כל השיחה — CLAUDE.md נשמר. מילות מפתח: `/reset`, `/new` | מעבר משימה |
 | `/compact [הוראה]` | דחיסה 60-70% עם שמירת הקשר | context > 80% |
 | `/resume [id/שם]` | ממשיך session קודם. מילת מפתח: `/continue` | המשך עבודה |
-| `/fork [שם]` | מפצל שיחה לסשן נפרד מהנקודה הנוכחית | ניסוי מקבילי |
+| `/fork [prompt]` | מעתיק את השיחה לסשן רקע חדש וממשיך לעבוד כאן | ניסוי מקבילי |
+| `/branch [שם]` | מפצל את השיחה מהנקודה הנוכחית | חקירת כיוון אחר |
 | `/rename [שם]` | שינוי שם הסשן הנוכחי | סדר |
 | `/rewind` | חזרה לנקודה קודמת — קוד ו/או שיחה. מילת מפתח: `/checkpoint` | ניסוי שנכשל |
 | `/exit` | יציאה מ-Claude Code. מילת מפתח: `/quit` | סיום |
@@ -41,7 +42,7 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 | `/help` | רשימת כל הפקודות הזמינות | תמיד |
 | `/stats` | ויזואליזציה של שימוש יומי והיסטוריית סשנים | סטטיסטיקות |
 | `/diff` | שינויים פתוחים ו-diff לפי תורות | לפני commit |
-| `/export [שם קובץ]` | ייצוא שיחה לקובץ טקסט או clipboard | תיעוד |
+| `/export [שם קובץ]` | ייצוא שיחה כטקסט; בלי שם קובץ — נפתח דיאלוג בחירה (clipboard או קובץ) | תיעוד |
 | `/copy` | העתקת תגובה אחרונה ל-clipboard | שיתוף |
 | `/release-notes` | changelog מלא | אחרי עדכון |
 | `/insights` | ניתוח וסיכום סשנים קודמים | סקירה שבועית |
@@ -53,11 +54,16 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 | פקודה | מה עושה | מתי |
 |--------|---------|-----|
 | `/model [שם]` | מעבר בין מודלים: opus / sonnet / haiku | לפי מורכבות |
-| `/fast [on/off]` | מצב מהיר — אותו מודל, פלט מהיר יותר | מהירות |
+| `/fast [on/off]` | מצב מהיר — זמין רק ב-Opus; ממודל אחר עובר אוטומטית ל-Opus. תמחור גבוה יותר | מהירות |
 | `/plan` | מצב תכנון — Claude מציע לפני ביצוע | משימות גדולות |
-| `/vim` | מעבר בין Vim לעריכה רגילה | משתמשי Vim |
-| `/output-style [סגנון]` | סגנון פלט: Default / Explanatory / Learning | לפי צורך |
 | `/theme` | ערכת צבעים | עיצוב |
+
+**פקודות שהוסרו** — אם הקלדת אותן וקיבלת שגיאה, זו הסיבה:
+
+| פקודה | הוסרה בגרסה | מה עושים היום |
+|--------|--------------|----------------|
+| `/vim` | v2.1.92 | `/config` → Editor mode |
+| `/output-style` | v2.1.91 (הוצאה משימוש ב-v2.1.73) | `/config` → Output style, או ההגדרה `outputStyle` |
 
 ---
 
@@ -79,7 +85,7 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 | `/terminal-setup` | הגדרת קיצורי מקלדת לטרמינל | התקנה |
 | `/keybindings` | פתח/צור קובץ keybindings | התאמה |
 | `/sandbox` | הפעל/כבה sandbox mode | אבטחה |
-| `/extra-usage` | שימוש נוסף בעת הגעה למגבלות | מכסה |
+| `/usage-credits` | שימוש נוסף בעת הגעה למגבלות (בעבר `/extra-usage`) | מכסה |
 | `/privacy-settings` | הגדרות פרטיות (Pro/Max בלבד) | פרטיות |
 | `/statusline` | תצוגת status line בטרמינל | התאמה |
 
@@ -89,7 +95,7 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 
 | פקודה | מה עושה | מתי |
 |--------|---------|-----|
-| `/loop [interval] [prompt]` | תזמון משימה חוזרת. יחידות: s/m/h/d או cron | ניטור, CI |
+| `/loop [interval] [prompt]` | תזמון משימה חוזרת. יחידות: s/m/h/d; ביטויי cron — דרך הכלי CronCreate | ניטור, CI |
 | `CronCreate` | כלי פנימי — יצירת job מתוזמן | אוטומטי |
 | `CronList` | רשימת כל המשימות הפעילות + Job IDs | ניהול |
 | `CronDelete [job-id]` | ביטול משימה לפי ID | ניקוי |
@@ -97,10 +103,9 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 **דוגמאות:**
 ```bash
 /loop 5m check deploy status
-/loop 0 9 * * * summarize merged PRs
 /loop 1h scan for security vulnerabilities
 ```
-**מגבלות:** session-scoped, פג תוקף אחרי 3 ימים, מקסימום 50 משימות.
+**מגבלות:** session-scoped, משימה חוזרת פגה 7 ימים מהיצירה, מקסימום 50 משימות.
 
 ---
 
@@ -125,7 +130,8 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 | `/remote-control` | סשן נגיש מ-claude.ai. מילת מפתח: `/rc` | עבודה מרחוק |
 | `/desktop` | המשך סשן ב-Desktop. מילת מפתח: `/app` | ממשק גרפי |
 | `/tasks` | רשימת background tasks שרצים | ניטור |
-| `/feedback` | משוב לאנתרופיק. מילת מפתח: `/bug` | דיווח |
+| `/feedback` | משוב לאנתרופיק | דיווח |
+| `/bug` | דיווח תקלה. מילת מפתח: `/share` (מאז v2.1.212 אינן כינוי של `/feedback`) | דיווח |
 
 ---
 
@@ -139,14 +145,13 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 | `Ctrl+R` | חיפוש בהיסטוריית פרומפטים |
 | `Ctrl+T` | הצג/הסתר רשימת משימות |
 | `Shift+Tab` | מחזור בין מצבים: Auto-Accept / Plan / Normal |
-| `Ctrl+O` | Verbose output |
+| `Ctrl+O` | הצג/הסתר transcript viewer |
 | `Ctrl+B` | Background — הרץ ברקע |
 | `Ctrl+G` | פתח עורך טקסט חיצוני |
 | `Alt+P` | החלף מודל בלי לנקות פרומפט |
 | `Alt+T` | הפעל/כבה extended thinking |
 | `Ctrl+K` | מחק עד סוף שורה |
-| `Ctrl+U` | מחק שורה שלמה |
-| `# [טקסט]` | שמור זיכרון ל-CLAUDE.md |
+| `Ctrl+U` | מחק מהסמן עד תחילת השורה |
 | `@ [path]` | הכנס קובץ לcontext |
 | `! [command]` | הרץ bash ישירות |
 
@@ -169,16 +174,17 @@ related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 
 ---
 
-### קטגוריה י': Skills (מאוחד עם Commands ב-2026)
+### קטגוריה י': פקודות שאני מגדיר בעצמי — לא מובנות
 
-| פקודה | מה עושה |
+Skills מותאמים אישית מופעלים כפקודת slash לפי שם הקובץ שלהם: `/[שם-skill]`. השמות בטבלה הם **דוגמאות שלי בלבד** — הם לא קיימים אצלך עד שתיצור אותם:
+
+| דוגמה לשם שתגדיר | רעיון לשימוש |
 |--------|---------|
-| `/[שם-skill]` | הפעלת skill מותאם אישית |
-| `/new-project` | skill — פרויקט חדש |
-| `/backup` | skill — גיבוי מהיר |
-| `/checklist` | skill — בדיקה לפני commit |
-| `/new-feature` | skill — פיצ'ר חדש |
-| `/status` | skill — מצב הפרויקט |
+| `/[שם-skill]` | התבנית הכללית — כל SKILL.md שתיצור |
+| **/new-project** (דוגמה) | הקמת פרויקט חדש לפי התבנית שלך |
+| **/backup** (דוגמה) | גיבוי מהיר |
+| **/checklist** (דוגמה) | בדיקה לפני commit |
+| **/new-feature** (דוגמה) | פתיחת פיצ'ר חדש |
 
 ---
 
@@ -216,4 +222,4 @@ Esc+Esc [checkpoint] → נסה → אם נכשל: /rewind
 
 ---
 
-**מקור רשמי:** https://code.claude.com/docs/en/slash-commands
+**מקור רשמי:** https://code.claude.com/docs/en/commands
