@@ -130,3 +130,25 @@
 | workflows/parallel-agents | advanced | advanced | guide | השוואה מושגית בין גישות מרובות-סוכנים |
 | workflows/ultraplan | code | intermediate | guide | תכנון וביצוע שינויי קוד בענן |
 | workflows/worktrees | code | intermediate | guide | בידוד git לסשנים — עבודת קוד |
+
+---
+
+# עדכון v2 — 2026-07-29 (אחרי הכרעות Erez)
+
+## טקסונומיית 7 המשימות — reference (31 מאמרים) הוצא לטבלת הפקודות
+
+| mission | מאמרים | מבחן 5–25 |
+|---|---|---|
+| daily | 23 | ✓ |
+| advanced | 19 | ✓ |
+| automate | 8 | ✓ |
+| spec | 7 | ✓ |
+| git | 5 | ✓ |
+| undo | 2 | ❌ מתחת ל-5 |
+| start | 1 | ❌ מתחת ל-5 (5 מאמרים חדשים בהגדרת Erez בדרך → 6 ✓) |
+
+חריגת undo: רק checkpointing ו-slash-rewind אינם reference. הכרטיסים git-reset-revert / git-stash / slash-rewind-כטבלה שייכים לטבלת הפקודות. אפשרויות: (א) להשאיר undo רזה — הוא עדיין ציר נפשי אמיתי; (ב) מאמר recipe חדש "קלוד שבר לי משהו — מסלול החילוץ המלא"; (ג) למזג undo לתוך daily. ההכרעה של Erez.
+
+## בדיקת 50 ה-beginner — הנחת התקנה
+
+38 מ-50 מניחים ש-Claude Code מותקן ורץ. הפירוש שיושם: "בלי שום ידע מוקדם" = בלי מושגים מוקדמים — התקנה מכוסה ע"י מסלול start, ולכן מאמר שמניח התקנה אבל דורש רק הקלדת הפקודה המוצגת נשאר beginner. לפי הרובריקה המחמירה שוייכו מחדש 3: keybindings, slash-loop, code-review-workflow → intermediate. beginner סופי: 47.
