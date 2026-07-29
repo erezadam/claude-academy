@@ -2,7 +2,7 @@
 title: "אינטגרציית Chrome — אוטומציה של דפדפן מה-CLI (בטא)"
 category: claude-code
 layer: basic
-last_verified: 2026-06-27
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/chrome
 related: [computer-use, skills, common-workflows]

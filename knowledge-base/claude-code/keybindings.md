@@ -2,7 +2,7 @@
 title: "Keybindings — התאמת קיצורי מקלדת"
 category: claude-code
 layer: basic
-last_verified: 2026-06-20
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/keybindings
 related: [slash-terminal-keybindings, interactive-mode, slash-fast-vim]

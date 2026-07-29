@@ -2,7 +2,7 @@
 title: "שיטות עבודה מומלצות עם Claude Code"
 category: claude-code
 layer: basic
-last_verified: 2026-05-30
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/best-practices
 related: [skills, sub-agents, plugins-guide, /init, /memory, /clear, /compact, /rewind, hooks-guide, mcp]

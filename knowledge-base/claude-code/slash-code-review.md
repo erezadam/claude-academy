@@ -2,7 +2,7 @@
 title: "code-review/ — סקירת קוד בטרמינל"
 category: claude-code
 layer: intermediate
-last_verified: 2026-05-28
+last_verified: 2026-07-29
 status: current
 related: [slash-commands-all, claude-md-guide]
 source_url: "https://code.claude.com/docs/en/code-review"

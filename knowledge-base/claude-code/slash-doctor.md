@@ -2,7 +2,7 @@
 title: "/doctor — בדיקת תצורה מקיפה ומתקנת"
 category: claude-code
 layer: basic
-last_verified: 2026-07-18
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-commands-all, hooks-guide, memory, skills]

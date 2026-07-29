@@ -2,7 +2,7 @@
 title: "Fast Mode — תגובות Opus מהירות יותר"
 category: claude-code
 layer: basic
-last_verified: 2026-06-14
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/fast-mode
 related: ["slash-fast-vim", "slash-model", "slash-context-cost"]

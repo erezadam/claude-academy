@@ -2,7 +2,7 @@
 title: "Headless Mode — הפעלת Claude Code ללא אינטראקציה"
 category: claude-code
 layer: intermediate
-last_verified: 2026-07-25
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/headless
 related: [sessions, sub-agents, sandboxing, slash-commands-all]

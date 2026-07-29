@@ -2,7 +2,7 @@
 title: "לאבחן תצורה שלא עובדת"
 category: guides
 layer: intermediate
-last_verified: 2026-07-11
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/debug-your-config
 related: ["hooks-guide", "slash-doctor", "slash-hooks", "slash-mcp", "slash-config"]

@@ -2,7 +2,7 @@
 title: "וורקפלואו דינמי — תזמור סוכנים בקנה מידה"
 category: workflows
 layer: intermediate
-last_verified: 2026-06-14
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/workflows
 related: [routines, sub-agents, scheduled-tasks]

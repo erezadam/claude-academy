@@ -2,7 +2,7 @@
 title: "הגדרת מודל ב-Claude Code"
 category: claude-code
 layer: basic
-last_verified: 2026-07-25
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/model-config
 related: [fast-mode, slash-model, slash-commands-all]

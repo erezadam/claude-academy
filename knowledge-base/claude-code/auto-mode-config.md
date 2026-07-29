@@ -2,7 +2,7 @@
 title: "הגדרת Auto Mode — שליטה בסיווג אוטומטי"
 category: claude-code
 layer: intermediate
-last_verified: 2026-06-24
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/auto-mode-config
 related: [slash-security-sandbox, permissions, sandboxing]

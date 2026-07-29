@@ -2,7 +2,7 @@
 title: "/loop — תזמון משימות חוזרות"
 category: scheduling
 layer: advanced
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [cron-tools]

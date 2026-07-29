@@ -2,7 +2,7 @@
 title: "Computer Use — שליטה במסך ואפליקציות מה-CLI"
 category: claude-code
 layer: intermediate
-last_verified: 2026-06-14
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/computer-use
 related: ["slash-mcp", "slash-remote-desktop", "slash-security-sandbox"]

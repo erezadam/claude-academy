@@ -2,7 +2,7 @@
 title: "Claude Code ב-Monorepo ובקוד-בייס גדול"
 category: guides
 layer: intermediate
-last_verified: 2026-07-25
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/large-codebases
 related: [memory, claude-md-guide, worktrees, plugins-guide, skills]

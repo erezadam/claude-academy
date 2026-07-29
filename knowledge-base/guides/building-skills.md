@@ -2,7 +2,7 @@
 title: "המדריך המלא לבניית Skills ל-Claude"
 category: guides
 layer: advanced
-last_verified: 2026-03-08
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/skills
 source_url_extra: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/quickstart https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices

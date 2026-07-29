@@ -2,7 +2,7 @@
 title: "שורת סטטוס מותאמת אישית ב-Claude Code"
 category: claude-code
 layer: intermediate
-last_verified: 2026-07-04
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/statusline
 related: [slash-config, keybindings, sessions]

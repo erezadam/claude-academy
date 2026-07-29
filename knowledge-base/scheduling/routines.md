@@ -2,7 +2,7 @@
 title: "Routines — אוטומציה בענן עם Claude Code"
 category: scheduling
 layer: intermediate
-last_verified: 2026-05-30
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/routines
 related: [scheduled-tasks, dynamic-workflows, /schedule]

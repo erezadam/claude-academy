@@ -2,7 +2,7 @@
 title: "Advisor — ייעוץ ממודל חזק יותר באמצע משימה"
 category: claude-code
 layer: intermediate
-last_verified: 2026-06-14
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/advisor
 related: ["slash-model", "sub-agents", "slash-fast-vim"]

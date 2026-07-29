@@ -2,7 +2,7 @@
 title: "Artifacts — שיתוף פלט session כעמוד חי ואינטראקטיבי"
 category: workflows
 layer: basic
-last_verified: 2026-07-18
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/artifacts
 related: [mcp, skills, dynamic-workflows]

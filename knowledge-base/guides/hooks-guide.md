@@ -2,7 +2,7 @@
 title: "מדריך Hooks — אוטומציה של פעולות ב-Claude Code"
 category: guides
 layer: intermediate
-last_verified: 2026-06-27
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/hooks-guide
 related: [skills, sub-agents, plugins-guide, slash-hooks]

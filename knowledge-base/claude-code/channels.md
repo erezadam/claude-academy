@@ -2,7 +2,7 @@
 title: "Channels — הזרמת אירועים חיצוניים לתוך session פעיל"
 category: claude-code
 layer: intermediate
-last_verified: 2026-06-14
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/channels
 related: ["slash-mcp", "scheduled-tasks", "slash-remote-desktop"]

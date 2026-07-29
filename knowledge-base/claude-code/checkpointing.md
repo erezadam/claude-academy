@@ -2,7 +2,7 @@
 title: "Checkpointing — עקיבה והחזרה של שינויים"
 category: claude-code
 layer: basic
-last_verified: 2026-06-20
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/checkpointing
 related: [slash-rewind, sessions, slash-compact-clear]

@@ -2,7 +2,7 @@
 title: "/terminal-setup, /keybindings, /statusline — הגדרות טרמינל"
 category: claude-code
 layer: intermediate
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-config, keyboard-shortcuts]
