@@ -124,6 +124,11 @@ export default function CommandsTable({
     return sortDir === "asc" ? "↑" : "↓";
   }
 
+  function ariaSort(col: SortBy): "ascending" | "descending" | "none" {
+    if (sortBy !== col) return "none";
+    return sortDir === "asc" ? "ascending" : "descending";
+  }
+
   if (articles.length === 0) {
     return (
       <div className="py-8 text-center text-ink-soft">אין פקודות להצגה</div>
@@ -191,31 +196,49 @@ export default function CommandsTable({
             <thead>
               <tr>
                 <th
-                  onClick={() => handleSort("title")}
-                  className="text-right py-2 px-3 text-small border-b-2 border-rule cursor-pointer font-bold text-ink"
+                  aria-sort={ariaSort("title")}
+                  className="text-right border-b-2 border-rule font-bold text-ink"
                 >
-                  פקודה{" "}
-                  <span className="text-ink-soft ml-1">
-                    {sortIndicator("title")}
-                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleSort("title")}
+                    className="w-full text-right py-2 px-3 text-small font-bold text-ink cursor-pointer"
+                  >
+                    פקודה{" "}
+                    <span className="text-ink-soft ml-1" aria-hidden="true">
+                      {sortIndicator("title")}
+                    </span>
+                  </button>
                 </th>
                 <th
-                  onClick={() => handleSort("whatItDoes")}
-                  className="text-right py-2 px-3 text-small border-b-2 border-rule cursor-pointer font-bold text-ink"
+                  aria-sort={ariaSort("whatItDoes")}
+                  className="text-right border-b-2 border-rule font-bold text-ink"
                 >
-                  מה עושה{" "}
-                  <span className="text-ink-soft ml-1">
-                    {sortIndicator("whatItDoes")}
-                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleSort("whatItDoes")}
+                    className="w-full text-right py-2 px-3 text-small font-bold text-ink cursor-pointer"
+                  >
+                    מה עושה{" "}
+                    <span className="text-ink-soft ml-1" aria-hidden="true">
+                      {sortIndicator("whatItDoes")}
+                    </span>
+                  </button>
                 </th>
                 <th
-                  onClick={() => handleSort("layer")}
-                  className="text-right py-2 px-3 text-small border-b-2 border-rule cursor-pointer font-bold text-ink"
+                  aria-sort={ariaSort("layer")}
+                  className="text-right border-b-2 border-rule font-bold text-ink"
                 >
-                  רמה{" "}
-                  <span className="text-ink-soft ml-1">
-                    {sortIndicator("layer")}
-                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleSort("layer")}
+                    className="w-full text-right py-2 px-3 text-small font-bold text-ink cursor-pointer"
+                  >
+                    רמה{" "}
+                    <span className="text-ink-soft ml-1" aria-hidden="true">
+                      {sortIndicator("layer")}
+                    </span>
+                  </button>
                 </th>
                 <th className="text-right py-2 px-3 text-small border-b-2 border-rule font-bold text-ink">
                   פתח

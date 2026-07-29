@@ -186,7 +186,8 @@ export default async function ArticlePage({
             ))}
           </p>
         )}
-        {article.whatItDoes && (
+        {/* התקציר מוצג רק על reference — שם הוא כרטיס; ב-guide הוא הכפיל את הפתיחה. */}
+        {isReference && article.whatItDoes && (
           <p className="mb-6 text-body text-ink border-r-2 border-action pr-3">
             {article.whatItDoes}
           </p>
