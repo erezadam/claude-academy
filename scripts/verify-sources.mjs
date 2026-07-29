@@ -93,9 +93,6 @@ const ALLOWED_HOSTS = new Set([
   "code.claude.com",
   "docs.claude.com",
   "docs.anthropic.com",
-  "anthropic.com",
-  "www.anthropic.com",
-  "claude.com",
 ]);
 
 function isAllowedSource(u) {
@@ -126,7 +123,23 @@ async function fetchSource(url) {
       /* ממשיכים לוריאנט הבא */
     }
   }
-  return any200 ? normalize(combined) : null;
+  if (!any200) return null;
+  // raw שומר רישיות למשתני-סביבה (case-sensitive); normalized לשאר המזהים.
+  const raw = combined.replace(/<[^>]+>/g, " ").replace(/&[a-z]+;/gi, " ").replace(/\s+/g, " ");
+  return { normalized: normalize(combined), raw };
+}
+
+// התאמת טוקן מלא עם גבולות: תו מזהה (אות/ספרה/_/./-) צמוד משני הצדדים פוסל,
+// כך ש---continu לא "מאומת" בגלל --continue. משתני-סביבה (ALL_CAPS) מושווים
+// case-sensitive מול הטקסט הגולמי; שאר המזהים — case-insensitive.
+const ENV_VAR_SHAPE = /^[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)+$/;
+function tokenFoundIn(source, tok) {
+  const caseSensitive = ENV_VAR_SHAPE.test(tok);
+  const needle = caseSensitive ? tok : tok.toLowerCase();
+  const esc = needle.replace(/[.*+?^${}()|[\]\\-]/g, "\\$&");
+  return new RegExp(`(?<![\\w.-])${esc}(?![\\w.-])`).test(
+    caseSensitive ? source.raw : source.normalized
+  );
 }
 
 async function verifyFile(file) {
@@ -144,7 +157,7 @@ async function verifyFile(file) {
 
   const tokens = extractTokens(extractCodeRegions(body));
   for (const tok of tokens) {
-    if (!sourceText.includes(tok.toLowerCase())) {
+    if (!tokenFoundIn(sourceText, tok)) {
       problems.push(`${file}: unverified token \`${tok}\` not found in source ${url}`);
     }
   }
