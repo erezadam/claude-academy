@@ -2,10 +2,17 @@
 title: "סגנונות פלט ב-Claude Code"
 category: claude-code
 layer: intermediate
-last_verified: 2026-07-04
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/output-styles
 related: [memory, skills, permission-modes, slash-config]
+mission: daily
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 3
+last_reviewed: 2026-07-04
 ---
 
 סגנונות פלט משנים את אופן התגובה של Claude, לא את מה שהוא יודע. הם מוסיפים הוראות לפרומפט המערכת ומגדירים תפקיד, טון ופורמט פלט.

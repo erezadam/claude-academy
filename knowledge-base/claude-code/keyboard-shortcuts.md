@@ -2,11 +2,17 @@
 title: "קיצורי מקלדת"
 category: claude-code
 layer: basic
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/hooks-guide
 related: [/rewind, /plan, /compact]
+level: beginner
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## קיצורי מקלדת — Claude Code

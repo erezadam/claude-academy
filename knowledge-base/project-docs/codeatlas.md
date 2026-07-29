@@ -6,6 +6,12 @@ last_verified: 2026-05-01
 status: current
 origin: original
 related: [vibeview, lessons]
+mission: spec
+level: beginner
+type: recipe
+tool: claude-code
+timeMinutes: 2
+last_reviewed: 2026-05-01
 ---
 
 ## CODEATLAS.md - מפת ניווט וזרימה

@@ -1,23 +1,29 @@
 ---
-title: "/fast, /vim, /output-style, /theme — מצבים ועיצוב"
+title: "/fast, /theme — ומה קרה ל-/vim ול-/output-style"
 category: claude-code
 layer: basic
-last_verified: 2026-03-09
-status: current
+last_verified: 2026-07-29
+status: needs-review
 source_url: https://code.claude.com/docs/en/commands
+source_url_extra: https://code.claude.com/docs/en/fast-mode https://code.claude.com/docs/en/output-styles
 related: [slash-model, slash-config]
-badge: new
+level: beginner
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-07-29
 ---
 
-## /fast, /vim, /output-style, /theme — מצבים ועיצוב
+## /fast, /theme — ומה קרה ל-/vim ול-/output-style
 
-פקודות לשליטה במהירות הפלט, מצב עריכה, סגנון פלט וערכת צבעים.
+שתי פקודות חיות לשליטה במהירות ובצבעים — ושתי פקודות שהוסרו, שאנשים עדיין מחפשים.
 
 ---
 
 ## /fast — מצב מהיר
 
-מה זה עושה: מפעיל/מכבה מצב מהיר — אותו מודל, פלט מהיר יותר.
+מה זה עושה: מפעיל/מכבה מצב מהיר — פלט מהיר יותר, במחיר גבוה יותר.
 
 ```bash
 /fast          # toggle
@@ -25,32 +31,32 @@ badge: new
 /fast off      # כבה
 ```
 
-> חשוב: זה **לא** מחליף מודל — זה אותו מודל עם אופטימיזציית מהירות.
+חשוב לדעת לפני שמפעילים: מצב מהיר זמין רק במודלי Opus. אם אתה עובד על מודל אחר, Claude Code יעבור אוטומטית ל-Opus כשתפעיל אותו — כלומר הפעלת `/fast` כן יכולה להחליף לך מודל. התמחור של מצב מהיר גבוה מהתמחור הרגיל.
 
 ---
 
-## /vim — מצב Vim
+## /vim — הוסר בגרסה 2.1.92
 
-מה זה עושה: מעבר בין מצב עריכה רגיל למצב Vim בשורת הקלט.
+הפקודה `/vim` כבר לא קיימת. אם הקלדת אותה וקיבלת שגיאה — זו הסיבה.
+
+מה עושים היום במקום:
 
 ```bash
-/vim
+/config        # → Editor mode → בחר Vim או Normal
 ```
 
-### למי מתאים
-- משתמשי Vim/Neovim שרגילים ל-keybindings של Vim
-- מי שרוצה ניווט מהיר יותר בטקסט
+מצב העריכה של Vim עצמו לא הוסר — רק הפקודה הישירה. המעבר בין מצבי העריכה עבר ל-`/config`.
 
 ---
 
-## /output-style — סגנון פלט
+## /output-style — הוסר בגרסה 2.1.91
 
-מה זה עושה: משנה את סגנון התגובות של Claude.
+הפקודה העצמאית `/output-style` הוצאה משימוש בגרסה 2.1.73 והוסרה בגרסה 2.1.91.
+
+הסגנונות עצמם (Default / Explanatory / Learning) עדיין קיימים — אבל מגדירים אותם דרך `/config` או ישירות בהגדרה `outputStyle`:
 
 ```bash
-/output-style Default      # ברירת מחדל
-/output-style Explanatory  # הסברים מפורטים
-/output-style Learning     # מצב למידה — מסביר כל צעד
+/config        # → Output style
 ```
 
 | סגנון | מתי |

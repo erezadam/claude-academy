@@ -2,10 +2,17 @@
 title: "Agent View — ניהול סשנים מקבילים מסך אחד"
 category: workflows
 layer: intermediate
-last_verified: 2026-06-06
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/agent-view
 related: ["sub-agents", "dynamic-workflows", "slash-goal"]
+mission: advanced
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-06
 ---
 
 `claude agents` פותח מסך אחד לניהול כל הסשנים הרקע שלכם: מה שרץ, מה ממתין לקלט, ומה הסתיים.

@@ -36,7 +36,7 @@ export default function WhatsNew({
         </span>
         <span
           aria-hidden="true"
-          className={`text-gray-400 transition-transform ${
+          className={`text-gray-500 transition-transform ${
             open ? "rotate-180" : ""
           }`}
         >
@@ -52,7 +52,7 @@ export default function WhatsNew({
                 <span className="text-sm font-bold text-gray-900">
                   {entry.date}
                 </span>
-                <span className="text-sm text-gray-500">{entry.summary}</span>
+                <span className="text-sm text-gray-700">{entry.summary}</span>
               </div>
               <ul className="divide-y divide-gray-100">
                 {entry.items.map((item) => (
@@ -65,7 +65,7 @@ export default function WhatsNew({
                         <span className="truncate font-medium text-gray-900 transition-colors group-hover:text-blue-700">
                           {item.title}
                         </span>
-                        <span className="flex-shrink-0 text-xs text-gray-500">
+                        <span className="flex-shrink-0 text-xs text-gray-700">
                           {categoryNames[item.category] ?? item.category}
                         </span>
                       </span>

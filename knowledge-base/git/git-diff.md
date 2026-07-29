@@ -2,10 +2,16 @@
 title: "git diff"
 category: git
 layer: basic
-last_verified: 2026-03-07
+last_verified: 2026-07-29
 status: current
 source_url: https://git-scm.com/docs/git-diff
 related: [git-status, git-log, git-add]
+level: beginner
+type: reference
+tool: git
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## git diff

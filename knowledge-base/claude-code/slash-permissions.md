@@ -2,11 +2,17 @@
 title: "/permissions"
 category: claude-code
 layer: intermediate
-last_verified: 2026-03-07
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/cli-reference
 related: [/config, /sandbox, /doctor]
+level: intermediate
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## /permissions

@@ -2,11 +2,17 @@
 title: "/skills, /plugin — skills ותוספים"
 category: claude-code
 layer: intermediate
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-agents, slash-config]
 badge: new
+level: intermediate
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## /skills, /plugin — ניהול Skills ותוספים
@@ -30,7 +36,7 @@ badge: new
 
 ### Skills לעומת Commands
 - **Commands** (`/clear`, `/compact`) — פעולות מובנות קבועות
-- **Skills** (`/new-project`, `/backup`) — פעולות מותאמות שאתה מגדיר
+- **Skills** (למשל **/new-project**, **/backup** — שמות שאתה בוחר) — פעולות מותאמות שאתה מגדיר
 
 ---
 

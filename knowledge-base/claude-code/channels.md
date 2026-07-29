@@ -2,10 +2,17 @@
 title: "Channels — הזרמת אירועים חיצוניים לתוך session פעיל"
 category: claude-code
 layer: intermediate
-last_verified: 2026-06-14
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/channels
 related: ["slash-mcp", "scheduled-tasks", "slash-remote-desktop"]
+mission: automate
+level: advanced
+type: recipe
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-14
 ---
 
 Channels הם שרתי MCP שדוחפים אירועים לתוך session של Claude Code הפועל, כדי ש-Claude יגיב לדברים שקורים בזמן שאתם לא ליד הטרמינל. ניתן להפנות תוצאות CI, הודעות צ'אט ואירועי monitoring אל Claude — והוא יטפל בהם ב-session הפתוח שכבר יש לכם.

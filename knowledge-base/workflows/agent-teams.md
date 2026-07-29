@@ -2,10 +2,17 @@
 title: "Agent Teams — תיאום קבוצות של Claude Code"
 category: workflows
 layer: intermediate
-last_verified: 2026-06-20
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/agent-teams
 related: [sub-agents, dynamic-workflows, agent-view, worktrees]
+mission: advanced
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-20
 ---
 
 Agent Teams מאפשרים לתאם כמה instances של Claude Code שעובדים יחד. session אחד משמש כ-Lead שמאצil משימות, ומשתתפים (teammates) עובדים באופן עצמאי — כל אחד עם context window משלו — ויכולים לתקשר ישירות אחד עם השני.

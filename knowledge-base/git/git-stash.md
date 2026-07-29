@@ -2,10 +2,16 @@
 title: "git stash"
 category: git
 layer: intermediate
-last_verified: 2026-03-07
+last_verified: 2026-07-29
 status: current
 source_url: https://git-scm.com/docs/git-stash
 related: [git-checkout, git-pull, git-branch]
+level: intermediate
+type: reference
+tool: git
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## git stash

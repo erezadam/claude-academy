@@ -2,12 +2,18 @@
 title: "git commit"
 category: git
 layer: basic
-last_verified: 2026-03-07
+last_verified: 2026-07-29
 claude_code_version: ">=1.0"
 source_url: "https://git-scm.com/docs/git-commit"
 source_url_extra: https://git-scm.com/docs/git-config
 status: current
 related: [git-add, git-push, git-log, git-stash]
+level: beginner
+type: reference
+tool: git
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## git commit
@@ -67,8 +73,6 @@ git commit --amend --no-edit
 "שמור את השינויים"
 "תעשה commit עם הודעה: הוספת דף אודות"
 
-# או ישירות:
-/git commit -m "feat: הוספת דף אודות"
 ```
 
 ### מתי להשתמש

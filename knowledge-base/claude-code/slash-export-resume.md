@@ -2,11 +2,18 @@
 title: "/export ו-/resume"
 category: claude-code
 layer: basic
-last_verified: 2026-03-07
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/cli-reference
 related: [/clear, /memory, /rewind]
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## /export ו-/resume — שמירה והמשך sessions
@@ -15,13 +22,12 @@ related: [/clear, /memory, /rewind]
 
 ## /export — ייצוא השיחה
 
-מה זה עושה: שומר את כל השיחה לקובץ או clipboard.
+מה זה עושה: מייצא את השיחה כטקסט — לקובץ או ל-clipboard.
 
 ### שימוש
 ```
-/export                        ← clipboard
-/export conversation.md        ← קובץ markdown
-/export --clipboard            ← clipboard מפורש
+/export                        ← פותח דיאלוג בחירה: העתקה ל-clipboard או שמירה לקובץ
+/export conversation.txt       ← שמירה ישירה לקובץ (plain text)
 ```
 
 ### מתי להשתמש

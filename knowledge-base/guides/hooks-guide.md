@@ -2,10 +2,17 @@
 title: "מדריך Hooks — אוטומציה של פעולות ב-Claude Code"
 category: guides
 layer: intermediate
-last_verified: 2026-06-27
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/hooks-guide
 related: [skills, sub-agents, plugins-guide, slash-hooks]
+mission: automate
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 3
+last_reviewed: 2026-06-27
 ---
 
 Hooks הם פקודות shell שמריצות אוטומטית בנקודות ספציפיות במחזור החיים של Claude Code. הם מספקים שליטה דטרמיניסטית על ההתנהגות — כלומר פעולות מסוימות תמיד יקרו, ללא תלות בשיקול דעת המודל.

@@ -2,10 +2,17 @@
 title: "/doctor — בדיקת תצורה מקיפה ומתקנת"
 category: claude-code
 layer: basic
-last_verified: 2026-07-18
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-commands-all, hooks-guide, memory, skills]
+mission: daily
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-07-18
 ---
 
 `/doctor` הוא skill מובנה שמאבחן בעיות תצורה והתקנה ב-Claude Code ויכול גם לתקן אותן — לא רק לדווח עליהן. מציג ממצאים ומבקש אישור לפני כל שינוי.

@@ -2,10 +2,17 @@
 title: "אינטגרציית Chrome — אוטומציה של דפדפן מה-CLI (בטא)"
 category: claude-code
 layer: basic
-last_verified: 2026-06-27
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/chrome
 related: [computer-use, skills, common-workflows]
+mission: advanced
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 3
+last_reviewed: 2026-06-27
 ---
 
 Claude Code משתלב עם תוסף Chrome של Claude כדי לתת יכולות אוטומציה של דפדפן ישירות מה-CLI. בונים את הקוד, ואז בודקים ומאבחנים בדפדפן בלי להחליף הקשר.

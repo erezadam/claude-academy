@@ -2,10 +2,17 @@
 title: "הרצת Agents במקביל — השוואת גישות"
 category: workflows
 layer: intermediate
-last_verified: 2026-06-20
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/agents
 related: [sub-agents, agent-view, dynamic-workflows, worktrees, agent-teams]
+mission: advanced
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-20
 ---
 
 Claude Code מציע כמה גישות להרצת משימות מקביליות. כל גישה מתאימה לתרחיש אחר, ובחירה נכונה חוסכת טוקנים ומשפרת תוצאות.

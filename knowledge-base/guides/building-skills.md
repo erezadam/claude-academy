@@ -2,13 +2,20 @@
 title: "המדריך המלא לבניית Skills ל-Claude"
 category: guides
 layer: advanced
-last_verified: 2026-03-08
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/skills
 source_url_extra: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/quickstart https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
 related: [slash-commands-all, claude-md-guide]
 badge: new
 author: "דניאל נחמיה"
+mission: advanced
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 8
+last_reviewed: 2026-03-08
 ---
 
 ## המדריך המלא לבניית Skills ל-Claude: מתכנון ועד הפצה
@@ -182,7 +189,7 @@ Result: Campaign created with confirmation link
 
 **Best Practices:**
 
-- ספציפיות: `"הרץ python scripts/validate.py --input {filename}"` במקום "תאמת את הנתונים"
+- ספציפיות: "הרץ python scripts/validate.py --input {filename}" במקום "תאמת את הנתונים"
 - טיפול בשגיאות: כללו הוראות ברורות לכל שגיאה נפוצה
 - הפנייה לקבצים: "לפני כתיבת שאילתות, עיין ב-`references/api-patterns.md`"
 - שמרו SKILL.md ממוקד, העבירו תיעוד מפורט ל-references/

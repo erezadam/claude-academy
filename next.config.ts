@@ -10,6 +10,19 @@ const nextConfig: NextConfig = {
         destination: "/a/:slug",
         permanent: true,
       },
+      // האשף הישן ב-public הוסר (כפילות מול /wizard). ייתכן שאונדקס —
+      // redirect במקום 404.
+      {
+        source: "/project-wizard.html",
+        destination: "/wizard",
+        permanent: true,
+      },
+      // עמודי הקטגוריה הישנים (לפי תיקייה) פינו את מקומם לציר המשימות.
+      // תיקיות חד-משמעיות → המשימה; מעורבות → מפתח המדריכים.
+      { source: "/category/git", destination: "/m/code", permanent: true },
+      { source: "/category/scheduling", destination: "/m/automate", permanent: true },
+      { source: "/category/project-docs", destination: "/m/spec", permanent: true },
+      { source: "/category/:slug", destination: "/guides", permanent: true },
     ];
   },
 };

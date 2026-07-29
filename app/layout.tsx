@@ -3,6 +3,7 @@ import { Heebo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { getLastUpdated } from "@/lib/knowledge";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/seo";
+import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -91,11 +92,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${heebo.variable} antialiased`}>
+        <SiteNav />
         {children}
         <Analytics />
         {lastUpdatedLabel && (
           <footer className="border-t border-gray-200 mt-12">
-            <div className="max-w-5xl mx-auto px-6 py-4 text-sm text-gray-500">
+            <div className="max-w-5xl mx-auto px-6 py-4 text-sm text-gray-700">
               עודכן לאחרונה: {lastUpdatedLabel}
             </div>
           </footer>

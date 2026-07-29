@@ -2,10 +2,17 @@
 title: "Ultraplan — תכנון בענן ועריכה שיתופית"
 category: workflows
 layer: intermediate
-last_verified: 2026-06-14
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/ultraplan
 related: ["dynamic-workflows", "agent-view", "worktrees"]
+mission: advanced
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-14
 ---
 
 Ultraplan מעביר משימת תכנון מה-CLI המקומי ל-session של Claude Code on the web שרץ ב-plan mode. Claude מנסח את התוכנית בענן בזמן שאתם ממשיכים לעבוד בטרמינל. כשהתוכנית מוכנה, פותחים אותה בדפדפן, מגיבים על קטעים ספציפיים ובוחרים היכן לבצע.

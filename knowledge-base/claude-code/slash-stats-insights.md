@@ -2,11 +2,17 @@
 title: "/stats, /insights, /release-notes — מידע וניתוח"
 category: claude-code
 layer: basic
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-context-cost, slash-export-resume]
 badge: new
+level: beginner
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## /stats, /insights, /release-notes — מידע וניתוח

@@ -1,143 +1,98 @@
 import Link from "next/link";
 import {
-  getCategories,
   getAllArticles,
   getChangelog,
   getCategoryNameMap,
-  getLatestCommandUpdates,
+  MISSION_META,
+  MISSION_ORDER,
+  getMissionArticles,
 } from "@/lib/knowledge";
 import SearchBar from "@/components/SearchBar";
 import WhatsNew from "@/components/WhatsNew";
 import ViewCounter from "@/components/ViewCounter";
 
-// נוסח עברי תקין לכמות הפקודות שעודכנו השבוע (יחיד/רבים), כדפוס buildSummary.
-function updatedCommandsLabel(count: number): string {
-  return count === 1
-    ? "פקודה אחת עודכנה השבוע"
-    : `${count} פקודות עודכנו השבוע`;
-}
-
 export default function Home() {
-  const categories = getCategories();
   const allArticles = getAllArticles();
   const changelog = getChangelog();
   const categoryNames = getCategoryNameMap();
-  const commandUpdates = getLatestCommandUpdates();
 
   return (
     <div className="min-h-screen font-sans bg-white">
       {/* Header */}
       <header className="border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-6 py-10">
+        <div className="max-w-3xl mx-auto px-6 py-10">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             האקדמיה של קלוד
           </h1>
           <p className="text-base text-gray-900">
-            מאגר ידע מקיף ל-Claude Code ו-Git — הכל בעברית, הכל במקום אחד
+            Claude Code ו-Git בעברית — כל מאמר מאומת מול המקור שלו.
           </p>
           <ViewCounter />
         </div>
       </header>
 
-      {/* Search */}
-      <div className="max-w-5xl mx-auto px-6 py-6">
-        <SearchBar items={allArticles} categoryNames={categoryNames} />
-      </div>
-
-      {/* What's New */}
-      <div className="max-w-5xl mx-auto px-6 pb-4">
-        <WhatsNew entries={changelog} categoryNames={categoryNames} />
-      </div>
-
-      {/* Commands List CTA — sits directly under What's New. A div (not a single
-          Link) so the red "updated this week" line can link to the filtered view
-          without nesting anchors inside the main tile link. */}
-      <div className="max-w-5xl mx-auto px-6 pb-4">
-        <div className="rounded-lg border border-gray-200 bg-white p-5 transition-all hover:border-green-300 hover:shadow-sm">
-          <Link href="/commands-list" className="group block">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-2xl">📋</span>
-              <h2 className="text-lg font-bold text-gray-900 group-hover:text-green-700 transition-colors">
-                רשימת פקודות
-              </h2>
-            </div>
-            <p className="text-sm text-gray-900 leading-relaxed">
-              כל פקודות Claude Code בטבלה אחת — חיפוש, מיון, סינון.
-            </p>
-          </Link>
-          {commandUpdates.length > 0 && (
-            <Link
-              href="/commands-list?updated=week"
-              className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-red-600 hover:text-red-700 hover:underline"
-            >
-              {updatedCommandsLabel(commandUpdates.length)} &larr;
-            </Link>
-          )}
-        </div>
-      </div>
-
-      {/* Wizard CTA */}
-      <div className="max-w-5xl mx-auto px-6 pb-4">
+      {/* פיצול הדרכים: בלוק ראשי דומיננטי אחד */}
+      <div className="max-w-3xl mx-auto px-6 pt-8">
         <Link
-          href="/wizard"
-          className="group block rounded-lg border border-gray-200 bg-white p-5 transition-all hover:border-blue-300 hover:shadow-sm"
+          href="/start"
+          className="block border-2 border-gray-900 p-8 hover:bg-gray-50"
         >
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-2xl">&#10024;</span>
-            <h2 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-              אשף פרויקט חדש
-            </h2>
-          </div>
-          <p className="text-sm text-gray-900 leading-relaxed">
-            ענה על כמה שאלות וקבל את כל הפקודות מוכנות להרצה — Git, CLAUDE.md,
-            ו-GitHub
-          </p>
+          <span className="text-2xl font-bold text-gray-900 block mb-1">
+            לא עבדת עם Claude Code מעולם? התחל כאן
+          </span>
+          <span className="text-base text-gray-900">
+            מסלול המתחיל — צעד אחרי צעד, מהתקנה ועד עבודה בטוחה ←
+          </span>
         </Link>
       </div>
 
-      {/* Design Gallery CTA */}
-      <div className="max-w-5xl mx-auto px-6 pb-4">
-        <a
-          href="/design-gallery/"
-          className="group block rounded-lg border border-gray-200 bg-white p-5 transition-all hover:border-purple-300 hover:shadow-sm"
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-2xl">🎨</span>
-            <h2 className="text-lg font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
-              Design Gallery
-            </h2>
-          </div>
-          <p className="text-sm text-gray-900 leading-relaxed">
-            12 מערכות עיצוב מוכנות לשימוש — דמו חי, קוד CSS, ו-Skill Prompt להפעלת Claude
-          </p>
-        </a>
+      {/* חיפוש רחב */}
+      <div className="max-w-3xl mx-auto px-6 py-6">
+        <SearchBar items={allArticles} categoryNames={categoryNames} />
       </div>
 
-      {/* Category Cards */}
-      <main className="max-w-5xl mx-auto px-6 pb-20">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={`/category/${cat.slug}`}
-              className="group block rounded-lg border border-gray-200 bg-white p-5 transition-all hover:border-blue-300 hover:shadow-sm"
-            >
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">{cat.icon}</span>
-                <h2 className="text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors">
-                  {cat.name}
-                </h2>
-              </div>
-              <p className="text-sm text-gray-900 mb-3 leading-relaxed">
-                {cat.description}
-              </p>
-              <span className="text-sm font-medium text-blue-700">
-                {cat.articles.length} פקודות &larr;
+      {/* רשימה טיפוגרפית של שש המשימות */}
+      <main className="max-w-3xl mx-auto px-6 pb-8">
+        <ul>
+          {MISSION_ORDER.map((mission) => {
+            const count = getMissionArticles(mission).length;
+            const meta = MISSION_META[mission];
+            return (
+              <li
+                key={mission}
+                className="py-4 border-b border-gray-100 last:border-b-0"
+              >
+                <Link href={`/m/${mission}`} className="group block">
+                  <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+                    {meta.name}
+                  </span>
+                  <span className="text-sm text-gray-700 mr-2">
+                    · {count} מאמרים
+                  </span>
+                  <span className="block text-sm text-gray-700 mt-0.5">
+                    {meta.description}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+          <li className="py-4">
+            <Link href="/commands-list" className="group block">
+              <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+                טבלת כל הפקודות
+              </span>
+              <span className="block text-sm text-gray-700 mt-0.5">
+                כל פקודות Claude Code ו-Git במקום אחד — חיפוש, מיון, סינון.
               </span>
             </Link>
-          ))}
-        </div>
+          </li>
+        </ul>
       </main>
+
+      {/* What's New */}
+      <div className="max-w-3xl mx-auto px-6 pb-20">
+        <WhatsNew entries={changelog} categoryNames={categoryNames} />
+      </div>
     </div>
   );
 }

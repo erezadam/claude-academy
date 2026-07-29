@@ -2,11 +2,18 @@
 title: "/diff, /copy — צפייה והעתקה"
 category: claude-code
 layer: basic
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-export-resume, slash-context-cost]
 badge: new
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## /diff, /copy — צפייה והעתקה

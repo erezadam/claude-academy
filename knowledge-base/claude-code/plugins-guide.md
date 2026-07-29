@@ -2,11 +2,18 @@
 title: "Plugins — חבילות הרחבה לשיתוף"
 category: claude-code
 layer: intermediate
-last_verified: 2026-05-30
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/plugins
 source_url_extra: https://code.claude.com/docs/en/commands
 related: [skills, sub-agents, hooks, mcp, plugin-marketplaces]
+mission: advanced
+level: advanced
+type: recipe
+tool: claude-code
+origin: official
+timeMinutes: 10
+last_reviewed: 2026-05-30
 ---
 
 ## Plugins

@@ -2,11 +2,18 @@
 title: "בניית סוכן ב-Claude Code — מדריך מקצה לקצה לפי ההמלצות הרשמיות"
 category: guides
 layer: advanced
-last_verified: 2026-06-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/best-practices
 related: [claude-md-guide, slash-plan, slash-permissions, slash-compact-clear, skills, slash-mcp, sub-agents, slash-hooks, plugins-guide, worktrees, slash-goal, slash-rewind, slash-context-cost]
 badge: new
+mission: advanced
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 13
+last_reviewed: 2026-06-09
 ---
 
 ## בניית סוכן ב-Claude Code — מדריך מקצה לקצה לפי ההמלצות הרשמיות

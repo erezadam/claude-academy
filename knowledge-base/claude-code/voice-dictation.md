@@ -2,10 +2,17 @@
 title: "Voice Dictation — הכתבה קולית לטרמינל"
 category: claude-code
 layer: basic
-last_verified: 2026-06-14
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/voice-dictation
 related: ["keyboard-shortcuts", "slash-config"]
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-14
 ---
 
 Voice Dictation מאפשר לדבר במקום להקליד ב-CLI של Claude Code. הדיבור מתומלל בזמן אמת לתוך שורת הקלט, כך שאפשר לשלב קול והקלדה באותה הודעה. מפעילים עם `/voice` ואז מחזיקים מקש תוך כדי דיבור, או לוחצים פעמיים.

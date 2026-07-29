@@ -33,7 +33,7 @@ export default function SearchBar({
     <div className="relative w-full max-w-xl mx-auto">
       <div className="relative">
         <svg
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -50,7 +50,7 @@ export default function SearchBar({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="חפש פקודה, מדריך או תהליך..."
-          className="w-full rounded-lg border border-gray-200 bg-white px-5 pr-11 py-3 text-gray-900 placeholder:text-gray-400 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+          className="w-full rounded-lg border border-gray-200 bg-white px-5 pr-11 py-3 text-gray-900 placeholder:text-gray-500 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
         />
       </div>
       {filtered.length > 0 && (
@@ -64,7 +64,7 @@ export default function SearchBar({
               <div className="font-medium text-gray-900 text-sm">
                 {item.title}
               </div>
-              <div className="text-xs text-gray-500 mt-0.5">
+              <div className="text-xs text-gray-700 mt-0.5">
                 {categoryNames[item.category] ?? item.category}
                 {item.whatItDoes && ` · ${item.whatItDoes}`}
               </div>

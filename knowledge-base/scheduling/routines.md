@@ -2,10 +2,17 @@
 title: "Routines — אוטומציה בענן עם Claude Code"
 category: scheduling
 layer: intermediate
-last_verified: 2026-05-30
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/routines
 related: [scheduled-tasks, dynamic-workflows, /schedule]
+mission: automate
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 12
+last_reviewed: 2026-05-30
 ---
 
 Routine הוא קונפיגורציית Claude Code שמורה: prompt, repository אחד או יותר, וסט connectors — ארוז פעם אחת ומופעל אוטומטית. Routines רצים על תשתית ענן מנוהלת של Anthropic, ולכן הם ממשיכים לפעול גם כשהלפטופ סגור. הם מעמידים את Claude Code על טייס אוטומטי: ריצה לפי לוח זמנים, ריצה בתגובה לקריאת API, או ריצה בתגובה לאירועי GitHub.

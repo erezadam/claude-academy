@@ -2,10 +2,16 @@
 title: "git log"
 category: git
 layer: basic
-last_verified: 2026-03-07
+last_verified: 2026-07-29
 status: current
 source_url: https://git-scm.com/docs/git-log
 related: [git-diff, git-show, git-reset]
+level: beginner
+type: reference
+tool: git
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## git log

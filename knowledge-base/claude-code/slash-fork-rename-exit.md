@@ -2,11 +2,18 @@
 title: "/fork, /rename, /exit — ניהול סשנים"
 category: claude-code
 layer: basic
-last_verified: 2026-03-09
+last_verified: 2026-07-29
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-compact-clear, slash-export-resume]
 badge: new
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## /fork, /rename, /exit — ניהול סשנים

@@ -2,10 +2,17 @@
 title: "Remote Control — שליטה מרחוק ב-Claude Code"
 category: claude-code
 layer: intermediate
-last_verified: 2026-06-20
+last_verified: 2026-07-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/remote-control
 related: [sessions, channels, slash-remote-desktop]
+mission: advanced
+level: intermediate
+type: recipe
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-20
 ---
 
 Remote Control מאפשר להמשיך session של Claude Code שרץ על המחשב שלך מכל מכשיר — דפדפן, טלפון, או טאבלט — דרך [claude.ai/code](https://claude.ai/code) או אפליקציית Claude.

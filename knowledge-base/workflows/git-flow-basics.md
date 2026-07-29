@@ -5,6 +5,12 @@ layer: basic
 last_verified: 2026-05-30
 status: current
 origin: original
+mission: code
+level: intermediate
+type: recipe
+tool: both
+timeMinutes: 2
+last_reviewed: 2026-05-30
 ---
 
 ## Git Flow — תהליך עבודה בסיסי
