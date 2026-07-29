@@ -147,14 +147,14 @@ export default async function ArticlePage({
           >
             האקדמיה של קלוד
           </Link>
-          <span className="text-gray-400">/</span>
+          <span className="text-gray-500">/</span>
           <Link
             href={missionHref}
             className="text-blue-700 hover:underline transition-colors"
           >
             {missionName}
           </Link>
-          <span className="text-gray-400">/</span>
+          <span className="text-gray-500">/</span>
           <span className="text-gray-900 font-medium">{article.title}</span>
         </div>
       </nav>

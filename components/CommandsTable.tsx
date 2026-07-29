@@ -126,7 +126,7 @@ export default function CommandsTable({
 
   if (articles.length === 0) {
     return (
-      <div className="py-8 text-center text-gray-500">אין פקודות להצגה</div>
+      <div className="py-8 text-center text-gray-700">אין פקודות להצגה</div>
     );
   }
 
@@ -138,7 +138,7 @@ export default function CommandsTable({
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="חפש פקודה..."
-          className="flex-1 min-w-[200px] max-w-xs rounded-lg border border-gray-200 bg-white px-4 py-2 text-lg text-gray-900 placeholder:text-gray-400 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all"
+          className="flex-1 min-w-[200px] max-w-xs rounded-lg border border-gray-200 bg-white px-4 py-2 text-lg text-gray-900 placeholder:text-gray-500 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all"
         />
         <div className="flex gap-2 flex-wrap">
           {LEVELS.map((l) => {
@@ -181,7 +181,7 @@ export default function CommandsTable({
       </div>
 
       {filtered.length === 0 ? (
-        <div className="py-8 text-center text-gray-500">
+        <div className="py-8 text-center text-gray-700">
           לא נמצאו תוצאות. נסה לנקות את החיפוש.
         </div>
       ) : (
@@ -194,7 +194,7 @@ export default function CommandsTable({
                   className="text-right p-4 text-lg border-b-2 border-gray-300 cursor-pointer hover:bg-gray-50 font-bold text-gray-900"
                 >
                   פקודה{" "}
-                  <span className="text-gray-400 ml-1">
+                  <span className="text-gray-500 ml-1">
                     {sortIndicator("title")}
                   </span>
                 </th>
@@ -203,7 +203,7 @@ export default function CommandsTable({
                   className="text-right p-4 text-lg border-b-2 border-gray-300 cursor-pointer hover:bg-gray-50 font-bold text-gray-900"
                 >
                   מה עושה{" "}
-                  <span className="text-gray-400 ml-1">
+                  <span className="text-gray-500 ml-1">
                     {sortIndicator("whatItDoes")}
                   </span>
                 </th>
@@ -212,7 +212,7 @@ export default function CommandsTable({
                   className="text-right p-4 text-lg border-b-2 border-gray-300 cursor-pointer hover:bg-gray-50 font-bold text-gray-900"
                 >
                   רמה{" "}
-                  <span className="text-gray-400 ml-1">
+                  <span className="text-gray-500 ml-1">
                     {sortIndicator("layer")}
                   </span>
                 </th>
@@ -260,7 +260,7 @@ export default function CommandsTable({
                         {article.layer}
                       </span>
                     ) : (
-                      <span className="text-gray-400">—</span>
+                      <span className="text-gray-500">—</span>
                     )}
                   </td>
                   <td className="p-4 text-lg border-b border-gray-200">
