@@ -1,0 +1,31 @@
+# שומר רגרסיה ויזואלית — job חוסם, לצד verify-corpus.
+# בודק computed styles על build ייצור: CSS נטען, רוחב מוגבל, צבע קישורים
+# מהטוקנים, אין overflow. נולד מאירוע האתר-בלי-CSS ‏(2026-07-29) שעבר את
+# כל שאר השערים.
+name: visual-smoke
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  visual-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npx playwright test
+      - name: Upload screenshots (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-screenshots
+          path: test-results/

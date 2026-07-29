@@ -23,18 +23,41 @@ export default function Home() {
   return (
     <div className="min-h-screen font-sans bg-white">
       {/* שער פתיח: wordmark, כותרת hero (החריג המאושר היחיד לסקאלה),
-          והטענה עם מספרים חיים מה-build. שחור, לבן, קו אחד, אוויר. */}
+          הטענה עם מספרים חיים, וטרמינל אמיתי — המוצר עצמו, לא איור.
+          שחור, לבן, קו אחד, אוויר. סטטי לחלוטין. */}
       <header className="border-b-2 border-action">
-        <div className="max-w-3xl mx-auto px-6 py-10">
-          <p className="text-small font-bold text-ink mb-4">האקדמיה של קלוד</p>
-          <h1 className="text-hero font-bold text-ink mb-4">
-            ללמוד לעבוד עם Claude Code בלי לנחש.
-          </h1>
-          <p className="text-body text-ink">
-            {articleCount} מאמרים · הפקודות והדגלים בכולם אומתו מול התיעוד
-            הרשמי · עודכן {buildDate}
-          </p>
-          <ViewCounter />
+        <div className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-t5 items-center">
+          <div>
+            <p className="text-small font-bold text-ink mb-4">האקדמיה של קלוד</p>
+            <h1 className="text-hero font-bold text-ink mb-4">
+              ללמוד לעבוד עם Claude Code בלי לנחש.
+            </h1>
+            <p className="text-body text-ink">
+              {articleCount} מאמרים · הפקודות והדגלים בכולם אומתו מול התיעוד
+              הרשמי · עודכן{" "}<span dir="ltr" className="whitespace-nowrap">{buildDate}</span>
+            </p>
+            <ViewCounter />
+          </div>
+          {/* סשן Claude Code אמיתי — לבן-על-שחור, מסגרת 1px, בלי צל,
+              בלי עיגול, בלי אנימציה. HTML סמנטי, ניתן לבחירה והעתקה. */}
+          <figure
+            aria-label="דוגמת סשן Claude Code"
+            className="border border-action bg-action text-white font-mono text-small leading-relaxed p-4 overflow-x-auto"
+            dir="ltr"
+          >
+            <pre className="whitespace-pre-wrap">
+{`~/my-app $ claude
+Claude Code · Opus
+
+`}<span dir="rtl">{`> תוסיף כפתור התנתקות לעמוד ההגדרות`}</span>{`
+
+* קורא את app/settings/page.tsx
+* עורך את app/settings/page.tsx
+    + <LogoutButton />
+
+`}<span dir="rtl">{`✓ הכפתור נוסף. להריץ את הבדיקות?`}</span>
+            </pre>
+          </figure>
         </div>
       </header>
 
@@ -51,6 +74,11 @@ export default function Home() {
             מסלול המתחיל — צעד אחרי צעד, מהתקנה ועד עבודה בטוחה ←
           </span>
         </Link>
+        <p className="mt-2 text-small">
+          <Link href="/m/advanced" className="text-accent hover:underline">
+            כבר עובד עם Claude Code? קפוץ לחומר המתקדם ←
+          </Link>
+        </p>
       </div>
 
       {/* חיפוש רחב */}
