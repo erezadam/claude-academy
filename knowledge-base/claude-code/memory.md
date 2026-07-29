@@ -6,6 +6,13 @@ last_verified: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/memory
 related: ["claude-md-guide", "slash-init", "slash-hooks"]
+mission: spec
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-06
 ---
 
 כל סשן של Claude Code מתחיל עם חלון הקשר ריק. שני מנגנונים מעבירים ידע בין סשנים: קבצי CLAUDE.md ו-auto memory.

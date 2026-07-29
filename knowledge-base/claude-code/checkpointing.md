@@ -6,6 +6,13 @@ last_verified: 2026-06-20
 status: needs-review
 source_url: https://code.claude.com/docs/en/checkpointing
 related: [slash-rewind, sessions, slash-compact-clear]
+mission: code
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-20
 ---
 
 Checkpointing עוקב אחרי כל שינוי קובץ שביצע Claude Code, ומאפשר לחזור במהירות לנקודת עבודה קודמת אם משהו השתבש.

@@ -7,6 +7,12 @@ status: current
 source_url: https://code.claude.com/docs/en/cli
 related: [slash-commands-all]
 badge: new
+level: advanced
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## דגלי CLI — הפעלת Claude Code מהטרמינל

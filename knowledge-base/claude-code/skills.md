@@ -6,6 +6,13 @@ last_verified: 2026-05-30
 status: needs-review
 source_url: https://code.claude.com/docs/en/skills
 related: [plugins-guide, sub-agents, slash-commands]
+mission: advanced
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 10
+last_reviewed: 2026-05-30
 ---
 
 ## Skills

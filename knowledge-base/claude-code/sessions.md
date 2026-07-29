@@ -6,6 +6,13 @@ last_verified: 2026-06-14
 status: needs-review
 source_url: https://code.claude.com/docs/en/sessions
 related: ["slash-export-resume", "slash-fork-rename-exit", "slash-compact-clear", "worktrees"]
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-14
 ---
 
 Session הוא שיחה שמורה הקשורה לתיקיית פרויקט. Claude Code שומר אותה מקומית תוך כדי עבודה, כך שאפשר להמשיך מהנקודה שנעצרתם, לפצל session לנסיון גישה אחרת, או לעבור בין משימות.

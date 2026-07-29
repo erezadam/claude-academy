@@ -6,6 +6,13 @@ last_verified: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/worktrees
 related: ["sub-agents", "dynamic-workflows", "agent-view"]
+mission: advanced
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-06
 ---
 
 `--worktree` מפעיל כל סשן של Claude Code ב-git worktree נפרד, כך שעריכות בסשן אחד לא נוגעות בקבצים של סשן מקביל.

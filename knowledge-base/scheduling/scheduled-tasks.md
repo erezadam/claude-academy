@@ -7,6 +7,13 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/scheduled-tasks
 source_url_extra: https://code.claude.com/docs/en/cli-reference
 related: ["routines", "dynamic-workflows", "/loop"]
+mission: automate
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 10
+last_reviewed: 2026-05-30
 ---
 
 ## תזמון משימות בתוך Session

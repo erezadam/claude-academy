@@ -6,6 +6,13 @@ last_verified: 2026-07-25
 status: needs-review
 source_url: https://code.claude.com/docs/en/headless
 related: [sessions, sub-agents, sandboxing, slash-commands-all]
+mission: automate
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 3
+last_reviewed: 2026-07-25
 ---
 
 Headless mode מאפשר להפעיל את Claude Code בצורה לא-אינטראקטיבית — ב-scripts, CI/CD, ו-pipelines — באמצעות הדגל `-p` (ראשי תיבות של `--print`).

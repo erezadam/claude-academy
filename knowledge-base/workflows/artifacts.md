@@ -6,6 +6,13 @@ last_verified: 2026-07-18
 status: needs-review
 source_url: https://code.claude.com/docs/en/artifacts
 related: [mcp, skills, dynamic-workflows]
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 4
+last_reviewed: 2026-07-18
 ---
 
 Artifact הוא עמוד אינטרנט חי שClaude Code מפרסם מה-session שלך לURL פרטי ב-claude.ai. פותחים אותו בדפדפן, והוא מתעדכן במקומו כשה-session ממשיך. ניתן לשתף אותו עם עמית מצד הכותרת של העמוד.

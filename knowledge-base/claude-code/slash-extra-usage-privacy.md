@@ -7,6 +7,13 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-login-logout-usage, slash-config]
 badge: new
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-07-29
 ---
 
 ## /usage-credits (בעבר: /extra-usage), /privacy-settings — מכסות ופרטיות

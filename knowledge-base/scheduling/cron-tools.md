@@ -7,6 +7,12 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-loop]
 badge: new
+level: intermediate
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## כלי Cron — ניהול משימות מתוזמנות

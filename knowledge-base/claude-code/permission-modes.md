@@ -6,6 +6,13 @@ last_verified: 2026-07-04
 status: needs-review
 source_url: https://code.claude.com/docs/en/permission-modes
 related: [auto-mode-config, slash-permissions, sandboxing]
+mission: daily
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 3
+last_reviewed: 2026-07-04
 ---
 
 מצבי הרשאה שולטים בתדירות שבה Claude מבקש אישור לפני עריכת קבצים או הרצת פקודות. כל מצב מייצג פשרה שונה בין נוחות לפיקוח.

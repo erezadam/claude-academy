@@ -7,6 +7,13 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-export-resume, slash-context-cost]
 badge: new
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## /diff, /copy — צפייה והעתקה

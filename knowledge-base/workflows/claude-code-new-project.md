@@ -5,6 +5,12 @@ layer: basic
 last_verified: 2026-05-30
 status: current
 origin: original
+mission: start
+level: beginner
+type: recipe
+tool: claude-code
+timeMinutes: 2
+last_reviewed: 2026-05-30
 ---
 
 ## פתיחת פרויקט חדש עם Claude Code

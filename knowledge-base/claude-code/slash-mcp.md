@@ -7,6 +7,13 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/sandboxing
 related: [/config, /permissions]
+mission: advanced
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## /mcp

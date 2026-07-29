@@ -6,6 +6,13 @@ last_verified: 2026-06-14
 status: needs-review
 source_url: https://code.claude.com/docs/en/advisor
 related: ["slash-model", "sub-agents", "slash-fast-vim"]
+mission: daily
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-14
 ---
 
 כלי ה-Advisor מאפשר ל-Claude להתייעץ עם מודל חזק יותר ברגעי החלטה קריטיים — לפני שמתחייבים לגישה, כשנתקעים בשגיאה חוזרת, או לפני שמצהירים שמשימה הושלמה. ה-Advisor מקבל את כל השיחה כולל קריאות הכלים ותוצאותיהן, ומחזיר הנחיה ש-Claude מיישם לפני שממשיך.

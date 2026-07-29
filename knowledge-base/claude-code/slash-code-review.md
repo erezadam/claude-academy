@@ -7,6 +7,13 @@ status: current
 related: [slash-commands-all, claude-md-guide]
 source_url: "https://code.claude.com/docs/en/code-review"
 badge: new
+mission: daily
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 3
+last_reviewed: 2026-05-28
 ---
 
 ## code-review/

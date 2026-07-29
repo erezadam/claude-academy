@@ -5,6 +5,12 @@ layer: basic
 last_verified: 2026-05-30
 status: current
 origin: original
+mission: daily
+level: beginner
+type: recipe
+tool: claude-code
+timeMinutes: 2
+last_reviewed: 2026-05-30
 ---
 
 ## דיבאג עם Claude Code

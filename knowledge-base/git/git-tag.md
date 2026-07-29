@@ -7,6 +7,12 @@ status: current
 source_url: https://git-scm.com/docs/git-tag
 source_url_extra: https://git-scm.com/docs/git-push
 related: [git-log, git-push, git-commit]
+level: intermediate
+type: reference
+tool: git
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## git tag

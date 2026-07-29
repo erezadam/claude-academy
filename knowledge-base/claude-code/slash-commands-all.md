@@ -7,6 +7,12 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/cli-reference https://code.claude.com/docs/en/output-styles
 related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
+level: beginner
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 7
+last_reviewed: 2026-07-29
 ---
 
 ## כל פקודות Claude Code — טבלת מרכז

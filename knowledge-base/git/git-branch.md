@@ -6,6 +6,12 @@ last_verified: 2026-03-07
 status: current
 source_url: https://git-scm.com/docs/git-branch
 related: [git-checkout, git-merge, git-rebase]
+level: beginner
+type: reference
+tool: git
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## git branch

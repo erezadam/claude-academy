@@ -7,6 +7,13 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-compact-clear, slash-export-resume]
 badge: new
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## /fork, /rename, /exit — ניהול סשנים

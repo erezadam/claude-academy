@@ -6,6 +6,13 @@ last_verified: 2026-06-14
 status: needs-review
 source_url: https://code.claude.com/docs/en/workflows
 related: [routines, sub-agents, scheduled-tasks]
+mission: advanced
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 8
+last_reviewed: 2026-06-14
 ---
 
 וורקפלואו דינמי (dynamic workflow) הוא סקריפט JavaScript שמתזמר סוכני משנה (subagents) בקנה מידה. Claude כותב את הסקריפט עבור המשימה שאתה מתאר, ו-runtime מריץ אותו ברקע בזמן שה-session שלך נשאר זמין ומגיב. כדאי לפנות אל workflow כשמשימה דורשת יותר סוכנים ממה ש-conversation אחד יכול לתאם, או כשאתה רוצה שהתזמור עצמו יהיה מקודד כסקריפט שניתן לקרוא ולהריץ מחדש. דוגמאות: סריקת באגים על פני כל ה-codebase, מיגרציה של 500 קבצים, שאלת מחקר שדורשת הצלבה של מקורות זה מול זה, ותכנון קשה ששווה לנסח ממספר זוויות עצמאיות לפני שמתחייבים לאחת.

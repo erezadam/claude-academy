@@ -8,6 +8,12 @@ source_url: "https://git-scm.com/docs/git-commit"
 source_url_extra: https://git-scm.com/docs/git-config
 status: current
 related: [git-add, git-push, git-log, git-stash]
+level: beginner
+type: reference
+tool: git
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## git commit

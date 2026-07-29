@@ -6,6 +6,13 @@ last_verified: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/goal
 related: ["scheduled-tasks", "slash-loop", "routines"]
+mission: automate
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-06
 ---
 
 הפקודה `/goal` מגדירה תנאי סיום, ו-Claude ממשיך לעבוד בצורה עצמאית עד שהתנאי מתקיים — בלי שתצטרכו להפעיל כל תור ידנית.

@@ -6,6 +6,13 @@ last_verified: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/desktop-scheduled-tasks
 related: ["routines", "scheduled-tasks", "slash-loop"]
+mission: automate
+level: intermediate
+type: recipe
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-06
 ---
 
 משימות מתוזמנות של Desktop מפעילות Claude אוטומטית בתדירות קבועה על המכונה המקומית שלכם — לבדיקות קוד יומיות, ביקורת תלויות, או עדכוני בוקר.

@@ -9,6 +9,13 @@ source_url_extra: https://platform.claude.com/docs/en/agents-and-tools/agent-ski
 related: [slash-commands-all, claude-md-guide]
 badge: new
 author: "דניאל נחמיה"
+mission: advanced
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 8
+last_reviewed: 2026-03-08
 ---
 
 ## המדריך המלא לבניית Skills ל-Claude: מתכנון ועד הפצה

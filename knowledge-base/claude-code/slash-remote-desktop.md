@@ -7,6 +7,13 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-config, slash-mcp]
 badge: new
+mission: advanced
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-09
 ---
 
 ## /remote-control, /desktop, /chrome — אינטגרציות חיצוניות

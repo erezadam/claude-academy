@@ -6,6 +6,13 @@ last_verified: 2026-07-11
 status: needs-review
 source_url: https://code.claude.com/docs/en/debug-your-config
 related: ["hooks-guide", "slash-doctor", "slash-hooks", "slash-mcp", "slash-config"]
+mission: spec
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 4
+last_reviewed: 2026-07-11
 ---
 
 כשקוד Claude Code מתעלם מהוראה שכתבתם, או שפיצ'ר שהגדרתם לא מופיע, הסיבה הנפוצה ביותר היא אחת משלוש: הקובץ לא נטען, נטען ממיקום שונה ממה שציפיתם, או שקובץ אחר דרס אותו. המדריך הזה מסביר כיצד לבדוק מה Claude Code בפועל טען.

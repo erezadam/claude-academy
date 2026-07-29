@@ -7,6 +7,12 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/changelog
 related: [/plan, /review, /status]
+level: beginner
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-07-29
 ---
 
 ## /todos

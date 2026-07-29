@@ -6,6 +6,13 @@ last_verified: 2026-07-25
 status: needs-review
 source_url: https://code.claude.com/docs/en/large-codebases
 related: [memory, claude-md-guide, worktrees, plugins-guide, skills]
+mission: daily
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 4
+last_reviewed: 2026-07-25
 ---
 
 קוד-בייס גדול — בין אם monorepo עם חבילות רבות ובין אם עץ בודד עם מיליוני שורות — עשוי למלא את חלון ההקשר של Claude בהוראות וקריאות קבצים שאינן רלוונטיות למשימה. מדריך זה מראה כיצד לצמצם את ה-context למה שהמשימה באמת דורשת.

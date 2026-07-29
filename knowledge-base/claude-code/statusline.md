@@ -6,6 +6,13 @@ last_verified: 2026-07-04
 status: needs-review
 source_url: https://code.claude.com/docs/en/statusline
 related: [slash-config, keybindings, sessions]
+mission: daily
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 3
+last_reviewed: 2026-07-04
 ---
 
 שורת הסטטוס היא פס הניתן להתאמה אישית בתחתית Claude Code. היא מריצה כל סקריפט מעטפת שתגדיר, מקבלת נתוני סשן JSON דרך stdin ומציגה את מה שהסקריפט מדפיס.

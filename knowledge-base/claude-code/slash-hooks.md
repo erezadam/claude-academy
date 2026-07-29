@@ -6,6 +6,13 @@ last_verified: 2026-03-07
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [/config, /permissions, /agents]
+mission: automate
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## /hooks

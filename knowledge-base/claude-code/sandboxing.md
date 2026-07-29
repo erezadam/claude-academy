@@ -6,6 +6,13 @@ last_verified: 2026-06-24
 status: needs-review
 source_url: https://code.claude.com/docs/en/sandboxing
 related: [slash-security-sandbox, permissions, auto-mode-config]
+mission: advanced
+level: advanced
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 3
+last_reviewed: 2026-06-24
 ---
 
 ה-Bash sandbox מאפשר ל-Claude להריץ פקודות shell ברוב המקרים ללא עצירה לאישור. במקום לאשר כל פקודה בנפרד, מגדירים אילו קבצים ואיזה דומיינים הפקודות יכולות לגשת אליהם — ומערכת ההפעלה אוכפת את הגבול הזה על כל פקודה ועל כל תהליכי הבן שלה.

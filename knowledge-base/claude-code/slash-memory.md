@@ -6,6 +6,13 @@ last_verified: 2026-03-07
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [CLAUDE.md, /init, /clear]
+mission: spec
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## /memory

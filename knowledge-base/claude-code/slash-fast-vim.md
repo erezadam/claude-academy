@@ -7,6 +7,12 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/fast-mode https://code.claude.com/docs/en/output-styles
 related: [slash-model, slash-config]
+level: beginner
+type: reference
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-07-29
 ---
 
 ## /fast, /theme — ומה קרה ל-/vim ול-/output-style

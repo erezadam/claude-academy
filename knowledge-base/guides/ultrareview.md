@@ -6,6 +6,13 @@ last_verified: 2026-06-06
 status: needs-review
 source_url: https://code.claude.com/docs/en/ultrareview
 related: ["slash-code-review", "sub-agents", "dynamic-workflows"]
+mission: code
+level: intermediate
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-06-06
 ---
 
 `/code-review ultra` מפעיל סקירת קוד עמוקה בתשתית ענן: צי של סוכני-סקירה מקבילים מחפשים ומאמתים באגים לפני שממזגים.

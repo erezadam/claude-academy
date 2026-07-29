@@ -6,6 +6,13 @@ last_verified: 2026-03-07
 status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [/compact, /clear, /model]
+mission: daily
+level: beginner
+type: guide
+tool: claude-code
+origin: official
+timeMinutes: 2
+last_reviewed: 2026-03-07
 ---
 
 ## /context ו-/cost — ניטור session
