@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllArticles, getCategoryBySlug, getArticle } from "@/lib/knowledge";
+import {
+  getAllArticles,
+  getCategoryBySlug,
+  getArticle,
+  getMissionArticles,
+  MISSION_META,
+  type Level,
+} from "@/lib/knowledge";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import MarkdownContent from "@/components/MarkdownContent";
 
-// מאמר שנבדק לפני יותר מ-90 יום מסומן "ייתכן שהתיישן". מחושב בזמן build —
-// האתר נבנה מחדש לפחות אחת לשבוע (העדכון השבועי), כך שהחישוב לא נסחף.
+// באנר ההתיישנות נגזר מ-last_reviewed (ביקורת אנושית, ידני) — לא מ-
+// last_verified שמתרענן אוטומטית ע"י השער. מוצג רק על tool: claude-code:
+// תיעוד Git לא זז באותו קצב. מחושב בזמן build (האתר נבנה לפחות שבועית).
 const STALE_DAYS = 90;
-function isStale(lastVerified: string): boolean {
-  const age = Date.now() - new Date(lastVerified).getTime();
+function isStale(lastReviewed: string): boolean {
+  const age = Date.now() - new Date(lastReviewed).getTime();
   return age > STALE_DAYS * 24 * 60 * 60 * 1000;
 }
 
@@ -66,6 +74,30 @@ export default async function ArticlePage({
   const description =
     article.whatItDoes || `${article.title} — הסבר ומדריך בעברית.`;
 
+  // reference שייך לטבלת הפקודות; מאמר לימוד — לעמוד המשימה שלו.
+  const isReference = article.type === "reference";
+  const missionHref = isReference ? "/commands-list" : `/m/${article.mission}`;
+  const missionName = isReference
+    ? "טבלת הפקודות"
+    : MISSION_META[article.mission].name;
+
+  const LEVEL_NAMES: Record<Level, string> = {
+    beginner: "למתחילים",
+    intermediate: "בהמשך הדרך",
+    advanced: "מתקדם",
+  };
+  const prerequisites = (article.prerequisites ?? [])
+    .map((slug) => getArticle(slug))
+    .filter((a): a is NonNullable<typeof a> => Boolean(a));
+  const nextArticle = article.next ? getArticle(article.next) : undefined;
+  // "הצעד הבא": next מפורש, אחרת המאמר הבא באותה משימה, אחרת עמוד המשימה.
+  const missionSiblings = isReference ? [] : getMissionArticles(article.mission);
+  const fallbackNext =
+    !nextArticle && missionSiblings.length > 1
+      ? missionSiblings[(missionSiblings.findIndex((a) => a.slug === article.slug) + 1) % missionSiblings.length]
+      : undefined;
+  const stepNext = nextArticle ?? fallbackNext;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -117,10 +149,10 @@ export default async function ArticlePage({
           </Link>
           <span className="text-gray-400">/</span>
           <Link
-            href={`/category/${category.slug}`}
+            href={missionHref}
             className="text-blue-700 hover:underline transition-colors"
           >
-            {category.name}
+            {missionName}
           </Link>
           <span className="text-gray-400">/</span>
           <span className="text-gray-900 font-medium">{article.title}</span>
@@ -129,6 +161,33 @@ export default async function ArticlePage({
 
       {/* Article content */}
       <main className="max-w-3xl mx-auto px-6 py-8">
+        {/* תגי רמה וזמן + "לפני זה כדאי" */}
+        <div className="mb-4 flex flex-wrap items-center gap-3 text-sm">
+          <span className="border border-gray-300 px-2 py-0.5 text-gray-900">
+            {LEVEL_NAMES[article.level]}
+          </span>
+          {article.timeMinutes && (
+            <span className="text-gray-700">~{article.timeMinutes} דקות קריאה</span>
+          )}
+        </div>
+        {prerequisites.length > 0 && (
+          <p className="mb-4 text-sm text-gray-900">
+            לפני זה כדאי:{" "}
+            {prerequisites.map((pre, i) => (
+              <span key={pre.slug}>
+                {i > 0 && " · "}
+                <Link href={`/a/${pre.slug}`} className="text-blue-700 hover:underline">
+                  {pre.title}
+                </Link>
+              </span>
+            ))}
+          </p>
+        )}
+        {article.whatItDoes && (
+          <p className="mb-6 text-base text-gray-900 border-r-2 border-gray-900 pr-3">
+            {article.whatItDoes}
+          </p>
+        )}
         {article.lastVerified && (
           <div className="mb-6 text-sm text-gray-700">
             {article.origin === "original" ? (
@@ -139,25 +198,37 @@ export default async function ArticlePage({
                 {article.lastVerified}
               </span>
             )}
-            {article.origin !== "original" && isStale(article.lastVerified) && (
-              <span className="block mt-1 text-amber-800">
-                ייתכן שהתיישן — Claude Code מתעדכן מהר.
-              </span>
-            )}
+            {article.origin !== "original" &&
+              article.tool === "claude-code" &&
+              article.lastReviewed &&
+              isStale(article.lastReviewed) && (
+                <span className="block mt-1 text-amber-800">
+                  ייתכן שהתיישן — Claude Code מתעדכן מהר.
+                </span>
+              )}
           </div>
         )}
         <MarkdownContent content={article.content} />
       </main>
 
-      {/* Footer nav */}
+      {/* הצעד הבא */}
       <footer className="border-t border-gray-200">
-        <div className="max-w-3xl mx-auto px-6 py-4">
-          <Link
-            href={`/category/${category.slug}`}
-            className="text-sm text-blue-700 hover:underline"
-          >
-            → חזרה ל{category.name}
-          </Link>
+        <div className="max-w-3xl mx-auto px-6 py-6">
+          {stepNext ? (
+            <Link href={`/a/${stepNext.slug}`} className="group block border-2 border-gray-900 p-5 hover:bg-gray-50">
+              <span className="text-sm text-gray-700 block">הצעד הבא</span>
+              <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+                {stepNext.title} ←
+              </span>
+            </Link>
+          ) : (
+            <Link href={missionHref} className="group block border-2 border-gray-900 p-5 hover:bg-gray-50">
+              <span className="text-sm text-gray-700 block">להמשך</span>
+              <span className="text-xl font-bold text-gray-900 group-hover:text-blue-700">
+                {missionName} ←
+              </span>
+            </Link>
+          )}
         </div>
       </footer>
     </div>

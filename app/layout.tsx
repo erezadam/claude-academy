@@ -3,6 +3,7 @@ import { Heebo } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { getLastUpdated } from "@/lib/knowledge";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/seo";
+import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -91,6 +92,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${heebo.variable} antialiased`}>
+        <SiteNav />
         {children}
         <Analytics />
         {lastUpdatedLabel && (

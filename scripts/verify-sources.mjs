@@ -250,6 +250,20 @@ if (files.length === 0) {
   process.exit(1);
 }
 
+// ריצה מוצלחת מרעננת את last_verified של הקובץ — "מתי אומתו הפקודות
+// והדגלים". התיישנות תוכן נמדדת ב-last_reviewed (ידני בלבד), לא כאן.
+function stampLastVerified(file) {
+  const today = new Date().toISOString().slice(0, 10);
+  const raw = fs.readFileSync(file, "utf-8");
+  let updated;
+  if (/^last_verified:.*$/m.test(raw)) {
+    updated = raw.replace(/^last_verified:.*$/m, `last_verified: ${today}`);
+  } else {
+    updated = raw.replace(/^---\n/, `---\nlast_verified: ${today}\n`);
+  }
+  if (updated !== raw) fs.writeFileSync(file, updated);
+}
+
 const allProblems = [];
 let verified = 0;
 let exempt = 0;
@@ -258,6 +272,7 @@ for (const file of files) {
   if (problems === null) exempt++;
   else if (problems.length === 0) {
     verified++;
+    stampLastVerified(file);
     console.log(`✓ ${file}`);
   } else {
     for (const p of problems) console.log(`✗ ${p}`);

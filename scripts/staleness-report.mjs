@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-// דוח התיישנות: כל המאמרים ממוינים מהישן לחדש לפי last_verified.
+// דוח התיישנות: לפי last_reviewed (ביקורת אנושית, ידני) — לא last_verified
+// (שמתרענן אוטומטית ע"י השער). רק מאמרי tool: claude-code — תיעוד Git לא
+// זז באותו קצב, ותוכן מקורי לא מתיישן מול מקור.
 // תור עבודה קבוע לעדכון תוכן — לא משבר חד-פעמי.
 // שימוש: node scripts/staleness-report.mjs [--top N] [--markdown]
 import fs from "node:fs";
@@ -17,7 +19,9 @@ for (const file of files) {
   const get = (k) => fm?.[1].match(new RegExp(`^${k}:\\s*"?([^"\\n]+)"?`, "m"))?.[1]?.trim();
   const origin = get("origin");
   if (origin === "original") continue; // תוכן מקורי — אין מקור להתיישן מולו
-  const lv = get("last_verified");
+  const tool = get("tool");
+  if (tool && tool !== "claude-code") continue; // תיעוד Git לא זז באותו קצב
+  const lv = get("last_reviewed");
   rows.push({ file, lastVerified: lv || "(חסר)", days: lv ? Math.floor((Date.now() - new Date(lv).getTime()) / 86400000) : Infinity });
 }
 rows.sort((a, b) => b.days - a.days);
