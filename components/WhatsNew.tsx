@@ -58,7 +58,7 @@ export default function WhatsNew({
                 {entry.items.map((item) => (
                   <li key={`${item.category}/${item.slug}`}>
                     <Link
-                      href={`/article/${item.category}/${item.slug}`}
+                      href={`/a/${item.slug}`}
                       className="group flex items-center justify-between gap-3 py-2"
                     >
                       <span className="flex min-w-0 items-center gap-2">

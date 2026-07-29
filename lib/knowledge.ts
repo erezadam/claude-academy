@@ -151,12 +151,10 @@ export function getCategoryNameMap(): Record<string, string> {
   return Object.fromEntries(getCategories().map((c) => [c.slug, c.name]));
 }
 
-export function getArticle(
-  categorySlug: string,
-  articleSlug: string
-): Article | undefined {
-  const cat = getCategoryBySlug(categorySlug);
-  return cat?.articles.find((a) => a.slug === articleSlug);
+// כתובות המאמרים שטוחות (/a/<slug>); slug ייחודי בכל knowledge-base —
+// נאכף ב-build ע"י getArticle (זריקה על כפילות הייתה שוברת את הייצור מוקדם).
+export function getArticle(articleSlug: string): Article | undefined {
+  return getAllArticles().find((a) => a.slug === articleSlug);
 }
 
 export function getAllArticles(): Article[] {

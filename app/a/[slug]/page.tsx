@@ -1,37 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  getCategories,
-  getCategoryBySlug,
-  getArticle,
-} from "@/lib/knowledge";
+import { getAllArticles, getCategoryBySlug, getArticle } from "@/lib/knowledge";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import MarkdownContent from "@/components/MarkdownContent";
 
 export function generateStaticParams() {
-  const categories = getCategories();
-  const params: { category: string; slug: string }[] = [];
-  for (const cat of categories) {
-    for (const article of cat.articles) {
-      params.push({ category: cat.slug, slug: article.slug });
-    }
-  }
-  return params;
+  return getAllArticles().map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ category: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { category: categorySlug, slug } = await params;
-  const article = getArticle(categorySlug, slug);
+  const { slug } = await params;
+  const article = getArticle(slug);
   if (!article) return {};
 
   const description =
     article.whatItDoes || `${article.title} — הסבר ומדריך בעברית.`;
-  const url = `/article/${categorySlug}/${slug}`;
+  const url = `/a/${slug}`;
 
   return {
     title: article.title,
@@ -57,15 +46,15 @@ export async function generateMetadata({
 export default async function ArticlePage({
   params,
 }: {
-  params: Promise<{ category: string; slug: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { category: categorySlug, slug } = await params;
-  const category = getCategoryBySlug(categorySlug);
-  const article = getArticle(categorySlug, slug);
+  const { slug } = await params;
+  const article = getArticle(slug);
+  const category = article ? getCategoryBySlug(article.category) : undefined;
 
   if (!category || !article) notFound();
 
-  const articleUrl = `${SITE_URL}/article/${category.slug}/${article.slug}`;
+  const articleUrl = `${SITE_URL}/a/${article.slug}`;
   const description =
     article.whatItDoes || `${article.title} — הסבר ומדריך בעברית.`;
 

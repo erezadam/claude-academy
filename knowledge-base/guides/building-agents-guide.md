@@ -46,7 +46,7 @@ Claude Code הוא סביבת עבודה אגנטית, לא צ'אט. בניגו�
 
 הכלל החותך: **תמיד דרוש ראיה** — פלט הטסט, הפקודה ותוצאתה, או צילום מסך — לא הצהרת הצלחה. לבדוק ראיה מהיר יותר מאשר להריץ מחדש את האימות בעצמך, וזה עובד גם לסשנים שלא צפית בהם.
 
-ראה [slash-goal](/article/claude-code/slash-goal) להגדרת תנאי סיום לסשן, [slash-hooks](/article/claude-code/slash-hooks) לשער דטרמיניסטי, ו-[sub-agents](/article/claude-code/sub-agents) לחוות דעת שנייה בהקשר טרי.
+ראה [slash-goal](/a/slash-goal) להגדרת תנאי סיום לסשן, [slash-hooks](/a/slash-hooks) לשער דטרמיניסטי, ו-[sub-agents](/a/sub-agents) לחוות דעת שנייה בהקשר טרי.
 
 ---
 
@@ -87,7 +87,7 @@ callback handler, run the test suite and fix any failures.
 commit with a descriptive message and open a PR
 ```
 
-מתי לדלג על התכנון: לטעות קטנה וברורה — typo, שורת log, שינוי שם משתנה — תן ל-Claude לבצע ישירות. תכנון שווה את התקורה כשאתה לא בטוח בגישה, כשהשינוי נוגע בכמה קבצים, או כשהקוד לא מוכר לך. אם אתה יכול לתאר את ה-diff במשפט אחד, דלג על התוכנית. פירוט מלא על מצב התכנון ב-[slash-plan](/article/claude-code/slash-plan).
+מתי לדלג על התכנון: לטעות קטנה וברורה — typo, שורת log, שינוי שם משתנה — תן ל-Claude לבצע ישירות. תכנון שווה את התקורה כשאתה לא בטוח בגישה, כשהשינוי נוגע בכמה קבצים, או כשהקוד לא מוכר לך. אם אתה יכול לתאר את ה-diff במשפט אחד, דלג על התוכנית. פירוט מלא על מצב התכנון ב-[slash-plan](/a/slash-plan).
 
 ---
 
@@ -126,11 +126,11 @@ cat error.log | claude
 | נוהל repo (שמות branch, מוסכמות PR) | מידע שמשתנה תכופות |
 | החלטות ארכיטקטורה ספציפיות לפרויקט | תיאור קובץ-אחר-קובץ של ה-codebase |
 
-פירוט מלא, מיקומי הקבצים וסדר הטעינה ב-[claude-md-guide](/article/claude-code/claude-md-guide).
+פירוט מלא, מיקומי הקבצים וסדר הטעינה ב-[claude-md-guide](/a/claude-md-guide).
 
 ### הרשאות — כמה פחות הפרעות
 
-יש שלוש דרכים לצמצם אישורים בלי לאבד שליטה: **auto mode** (מודל מסווג נפרד חוסם רק את מה שנראה מסוכן — הסלמת הרשאות, תשתית לא מוכרת, פעולות מונחות-תוכן עוין), **allowlist** של כלים בטוחים דרך `/permissions`, ו-`/sandbox` לבידוד ברמת מערכת ההפעלה. ראה [slash-permissions](/article/claude-code/slash-permissions).
+יש שלוש דרכים לצמצם אישורים בלי לאבד שליטה: **auto mode** (מודל מסווג נפרד חוסם רק את מה שנראה מסוכן — הסלמת הרשאות, תשתית לא מוכרת, פעולות מונחות-תוכן עוין), **allowlist** של כלים בטוחים דרך `/permissions`, ו-`/sandbox` לבידוד ברמת מערכת ההפעלה. ראה [slash-permissions](/a/slash-permissions).
 
 ### כלי CLI — הדרך החסכונית-בהקשר לשירותים חיצוניים
 
@@ -142,7 +142,7 @@ cat error.log | claude
 claude mcp add
 ```
 
-מחבר את Claude ל-Notion, Figma, מסד נתונים, issue tracker ועוד, כך שיוכל לקרוא ולפעול ישירות במקום שתעתיק נתונים לצ'אט. ראה [slash-mcp](/article/claude-code/slash-mcp).
+מחבר את Claude ל-Notion, Figma, מסד נתונים, issue tracker ועוד, כך שיוכל לקרוא ולפעול ישירות במקום שתעתיק נתונים לצ'אט. ראה [slash-mcp](/a/slash-mcp).
 
 ### Hooks — אכיפה דטרמיניסטית
 
@@ -152,15 +152,15 @@ claude mcp add
 Write a hook that runs eslint after every file edit
 ```
 
-ראה [slash-hooks](/article/claude-code/slash-hooks).
+ראה [slash-hooks](/a/slash-hooks).
 
 ### Skills — ידע ותהליכים חוזרים
 
-קובצי `SKILL.md` בתיקיית `.claude/skills/` שמרחיבים את הידע של Claude בתחום, צוות, או פרויקט. Claude מפעיל אותם אוטומטית כשהם רלוונטיים, או שאתה מפעיל ידנית עם `/skill-name`. בניגוד ל-CLAUDE.md, גוף ה-skill נטען רק כשהוא בשימוש — כך שחומר עזר ארוך כמעט לא עולה הקשר עד שצריך אותו. ראה [skills](/article/claude-code/skills).
+קובצי `SKILL.md` בתיקיית `.claude/skills/` שמרחיבים את הידע של Claude בתחום, צוות, או פרויקט. Claude מפעיל אותם אוטומטית כשהם רלוונטיים, או שאתה מפעיל ידנית עם `/skill-name`. בניגוד ל-CLAUDE.md, גוף ה-skill נטען רק כשהוא בשימוש — כך שחומר עזר ארוך כמעט לא עולה הקשר עד שצריך אותו. ראה [skills](/a/skills).
 
 ### Subagents — עוזרים בהקשר משלהם
 
-עוזרים מתמחים ב-`.claude/agents/`, כל אחד רץ בחלון הקשר משלו עם סט כלים והרשאות משלו. מצוינים למשימות שקוראות הרבה קבצים — החקירה קורית בהקשר הנפרד שלהם ולא מזהמת את השיחה הראשית. ראה [sub-agents](/article/claude-code/sub-agents).
+עוזרים מתמחים ב-`.claude/agents/`, כל אחד רץ בחלון הקשר משלו עם סט כלים והרשאות משלו. מצוינים למשימות שקוראות הרבה קבצים — החקירה קורית בהקשר הנפרד שלהם ולא מזהמת את השיחה הראשית. ראה [sub-agents](/a/sub-agents).
 
 ### Plugins — חבילות מוכנות
 
@@ -168,7 +168,7 @@ Write a hook that runs eslint after every file edit
 /plugin
 ```
 
-מדפדפים ב-marketplace ומתקינים חבילות שמאגדות skills, hooks, subagents ו-MCP servers ביחידה אחת. ראה [plugins-guide](/article/claude-code/plugins-guide).
+מדפדפים ב-marketplace ומתקינים חבילות שמאגדות skills, hooks, subagents ו-MCP servers ביחידה אחת. ראה [plugins-guide](/a/plugins-guide).
 
 ---
 
@@ -179,7 +179,7 @@ Write a hook that runs eslint after every file edit
 ### תקן מוקדם
 
 - `Esc` — עוצר את Claude באמצע פעולה; ההקשר נשמר, אז אפשר לכוון מחדש.
-- `Esc + Esc` או `/rewind` — פותח תפריט שחזור למצב קוד/שיחה קודם. ראה [slash-rewind](/article/claude-code/slash-rewind).
+- `Esc + Esc` או `/rewind` — פותח תפריט שחזור למצב קוד/שיחה קודם. ראה [slash-rewind](/a/slash-rewind).
 - "undo that" — Claude מבטל את השינויים שלו.
 - `/clear` — מאפס הקשר בין משימות לא קשורות.
 
@@ -187,10 +187,10 @@ Write a hook that runs eslint after every file edit
 
 ### נהל הקשר אגרסיבית
 
-- `/clear` — מאפס לגמרי בין משימות. ראה [slash-compact-clear](/article/claude-code/slash-compact-clear).
+- `/clear` — מאפס לגמרי בין משימות. ראה [slash-compact-clear](/a/slash-compact-clear).
 - `/compact <הוראות>` — עיבוי ממוקד, למשל `/compact Focus on the API changes`.
 - `/btw` — שאלת צד שהתשובה עליה לא נכנסת להיסטוריית השיחה, כך שתוכל לבדוק פרט בלי להגדיל הקשר.
-- מעקב שוטף אחרי צריכה ב-[slash-context-cost](/article/claude-code/slash-context-cost).
+- מעקב שוטף אחרי צריכה ב-[slash-context-cost](/a/slash-context-cost).
 
 ### Subagents לחקירה
 
@@ -230,7 +230,7 @@ claude -p "List all API endpoints" --output-format json
 
 ### כמה סשנים במקביל
 
-- **Worktrees** — checkouts מבודדים ב-git כך שהעריכות לא מתנגשות. ראה [worktrees](/article/workflows/worktrees).
+- **Worktrees** — checkouts מבודדים ב-git כך שהעריכות לא מתנגשות. ראה [worktrees](/a/worktrees).
 - **אפליקציית הדסקטופ** — ניהול ויזואלי של כמה סשנים מקומיים, כל אחד ב-worktree משלו.
 - **Claude Code on the web** — סשנים על תשתית ענן מנוהלת ב-VMs מבודדים.
 - **Agent teams** — תיאום אוטומטי בין סשנים עם רשימת משימות משותפת והודעות (ניסיוני, כבוי כברירת מחדל).

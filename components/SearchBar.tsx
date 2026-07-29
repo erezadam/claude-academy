@@ -58,7 +58,7 @@ export default function SearchBar({
           {filtered.map((item) => (
             <Link
               key={`${item.category}/${item.slug}`}
-              href={`/article/${item.category}/${item.slug}`}
+              href={`/a/${item.slug}`}
               className="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0"
             >
               <div className="font-medium text-gray-900 text-sm">

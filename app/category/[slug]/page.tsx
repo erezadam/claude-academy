@@ -107,7 +107,7 @@ export default async function CategoryPage({
           {category.articles.map((article) => (
             <Link
               key={article.slug}
-              href={`/article/${article.category}/${article.slug}`}
+              href={`/a/${article.slug}`}
               className="block py-5 group"
             >
               <div className="flex items-start justify-between gap-4">
