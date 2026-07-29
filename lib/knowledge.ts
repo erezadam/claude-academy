@@ -2,6 +2,12 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+export type Level = "beginner" | "intermediate" | "advanced";
+export type Mission = "start" | "daily" | "code" | "automate" | "spec" | "advanced";
+export type ArticleType = "guide" | "reference" | "recipe";
+export type Tool = "claude-code" | "git" | "both";
+export type Origin = "official" | "original";
+
 export interface Article {
   slug: string;
   title: string;
@@ -11,6 +17,34 @@ export interface Article {
   content: string;
   layer?: "basic" | "intermediate" | "advanced";
   lastVerified?: string;
+  level: Level;
+  mission: Mission;
+  type: ArticleType;
+  tool: Tool;
+  origin: Origin;
+  pathOrder?: number;
+  timeMinutes?: number;
+  next?: string;
+  prerequisites?: string[];
+}
+
+// ברירות מחדל בטוחות כשהשדה חסר בקובץ. mission נגזר מהתיקייה הנוכחית.
+const MISSION_BY_CATEGORY: Record<string, Mission> = {
+  git: "code",
+  "claude-code": "daily",
+  scheduling: "automate",
+  workflows: "code",
+  guides: "advanced",
+  "project-docs": "spec",
+};
+
+const LEVELS: readonly Level[] = ["beginner", "intermediate", "advanced"];
+const MISSIONS: readonly Mission[] = ["start", "daily", "code", "automate", "spec", "advanced"];
+const TYPES: readonly ArticleType[] = ["guide", "reference", "recipe"];
+const TOOLS: readonly Tool[] = ["claude-code", "git", "both"];
+
+function pick<T extends string>(value: unknown, allowed: readonly T[], fallback: T): T {
+  return allowed.includes(value as T) ? (value as T) : fallback;
 }
 
 export interface Category {
@@ -125,6 +159,17 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       content,
       layer: data.layer ?? undefined,
       lastVerified: normalizeDate(data.last_verified),
+      level: pick(data.level, LEVELS, "intermediate"),
+      mission: pick(data.mission, MISSIONS, MISSION_BY_CATEGORY[category] ?? "daily"),
+      type: pick(data.type, TYPES, "guide"),
+      tool: pick(data.tool, TOOLS, category === "git" ? "git" : "claude-code"),
+      origin: data.origin === "original" ? "original" : "official",
+      pathOrder: typeof data.pathOrder === "number" ? data.pathOrder : undefined,
+      timeMinutes: typeof data.timeMinutes === "number" ? data.timeMinutes : undefined,
+      next: typeof data.next === "string" && data.next ? data.next : undefined,
+      prerequisites: Array.isArray(data.prerequisites)
+        ? data.prerequisites.filter((p: unknown): p is string => typeof p === "string")
+        : undefined,
     };
   });
 }
