@@ -3,7 +3,7 @@ title: "Subagents — סוכנים ייעודיים ב-Claude Code"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29
-status: needs-review
+status: current
 source_url: https://code.claude.com/docs/en/sub-agents
 related: ["skills", "plugins-guide", "/agents"]
 mission: advanced
@@ -12,7 +12,7 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 18
-last_reviewed: 2026-06-24
+last_reviewed: 2026-07-29
 ---
 
 Subagents הם עוזרי AI ייעודיים שמטפלים בסוגי משימות ספציפיים. השתמש ב-subagent כש-side task היה מציף את השיחה הראשית בתוצאות חיפוש, ב-logs או בתוכן קבצים שלא תפנה אליהם שוב — ה-subagent מבצע את העבודה ב-context window משלו ומחזיר רק את הסיכום. הגדר subagent מותאם כשאתה מוצא את עצמך מפעיל שוב ושוב את אותו סוג של worker עם אותן הוראות.
@@ -35,7 +35,7 @@ Explore ו-Plan דולגים על קבצי CLAUDE.md ועל git status של ה-s
 
 | Subagent | מודל | כלים | מטרה / מתי Claude משתמש בו |
 |:--|:--|:--|:--|
-| **Explore** | Haiku (מהיר, latency נמוך) | read-only (אין גישה ל-Write ו-Edit) | גילוי קבצים, חיפוש קוד, exploration של codebase ללא שינויים |
+| **Explore** | יורש מהשיחה הראשית (מאז v2.1.198; ב-Claude API מוגבל ל-Opus לכל היותר) | read-only (אין גישה ל-Write ו-Edit) | גילוי קבצים, חיפוש קוד, exploration של codebase ללא שינויים |
 | **Plan** | יורש מהשיחה | read-only (אין גישה ל-Write ו-Edit) | מחקר codebase במהלך plan mode, לאיסוף context לפני הצגת תוכנית |
 | **General-purpose** | יורש מהשיחה | כל הכלים | משימות מורכבות רב-שלביות שדורשות גם exploration וגם פעולה |
 
@@ -45,9 +45,9 @@ Explore ו-Plan דולגים על קבצי CLAUDE.md ועל git status של ה-s
 
 ## איך משתמשים
 
-subagents מוגדרים בקבצי Markdown עם YAML frontmatter. אפשר ליצור אותם ידנית, או באמצעות הפקודה `/agents`.
+subagents מוגדרים בקבצי Markdown עם YAML frontmatter. אפשר ליצור אותם ידנית, או לבקש מ-Claude ליצור אותם עבורך.
 
-הפקודה `/agents` פותחת ממשק עם טאבים לניהול subagents. הטאב **Running** מציג subagents חיים ומאפשר לפתוח או לעצור אותם. הטאב **Library** מאפשר לצפות בכל ה-subagents הזמינים (מובנים, משתמש, פרויקט, plugin), ליצור חדשים עם guided setup או generation של Claude, לערוך ולמחוק. זו הדרך המומלצת ליצור ולנהל subagents.
+מאז v2.1.198, הפקודה `/agents` כבר לא פותחת wizard אינטראקטיבי — הרצתה מדפיסה תזכורת לבקש מ-Claude ליצור subagent או לערוך את `.claude/agents/` ישירות. קבצי ה-subagent, שדות ה-frontmatter והמיקומים `.claude/agents/` ו-`~/.claude/agents/` לא השתנו; רק ה-wizard בטרמינל הוסר.
 
 ### קובץ subagent בסיסי
 
@@ -65,7 +65,7 @@ You are a code reviewer. When invoked, analyze the code and provide
 specific, actionable feedback on quality, security, and best practices.
 ```
 
-subagents נטענים בתחילת ה-session. אם הוספת או ערכת קובץ subagent ישירות בדיסק, הפעל מחדש את ה-session כדי לטעון אותו. subagents שנוצרו דרך ממשק `/agents` נכנסים לתוקף מיד ללא הפעלה מחדש.
+Claude Code עוקב אחרי `~/.claude/agents/` ו-`.claude/agents/`. כשמוסיפים או עורכים קובץ subagent בדיסק, השינוי מזוהה תוך שניות ספורות וההאצלה הבאה משתמשת בהגדרה המעודכנת — בלי restart. שני מקרים עדיין דורשים restart: ה-watcher מכסה רק תיקיות שהיו קיימות בתחילת ה-session, ולכן אחרי יצירת קובץ ה-agent הראשון בתיקיית `agents` חדשה יש להפעיל מחדש כדי לטעון אותו; וכן כשהסשן רץ עם `--disable-slash-commands`.
 
 ### הפעלה מפורשת
 
@@ -147,14 +147,14 @@ claude --agents '{
 | `description` | כן | מתי Claude אמור להאציל ל-subagent הזה |
 | `tools` | לא | הכלים שה-subagent יכול להשתמש בהם. יורש את כל הכלים אם מושמט |
 | `disallowedTools` | לא | כלים לחסום, מוסרים מהרשימה הנורשת או המצוינת |
-| `model` | לא | המודל לשימוש: `sonnet`, `opus`, `haiku`, מזהה מלא (למשל `claude-opus-4-8`), או `inherit`. ברירת מחדל: `inherit` |
+| `model` | לא | המודל לשימוש: `sonnet`, `opus`, `haiku`, `fable`, מזהה מלא (למשל `claude-opus-5`), או `inherit`. ברירת מחדל: `inherit` |
 | `permissionMode` | לא | מצב הרשאות: `default`, `acceptEdits`, `auto`, `dontAsk`, `bypassPermissions`, או `plan`. מתעלמים ממנו ב-plugin subagents |
 | `maxTurns` | לא | מספר מקסימלי של agentic turns לפני שה-subagent עוצר |
 | `skills` | לא | skills לטעינה מראש ל-context של ה-subagent בתחילתו. התוכן המלא מוזרק, לא רק ה-description |
 | `mcpServers` | לא | MCP servers הזמינים ל-subagent הזה. מתעלמים ממנו ב-plugin subagents |
 | `hooks` | לא | hooks של מחזור-חיים מוגבלים ל-subagent הזה. מתעלמים ממנו ב-plugin subagents |
 | `memory` | לא | טווח זיכרון מתמשך: `user`, `project`, או `local`. מאפשר למידה חוצת-sessions |
-| `background` | לא | `true` כדי להריץ תמיד את ה-subagent כמשימת רקע. ברירת מחדל: `false` |
+| `background` | לא | `true` כדי להריץ תמיד את ה-subagent כמשימת רקע. כשלא מוגדר, Claude בוחר — ומאז v2.1.198 ברירת המחדל היא ריצה ברקע |
 | `effort` | לא | רמת effort בעת פעילות ה-subagent. גוברת על רמת ה-effort של ה-session. אפשרויות: `low`, `medium`, `high`, `xhigh`, `max` |
 | `isolation` | לא | `worktree` כדי להריץ ב-git worktree זמני, עם עותק מבודד של ה-repository |
 | `color` | לא | צבע תצוגה ברשימת המשימות וב-transcript: `red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, או `cyan` |
@@ -164,7 +164,7 @@ claude --agents '{
 
 ### כלים זמינים
 
-subagents יורשים את הכלים הפנימיים וכלי ה-MCP הזמינים בשיחה הראשית כברירת מחדל. הכלים הבאים תלויים ב-UI או ב-session state ואינם זמינים ל-subagents גם אם רשומים בשדה `tools`: `Agent`, `AskUserQuestion`, `EnterPlanMode`, `ExitPlanMode` (אלא אם ה-`permissionMode` הוא `plan`), `ScheduleWakeup`, ו-`WaitForMcpServers`.
+subagents יורשים את הכלים הפנימיים וכלי ה-MCP הזמינים בשיחה הראשית כברירת מחדל, מצומצמים בשני פילטרים. הפילטר הראשון מסיר את הכלים הבאים מכל subagent, גם אם רשומים בשדה `tools`: `Agent` — רק כשה-subagent נמצא ב-depth limit (ב-fork הכלי נשאר רשום אך מחזיר שגיאה במקום לייצר), `AskUserQuestion`, `EndConversation`, `EnterPlanMode`, `ExitPlanMode` (אלא אם ה-`permissionMode` הוא `plan`), `ScheduleWakeup`, `TaskOutput`, `WaitForMcpServers`, ו-`Workflow`. הפילטר השני חל על subagents שרצים ברקע (ברירת המחדל): הם שומרים כל כלי MCP אך רק תת-קבוצה של כלים מובנים (כגון `Read`, `Grep`, `Glob`, `Bash`, `Edit`, `Write`, `WebFetch`, `WebSearch`, `Skill` ועוד). forks מדלגים על שני הפילטרים ומקבלים את מאגר הכלים המדויק של השיחה הראשית.
 
 כדי להגביל כלים, משתמשים בשדה `tools` (allowlist) או `disallowedTools` (denylist). הדוגמה הזו מתירה אך ורק את Read, Grep, Glob ו-Bash — ה-subagent לא יכול לערוך קבצים, לכתוב קבצים, או להשתמש בכלי MCP:
 
@@ -190,7 +190,7 @@ disallowedTools: Write, Edit
 
 ### בחירת מודל
 
-שדה `model` שולט באיזה מודל ה-subagent משתמש: alias (`sonnet`, `opus`, `haiku`), מזהה מלא (למשל `claude-opus-4-8`), או `inherit` (אותו מודל כמו השיחה הראשית). אם לא צוין, ברירת המחדל היא `inherit`. סדר הפתרון: משתנה הסביבה `CLAUDE_CODE_SUBAGENT_MODEL`, ואז פרמטר `model` לכל invocation, ואז שדה `model` בהגדרה, ולבסוף מודל השיחה הראשית.
+שדה `model` שולט באיזה מודל ה-subagent משתמש: alias (`sonnet`, `opus`, `haiku`, `fable`), מזהה מלא (למשל `claude-opus-5`), או `inherit` (אותו מודל כמו השיחה הראשית). אם לא צוין, ברירת המחדל היא `inherit`. סדר הפתרון: משתנה הסביבה `CLAUDE_CODE_SUBAGENT_MODEL`, ואז פרמטר `model` לכל invocation, ואז שדה `model` בהגדרה, ולבסוף מודל השיחה הראשית.
 
 ### מצבי הרשאות
 
@@ -282,9 +282,9 @@ hooks:
 
 ## הרצת subagents — foreground או background
 
-**subagents ב-foreground** חוסמים את השיחה הראשית עד שמסתיימים, ו-prompts של הרשאות מועברים אליך כשהם עולים. **subagents ב-background** רצים במקביל בזמן שאתה ממשיך לעבוד — הם רצים עם ההרשאות שכבר ניתנו ב-session, ודוחים אוטומטית כל קריאת כלי שהייתה דורשת prompt. אם subagent ברקע נכשל בגלל הרשאות חסרות, אפשר להתחיל subagent חדש ב-foreground עם אותה משימה כדי לנסות שוב עם prompts אינטראקטיביים.
+**subagents ב-foreground** חוסמים את השיחה הראשית עד שמסתיימים, ו-prompts של הרשאות מועברים אליך כשהם עולים. **subagents ב-background** רצים במקביל בזמן שאתה ממשיך לעבוד — מאז v2.1.186, כש-subagent ברקע מגיע לקריאת כלי שדורשת הרשאה, ה-prompt צף ב-session הראשי שלך ומציין איזה subagent מבקש. אישור נותן ל-subagent להמשיך, ולחיצה על Esc דוחה את קריאת הכלי הבודדת בלי לעצור את ה-subagent (לפני v2.1.186, subagents ברקע דחו אוטומטית כל קריאה שהייתה מציגה prompt).
 
-Claude מחליט אם להריץ ב-foreground או background לפי המשימה. אפשר גם לבקש "run this in the background", או ללחוץ **Ctrl+B** כדי להעביר משימה רצה לרקע. כדי להשבית את כל פונקציונליות הרקע, מגדירים את משתנה הסביבה `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` ל-`1`.
+מאז v2.1.198, subagents רצים ברקע כברירת מחדל; Claude מריץ subagent ב-foreground כשהוא צריך את התוצאה לפני שממשיך. אפשר גם לבקש "run this in the background", או ללחוץ **Ctrl+B** כדי להעביר משימה רצה לרקע. כדי להשבית את כל פונקציונליות הרקע, מגדירים את משתנה הסביבה `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` ל-`1`.
 
 ## דפוסי עבודה נפוצים
 
@@ -320,7 +320,7 @@ Use the code-reviewer subagent to find performance issues, then use the optimize
 
 כדאי לשקול **Skills** במקום זאת כשרוצים prompts או workflows לשימוש חוזר שרצים ב-context של השיחה הראשית במקום ב-context מבודד של subagent. לשאלה מהירה על משהו שכבר בשיחה, עדיף `/btw` — היא רואה את כל ה-context אך אין לה גישה לכלים, והתשובה נזרקת במקום להתווסף להיסטוריה.
 
-החל מ-Claude Code v2.1.172, subagents יכולים לייצר subagents משלהם. **עומק מקסימלי: 5 רמות** מתחת לשיחה הראשית, ללא קשר לאם כל רמה רצה ב-foreground או ב-background — subagent ברמה חמישית אינו מקבל את כלי ה-Agent ולא יכול לפצל הלאה. המגבלה קבועה ואינה ניתנת להגדרה. כדי למנוע מ-subagent ספציפי לייצר subagents נוספים, יש להשמיט את `Agent` מרשימת ה-`tools` שלו.
+subagents יכולים לייצר subagents משלהם, **עד שלוש שכבות** מתחת לשיחה הראשית כברירת מחדל. ב-depth limit, Claude Code מונע את כלי ה-Agent מה-subagent (פרט ל-fork, שאצלו הכלי נשאר רשום אך מחזיר שגיאה), כך שהוא מבצע את העבודה בעצמו ומחזיר סיכום אחד. החל מ-v2.1.217 אפשר לשנות את המגבלה עם משתנה הסביבה `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH` — למשל `1` מכבה nesting לגמרי (ב-v2.1.172 עד v2.1.216 המגבלה הייתה חמש שכבות ולא ניתנת לשינוי). כדי למנוע מ-subagent ספציפי לייצר subagents נוספים, יש להשמיט את `Agent` מרשימת ה-`tools` שלו או להוסיפו ל-`disallowedTools`.
 
 החל מ-v2.1.178, כשמספר תיקיות `.claude/agents/` נמצאות בדרך מתיקיית העבודה לשורש ה-repo, וכמה מהן מגדירות אותו `name` — הגדרת ה-subagent **הקרובה ביותר** לתיקיית העבודה גוברת.
 
@@ -332,14 +332,14 @@ Explore ו-Plan הם ה-subagents היחידים שמשמיטים CLAUDE.md ו-g
 
 ## Fork של השיחה הנוכחית
 
-forked subagents הם ניסיוניים ודורשים Claude Code v2.1.117 ומעלה. מפעילים אותם ע"י הגדרת משתנה הסביבה `CLAUDE_CODE_FORK_SUBAGENT` ל-`1`.
+forked subagents מופעלים כברירת מחדל החל מ-Claude Code v2.1.161; רק ב-v2.1.117 עד v2.1.160 נדרש להגדיר את משתנה הסביבה `CLAUDE_CODE_FORK_SUBAGENT` ל-`1` (אפשר עדיין להגדיר `1` להפעלה מפורשת או `0` לכיבוי). היכולת של Claude עצמו לייצר forks עדיין ניסיונית.
 
 fork הוא subagent שיורש את כל השיחה עד כה במקום להתחיל מאפס. זה מבטל את בידוד הקלט ש-subagents מספקים בדרך כלל: fork רואה את אותו system prompt, כלים, מודל והיסטוריית הודעות כמו ה-session הראשי, כך שאפשר למסור לו side task בלי להסביר מחדש את המצב. קריאות הכלי של ה-fork עדיין נשארות מחוץ לשיחה, ורק התוצאה הסופית חוזרת. כדאי להשתמש ב-fork כש-subagent בעל שם היה צריך יותר מדי רקע כדי להיות שימושי, או כשרוצים לנסות כמה גישות במקביל מאותה נקודת התחלה.
 
-הפעלת fork mode משנה את Claude Code בשלוש דרכים: Claude מייצר fork בכל פעם שהיה משתמש ב-subagent מסוג general-purpose; כל יצירת subagent רצה ברקע; והפקודה `/fork` מייצרת fork. אפשר להתחיל fork עם `/fork` ואחריו directive:
+הפעלת fork mode משנה את Claude Code בשתי דרכים: Claude יכול לייצר fork ע"י בקשה מפורשת של subagent type בשם `fork` — כשהוא לא מבקש type, הוא עדיין מקבל general-purpose, ו-subagents בעלי שם כמו Explore ממשיכים לרוץ כרגיל; וכל יצירת subagent רצה ברקע. אפשר להתחיל fork בעצמך עם הפקודה `/subtask` (דורשת v2.1.212 ומעלה; ב-v2.1.161 עד v2.1.211 הפקודה נקראה `/fork`) ואחריה המשימה. כיום `/fork` מעתיק את כל ה-session ל-background session חדש:
 
 ```text
-/fork draft unit tests for the parser changes so far
+/subtask draft unit tests for the parser changes so far
 ```
 
 ה-fork מופיע ב-panel מתחת ל-prompt ורץ ברקע בזמן שאתה ממשיך לעבוד. כשהוא מסיים, התוצאה מגיעה כהודעה בשיחה הראשית. בגלל שה-system prompt והגדרות הכלים של ה-fork זהים ל-parent, הבקשה הראשונה שלו עושה שימוש חוזר ב-prompt cache של ה-parent, מה שמוזיל את ה-fork לעומת יצירת subagent טרי. fork לא יכול לייצר forks נוספים.
