@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/voice-dictation
 related: ["keyboard-shortcuts", "slash-config"]
 mission: daily
+pathOrder: 10
 level: beginner
 type: guide
 tool: claude-code

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/sandboxing
 related: [slash-security-sandbox, permissions, auto-mode-config]
 mission: advanced
+pathOrder: 19
 level: advanced
 type: guide
 tool: claude-code

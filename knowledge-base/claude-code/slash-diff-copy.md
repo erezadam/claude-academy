@@ -8,6 +8,7 @@ source_url: https://code.claude.com/docs/en/commands
 related: [slash-export-resume, slash-context-cost]
 badge: new
 mission: daily
+pathOrder: 7
 level: beginner
 type: guide
 tool: claude-code

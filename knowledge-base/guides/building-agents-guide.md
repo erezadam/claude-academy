@@ -8,6 +8,7 @@ source_url: https://code.claude.com/docs/en/best-practices
 related: [claude-md-guide, slash-plan, slash-permissions, slash-compact-clear, skills, slash-mcp, sub-agents, slash-hooks, plugins-guide, worktrees, slash-goal, slash-rewind, slash-context-cost]
 badge: new
 mission: advanced
+pathOrder: 14
 level: advanced
 type: guide
 tool: claude-code

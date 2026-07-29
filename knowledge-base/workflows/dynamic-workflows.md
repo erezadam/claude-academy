@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/workflows
 related: [routines, sub-agents, scheduled-tasks]
 mission: advanced
+pathOrder: 13
 level: advanced
 type: guide
 tool: claude-code

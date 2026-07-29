@@ -9,6 +9,7 @@ source_url: https://code.claude.com/docs/en/checkpointing
 source_url_extra: https://git-scm.com/docs/git-status https://git-scm.com/docs/git-diff https://git-scm.com/docs/git-revert https://git-scm.com/docs/git-reset https://git-scm.com/docs/git-stash https://git-scm.com/docs/git-log
 related: [trust-and-verify, slash-rewind, git-reset-revert, git-stash]
 mission: code
+pathOrder: 1
 level: beginner
 type: recipe
 tool: both

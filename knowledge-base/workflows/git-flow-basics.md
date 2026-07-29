@@ -6,6 +6,7 @@ last_verified: 2026-05-30
 status: current
 origin: original
 mission: code
+pathOrder: 7
 level: intermediate
 type: recipe
 tool: both

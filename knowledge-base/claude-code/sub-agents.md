@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/sub-agents
 related: ["skills", "plugins-guide", "/agents"]
 mission: advanced
+pathOrder: 10
 level: advanced
 type: guide
 tool: claude-code

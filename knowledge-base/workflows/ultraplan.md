@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/ultraplan
 related: ["dynamic-workflows", "agent-view", "worktrees"]
 mission: advanced
+pathOrder: 4
 level: intermediate
 type: guide
 tool: claude-code

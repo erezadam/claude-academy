@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/commands
 related: [slash-commands-all, hooks-guide, memory, skills]
 mission: daily
+pathOrder: 17
 level: intermediate
 type: guide
 tool: claude-code

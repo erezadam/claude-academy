@@ -7,6 +7,7 @@ status: current
 origin: original
 related: [codeatlas, lessons]
 mission: spec
+pathOrder: 5
 level: beginner
 type: recipe
 tool: claude-code

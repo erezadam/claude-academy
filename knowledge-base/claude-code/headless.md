@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/headless
 related: [sessions, sub-agents, sandboxing, slash-commands-all]
 mission: automate
+pathOrder: 6
 level: advanced
 type: guide
 tool: claude-code

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/large-codebases
 related: [memory, claude-md-guide, worktrees, plugins-guide, skills]
 mission: daily
+pathOrder: 23
 level: intermediate
 type: guide
 tool: claude-code

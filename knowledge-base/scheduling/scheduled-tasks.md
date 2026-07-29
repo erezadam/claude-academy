@@ -8,6 +8,7 @@ source_url: https://code.claude.com/docs/en/scheduled-tasks
 source_url_extra: https://code.claude.com/docs/en/cli-reference
 related: ["routines", "dynamic-workflows", "/loop"]
 mission: automate
+pathOrder: 3
 level: intermediate
 type: guide
 tool: claude-code

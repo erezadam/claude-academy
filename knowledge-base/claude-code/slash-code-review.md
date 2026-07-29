@@ -8,6 +8,7 @@ related: [slash-commands-all, claude-md-guide]
 source_url: "https://code.claude.com/docs/en/code-review"
 badge: new
 mission: daily
+pathOrder: 20
 level: intermediate
 type: guide
 tool: claude-code

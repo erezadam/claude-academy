@@ -15,7 +15,6 @@ tool: claude-code
 origin: official
 timeMinutes: 10
 pathOrder: 2
-next: prompting-basics
 ---
 
 ## התקנה והרצה ראשונה

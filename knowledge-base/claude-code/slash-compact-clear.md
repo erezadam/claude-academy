@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [/context, /cost, /rewind]
 mission: daily
+pathOrder: 2
 level: beginner
 type: guide
 tool: claude-code

@@ -10,6 +10,7 @@ related: [slash-commands-all, claude-md-guide]
 badge: new
 author: "דניאל נחמיה"
 mission: advanced
+pathOrder: 15
 level: advanced
 type: guide
 tool: claude-code

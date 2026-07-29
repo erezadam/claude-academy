@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/memory
 related: ["claude-md-guide", "slash-init", "slash-hooks"]
 mission: spec
+pathOrder: 2
 level: beginner
 type: guide
 tool: claude-code

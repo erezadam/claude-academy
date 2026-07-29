@@ -6,6 +6,7 @@ last_verified: 2026-05-30
 status: current
 origin: original
 mission: daily
+pathOrder: 13
 level: beginner
 type: recipe
 tool: claude-code

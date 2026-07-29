@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/best-practices
 related: [skills, sub-agents, plugins-guide, /init, /memory, /clear, /compact, /rewind, hooks-guide, mcp]
 mission: daily
+pathOrder: 14
 level: intermediate
 type: guide
 tool: claude-code

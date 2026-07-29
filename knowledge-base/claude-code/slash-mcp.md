@@ -8,6 +8,7 @@ source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/sandboxing
 related: [/config, /permissions]
 mission: advanced
+pathOrder: 9
 level: advanced
 type: guide
 tool: claude-code

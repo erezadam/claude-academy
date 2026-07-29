@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/agents
 related: [sub-agents, agent-view, dynamic-workflows, worktrees, agent-teams]
 mission: advanced
+pathOrder: 11
 level: advanced
 type: guide
 tool: claude-code

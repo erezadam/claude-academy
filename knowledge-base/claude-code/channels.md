@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/channels
 related: ["slash-mcp", "scheduled-tasks", "slash-remote-desktop"]
 mission: automate
+pathOrder: 7
 level: advanced
 type: recipe
 tool: claude-code

@@ -8,6 +8,7 @@ source_url: https://github.com/msitarzewski/agency-agents
 related: [building-skills]
 badge: new
 mission: advanced
+pathOrder: 17
 level: advanced
 type: guide
 tool: claude-code

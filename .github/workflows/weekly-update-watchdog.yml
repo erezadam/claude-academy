@@ -81,7 +81,8 @@ jobs:
             echo "אין קבצי תוכן שהשתנו — שער אימות מדלג."
             exit 0
           fi
-          if node scripts/verify-sources.mjs $FILES | tee verify-report.txt; then
+          # הקורפוס המלא, לא רק ה-diff — מאמר חדש לא ימוזג על ריקבון קיים.
+          if node scripts/verify-sources.mjs | tee verify-report.txt; then
             echo "✅ שער אימות-מקור עבר — ניתן למזג."
           else
             echo "::error::שער אימות-מקור נכשל — ה-watchdog לא ימזג."

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/costs
 related: ["slash-login-logout-usage", "sessions", "sub-agents", "skills"]
 mission: daily
+pathOrder: 16
 level: intermediate
 type: guide
 tool: claude-code

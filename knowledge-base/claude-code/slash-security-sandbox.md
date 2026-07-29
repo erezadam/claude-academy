@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [/review, /permissions, /doctor]
 mission: advanced
+pathOrder: 8
 level: intermediate
 type: guide
 tool: claude-code

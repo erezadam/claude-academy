@@ -1,23 +1,6 @@
 "use client";
 
-import { useState } from "react";
-
-function CopyBtn({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false);
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-  return (
-    <button
-      onClick={handleCopy}
-      className="absolute top-2 right-2 px-2 py-1 text-small rounded-token border border-gray-500 bg-transparent text-gray-200 hover:text-white transition-colors"
-    >
-      {copied ? "הועתק!" : "העתק"}
-    </button>
-  );
-}
+import CopyButton from "./CopyButton";
 
 export default function MarkdownContent({ content }: { content: string }) {
   const blocks = parseMarkdown(content);
@@ -34,7 +17,7 @@ export default function MarkdownContent({ content }: { content: string }) {
               >
                 <code>{block.text}</code>
               </pre>
-              <CopyBtn text={block.text} />
+              <CopyButton text={block.text} />
             </div>
           );
         }

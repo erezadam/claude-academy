@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [CLAUDE.md, /memory, /config]
 mission: spec
+pathOrder: 1
 level: beginner
 type: recipe
 tool: claude-code

@@ -73,8 +73,8 @@ export default function WhatsNew({
                         className={
                           "flex-shrink-0 rounded-full px-2 py-0.5 text-small font-bold " +
                           (item.type === "new"
-                            ? "bg-green-100 text-green-800"
-                            : "bg-yellow-100 text-yellow-800")
+                            ? "border border-rule text-verified"
+                            : "text-stale bg-stale-bg")
                         }
                       >
                         {item.type === "new" ? "חדש" : "עודכן"}

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/checkpointing
 related: [slash-rewind, sessions, slash-compact-clear]
 mission: code
+pathOrder: 3
 level: beginner
 type: guide
 tool: claude-code

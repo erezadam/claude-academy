@@ -8,6 +8,7 @@ source_url: https://code.claude.com/docs/en/plugins
 source_url_extra: https://code.claude.com/docs/en/commands
 related: [skills, sub-agents, hooks, mcp, plugin-marketplaces]
 mission: advanced
+pathOrder: 16
 level: advanced
 type: recipe
 tool: claude-code
