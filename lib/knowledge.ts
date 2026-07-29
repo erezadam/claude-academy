@@ -255,6 +255,15 @@ export function getLastUpdated(): string | null {
   return dates.reduce((max, d) => (d > max ? d : max));
 }
 
+// חמשת המאמרים עם last_verified העדכני ביותר — רצועת "עודכן לאחרונה"
+// בעמוד הבית. מספרים חיים, לא כתובים ביד.
+export function getRecentlyVerified(limit = 5): Article[] {
+  return getAllArticles()
+    .filter((a) => a.lastVerified)
+    .sort((a, b) => (b.lastVerified! > a.lastVerified! ? 1 : -1))
+    .slice(0, limit);
+}
+
 export interface ChangelogItem {
   title: string;
   category: string;

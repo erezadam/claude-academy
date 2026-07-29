@@ -27,6 +27,10 @@
   --color-stale-bg: #fdf6e3;
   --color-rule: #e0e0e0;
 
+  /* חריג יחיד ומאושר לסקאלה: כותרת שער-הפתיח בעמוד הבית בלבד. */
+  --text-hero: 48px;
+  --text-hero--line-height: 1.2;
+
   --text-h1: 30px;
   --text-h1--line-height: 1.3;
   --text-h2: 22px;
