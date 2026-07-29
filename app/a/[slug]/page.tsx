@@ -197,6 +197,11 @@ export default async function ArticlePage({
                 {article.lastVerified}
               </span>
             )}
+            {article.origin !== "original" && !article.lastReviewed && (
+              <span className="block mt-1 text-ink-soft">
+                נוצר אוטומטית — טרם נסקר.
+              </span>
+            )}
             {article.origin !== "original" &&
               article.tool === "claude-code" &&
               article.lastReviewed &&

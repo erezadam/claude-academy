@@ -112,6 +112,21 @@ jobs:
           npm ci
           npm run build
 
+      # מנוע תחזוקה: גרסאות changelog אחרונות מול הקורפוס — issue קבוע.
+      - name: Impact scan
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/impact-scan.mjs --versions 3 > impact.md || true
+          if grep -q "גרסה" impact.md; then
+            TITLE="סריקת השפעה — שינויי changelog שנוגעים במאמרים קיימים"
+            BODY="$(printf 'נוצר אוטומטית ע\"י impact-scan ב-%s.\n\n%s' "$(date -u +%F)" "$(cat impact.md)")"
+            EXISTING=$(gh issue list --state open --search "in:title סריקת השפעה" --json number --jq '.[0].number // empty')
+            if [ -n "$EXISTING" ]; then gh issue edit "$EXISTING" --body "$BODY"; else gh issue create --title "$TITLE" --body "$BODY"; fi
+          fi
+
       # שער אימות-מקור דטרמיניסטי: חוסם מיזוג אם מאמר מציג מזהה טכני "רשמי"
       # (flag / פקודה / משתנה-סביבה / מפתח-קונפיג) שאינו מופיע ב-source_url.
       # זה התיקון לכשל ה-sandbox.credentials שעבר לאתר על build ירוק בלבד.
@@ -127,7 +142,8 @@ jobs:
             echo "אין קבצי תוכן שהשתנו — שער אימות מדלג."
             exit 0
           fi
-          if node scripts/verify-sources.mjs $FILES | tee verify-report.txt; then
+          # הקורפוס המלא, לא רק ה-diff — מאמר חדש לא ימוזג על ריקבון קיים.
+          if node scripts/verify-sources.mjs | tee verify-report.txt; then
             echo "✅ שער אימות-מקור עבר — ניתן למזג."
           else
             echo "::error::שער אימות-מקור נכשל — לא ממזגים את ה-PR."
