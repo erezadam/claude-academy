@@ -10,6 +10,13 @@ const nextConfig: NextConfig = {
         destination: "/a/:slug",
         permanent: true,
       },
+      // האשף הישן ב-public הוסר (כפילות מול /wizard). ייתכן שאונדקס —
+      // redirect במקום 404.
+      {
+        source: "/project-wizard.html",
+        destination: "/wizard",
+        permanent: true,
+      },
     ];
   },
 };

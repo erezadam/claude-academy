@@ -1,0 +1,35 @@
+# דוח התיישנות חודשי: המאמרים הישנים ביותר לפי last_verified, כ-issue קבוע.
+# תור עבודה שוטף לעדכון תוכן — sub-agents (יוני 2026) הוכיח שריקבון סמנטי
+# מתרכז במאמרים שגילם רב.
+name: staleness-report
+
+on:
+  schedule:
+    - cron: "23 6 1 * *" # אחת לחודש, ב-1 לחודש
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build report and upsert issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/staleness-report.mjs --top 20 --markdown > report.md
+          TITLE="דוח התיישנות תוכן — 20 המאמרים הישנים ביותר"
+          BODY="$(printf 'נוצר אוטומטית ב-%s. מאמר שנבדק מזמן הוא המנבא הטוב ביותר לריקבון סמנטי.\n\n%s' "$(date -u +%F)" "$(cat report.md)")"
+          EXISTING=$(gh issue list --state open --search "in:title דוח התיישנות תוכן" --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            gh issue edit "$EXISTING" --body "$BODY"
+          else
+            gh issue create --title "$TITLE" --body "$BODY"
+          fi

@@ -5,6 +5,14 @@ import { getAllArticles, getCategoryBySlug, getArticle } from "@/lib/knowledge";
 import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import MarkdownContent from "@/components/MarkdownContent";
 
+// מאמר שנבדק לפני יותר מ-90 יום מסומן "ייתכן שהתיישן". מחושב בזמן build —
+// האתר נבנה מחדש לפחות אחת לשבוע (העדכון השבועי), כך שהחישוב לא נסחף.
+const STALE_DAYS = 90;
+function isStale(lastVerified: string): boolean {
+  const age = Date.now() - new Date(lastVerified).getTime();
+  return age > STALE_DAYS * 24 * 60 * 60 * 1000;
+}
+
 export function generateStaticParams() {
   return getAllArticles().map((article) => ({ slug: article.slug }));
 }
@@ -121,6 +129,23 @@ export default async function ArticlePage({
 
       {/* Article content */}
       <main className="max-w-3xl mx-auto px-6 py-8">
+        {article.lastVerified && (
+          <div className="mb-6 text-sm text-gray-700">
+            {article.origin === "original" ? (
+              <span>תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
+            ) : (
+              <span>
+                הפקודות והדגלים בעמוד אומתו מול התיעוד הרשמי · נבדק ב-
+                {article.lastVerified}
+              </span>
+            )}
+            {article.origin !== "original" && isStale(article.lastVerified) && (
+              <span className="block mt-1 text-amber-800">
+                ייתכן שהתיישן — Claude Code מתעדכן מהר.
+              </span>
+            )}
+          </div>
+        )}
         <MarkdownContent content={article.content} />
       </main>
 
