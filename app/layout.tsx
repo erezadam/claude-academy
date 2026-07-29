@@ -96,8 +96,8 @@ export default function RootLayout({
         {children}
         <Analytics />
         {lastUpdatedLabel && (
-          <footer className="border-t border-gray-200 mt-12">
-            <div className="max-w-5xl mx-auto px-6 py-4 text-sm text-gray-700">
+          <footer className="border-t border-rule mt-12">
+            <div className="max-w-5xl mx-auto px-6 py-4 text-small text-ink-soft">
               עודכן לאחרונה: {lastUpdatedLabel}
             </div>
           </footer>

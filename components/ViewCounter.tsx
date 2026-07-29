@@ -33,11 +33,11 @@ export default function ViewCounter() {
     <Link
       href="/admin"
       aria-label="כניסה לאזור האישי"
-      className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-600 transition-colors hover:border-gray-400 hover:bg-gray-100"
+      className="mt-4 inline-flex items-center gap-2 border border-rule bg-gray-50 px-3 py-1 text-small text-ink-soft transition-colors hover:border-ink hover:bg-gray-100"
     >
       <span aria-hidden="true">👁️</span>
       <span>
-        <span className="font-semibold text-gray-900 tabular-nums">
+        <span className="font-bold text-ink tabular-nums">
           {views.toLocaleString("he-IL")}
         </span>{" "}
         כניסות

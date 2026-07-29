@@ -36,13 +36,13 @@ export default function LoginForm({ configured }: { configured: boolean }) {
   return (
     <div className="min-h-screen font-sans bg-white flex items-center justify-center px-6">
       <div className="w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-gray-900 mb-1">אזור אישי</h1>
-        <p className="text-sm text-gray-600 mb-8">
+        <h1 className="text-h2 font-bold text-ink mb-1">אזור אישי</h1>
+        <p className="text-small text-ink-soft mb-8">
           הזן סיסמה כדי לראות את נתוני הכניסות.
         </p>
 
         {!configured ? (
-          <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+          <div className="border border-amber-200 bg-amber-50 p-4 text-small text-amber-900">
             הסיסמה עדיין לא הוגדרה (משתנה הסביבה ADMIN_PASSWORD חסר).
           </div>
         ) : (
@@ -54,15 +54,15 @@ export default function LoginForm({ configured }: { configured: boolean }) {
               placeholder="סיסמה"
               autoFocus
               dir="ltr"
-              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-900 outline-none focus:border-gray-900"
+              className="w-full rounded-md border border-rule px-3 py-2 text-small text-ink outline-none focus:border-action"
             />
             {error && (
-              <p className="mt-2 text-sm text-red-600">סיסמה שגויה. נסה שוב.</p>
+              <p className="mt-2 text-small text-accent">סיסמה שגויה. נסה שוב.</p>
             )}
             <button
               type="submit"
               disabled={loading || password.length === 0}
-              className="mt-4 w-full rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-700 disabled:opacity-40"
+              className="mt-4 w-full rounded-md bg-gray-900 px-4 py-2 text-small font-bold text-white transition-colors hover:bg-gray-700 disabled:opacity-40"
             >
               {loading ? "בודק…" : "כניסה"}
             </button>
@@ -70,7 +70,7 @@ export default function LoginForm({ configured }: { configured: boolean }) {
         )}
 
         <div className="mt-8">
-          <Link href="/" className="text-sm text-blue-700 hover:underline">
+          <Link href="/" className="text-small text-accent hover:underline">
             &rarr; חזרה לדף הבית
           </Link>
         </div>

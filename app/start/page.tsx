@@ -35,13 +35,13 @@ export default function StartPage() {
 
   return (
     <div className="min-h-screen font-sans bg-white">
-      <header className="border-b border-gray-200">
+      <header className="border-b border-rule">
         <div className="max-w-3xl mx-auto px-6 py-10">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">מסלול המתחיל</h1>
-          <p className="text-base text-gray-900">
+          <h1 className="text-h1 font-bold text-ink mb-2">מסלול המתחיל</h1>
+          <p className="text-body text-ink">
             לא עבדת עם Claude Code מעולם? זה המסלול — צעד אחרי צעד, בלי לדלג.
           </p>
-          <p className="text-sm text-gray-700 mt-1">
+          <p className="text-small text-ink-soft mt-1">
             סך הכול ~{totalMinutes} דקות · ההתקדמות נשמרת בדפדפן שלך בלבד
           </p>
         </div>
