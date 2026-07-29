@@ -201,6 +201,11 @@ async function verifyFile(file) {
   if (!isAllowedSource(url)) {
     if (!exception)
       return [`${file}: source_url is not an official https host (allowlist): ${url}`];
+    // חריג בלי תאריך תוקף הוא חריג לנצח: recheck שעבר מפיל את השער.
+    if (exception.recheck < new Date().toISOString().slice(0, 10))
+      return [
+        `${file}: פג תוקף החריג ב-source-exceptions.json (recheck: ${exception.recheck}) — בדוק מחדש את המקור ${url} וקבע recheck חדש, או הסר את החריג.`,
+      ];
     console.log(
       `⚠ ${file}: חריג מ-source-exceptions.json — host מחוץ ל-allowlist: ${url} | נימוק: ${exception.reason} | בדיקה חוזרת: ${exception.recheck}`
     );
