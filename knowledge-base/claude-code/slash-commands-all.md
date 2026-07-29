@@ -4,7 +4,8 @@ category: claude-code
 layer: basic
 last_verified: 2026-03-09
 status: current
-source_url: https://code.claude.com/docs/en/slash-commands
+source_url: https://code.claude.com/docs/en/commands
+source_url_extra: https://code.claude.com/docs/en/cli-reference
 related: [slash-init, slash-memory, slash-doctor, slash-compact-clear]
 ---
 

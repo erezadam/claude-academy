@@ -20,7 +20,6 @@
 // יציאה:  0 = כל המזהים נתמכים במקור.  1 = לפחות מזהה אחד לא אומת / מקור לא נגיש.
 
 import fs from "node:fs";
-import { execFileSync } from "node:child_process";
 
 // ---- עזרי טקסט ----
 
@@ -49,8 +48,10 @@ function extractCodeRegions(body) {
 const TOKEN_PATTERNS = [
   // flags ארוכים: --foo / --fooBar / --foo-bar
   /--[A-Za-z][A-Za-z0-9-]+/g,
-  // פקודות slash עצמאיות (לא חלק מ-URL או נתיב): /rewind, /config
-  /(?<![\w/:.])\/[a-z][a-z-]{1,}/g,
+  // פקודות slash עצמאיות (לא חלק מ-URL או נתיב): /rewind, /config.
+  // (?![a-z-]*\/) — רכיב נתיב (/path/to/x) אינו פקודה; ה-lookahead מכסה גם
+  // קידומות (בלעדיו backtracking היה מחלץ /pat מתוך /path/).
+  /(?<![\w/:.])\/[a-z][a-z-]{1,}(?![a-z-]*\/)/g,
   // משתני סביבה: לפחות קו-תחתון אחד, אותיות גדולות
   /(?<![\w])[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)+(?![\w])/g,
   // מפתחות-קונפיג מנוקדים: word.word(.word)
@@ -58,7 +59,7 @@ const TOKEN_PATTERNS = [
 ];
 
 // טוקנים מנוקדים שהם למעשה דומיינים / שמות-קבצים — לא מפתחות-קונפיג.
-const DOMAIN_OR_FILE = /\.(com|org|net|io|dev|md|mdx|ts|tsx|js|mjs|cjs|jsx|json|sh|txt|html|css|yml|yaml|lock|sample|example)$/i;
+const DOMAIN_OR_FILE = /\.(com|org|net|io|dev|md|mdx|ts|tsx|js|mjs|cjs|jsx|json|sh|txt|html|css|yml|yaml|lock|sample|example|py)$/i;
 // דומיינים נפוצים שמופיעים כקישור ולא כהגדרה.
 const KNOWN_DOMAIN = /(claude\.com|github\.com|anthropic\.com|google\.com|myaccount\.google)/i;
 
@@ -93,6 +94,10 @@ const ALLOWED_HOSTS = new Set([
   "code.claude.com",
   "docs.claude.com",
   "docs.anthropic.com",
+  // host התיעוד הרשמי של Claude API (היורש של docs.anthropic.com).
+  "platform.claude.com",
+  // התיעוד הרשמי של Git — האתר מלמד גם Git (הכרעת מדיניות, 2026-07-29).
+  "git-scm.com",
 ]);
 
 function isAllowedSource(u) {
@@ -104,12 +109,34 @@ function isAllowedSource(u) {
   }
 }
 
-// חריג מדיניות מפורש: מאמר רשאי להצביע על host מחוץ ל-allowlist רק אם
-// ה-frontmatter מכיל source_exception מלא — נימוק בכתב + תאריך לבדיקה חוזרת
-// (YYYY-MM-DD). חריג מתועד ונראה (אזהרה גלויה בדוח), לא עקיפה שקטה.
-function validException(data) {
-  const ex = (data.source_exception || "").trim();
-  return ex.length > 0 && /\d{4}-\d{2}-\d{2}/.test(ex) ? ex : null;
+// חריגי מדיניות: source-exceptions.json בשורש הריפו (לא frontmatter — חריג
+// בתוך קובץ תוכן נעלם בדיף; קובץ מרכזי נראה לעין). כל רשומה: file, host,
+// reason, recheck (YYYY-MM-DD). host מחוץ ל-allowlist מותר רק אם יש רשומה
+// תואמת של הקובץ וה-hostname, ואזהרה גלויה מודפסת בדוח.
+function loadExceptions() {
+  try {
+    const arr = JSON.parse(fs.readFileSync("source-exceptions.json", "utf-8"));
+    return Array.isArray(arr) ? arr : [];
+  } catch {
+    return [];
+  }
+}
+const EXCEPTIONS = loadExceptions();
+function findException(file, url) {
+  let host;
+  try {
+    host = new URL(url).hostname;
+  } catch {
+    return null;
+  }
+  return (
+    EXCEPTIONS.find(
+      (e) =>
+        e && e.file === file && e.host === host &&
+        typeof e.reason === "string" && e.reason.trim() &&
+        /^\d{4}-\d{2}-\d{2}$/.test(e.recheck || "")
+    ) || null
+  );
 }
 
 // מושך את טקסט המקור: גם ה-URL כפי שהוא וגם גרסת ה-.md (טקסט נקי). מחזיר
@@ -162,18 +189,32 @@ async function verifyFile(file) {
   if (!fs.existsSync(file)) return [`${file}: file not found`];
   const raw = fs.readFileSync(file, "utf-8");
   const { data, body } = parseFrontmatter(raw);
+  // תוכן מקורי (ניסיון, לא תיעוד) — פטור מהשער, בהודעה גלויה.
+  if ((data.origin || "").trim() === "original") {
+    console.log(`○ ${file}: origin: original — תוכן מקורי, פטור משער האימות.`);
+    return [];
+  }
   const url = data.source_url;
   if (!url) return [`${file}: missing source_url in frontmatter`];
-  const exception = validException(data);
+  const exception = findException(file, url);
   if (!isAllowedSource(url)) {
     if (!exception)
       return [`${file}: source_url is not an official https host (allowlist): ${url}`];
     console.log(
-      `⚠ ${file}: source_exception פעיל — host מחוץ ל-allowlist: ${url} | נימוק: ${exception}`
+      `⚠ ${file}: חריג מ-source-exceptions.json — host מחוץ ל-allowlist: ${url} | נימוק: ${exception.reason} | בדיקה חוזרת: ${exception.recheck}`
     );
   }
 
-  const sourceText = await fetchSource(url, !isAllowedSource(url) && !!exception);
+  let sourceText = await fetchSource(url, !isAllowedSource(url) && !!exception);
+  // source_url_extra: עמודי תיעוד רשמיים נוספים שהמאמר נשען עליהם (מופרדים
+  // ברווח) — למשל דגלי CLI שמתועדים בעמוד נפרד. חייבים לעמוד ב-allowlist.
+  for (const extraUrl of (data.source_url_extra || "").split(/\s+/).filter(Boolean)) {
+    if (!isAllowedSource(extraUrl)) continue;
+    const extra = await fetchSource(extraUrl);
+    if (extra && sourceText) {
+      sourceText = { normalized: sourceText.normalized + " " + extra.normalized, raw: sourceText.raw + " " + extra.raw };
+    } else if (extra) sourceText = extra;
+  }
   if (sourceText === null) return [`${file}: source_url not reachable (no 200): ${url}`];
 
   const tokens = extractTokens(extractCodeRegions(body));
@@ -187,24 +228,21 @@ async function verifyFile(file) {
 
 // ---- main ----
 
+// ללא ארגומנטים: הקורפוס המלא. "ירוק בלי בדיקה" היה החור שאיפשר לריקבון
+// להצטבר — ריצה ריקה כבר לא קיימת. בדיקת diff-בלבד נשארת באחריות הקוראים
+// (stop-gate.sh, workflows) שמעבירים רשימת קבצים מפורשת.
 let files = process.argv.slice(2);
 if (files.length === 0) {
-  try {
-    // ללא shell — git מקבל את ה-pathspec כארגומנט ומרחיב אותו בעצמו.
-    const out = execFileSync(
-      "git",
-      ["diff", "--name-only", "--diff-filter=AM", "origin/main...HEAD", "--", "knowledge-base/**/*.md"],
-      { encoding: "utf-8" }
-    );
-    files = out.split("\n").map((s) => s.trim()).filter(Boolean);
-  } catch {
-    files = [];
-  }
+  files = fs
+    .readdirSync("knowledge-base", { recursive: true })
+    .filter((f) => f.endsWith(".md"))
+    .map((f) => `knowledge-base/${f}`)
+    .sort();
 }
 
 if (files.length === 0) {
-  console.log("verify-sources: אין קבצי knowledge-base שהשתנו — מדלג.");
-  process.exit(0);
+  console.log("verify-sources: לא נמצאו קבצי knowledge-base.");
+  process.exit(1);
 }
 
 const allProblems = [];

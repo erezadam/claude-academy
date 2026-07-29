@@ -22,9 +22,15 @@ if [ -n "$DIR" ] && [ -d "$DIR" ]; then cd "$DIR" || true; fi
 # אין סקריפט שער — לא חוסמים סיום.
 [ -f scripts/verify-sources.mjs ] || exit 0
 
+# ה-hook בודק רק את הקבצים שהשתנו בתור הזה (ריצה ללא ארגומנטים = קורפוס מלא,
+# כבד מדי ל-Stop hook). חישוב ה-diff עבר לכאן מהסקריפט עצמו.
+CHANGED=$(git diff --name-only --diff-filter=AM origin/main...HEAD -- 'knowledge-base/' 2>/dev/null | grep '\.md$' || true)
+if [ -z "$CHANGED" ]; then exit 0; fi
+
 # מריצים את השער. עובר -> מאפשרים סיום. נכשל -> חוסמים פעם אחת (exit 2) והסיבה
 # ל-stderr מוחזרת למודל כדי שיתקן את הטענות הלא-מאומתות.
-if OUT=$(node scripts/verify-sources.mjs 2>&1); then
+# shellcheck disable=SC2086
+if OUT=$(node scripts/verify-sources.mjs $CHANGED 2>&1); then
   exit 0
 else
   {

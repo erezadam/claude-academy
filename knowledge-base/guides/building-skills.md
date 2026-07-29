@@ -4,7 +4,8 @@ category: guides
 layer: advanced
 last_verified: 2026-03-08
 status: current
-source_url: https://www.facebook.com/share/p/IwY2xjawQeFt1leHRuA2FlbQIxMABicmlkETFYMVpJZ2tRV0hibHFGU1Y3c3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHo4vP3ehCzx6anUplTOCNgH75pDS8NFvEY34HjoNSKBqLFakBPEjjtiQbLHs_aem_EqWqeI4G9g1zVpaslrIg4w
+source_url: https://code.claude.com/docs/en/skills
+source_url_extra: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/quickstart https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices
 related: [slash-commands-all, claude-md-guide]
 badge: new
 author: "דניאל נחמיה"

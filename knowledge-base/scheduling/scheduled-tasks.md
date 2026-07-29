@@ -5,6 +5,7 @@ layer: intermediate
 last_verified: 2026-05-30
 status: needs-review
 source_url: https://code.claude.com/docs/en/scheduled-tasks
+source_url_extra: https://code.claude.com/docs/en/cli-reference
 related: ["routines", "dynamic-workflows", "/loop"]
 ---
 

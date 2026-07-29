@@ -4,6 +4,7 @@ category: workflows
 layer: basic
 last_verified: 2026-05-30
 status: current
+origin: original
 ---
 
 ## דיבאג עם Claude Code
