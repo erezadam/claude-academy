@@ -25,6 +25,10 @@ export async function generateMetadata({
   return { title: meta.name, description: meta.description };
 }
 
+// קיבוץ לפי רמה קיים כדי לקצר רשימה ארוכה — לא כטקסונומיה לשמה. משימות
+// קצרות (עד ~8 מאמרים) מוצגות שטוח; level ממשיך לשרת חיפוש וסינון.
+const GROUPED_MISSIONS = new Set<Mission>(["daily", "advanced"]);
+
 const LEVEL_ORDER: Level[] = ["beginner", "intermediate", "advanced"];
 const LEVEL_NAMES: Record<Level, string> = {
   beginner: "למתחילים",
@@ -84,7 +88,17 @@ export default async function MissionPage({
         {articles.length === 0 && (
           <p className="text-gray-900">המאמרים למשימה הזו נכתבים עכשיו.</p>
         )}
-        {[...byLevel.entries()].map(([lvl, list]) =>
+        {!GROUPED_MISSIONS.has(mission as Mission) && (
+          <ul>
+            {articles
+              .sort((a, b) => (a.pathOrder ?? 99) - (b.pathOrder ?? 99))
+              .map((a) => (
+                <ArticleRow key={a.slug} article={a} />
+              ))}
+          </ul>
+        )}
+        {GROUPED_MISSIONS.has(mission as Mission) &&
+        [...byLevel.entries()].map(([lvl, list]) =>
           lvl === "advanced" ? (
             // סקשן "מתקדם" מקופל כברירת מחדל.
             <details key={lvl} className="mb-8">
