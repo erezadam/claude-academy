@@ -1,0 +1,8 @@
+[
+  {
+    "file": "knowledge-base/guides/agency-agents.md",
+    "host": "github.com",
+    "reason": "המאמר סוקר את הריפו msitarzewski/agency-agents עצמו — הריפו הוא המקור הראשוני היחיד לתוכן; אין תחליף תחת code.claude.com/docs (פרויקט צד-שלישי).",
+    "recheck": "2026-10-29"
+  }
+]

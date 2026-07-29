@@ -4,7 +4,7 @@ category: claude-code
 layer: intermediate
 last_verified: 2026-03-07
 status: current
-source_url: https://code.claude.com/docs/en/slash-commands
+source_url: https://code.claude.com/docs/en/commands
 related: [/clear, /compact, Esc+Esc]
 ---
 

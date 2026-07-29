@@ -4,6 +4,7 @@ category: project-docs
 layer: basic
 last_verified: 2026-05-01
 status: current
+origin: original
 related: [codeatlas, lessons]
 ---
 
