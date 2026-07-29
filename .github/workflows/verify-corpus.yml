@@ -1,0 +1,33 @@
+# שער אימות-מקור על הקורפוס המלא — לא רק על diff.
+#
+# הסיבה השורשית לריקבון השקט: השער ההיסטורי רץ רק על קבצי knowledge-base
+# שהשתנו ב-PR, כך שכל מאמר נבדק פעם אחת ביום שנולד ומעולם לא נבדק שוב.
+# ה-job הזה מריץ את השער על כל knowledge-base/**/*.md — בכל PR, בכל push
+# ל-main, ואחת לשבוע — כדי שסחיפת תיעוד (docs drift) תצוף מיד ולא תצטבר.
+name: verify-corpus
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1" # שני 06:17 UTC — לפני הריצה השבועית
+  workflow_dispatch:
+
+jobs:
+  verify-full-corpus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify sources — full corpus
+        run: |
+          node scripts/verify-sources.mjs knowledge-base/*/*.md | tee corpus-report.txt
+      - name: Upload raw report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-report
+          path: corpus-report.txt
