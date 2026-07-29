@@ -104,10 +104,25 @@ function isAllowedSource(u) {
   }
 }
 
+// חריג מדיניות מפורש: מאמר רשאי להצביע על host מחוץ ל-allowlist רק אם
+// ה-frontmatter מכיל source_exception מלא — נימוק בכתב + תאריך לבדיקה חוזרת
+// (YYYY-MM-DD). חריג מתועד ונראה (אזהרה גלויה בדוח), לא עקיפה שקטה.
+function validException(data) {
+  const ex = (data.source_exception || "").trim();
+  return ex.length > 0 && /\d{4}-\d{2}-\d{2}/.test(ex) ? ex : null;
+}
+
 // מושך את טקסט המקור: גם ה-URL כפי שהוא וגם גרסת ה-.md (טקסט נקי). מחזיר
 // מחרוזת מנורמלת מאוחדת, או null אם שום וריאנט לא החזיר 200.
-async function fetchSource(url) {
-  if (!isAllowedSource(url)) return null;
+// bypassAllowlist=true רק במסלול source_exception; גם אז נאכף https בלבד.
+async function fetchSource(url, bypassAllowlist = false) {
+  if (bypassAllowlist) {
+    try {
+      if (new URL(url).protocol !== "https:") return null;
+    } catch {
+      return null;
+    }
+  } else if (!isAllowedSource(url)) return null;
   const variants = [url];
   if (!url.endsWith(".md")) variants.push(url.replace(/\/?$/, "") + ".md");
   let combined = "";
@@ -149,10 +164,16 @@ async function verifyFile(file) {
   const { data, body } = parseFrontmatter(raw);
   const url = data.source_url;
   if (!url) return [`${file}: missing source_url in frontmatter`];
-  if (!isAllowedSource(url))
-    return [`${file}: source_url is not an official https host (allowlist): ${url}`];
+  const exception = validException(data);
+  if (!isAllowedSource(url)) {
+    if (!exception)
+      return [`${file}: source_url is not an official https host (allowlist): ${url}`];
+    console.log(
+      `⚠ ${file}: source_exception פעיל — host מחוץ ל-allowlist: ${url} | נימוק: ${exception}`
+    );
+  }
 
-  const sourceText = await fetchSource(url);
+  const sourceText = await fetchSource(url, !isAllowedSource(url) && !!exception);
   if (sourceText === null) return [`${file}: source_url not reachable (no 200): ${url}`];
 
   const tokens = extractTokens(extractCodeRegions(body));
