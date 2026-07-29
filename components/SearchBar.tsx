@@ -33,6 +33,8 @@ export default function SearchBar({
     <div className="relative w-full max-w-xl mx-auto">
       <div className="relative">
         <svg
+          width="16"
+          height="16"
           className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-ink-soft"
           fill="none"
           stroke="currentColor"
