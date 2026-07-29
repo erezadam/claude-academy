@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/agent-view
 related: ["sub-agents", "dynamic-workflows", "slash-goal"]
 mission: advanced
+pathOrder: 3
 level: intermediate
 type: guide
 tool: claude-code

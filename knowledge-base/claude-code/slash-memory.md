@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [CLAUDE.md, /init, /clear]
 mission: spec
+pathOrder: 3
 level: beginner
 type: guide
 tool: claude-code

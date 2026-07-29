@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/skills
 related: [plugins-guide, sub-agents, slash-commands]
 mission: advanced
+pathOrder: 1
 level: intermediate
 type: guide
 tool: claude-code

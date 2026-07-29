@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/sessions
 related: ["slash-export-resume", "slash-fork-rename-exit", "slash-compact-clear", "worktrees"]
 mission: daily
+pathOrder: 1
 level: beginner
 type: guide
 tool: claude-code

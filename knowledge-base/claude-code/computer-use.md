@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/computer-use
 related: ["slash-mcp", "slash-remote-desktop", "slash-security-sandbox"]
 mission: advanced
+pathOrder: 18
 level: advanced
 type: guide
 tool: claude-code

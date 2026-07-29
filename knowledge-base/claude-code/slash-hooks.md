@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [/config, /permissions, /agents]
 mission: automate
+pathOrder: 1
 level: intermediate
 type: guide
 tool: claude-code

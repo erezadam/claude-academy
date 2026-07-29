@@ -7,6 +7,7 @@ status: current
 origin: original
 related: [vibeview, lessons]
 mission: spec
+pathOrder: 4
 level: beginner
 type: recipe
 tool: claude-code

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/remote-control
 related: [sessions, channels, slash-remote-desktop]
 mission: advanced
+pathOrder: 5
 level: intermediate
 type: recipe
 tool: claude-code

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/ultrareview
 related: ["slash-code-review", "sub-agents", "dynamic-workflows"]
 mission: code
+pathOrder: 8
 level: intermediate
 type: guide
 tool: claude-code

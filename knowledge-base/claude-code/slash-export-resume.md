@@ -8,6 +8,7 @@ source_url: https://code.claude.com/docs/en/commands
 source_url_extra: https://code.claude.com/docs/en/cli-reference
 related: [/clear, /memory, /rewind]
 mission: daily
+pathOrder: 8
 level: beginner
 type: guide
 tool: claude-code

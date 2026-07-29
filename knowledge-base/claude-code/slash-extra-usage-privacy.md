@@ -8,6 +8,7 @@ source_url: https://code.claude.com/docs/en/commands
 related: [slash-login-logout-usage, slash-config]
 badge: new
 mission: daily
+pathOrder: 11
 level: beginner
 type: guide
 tool: claude-code

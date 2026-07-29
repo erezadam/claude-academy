@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [/config, /cost]
 mission: daily
+pathOrder: 4
 level: beginner
 type: guide
 tool: claude-code

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/statusline
 related: [slash-config, keybindings, sessions]
 mission: daily
+pathOrder: 21
 level: intermediate
 type: guide
 tool: claude-code

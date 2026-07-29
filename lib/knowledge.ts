@@ -25,7 +25,9 @@ export interface Article {
   origin: Origin;
   pathOrder?: number;
   timeMinutes?: number;
-  next?: string;
+  // next אינו נשמר כשדה — הוא מחושב מ-mission + pathOrder (מקור אמת אחד).
+  // next_override קיים לחריגים בין-משימתיים בלבד.
+  nextOverride?: string;
   prerequisites?: string[];
 }
 
@@ -54,7 +56,20 @@ export const MISSION_ORDER: Mission[] = ["start", "daily", "code", "automate", "
 // מאמרי הלימוד של משימה — כרטיסי reference מחוץ לטקסונומיית המשימות
 // (מקומם בטבלת הפקודות), ולכן מסוננים כאן.
 export function getMissionArticles(mission: Mission): Article[] {
-  return getAllArticles().filter((a) => a.type !== "reference" && a.mission === mission);
+  return getAllArticles()
+    .filter((a) => a.type !== "reference" && a.mission === mission)
+    .sort((a, b) => (a.pathOrder ?? 999) - (b.pathOrder ?? 999));
+}
+
+// "הצעד הבא" מחושב: next_override מנצח; אחרת הבא באותה משימה לפי
+// pathOrder; לאחרון במשימה — אין (העמוד מקשר לעמוד המשימה).
+export function getNextArticle(article: Article): Article | undefined {
+  if (article.nextOverride) return getArticle(article.nextOverride);
+  if (article.type === "reference") return undefined;
+  const siblings = getMissionArticles(article.mission);
+  const i = siblings.findIndex((a) => a.slug === article.slug);
+  if (i === -1 || i === siblings.length - 1) return undefined;
+  return siblings[i + 1];
 }
 
 const LEVELS: readonly Level[] = ["beginner", "intermediate", "advanced"];
@@ -186,7 +201,10 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       origin: data.origin === "original" ? "original" : "official",
       pathOrder: typeof data.pathOrder === "number" ? data.pathOrder : undefined,
       timeMinutes: typeof data.timeMinutes === "number" ? data.timeMinutes : undefined,
-      next: typeof data.next === "string" && data.next ? data.next : undefined,
+      nextOverride:
+        typeof data.next_override === "string" && data.next_override
+          ? data.next_override
+          : undefined,
       prerequisites: Array.isArray(data.prerequisites)
         ? data.prerequisites.filter((p: unknown): p is string => typeof p === "string")
         : undefined,

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/desktop-scheduled-tasks
 related: ["routines", "scheduled-tasks", "slash-loop"]
 mission: automate
+pathOrder: 4
 level: intermediate
 type: recipe
 tool: claude-code

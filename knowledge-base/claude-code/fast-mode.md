@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/fast-mode
 related: ["slash-fast-vim", "slash-model", "slash-context-cost"]
 mission: daily
+pathOrder: 5
 level: beginner
 type: guide
 tool: claude-code

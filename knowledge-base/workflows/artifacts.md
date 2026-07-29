@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/artifacts
 related: [mcp, skills, dynamic-workflows]
 mission: daily
+pathOrder: 12
 level: beginner
 type: guide
 tool: claude-code

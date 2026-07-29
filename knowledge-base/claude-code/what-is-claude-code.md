@@ -14,7 +14,6 @@ tool: claude-code
 origin: official
 timeMinutes: 6
 pathOrder: 1
-next: install-first-run
 ---
 
 ## מה זה Claude Code — ומתי הוא לא הכלי הנכון

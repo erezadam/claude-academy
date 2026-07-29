@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/advisor
 related: ["slash-model", "sub-agents", "slash-fast-vim"]
 mission: daily
+pathOrder: 19
 level: intermediate
 type: guide
 tool: claude-code

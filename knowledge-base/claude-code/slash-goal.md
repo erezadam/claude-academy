@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/goal
 related: ["scheduled-tasks", "slash-loop", "routines"]
 mission: automate
+pathOrder: 5
 level: intermediate
 type: guide
 tool: claude-code

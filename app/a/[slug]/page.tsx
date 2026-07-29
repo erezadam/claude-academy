@@ -5,7 +5,7 @@ import {
   getAllArticles,
   getCategoryBySlug,
   getArticle,
-  getMissionArticles,
+  getNextArticle,
   MISSION_META,
   type Level,
 } from "@/lib/knowledge";
@@ -89,14 +89,9 @@ export default async function ArticlePage({
   const prerequisites = (article.prerequisites ?? [])
     .map((slug) => getArticle(slug))
     .filter((a): a is NonNullable<typeof a> => Boolean(a));
-  const nextArticle = article.next ? getArticle(article.next) : undefined;
-  // "הצעד הבא": next מפורש, אחרת המאמר הבא באותה משימה, אחרת עמוד המשימה.
-  const missionSiblings = isReference ? [] : getMissionArticles(article.mission);
-  const fallbackNext =
-    !nextArticle && missionSiblings.length > 1
-      ? missionSiblings[(missionSiblings.findIndex((a) => a.slug === article.slug) + 1) % missionSiblings.length]
-      : undefined;
-  const stepNext = nextArticle ?? fallbackNext;
+  // "הצעד הבא" מחושב מ-mission+pathOrder (next_override לחריגים); לאחרון
+  // במשימה — קישור לעמוד המשימה.
+  const stepNext = getNextArticle(article);
   // הכותרת מוצגת כ-h1 ע"י העמוד; שורת ה-## הראשונה בגוף כפולה לה ומוסרת.
   const bodyWithoutLeadingTitle = article.content.replace(/^\s*## .*\n+/, "");
 

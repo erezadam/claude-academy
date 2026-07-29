@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [/clear, /compact, Esc+Esc]
 mission: code
+pathOrder: 2
 level: intermediate
 type: guide
 tool: claude-code

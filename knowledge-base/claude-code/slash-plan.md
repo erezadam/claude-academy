@@ -7,6 +7,7 @@ status: current
 source_url: https://code.claude.com/docs/en/commands
 related: [/review, /todos, Shift+Tab]
 mission: daily
+pathOrder: 6
 level: beginner
 type: guide
 tool: claude-code

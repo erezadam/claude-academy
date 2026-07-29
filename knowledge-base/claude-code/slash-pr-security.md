@@ -8,6 +8,7 @@ source_url: https://code.claude.com/docs/en/commands
 related: [slash-review]
 badge: new
 mission: code
+pathOrder: 6
 level: intermediate
 type: guide
 tool: claude-code

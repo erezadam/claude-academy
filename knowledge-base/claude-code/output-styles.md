@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/output-styles
 related: [memory, skills, permission-modes, slash-config]
 mission: daily
+pathOrder: 18
 level: intermediate
 type: guide
 tool: claude-code

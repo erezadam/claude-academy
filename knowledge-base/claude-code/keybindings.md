@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/keybindings
 related: [slash-terminal-keybindings, interactive-mode, slash-fast-vim]
 mission: daily
+pathOrder: 22
 level: intermediate
 type: recipe
 tool: claude-code

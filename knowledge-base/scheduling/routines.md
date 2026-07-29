@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/routines
 related: [scheduled-tasks, dynamic-workflows, /schedule]
 mission: automate
+pathOrder: 8
 level: advanced
 type: guide
 tool: claude-code

@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/debug-your-config
 related: ["hooks-guide", "slash-doctor", "slash-hooks", "slash-mcp", "slash-config"]
 mission: spec
+pathOrder: 7
 level: intermediate
 type: guide
 tool: claude-code

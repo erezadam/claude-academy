@@ -15,7 +15,6 @@ tool: claude-code
 origin: official
 timeMinutes: 7
 pathOrder: 4
-next: trust-and-verify
 ---
 
 ## CLAUDE.md — הדבר הראשון שכותבים

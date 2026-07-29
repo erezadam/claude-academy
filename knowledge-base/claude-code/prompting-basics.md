@@ -15,7 +15,6 @@ tool: claude-code
 origin: official
 timeMinutes: 8
 pathOrder: 3
-next: first-claude-md
 ---
 
 ## איך מדברים אליו — בקשה טובה מול בקשה שמייצרת בלגן

@@ -6,6 +6,7 @@ last_verified: 2026-05-30
 status: current
 origin: original
 mission: start
+pathOrder: 6
 level: beginner
 type: recipe
 tool: claude-code

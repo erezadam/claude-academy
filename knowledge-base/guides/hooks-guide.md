@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/hooks-guide
 related: [skills, sub-agents, plugins-guide, slash-hooks]
 mission: automate
+pathOrder: 2
 level: intermediate
 type: guide
 tool: claude-code

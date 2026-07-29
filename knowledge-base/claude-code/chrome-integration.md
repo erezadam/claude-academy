@@ -7,6 +7,7 @@ status: needs-review
 source_url: https://code.claude.com/docs/en/chrome
 related: [computer-use, skills, common-workflows]
 mission: advanced
+pathOrder: 7
 level: intermediate
 type: guide
 tool: claude-code
