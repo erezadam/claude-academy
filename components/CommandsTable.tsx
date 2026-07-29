@@ -265,7 +265,7 @@ export default function CommandsTable({
                   </td>
                   <td className="p-4 text-lg border-b border-gray-200">
                     <Link
-                      href={`/article/${article.category}/${article.slug}`}
+                      href={`/a/${article.slug}`}
                       className="text-blue-700 hover:underline text-xl"
                     >
                       &larr;

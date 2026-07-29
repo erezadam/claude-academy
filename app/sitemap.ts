@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const articles: MetadataRoute.Sitemap = getAllArticles().map((a) => ({
-    url: `${SITE_URL}/article/${a.category}/${a.slug}`,
+    url: `${SITE_URL}/a/${a.slug}`,
     lastModified: a.lastVerified ? new Date(a.lastVerified) : undefined,
     changeFrequency: "monthly",
     priority: 0.6,
