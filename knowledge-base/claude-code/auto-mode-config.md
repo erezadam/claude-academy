@@ -11,7 +11,6 @@ type: reference
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-06-24
 ---
 
 Auto mode מריץ את Claude Code ללא prompts הרשאות שגרתיים, על-ידי ניתוב פקודות דרך מסווג שחוסם פעולות בלתי-הפיכות, הרסניות, או כאלה שמכוונות מחוץ לסביבה שלך. חוקי Deny ו-Ask מפורשים מוערכים לפני המסווג ועדיין חוסמים או שואלים.

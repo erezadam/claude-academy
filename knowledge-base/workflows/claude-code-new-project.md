@@ -11,7 +11,6 @@ level: beginner
 type: recipe
 tool: claude-code
 timeMinutes: 2
-last_reviewed: 2026-05-30
 ---
 
 ## פתיחת פרויקט חדש עם Claude Code

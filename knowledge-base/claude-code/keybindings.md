@@ -13,7 +13,6 @@ type: recipe
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-20
 ---
 
 Claude Code תומך בהתאמה אישית של קיצורי מקלדת דרך קובץ `~/.claude/keybindings.json`. ניתן לכרוך פעולות למקשים אחרים, לבטל קיצורים קיימים, ולהגדיר chord sequences.

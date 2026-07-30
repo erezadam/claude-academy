@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-14
 ---
 
 Ultraplan מעביר משימת תכנון מה-CLI המקומי ל-session של Claude Code on the web שרץ ב-plan mode. Claude מנסח את התוכנית בענן בזמן שאתם ממשיכים לעבוד בטרמינל. כשהתוכנית מוכנה, פותחים אותה בדפדפן, מגיבים על קטעים ספציפיים ובוחרים היכן לבצע.

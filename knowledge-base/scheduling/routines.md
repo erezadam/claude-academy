@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 12
-last_reviewed: 2026-05-30
 ---
 
 Routine הוא קונפיגורציית Claude Code שמורה: prompt, repository אחד או יותר, וסט connectors — ארוז פעם אחת ומופעל אוטומטית. Routines רצים על תשתית ענן מנוהלת של Anthropic, ולכן הם ממשיכים לפעול גם כשהלפטופ סגור. הם מעמידים את Claude Code על טייס אוטומטי: ריצה לפי לוח זמנים, ריצה בתגובה לקריאת API, או ריצה בתגובה לאירועי GitHub.

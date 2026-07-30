@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 20
-last_reviewed: 2026-05-30
 ---
 
 ## שיטות עבודה מומלצות עם Claude Code

@@ -11,7 +11,6 @@ type: reference
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-07-25
 ---
 
 ב-Claude Code ניתן לבחור מודל ספציפי או alias נוח שמצביע תמיד לגרסה המומלצת. בחירת מודל משפיעה על מהירות, עלות ועומק ה-reasoning.

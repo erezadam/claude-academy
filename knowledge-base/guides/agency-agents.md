@@ -14,7 +14,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-03-11
 ---
 
 ## Agency Agents — ספריית סוכני AI לצוות מקצועי שלם

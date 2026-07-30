@@ -13,7 +13,6 @@ type: recipe
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-14
 ---
 
 Channels הם שרתי MCP שדוחפים אירועים לתוך session של Claude Code הפועל, כדי ש-Claude יגיב לדברים שקורים בזמן שאתם לא ליד הטרמינל. ניתן להפנות תוצאות CI, הודעות צ'אט ואירועי monitoring אל Claude — והוא יטפל בהם ב-session הפתוח שכבר יש לכם.

@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-06
 ---
 
 `--worktree` מפעיל כל סשן של Claude Code ב-git worktree נפרד, כך שעריכות בסשן אחד לא נוגעות בקבצים של סשן מקביל.

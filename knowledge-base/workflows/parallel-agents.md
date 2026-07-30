@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-20
 ---
 
 Claude Code מציע כמה גישות להרצת משימות מקביליות. כל גישה מתאימה לתרחיש אחר, ובחירה נכונה חוסכת טוקנים ומשפרת תוצאות.

@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-07-04
 ---
 
 מצבי הרשאה שולטים בתדירות שבה Claude מבקש אישור לפני עריכת קבצים או הרצת פקודות. כל מצב מייצג פשרה שונה בין נוחות לפיקוח.

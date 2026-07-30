@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-06
 ---
 
 `claude agents` פותח מסך אחד לניהול כל הסשנים הרקע שלכם: מה שרץ, מה ממתין לקלט, ומה הסתיים.
