@@ -99,7 +99,9 @@ export default async function MissionPage({
         )}
         {GROUPED_MISSIONS.has(mission as Mission) &&
         [...byLevel.entries()].map(([lvl, list]) =>
-          lvl === "advanced" ? (
+          // קיפול "מתקדם" נועד לקצר את daily; במשימת advanced זהו לב
+          // העמוד — מי שהגיע לכאן בא בדיוק בשבילו (ממצא הליכת-קבלה B).
+          lvl === "advanced" && mission !== "advanced" ? (
             // סקשן "מתקדם" מקופל כברירת מחדל.
             <details key={lvl} className="mb-8">
               <summary className="text-body font-bold text-ink cursor-pointer mb-2">
