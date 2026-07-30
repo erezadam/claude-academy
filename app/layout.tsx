@@ -141,6 +141,7 @@ export default function RootLayout({
             <a href="/start">התחלה</a>
             <a href="/commands-list">פקודות</a>
             <a href="/tools">כלים</a>
+            <a href="/feedback">שפרו את האקדמיה</a>
           </span>
         </footer>
       </body>

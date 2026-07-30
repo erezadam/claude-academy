@@ -165,6 +165,9 @@ export default function Home() {
               Anthropic. לכל מאמר יש תאריך בדיקה — אם הוא מיושן, אתה רואה את זה
               לפני שאתה מריץ.
             </div>
+            <Link href="/feedback" style={{ fontSize: 14 }}>
+              משהו חסר או שבור? ספר לנו ←
+            </Link>
             {corners}
           </div>
         </div>
