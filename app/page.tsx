@@ -49,13 +49,13 @@ export default function Home() {
 {`~/my-app $ claude
 Claude Code · Opus
 
-`}<span dir="rtl">{`> תוסיף כפתור התנתקות לעמוד ההגדרות`}</span>{`
+`}<span dir="rtl">{`‏> תוסיף כפתור התנתקות לעמוד ההגדרות`}</span>{`
 
 * קורא את app/settings/page.tsx
 * עורך את app/settings/page.tsx
     + <LogoutButton />
 
-`}<span dir="rtl">{`✓ הכפתור נוסף. להריץ את הבדיקות?`}</span>
+`}<span dir="rtl">{`‏✓ הכפתור נוסף. להריץ את הבדיקות?`}</span>
             </pre>
           </figure>
         </div>
