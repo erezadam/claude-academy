@@ -16,6 +16,7 @@ export interface Article {
   firstCodeBlock: string;
   content: string;
   layer?: "basic" | "intermediate" | "advanced";
+  status?: string; // סמן תור פנימי בלבד — לא מניע UI (עיצוב סופי בדיון)
   lastVerified?: string; // מתרענן אוטומטית ע"י שער האימות — מתי אומתו הפקודות
   lastReviewed?: string; // ידני בלבד — מתי אדם קרא ואימת טענות. מתיישן, וזה תפקידו.
   level: Level;
@@ -192,6 +193,7 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       firstCodeBlock: extractFirstCodeBlock(content),
       content,
       layer: data.layer ?? undefined,
+      status: typeof data.status === "string" ? data.status : undefined,
       lastVerified: normalizeDate(data.last_verified),
       lastReviewed: normalizeDate(data.last_reviewed),
       level: pick(data.level, LEVELS, "intermediate"),
