@@ -21,8 +21,16 @@ for (const file of files) {
   if (origin === "original") continue; // תוכן מקורי — אין מקור להתיישן מולו
   const tool = get("tool");
   if (tool && tool !== "claude-code") continue; // תיעוד Git לא זז באותו קצב
-  const lv = get("last_reviewed");
-  rows.push({ file, lastVerified: lv || "(חסר)", days: lv ? Math.floor((Date.now() - new Date(lv).getTime()) / 86400000) : Infinity });
+  // מאמר שלא נסקר אינו "מיושן" — הוא "טרם נסקר". העדיפות בתור נגזרת
+  // מהתאריך הקיים: last_reviewed אם יש, אחרת גיל last_verified (קיים לכולם).
+  const lr = get("last_reviewed");
+  const lv = get("last_verified");
+  const ref = lr || lv;
+  rows.push({
+    file,
+    lastVerified: lr ? lr : lv ? `${lv} (טרם נסקר)` : "(חסר)",
+    days: ref ? Math.floor((Date.now() - new Date(ref).getTime()) / 86400000) : 0,
+  });
 }
 rows.sort((a, b) => b.days - a.days);
 

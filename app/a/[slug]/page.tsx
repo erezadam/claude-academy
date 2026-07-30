@@ -222,13 +222,19 @@ export default async function ArticlePage({
               <span className="font-mono-ds" style={{ color: "var(--color-accent)" }}>✓</span>
               {article.origin === "original" ? (
                 <span>תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
+              ) : article.lastReviewed ? (
+                <span>
+                  נסקר ידנית ב-{article.lastReviewed} · הפקודות והדגלים בעמוד
+                  אומתו מול התיעוד הרשמי ב-{article.lastVerified}
+                  {article.bodyChangedAt && article.bodyChangedAt > article.lastReviewed && (
+                    <span className="text-muted"> · עודכן לאחר מכן</span>
+                  )}
+                </span>
               ) : (
                 <span>
-                  הפקודות והדגלים בעמוד אומתו מול התיעוד הרשמי · נבדק ב-{article.lastVerified}
+                  הפקודות והדגלים בעמוד אומתו אוטומטית מול התיעוד הרשמי
+                  ב-{article.lastVerified} · <span className="text-muted">הפרוזה טרם נסקרה ידנית</span>
                 </span>
-              )}
-              {article.origin !== "original" && !article.lastReviewed && (
-                <span className="text-muted">· נוצר אוטומטית — טרם נסקר</span>
               )}
               {article.origin !== "original" &&
                 article.tool === "claude-code" &&

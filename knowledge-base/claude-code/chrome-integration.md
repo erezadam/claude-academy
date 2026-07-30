@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-06-27
 ---
 
 Claude Code משתלב עם תוסף Chrome של Claude כדי לתת יכולות אוטומציה של דפדפן ישירות מה-CLI. בונים את הקוד, ואז בודקים ומאבחנים בדפדפן בלי להחליף הקשר.

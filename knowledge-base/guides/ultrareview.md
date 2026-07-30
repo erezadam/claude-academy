@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-06
 ---
 
 `/code-review ultra` מפעיל סקירת קוד עמוקה בתשתית ענן: צי של סוכני-סקירה מקבילים מחפשים ומאמתים באגים לפני שממזגים.

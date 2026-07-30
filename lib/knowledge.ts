@@ -18,7 +18,8 @@ export interface Article {
   layer?: "basic" | "intermediate" | "advanced";
   status?: string; // סמן תור פנימי בלבד — לא מניע UI (עיצוב סופי בדיון)
   lastVerified?: string; // מתרענן אוטומטית ע"י שער האימות — מתי אומתו הפקודות
-  lastReviewed?: string; // ידני בלבד — מתי אדם קרא ואימת טענות. מתיישן, וזה תפקידו.
+  lastReviewed?: string; // ידני בלבד, נאכף מול reviews.jsonl — מתי אדם קרא ואימת
+  bodyChangedAt?: string; // הצינור מטביע כשגוף מאמר שנסקר משתנה אחרי הסקירה
   level: Level;
   mission: Mission;
   type: ArticleType;
@@ -196,6 +197,7 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       status: typeof data.status === "string" ? data.status : undefined,
       lastVerified: normalizeDate(data.last_verified),
       lastReviewed: normalizeDate(data.last_reviewed),
+      bodyChangedAt: normalizeDate(data.body_changed_at),
       level: pick(data.level, LEVELS, "intermediate"),
       mission: pick(data.mission, MISSIONS, MISSION_BY_CATEGORY[category] ?? "daily"),
       type: pick(data.type, TYPES, "guide"),

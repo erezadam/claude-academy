@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-07-04
 ---
 
 שורת הסטטוס היא פס הניתן להתאמה אישית בתחתית Claude Code. היא מריצה כל סקריפט מעטפת שתגדיר, מקבלת נתוני סשן JSON דרך stdin ומציגה את מה שהסקריפט מדפיס.

@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-06-27
 ---
 
 Hooks הם פקודות shell שמריצות אוטומטית בנקודות ספציפיות במחזור החיים של Claude Code. הם מספקים שליטה דטרמיניסטית על ההתנהגות — כלומר פעולות מסוימות תמיד יקרו, ללא תלות בשיקול דעת המודל.

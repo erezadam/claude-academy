@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-07-18
 ---
 
 `/doctor` הוא skill מובנה שמאבחן בעיות תצורה והתקנה ב-Claude Code ויכול גם לתקן אותן — לא רק לדווח עליהן. מציג ממצאים ומבקש אישור לפני כל שינוי.

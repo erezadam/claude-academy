@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-14
 ---
 
 Computer Use מאפשר ל-Claude לפתוח אפליקציות, לשלוט במסך ולעבוד על המחשב שלכם בדיוק כמו שאדם היה עושה. מה-CLI, Claude יכול לכתוב קוד Swift, לקמפל, להפעיל את האפליקציה, ללחוץ על כל כפתור ולצלם screenshot — הכל באותה שיחה שבה הוא כתב את הקוד.

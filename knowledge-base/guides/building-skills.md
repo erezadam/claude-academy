@@ -16,7 +16,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 8
-last_reviewed: 2026-03-08
 ---
 
 ## המדריך המלא לבניית Skills ל-Claude: מתכנון ועד הפצה

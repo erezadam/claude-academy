@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-07-11
 ---
 
 Claude Code גובה לפי צריכת טוקנים ב-API. עלות ממוצעת בפרישות enterprise היא כ-13 דולר למפתח ליום פעיל, ו-150–250 דולר למפתח לחודש, כאשר 90% מהמשתמשים נמצאים מתחת ל-30 דולר ליום פעיל.

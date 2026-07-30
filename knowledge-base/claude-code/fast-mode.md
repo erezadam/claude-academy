@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-14
 ---
 
 Fast Mode הוא תצורה מהירה של Claude Opus — עד 2.5x מהיר יותר תמורת מחיר גבוה יותר לכל token. מפעילים אותו עם `/fast` כשיש צורך במהירות לעבודה אינטראקטיבית כמו iteration מהיר או debugging בזמן אמת, ומכבים כשמחיר חשוב יותר מ-latency.

@@ -14,7 +14,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-03-09
 ---
 
 ## /pr-comments, /security-review — סקירת PR ואבטחה

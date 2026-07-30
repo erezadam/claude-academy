@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-07-04
 ---
 
 סגנונות פלט משנים את אופן התגובה של Claude, לא את מה שהוא יודע. הם מוסיפים הוראות לפרומפט המערכת ומגדירים תפקיד, טון ופורמט פלט.

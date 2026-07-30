@@ -14,7 +14,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 13
-last_reviewed: 2026-06-09
 ---
 
 ## בניית סוכן ב-Claude Code — מדריך מקצה לקצה לפי ההמלצות הרשמיות

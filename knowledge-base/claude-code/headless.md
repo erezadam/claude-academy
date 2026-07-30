@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 3
-last_reviewed: 2026-07-25
 ---
 
 Headless mode מאפשר להפעיל את Claude Code בצורה לא-אינטראקטיבית — ב-scripts, CI/CD, ו-pipelines — באמצעות הדגל `-p` (ראשי תיבות של `--print`).

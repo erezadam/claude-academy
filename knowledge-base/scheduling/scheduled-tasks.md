@@ -14,7 +14,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 10
-last_reviewed: 2026-05-30
 ---
 
 ## תזמון משימות בתוך Session

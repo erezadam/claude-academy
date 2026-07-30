@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-14
 ---
 
 Session הוא שיחה שמורה הקשורה לתיקיית פרויקט. Claude Code שומר אותה מקומית תוך כדי עבודה, כך שאפשר להמשיך מהנקודה שנעצרתם, לפצל session לנסיון גישה אחרת, או לעבור בין משימות.

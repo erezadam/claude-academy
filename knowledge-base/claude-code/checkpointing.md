@@ -13,7 +13,6 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-06-20
 ---
 
 Checkpointing עוקב אחרי כל שינוי קובץ שביצע Claude Code, ומאפשר לחזור במהירות לנקודת עבודה קודמת אם משהו השתבש.
