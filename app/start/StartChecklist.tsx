@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export interface StartStep {
-  slug?: string; // בלי slug = מאמר שעדיין נכתב
+  slug?: string;
   title: string;
   summary: string;
   timeMinutes?: number;
@@ -12,8 +12,15 @@ export interface StartStep {
 
 const STORAGE_KEY = "start-path-completed";
 
+// מסלול המתחיל — מימוש isStart מ-"Claude Academy - Site.dc.html".
 // סימון "הושלם" ב-localStorage בלבד — בלי התחברות ובלי DB.
-export default function StartChecklist({ steps }: { steps: StartStep[] }) {
+export default function StartChecklist({
+  steps,
+  header,
+}: {
+  steps: StartStep[];
+  header: React.ReactNode;
+}) {
   const [done, setDone] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -30,57 +37,115 @@ export default function StartChecklist({ steps }: { steps: StartStep[] }) {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
     } catch {
-      /* אין אחסון — הסימון לא ישרוד רענון, וזה בסדר */
+      /* אין אחסון — הסימון לא ישרוד רענון */
     }
   };
 
+  const doneCount = steps.filter((s) => done[s.slug ?? s.title]).length;
+  const firstOpen = steps.find((s) => !done[s.slug ?? s.title] && s.slug);
+
   return (
-    <ol>
-      {steps.map((step, i) => {
-        const key = step.slug ?? step.title;
-        return (
-          <li
-            key={key}
-            className="flex items-start gap-4 py-5 border-b border-rule last:border-b-0"
-          >
-            <span className="text-h1 font-bold text-ink leading-none w-10 shrink-0 text-center">
-              {i + 1}
-            </span>
-            <div className="flex-1">
-              {step.slug ? (
-                <Link
-                  href={`/a/${step.slug}`}
-                  className="font-bold text-ink hover:text-accent"
+    <>
+      <div
+        style={{
+          padding: "40px 40px 28px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
+          gap: 32,
+          borderBottom: "1px solid var(--color-divider)",
+          flexWrap: "wrap",
+        }}
+      >
+        {header}
+        <div className="blueprint" style={{ padding: "16px 20px", textAlign: "center", minWidth: 158 }}>
+        <div className="font-mono-ds" style={{ fontSize: 34, color: "var(--color-accent)" }}>
+          {doneCount}/{steps.length}
+        </div>
+        <div className="text-muted" style={{ fontSize: 12 }}>שלבים שהושלמו</div>
+          <i className="corner tl" /><i className="corner tr" />
+          <i className="corner bl" /><i className="corner br" />
+        </div>
+      </div>
+
+      <div style={{ padding: "34px 40px 56px" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {steps.map((step, i) => {
+            const key = step.slug ?? step.title;
+            const isDone = Boolean(done[key]);
+            return (
+              <div
+                key={key}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "44px 1fr auto",
+                  gap: 20,
+                  alignItems: "center",
+                  padding: "20px 0",
+                  borderBottom: "1px solid var(--color-divider)",
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(key)}
+                  aria-pressed={isDone}
+                  aria-label={isDone ? `בטל סימון: ${step.title}` : `סמן שהושלם: ${step.title}`}
+                  className="blueprint font-mono-ds"
+                  style={{
+                    width: 38,
+                    height: 38,
+                    borderRadius: "50%",
+                    cursor: "pointer",
+                    background: isDone ? "var(--color-accent)" : "transparent",
+                    color: isDone ? "var(--color-bg)" : "var(--color-text)",
+                    fontSize: 14,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
-                  {step.title}
-                </Link>
-              ) : (
-                <span className="font-bold text-ink-soft">
-                  {step.title} <span className="text-small">(נכתב עכשיו)</span>
-                </span>
-              )}
-              <p className="text-small text-ink-soft mt-0.5">{step.summary}</p>
-              {step.timeMinutes && (
-                <p className="text-small text-ink-soft mt-0.5">
-                  ~{step.timeMinutes} דקות
-                </p>
-              )}
-            </div>
-            <button
-              type="button"
-              onClick={() => toggle(key)}
-              aria-pressed={Boolean(done[key])}
-              className={`text-small border px-3 py-1 shrink-0 ${
-                done[key]
-                  ? "border-green-700 text-green-800"
-                  : "border-rule text-ink-soft"
-              }`}
+                  {isDone ? "✓" : i + 1}
+                </button>
+                <div>
+                  <div style={{ fontFamily: "var(--font-heading)", fontSize: 24 }}>
+                    {step.title}
+                    {!step.slug && (
+                      <span className="text-muted" style={{ fontSize: 14 }}> (נכתב עכשיו)</span>
+                    )}
+                  </div>
+                  <div className="text-muted" style={{ fontSize: 14.5, marginTop: 2 }}>
+                    {step.summary}
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                  {step.timeMinutes && <span className="tag tag-neutral">{step.timeMinutes} דק׳</span>}
+                  {step.slug && (
+                    <Link href={`/a/${step.slug}`} className="btn btn-secondary" style={{ fontSize: 13 }}>
+                      פתח ←
+                    </Link>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div style={{ marginTop: 32, display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
+          {firstOpen && (
+            <Link
+              href={`/a/${firstOpen.slug}`}
+              className="btn btn-primary blueprint"
+              style={{ fontSize: 15, padding: "11px 20px" }}
             >
-              {done[key] ? "הושלם ✓" : "סמן שהושלם"}
-            </button>
-          </li>
-        );
-      })}
-    </ol>
+              השלב הבא ←
+              <i className="corner tl" /><i className="corner tr" />
+              <i className="corner bl" /><i className="corner br" />
+            </Link>
+          )}
+          <span className="text-muted" style={{ fontSize: 14 }}>
+            סיימת את המסלול? <Link href="/m/code">קפוץ לעבודה עם Git</Link>
+          </span>
+        </div>
+      </div>
+    </>
   );
 }

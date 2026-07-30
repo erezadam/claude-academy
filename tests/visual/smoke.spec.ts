@@ -14,8 +14,7 @@ const PAGES = [
   { path: "/start", name: "start" },
 ];
 
-// --accent מקובץ הטוקנים; ברירת המחדל של דפדפן לקישור היא rgb(0, 0, 238).
-const ACCENT_RGB = "rgb(11, 93, 93)";
+// צבע הקישורים חייב להגיע מטוקן העיצוב, לא מברירת המחדל של הדפדפן.
 const BROWSER_DEFAULT_LINK = "rgb(0, 0, 238)";
 
 async function assertStylesApplied(page: Page) {
@@ -75,16 +74,21 @@ test("home: h1 hero ≥ 40px and nav has gap", async ({ page }) => {
   expect(h1Size, "כותרת ה-hero בגודל hero").toBeGreaterThanOrEqual(40);
 
   const navGap = await page.evaluate(() => {
-    const nav = document.querySelector("nav > div");
+    const nav = document.querySelector("nav");
     return nav ? parseFloat(getComputedStyle(nav).gap) : 0;
   });
   expect(navGap, "לניווט יש gap").toBeGreaterThan(0);
 
+  // קישור כלשהו צבוע בדיוק בערך המחושב של טוקן ה-accent (הטוקן הוא המקור).
   const accentLink = await page.evaluate(() => {
-    const a = [...document.querySelectorAll("a")].find((el) =>
-      getComputedStyle(el).color === "rgb(11, 93, 93)"
+    const probe = document.createElement("span");
+    probe.style.color = "var(--color-accent-700)";
+    document.body.appendChild(probe);
+    const accent = getComputedStyle(probe).color;
+    probe.remove();
+    return [...document.querySelectorAll("a")].some(
+      (el) => getComputedStyle(el).color === accent
     );
-    return Boolean(a);
   });
-  expect(accentLink, `קיים קישור בצבע ${ACCENT_RGB}`).toBe(true);
+  expect(accentLink, "קיים קישור בצבע טוקן ה-accent").toBe(true);
 });
