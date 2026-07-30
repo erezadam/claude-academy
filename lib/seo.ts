@@ -2,7 +2,7 @@
 // נגזר מ-NEXT_PUBLIC_SITE_URL, עם נפילה לכתובת ה-production הידועה.
 
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://claude-academy-zeta.vercel.app"
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.tachlesai.co.il"
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "האקדמיה של קלוד";
