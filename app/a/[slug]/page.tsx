@@ -219,27 +219,16 @@ export default async function ArticlePage({
                 flexWrap: "wrap",
               }}
             >
-              {article.status === "needs-review" ? (
-                <>
-                  <span className="font-mono-ds text-muted">○</span>
-                  <span className="text-muted">
-                    טיוטה — המאמר ממתין לסקירה אנושית.
-                  </span>
-                </>
+              <span className="font-mono-ds" style={{ color: "var(--color-accent)" }}>✓</span>
+              {article.origin === "original" ? (
+                <span>תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
               ) : (
-                <>
-                  <span className="font-mono-ds" style={{ color: "var(--color-accent)" }}>✓</span>
-                  {article.origin === "original" ? (
-                    <span>תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
-                  ) : (
-                    <span>
-                      הפקודות והדגלים בעמוד אומתו מול התיעוד הרשמי · נבדק ב-{article.lastVerified}
-                    </span>
-                  )}
-                  {article.origin !== "original" && !article.lastReviewed && (
-                    <span className="text-muted">· נוצר אוטומטית — טרם נסקר</span>
-                  )}
-                </>
+                <span>
+                  הפקודות והדגלים בעמוד אומתו מול התיעוד הרשמי · נבדק ב-{article.lastVerified}
+                </span>
+              )}
+              {article.origin !== "original" && !article.lastReviewed && (
+                <span className="text-muted">· נוצר אוטומטית — טרם נסקר</span>
               )}
               {article.origin !== "original" &&
                 article.tool === "claude-code" &&
