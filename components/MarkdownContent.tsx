@@ -13,7 +13,8 @@ export default function MarkdownContent({ content }: { content: string }) {
             <div key={i} className="relative">
               <pre
                 dir="ltr"
-                className="bg-gray-900 text-gray-100 rounded-token p-4 pr-16 text-small leading-relaxed overflow-x-auto"
+                style={{ background: "var(--color-accent-900)", color: "#dfe7ef" }}
+                className="p-4 pr-16 text-small leading-relaxed overflow-x-auto"
               >
                 <code>{block.text}</code>
               </pre>
@@ -23,7 +24,7 @@ export default function MarkdownContent({ content }: { content: string }) {
         }
         if (block.type === "h2") {
           return (
-            <h2 key={i} className="text-h2 font-bold text-ink mt-8 mb-2">
+            <h2 key={i} id={`s-${encodeURIComponent(block.text)}`} style={{ fontSize: 31, margin: "34px 0 10px" }}>
               {block.text}
             </h2>
           );

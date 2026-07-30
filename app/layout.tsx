@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
-import { Heebo } from "next/font/google";
+import {
+  Heebo,
+  Assistant,
+  Barlow,
+  Barlow_Condensed,
+  IBM_Plex_Mono,
+} from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { getLastUpdated } from "@/lib/knowledge";
+import { getLastUpdated, getAllArticles } from "@/lib/knowledge";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/seo";
 import SiteNav from "@/components/SiteNav";
 import "./globals.css";
@@ -9,6 +15,27 @@ import "./globals.css";
 const heebo = Heebo({
   variable: "--font-heebo",
   subsets: ["hebrew", "latin"],
+});
+// Barlow (לטינית) לכותרות ולגוף; Assistant/Heebo מכסים עברית — לפי ה-DS.
+const assistant = Assistant({
+  variable: "--font-assistant",
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "600", "700"],
+});
+const barlow = Barlow({
+  variable: "--font-barlow",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-barlow-condensed",
+  subsets: ["latin"],
+  weight: ["400", "600"],
+});
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 const TITLE = "האקדמיה של קלוד — מאגר ידע ל-Claude Code ו-Git";
@@ -91,17 +118,31 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${heebo.variable} antialiased`}>
-        <SiteNav />
+      <body className={`${heebo.variable} ${assistant.variable} ${barlow.variable} ${barlowCondensed.variable} ${plexMono.variable} antialiased`}>
+        <SiteNav articleCount={getAllArticles().length} />
         {children}
         <Analytics />
-        {lastUpdatedLabel && (
-          <footer className="border-t border-rule mt-12">
-            <div className="max-w-5xl mx-auto px-6 py-4 text-small text-ink-soft">
-              עודכן לאחרונה: {lastUpdatedLabel}
-            </div>
-          </footer>
-        )}
+        <footer
+          style={{
+            borderTop: "1px solid var(--color-divider)",
+            padding: "26px 40px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 14,
+          }}
+        >
+          <span className="text-muted" style={{ fontSize: 13 }}>
+            האקדמיה של קלוד · מאגר ידע ל-Claude Code ו-Git
+            {lastUpdatedLabel ? ` · עודכן ${lastUpdatedLabel}` : ""}
+          </span>
+          <span style={{ display: "flex", gap: 18, fontSize: 13 }}>
+            <a href="/start">התחלה</a>
+            <a href="/commands-list">פקודות</a>
+            <a href="/tools">כלים</a>
+          </span>
+        </footer>
       </body>
     </html>
   );

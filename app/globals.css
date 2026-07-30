@@ -1,36 +1,51 @@
 @import "tailwindcss";
 
 /*
- * טוקני העיצוב — מקור האמת היחיד. אפס ערכי צבע/גודל/רדיוס בתוך קומפוננטות.
- * הוגדרו ע"י Erez, 2026-07-29:
- *   ink        — כל טקסט הגוף
- *   ink-soft   — מטא-דאטה בלבד, אף פעם לא תוכן
- *   accent     — קישורים בלבד
- *   action     — פעולה ראשית (כפתור/בלוק שחור מלא), אחת לעמוד
- *   verified   — תג האימות (טקסט, לא גלולה)
- *   stale      — באנר ההתיישנות
- *   rule       — קווי הפרדה, מחליפים כל צל וכל כרטיס
- * סקאלה: 30/22/17/15 · משקלים 400/700 בלבד · רדיוס 3px רק על code וכפתורים
- * מרווחים: 4/8/16/24/40
+ * שפת העיצוב: "Industry blueprint" — יובאה מפרויקט Claude Design של Erez
+ * (Claude Academy - Site.dc.html + ‏_ds/industry). מקור האמת לטוקנים:
+ * styles.css של ה-DS. קומפוננטות הן אובייקטי-שרטוט: מרובעות, שקופות,
+ * מסגרת שערה, סימוני-רישום בפינות (.blueprint > .corner).
  */
-@theme inline {
-  --font-sans: var(--font-heebo);
+:root {
+  --color-bg: #f2f2f3;
+  --color-surface: #e9e9ea;
+  --color-text: #1d1f20;
+  --color-accent: #5980a6;
+  --color-divider: color-mix(in srgb, #1d1f20 16%, transparent);
+
+  --color-neutral-100: #f5f5f8;
+  --color-neutral-800: #424244;
+  --color-neutral-900: #2b2b2d;
+
+  --color-accent-100: #eef6ff;
+  --color-accent-600: #597ea3;
+  --color-accent-700: #416180;
+  --color-accent-800: #2c455d;
+  --color-accent-900: #1d2d3d;
+
+  --font-heading: var(--font-barlow-condensed), var(--font-assistant), system-ui, sans-serif;
+  --font-heading-weight: 600;
+  --font-body: var(--font-barlow), var(--font-heebo), system-ui, sans-serif;
+  --font-mono-ds: var(--font-plex-mono), ui-monospace, monospace;
 }
 
+/* גשר לטוקני ה-Tailwind הקיימים — עמודים שלא עוצבו מחדש (wizard, admin,
+   optout) ממשיכים לעבוד, בצבעי הפלטה החדשה. */
+@theme inline {
+  --font-sans: var(--font-body);
+}
 @theme {
-  --color-ink: #111111;
-  --color-ink-soft: #555555;
-  --color-accent: #0b5d5d;
-  --color-action: #000000;
+  --color-ink: #1d1f20;
+  --color-ink-soft: #5d5d60;
+  --color-accent: #416180;
+  --color-action: #1d2d3d;
   --color-verified: #1a6b2f;
   --color-stale: #8a6100;
   --color-stale-bg: #fdf6e3;
-  --color-rule: #e0e0e0;
+  --color-rule: #dcdcde;
 
-  /* חריג יחיד ומאושר לסקאלה: כותרת שער-הפתיח בעמוד הבית בלבד. */
   --text-hero: 48px;
   --text-hero--line-height: 1.2;
-
   --text-h1: 30px;
   --text-h1--line-height: 1.3;
   --text-h2: 22px;
@@ -41,17 +56,128 @@
   --text-small--line-height: 1.6;
 
   --radius-token: 3px;
-
-  --spacing-t1: 4px;
-  --spacing-t2: 8px;
-  --spacing-t3: 16px;
-  --spacing-t4: 24px;
-  --spacing-t5: 40px;
 }
 
+*, *::before, *::after { box-sizing: border-box; }
 body {
-  background: #ffffff;
-  color: var(--color-ink);
-  font-size: var(--text-body);
-  line-height: 1.8;
+  margin: 0;
+  direction: rtl;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0 0 7px;
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h6 { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+a { color: var(--color-accent-700); text-decoration: none; text-underline-offset: 3px; }
+a:hover { color: var(--color-accent); }
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+.font-mono-ds { font-family: var(--font-mono-ds); }
+
+/* — blueprint frame — */
+.blueprint { position: relative; border: 1px solid var(--color-divider); border-radius: 0; }
+.blueprint > .corner {
+  position: absolute; width: 11px; height: 11px;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.blueprint > .corner::before, .blueprint > .corner::after {
+  content: ""; position: absolute; background: currentColor;
+}
+.blueprint > .corner::before { left: 5px; top: 0; width: 1px; height: 100%; }
+.blueprint > .corner::after  { top: 5px; left: 0; width: 100%; height: 1px; }
+.blueprint > .corner.tl { top: -6px; left: -6px; }
+.blueprint > .corner.tr { top: -6px; right: -6px; }
+.blueprint > .corner.bl { bottom: -6px; left: -6px; }
+.blueprint > .corner.br { bottom: -6px; right: -6px; }
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text);
+  background: transparent; border: 1px solid var(--color-divider);
+  padding: 7px 12px; border-radius: 0;
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); color: var(--color-bg); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); color: var(--color-text); }
+.btn-ghost { color: var(--color-accent-700); border-color: transparent; padding-inline: 4px; }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: 0;
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: 0;
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt input { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
+.seg-opt + .seg-opt { border-right: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: 7px;
+  padding: 10px; border-radius: 0; background: transparent;
+  border: 1px solid var(--color-divider);
+  color: var(--color-text);
+}
+a.card:hover { color: var(--color-text); border-color: color-mix(in srgb, var(--color-text) 40%, transparent); }
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-700); }
+.card-title { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; line-height: 1.2; }
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta { display: flex; align-items: center; gap: 6px; font-size: 11px; color: color-mix(in srgb, var(--color-text) 50%, transparent); }
+
+/* — tags — */
+.tag { display: inline-flex; align-items: center; font-size: 11px; letter-spacing: 0.02em; padding: 3px 10px; border-radius: 0; }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent-700); }
+
+/* — navigation — */
+.nav { display: flex; align-items: center; gap: 14px; }
+.nav-brand { font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 18px; margin-left: auto; }
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--color-accent-700); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: right; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: 7px; border-bottom: 1px solid var(--color-divider);
+}
+.table td { padding: 7px; border-bottom: 1px solid color-mix(in srgb, var(--color-text) 8%, transparent); }
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }

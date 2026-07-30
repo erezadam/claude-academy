@@ -94,6 +94,8 @@ export default async function ArticlePage({
   const stepNext = getNextArticle(article);
   // הכותרת מוצגת כ-h1 ע"י העמוד; שורת ה-## הראשונה בגוף כפולה לה ומוסרת.
   const bodyWithoutLeadingTitle = article.content.replace(/^\s*## .*\n+/, "");
+  // TOC — כותרות ה-h2 של הגוף, מקושרות לעוגנים ש-MarkdownContent מייצר.
+  const toc = [...bodyWithoutLeadingTitle.matchAll(/^## (.+)$/gm)].map((m) => m[1].trim());
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -128,113 +130,135 @@ export default async function ArticlePage({
   };
 
   return (
-    <div className="min-h-screen font-sans bg-white">
+    <div style={{ minHeight: "100vh" }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      {/* Top nav breadcrumbs */}
-      <nav className="border-b border-rule">
-        <div className="max-w-3xl mx-auto px-6 py-3 flex items-center gap-2 text-small">
-          <Link
-            href="/"
-            className="text-accent hover:underline transition-colors"
-          >
-            האקדמיה של קלוד
-          </Link>
-          <span className="text-ink-soft">/</span>
-          <Link
-            href={missionHref}
-            className="text-accent hover:underline transition-colors"
-          >
-            {missionName}
-          </Link>
-          <span className="text-ink-soft">/</span>
-          <span className="text-ink font-bold">{article.title}</span>
-        </div>
-      </nav>
-
-      {/* Article content */}
-      <main className="max-w-[70ch] mx-auto px-6 py-8">
-        <h1 className="text-h1 font-bold text-ink mb-4">{article.title}</h1>
-        {/* תגי רמה וזמן + "לפני זה כדאי" */}
-        <div className="mb-4 flex flex-wrap items-center gap-3 text-small">
-          <span className="border border-rule px-2 py-0.5 text-ink">
-            {LEVEL_NAMES[article.level]}
-          </span>
-          {article.timeMinutes && (
-            <span className="text-ink-soft">~{article.timeMinutes} דקות קריאה</span>
-          )}
-        </div>
-        {prerequisites.length > 0 && (
-          <p className="mb-4 text-small text-ink">
-            לפני זה כדאי:{" "}
-            {prerequisites.map((pre, i) => (
-              <span key={pre.slug}>
-                {i > 0 && " · "}
-                <Link href={`/a/${pre.slug}`} className="text-accent hover:underline">
+      <main
+        style={{
+          maxWidth: 1240,
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "1fr 250px",
+        }}
+      >
+        <aside
+          style={{
+            borderInlineStart: "1px solid var(--color-divider)",
+            padding: "36px 26px",
+            order: 2,
+            alignSelf: "start",
+            position: "sticky",
+            top: 70,
+          }}
+        >
+          <h6 className="text-muted" style={{ margin: "0 0 12px" }}>בעמוד הזה</h6>
+          <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            {toc.map((t) => (
+              <a
+                key={t}
+                href={`#s-${encodeURIComponent(t)}`}
+                style={{
+                  fontSize: 13.5,
+                  padding: "7px 10px",
+                  borderInlineStart: "2px solid var(--color-divider)",
+                  color: "inherit",
+                }}
+              >
+                {t}
+              </a>
+            ))}
+          </div>
+          {(prerequisites.length > 0 || stepNext) && (
+            <div className="blueprint" style={{ marginTop: 26, padding: 14, fontSize: 13, lineHeight: 1.6 }}>
+              <div style={{ fontFamily: "var(--font-heading)", fontSize: 15, marginBottom: 5 }}>קשור</div>
+              {prerequisites.map((pre) => (
+                <Link key={pre.slug} href={`/a/${pre.slug}`} style={{ display: "block" }}>
                   {pre.title}
                 </Link>
-              </span>
-            ))}
-          </p>
-        )}
-        {/* התקציר מוצג רק על reference — שם הוא כרטיס; ב-guide הוא הכפיל את הפתיחה. */}
-        {isReference && article.whatItDoes && (
-          <p className="mb-6 text-body text-ink border-r-2 border-action pr-3">
-            {article.whatItDoes}
-          </p>
-        )}
-        {article.lastVerified && (
-          <div className="mb-6 text-small">
-            {article.origin === "original" ? (
-              <span className="text-ink-soft">תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
-            ) : (
-              <span className="text-verified">
-                הפקודות והדגלים בעמוד אומתו מול התיעוד הרשמי · נבדק ב-
-                {article.lastVerified}
-              </span>
+              ))}
+              {stepNext && (
+                <Link href={`/a/${stepNext.slug}`} style={{ display: "block" }}>
+                  {stepNext.title}
+                </Link>
+              )}
+              <i className="corner tl" /><i className="corner tr" />
+              <i className="corner bl" /><i className="corner br" />
+            </div>
+          )}
+        </aside>
+
+        <article style={{ padding: "40px 44px 60px", maxWidth: 780 }}>
+          <div style={{ fontSize: 13, display: "flex", gap: 6, marginBottom: 18 }}>
+            <Link href="/">האקדמיה</Link>
+            <span className="text-muted">/</span>
+            <Link href={missionHref}>{missionName}</Link>
+            <span className="text-muted">/</span>
+            <span className="text-muted">{article.title}</span>
+          </div>
+          <h1 style={{ fontSize: 52, margin: "0 0 12px" }}>{article.title}</h1>
+          <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 18 }}>
+            <span className="tag tag-outline">{LEVEL_NAMES[article.level]}</span>
+            {article.timeMinutes && (
+              <span className="tag tag-neutral">~{article.timeMinutes} דקות קריאה</span>
             )}
-            {article.origin !== "original" && !article.lastReviewed && (
-              <span className="block mt-1 text-ink-soft">
-                נוצר אוטומטית — טרם נסקר.
-              </span>
-            )}
-            {article.origin !== "original" &&
-              article.tool === "claude-code" &&
-              article.lastReviewed &&
-              isStale(article.lastReviewed) && (
-                <span className="block mt-1 text-stale bg-stale-bg px-2 py-1 w-fit">
-                  ייתכן שהתיישן — Claude Code מתעדכן מהר.
+          </div>
+          {article.lastVerified && (
+            <div
+              className="blueprint"
+              style={{
+                padding: "10px 13px",
+                display: "flex",
+                gap: 10,
+                alignItems: "center",
+                fontSize: 12.5,
+                marginBottom: 28,
+                flexWrap: "wrap",
+              }}
+            >
+              <span className="font-mono-ds" style={{ color: "var(--color-accent)" }}>✓</span>
+              {article.origin === "original" ? (
+                <span>תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
+              ) : (
+                <span>
+                  הפקודות והדגלים בעמוד אומתו מול התיעוד הרשמי · נבדק ב-{article.lastVerified}
                 </span>
               )}
-          </div>
-        )}
-        <MarkdownContent content={bodyWithoutLeadingTitle} />
-      </main>
-
-      {/* הצעד הבא */}
-      <footer className="border-t border-rule">
-        <div className="max-w-3xl mx-auto px-6 py-6">
-          {stepNext ? (
-            <Link href={`/a/${stepNext.slug}`} className="group block bg-action text-white p-5">
-              <span className="text-small text-white block">הצעד הבא</span>
-              <span className="text-h2 font-bold text-white group-hover:underline">
-                {stepNext.title} ←
-              </span>
-            </Link>
-          ) : (
-            <Link href={missionHref} className="group block bg-action text-white p-5">
-              <span className="text-small text-white block">להמשך</span>
-              <span className="text-h2 font-bold text-white group-hover:underline">
-                {missionName} ←
-              </span>
-            </Link>
+              {article.origin !== "original" && !article.lastReviewed && (
+                <span className="text-muted">· נוצר אוטומטית — טרם נסקר</span>
+              )}
+              {article.origin !== "original" &&
+                article.tool === "claude-code" &&
+                article.lastReviewed &&
+                isStale(article.lastReviewed) && (
+                  <span style={{ color: "var(--color-stale)", background: "var(--color-stale-bg)", padding: "1px 6px" }}>
+                    ייתכן שהתיישן — Claude Code מתעדכן מהר
+                  </span>
+                )}
+            </div>
           )}
-        </div>
-      </footer>
+          {isReference && article.whatItDoes && (
+            <p style={{ fontSize: 20, lineHeight: 1.62, margin: "0 0 30px" }}>{article.whatItDoes}</p>
+          )}
+          <MarkdownContent content={bodyWithoutLeadingTitle} />
+
+          <Link
+            href={stepNext ? `/a/${stepNext.slug}` : missionHref}
+            className="card blueprint"
+            style={{ padding: "15px 17px", gap: 2, maxWidth: 360, marginTop: 12 }}
+          >
+            <div className="card-kicker">{stepNext ? "הצעד הבא" : "להמשך"}</div>
+            <div className="card-title" style={{ fontSize: 19 }}>
+              {stepNext ? stepNext.title : missionName} ←
+            </div>
+            <i className="corner tl" /><i className="corner tr" />
+            <i className="corner bl" /><i className="corner br" />
+          </Link>
+        </article>
+      </main>
     </div>
   );
 }
