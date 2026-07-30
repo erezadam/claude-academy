@@ -142,6 +142,7 @@ export default function RootLayout({
             <a href="/commands-list">פקודות</a>
             <a href="/tools">כלים</a>
             <a href="/feedback">שפרו את האקדמיה</a>
+            <a href="/admin" className="text-muted" style={{ fontSize: 12 }}>ניהול</a>
           </span>
         </footer>
       </body>
