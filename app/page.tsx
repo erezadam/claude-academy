@@ -145,7 +145,7 @@ export default function Home() {
                     gap: 12,
                     padding: "9px 0",
                     borderBottom: "1px solid color-mix(in srgb, var(--color-text) 8%, transparent)",
-                    fontSize: 14.5,
+                    fontSize: 17,
                     color: "var(--color-text)",
                   }}
                 >

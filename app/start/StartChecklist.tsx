@@ -113,7 +113,7 @@ export default function StartChecklist({
                       <span className="text-muted" style={{ fontSize: 14 }}> (נכתב עכשיו)</span>
                     )}
                   </div>
-                  <div className="text-muted" style={{ fontSize: 14.5, marginTop: 2 }}>
+                  <div className="text-muted" style={{ fontSize: 17, marginTop: 2 }}>
                     {step.summary}
                   </div>
                 </div>

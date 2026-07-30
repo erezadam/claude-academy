@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import BackLink from "./BackLink";
 
 // ניווט עליון דביק לפי ה-DS: מותג, ארבעה פריטים, ומונה מאמרים במונו.
 const ITEMS = [
@@ -28,6 +29,7 @@ export default function SiteNav({ articleCount }: { articleCount: number }) {
       }}
     >
       <nav className="nav" style={{ padding: "14px 40px", gap: 26 }}>
+      <BackLink />
       <Link href="/" className="nav-brand" style={{ color: "var(--color-text)" }}>
         האקדמיה של קלוד
       </Link>
