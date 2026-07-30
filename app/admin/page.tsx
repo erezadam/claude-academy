@@ -15,6 +15,29 @@ export const metadata = {
 const VERCEL_ANALYTICS_URL =
   "https://vercel.com/erez1964-gmailcoms-projects/claude-academy/analytics";
 
+interface FeedbackItem {
+  ts: string;
+  kind: string;
+  message: string;
+  email: string | null;
+}
+
+// 50 ההודעות האחרונות מטופס המשוב (academy:feedback).
+async function getFeedback(): Promise<FeedbackItem[] | null> {
+  if (!process.env.UPSTASH_REDIS_REST_URL || !process.env.UPSTASH_REDIS_REST_TOKEN) {
+    return null;
+  }
+  try {
+    const redis = Redis.fromEnv();
+    const raw = await redis.lrange<string | FeedbackItem>("academy:feedback", 0, 49);
+    return raw
+      .map((r) => (typeof r === "string" ? (JSON.parse(r) as FeedbackItem) : r))
+      .filter((f) => f && typeof f.message === "string");
+  } catch {
+    return null;
+  }
+}
+
 async function getViews(): Promise<number | null> {
   if (
     !process.env.UPSTASH_REDIS_REST_URL ||
@@ -42,6 +65,7 @@ export default async function AdminPage() {
   }
 
   const views = await getViews();
+  const feedback = await getFeedback();
 
   return (
     <div className="min-h-screen font-sans bg-white">
@@ -57,6 +81,28 @@ export default async function AdminPage() {
           <p className="text-h1 font-bold text-ink tabular-nums">
             {views === null ? "—" : views.toLocaleString("he-IL")}
           </p>
+        </div>
+
+        {/* הודעות מהקהילה */}
+        <div className="rounded-xl border border-rule bg-gray-50 p-6 mb-4">
+          <p className="text-small text-ink-soft mb-3">
+            הודעות מהקהילה ({feedback?.length ?? 0} אחרונות)
+          </p>
+          {!feedback || feedback.length === 0 ? (
+            <p className="text-small text-ink-soft">אין הודעות עדיין.</p>
+          ) : (
+            <ul className="flex flex-col gap-3">
+              {feedback.map((f, i) => (
+                <li key={i} className="border-b border-rule pb-3 last:border-b-0">
+                  <p className="text-small text-ink-soft">
+                    {f.kind} · {f.ts?.slice(0, 16).replace("T", " ")}
+                    {f.email ? ` · ${f.email}` : ""}
+                  </p>
+                  <p className="text-small text-ink whitespace-pre-wrap">{f.message}</p>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         {/* אנליטיקה מלאה */}

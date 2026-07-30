@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly",
     priority: 0.7,
   }));
-  const hubs: MetadataRoute.Sitemap = ["/start", "/guides", "/tools"].map(
+  const hubs: MetadataRoute.Sitemap = ["/start", "/guides", "/tools", "/feedback"].map(
     (path) => ({
       url: `${SITE_URL}${path}`,
       changeFrequency: "weekly",

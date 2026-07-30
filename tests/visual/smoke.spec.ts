@@ -12,6 +12,7 @@ const PAGES = [
   { path: "/a/install-first-run", name: "article" },
   { path: "/commands-list", name: "commands-list" },
   { path: "/start", name: "start" },
+  { path: "/feedback", name: "feedback" },
 ];
 
 // צבע הקישורים חייב להגיע מטוקן העיצוב, לא מברירת המחדל של הדפדפן.
