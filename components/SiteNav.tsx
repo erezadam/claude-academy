@@ -48,6 +48,7 @@ export default function SiteNav({ articleCount }: { articleCount: number }) {
           display: "flex",
           alignItems: "center",
           gap: 8,
+          marginInlineStart: "auto",
           color: "color-mix(in srgb, var(--color-text) 45%, transparent)",
           fontSize: 11,
         }}

@@ -61,6 +61,9 @@ export default function Home() {
             <Link href="/commands-list" className="btn btn-secondary" style={{ fontSize: 15, padding: "11px 20px" }}>
               טבלת כל הפקודות
             </Link>
+            <Link href="/feedback" className="btn btn-secondary" style={{ fontSize: 15, padding: "11px 20px" }}>
+              שפרו את האתר
+            </Link>
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
