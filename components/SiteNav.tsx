@@ -32,8 +32,22 @@ export default function SiteNav({ articleCount }: { articleCount: number }) {
       <nav className="nav" style={{ padding: "14px 40px", gap: 26 }}>
       <BackLink />
       <Link href="/" className="nav-brand" style={{ color: "var(--color-text)" }}>
-        האקדמיה של קלוד
+        תכלס AI
       </Link>
+      {pathname.startsWith("/academy") && (
+        <Link
+          href="/academy"
+          style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: 15,
+            color: "var(--color-accent-700)",
+            borderInlineStart: "1px solid var(--color-divider)",
+            paddingInlineStart: 14,
+          }}
+        >
+          האקדמיה של קלוד
+        </Link>
+      )}
       {ITEMS.map((item) => (
         <Link
           key={item.href}
