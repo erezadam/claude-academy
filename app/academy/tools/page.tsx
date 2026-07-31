@@ -5,6 +5,15 @@ export const metadata: Metadata = {
   title: "כלים והרחבות",
   description:
     "היכולות שמרחיבות את Claude Code מעבר לשיחה בטרמינל, וכלי האקדמיה.",
+  alternates: { canonical: "/academy/tools" },
+  openGraph: {
+    type: "website",
+    title: "כלים והרחבות",
+    description:
+      "היכולות שמרחיבות את Claude Code מעבר לשיחה בטרמינל, וכלי האקדמיה.",
+    url: "/academy/tools",
+    locale: "he_IL",
+  },
 };
 
 // עמוד כלים — מימוש isTools מ-"Claude Academy - Site.dc.html": כרטיסי

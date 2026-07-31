@@ -9,6 +9,15 @@ import {
 export const metadata: Metadata = {
   title: "מדריכים",
   description: "שש משימות — כל מדריכי הלימוד של האקדמיה לפי מה שאתה מנסה לעשות.",
+  alternates: { canonical: "/academy/guides" },
+  openGraph: {
+    type: "website",
+    title: "מדריכים",
+    description:
+      "שש משימות — כל מדריכי הלימוד של האקדמיה לפי מה שאתה מנסה לעשות.",
+    url: "/academy/guides",
+    locale: "he_IL",
+  },
 };
 
 export default function GuidesPage() {

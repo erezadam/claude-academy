@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   title: "רשימת כל פקודות Claude Code",
   description:
     "כל פקודות Claude Code בטבלה אחת — חיפוש, מיון וסינון, עם הסבר בעברית לכל פקודה.",
-  alternates: { canonical: "/commands-list" },
+  alternates: { canonical: "/academy/commands-list" },
   openGraph: {
     type: "website",
     title: "רשימת כל פקודות Claude Code",
     description:
       "כל פקודות Claude Code בטבלה אחת — חיפוש, מיון וסינון, עם הסבר בעברית.",
-    url: "/commands-list",
+    url: "/academy/commands-list",
     locale: "he_IL",
   },
 };

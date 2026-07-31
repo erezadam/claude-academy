@@ -23,7 +23,19 @@ export async function generateMetadata({
   const { mission } = await params;
   const meta = MISSION_META[mission as Mission];
   if (!meta) return {};
-  return { title: meta.name, description: meta.description };
+  const url = `/academy/m/${mission}`;
+  return {
+    title: meta.name,
+    description: meta.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      title: meta.name,
+      description: meta.description,
+      url,
+      locale: "he_IL",
+    },
+  };
 }
 
 export default async function MissionPage({

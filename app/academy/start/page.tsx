@@ -6,6 +6,15 @@ export const metadata: Metadata = {
   title: "להתחיל מאפס",
   description:
     "לא עבדת עם Claude Code מעולם? המסלול הלינארי מהתקנה ועד עבודה בטוחה.",
+  alternates: { canonical: "/academy/start" },
+  openGraph: {
+    type: "website",
+    title: "להתחיל מאפס",
+    description:
+      "לא עבדת עם Claude Code מעולם? המסלול הלינארי מהתקנה ועד עבודה בטוחה.",
+    url: "/academy/start",
+    locale: "he_IL",
+  },
 };
 
 export default function StartPage() {
