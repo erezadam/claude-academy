@@ -1,8 +1,8 @@
 import { ImageResponse } from "next/og";
-import { SITE_NAME } from "@/lib/seo";
+import { BRAND_NAME } from "@/lib/seo";
 
 export const runtime = "edge";
-export const alt = SITE_NAME;
+export const alt = `${BRAND_NAME} — ארז אדם`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

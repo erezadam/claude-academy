@@ -6,10 +6,6 @@ import { BRAND_NAME, SITE_URL } from "@/lib/seo";
  * בכוונה אין כאן טקסט שיווקי, מספרים או הבטחות: העמוד לא יטען שום דבר
  * שלא נבדק. רק כותרת, משפט ניטרלי אחד, וקישורי מדורים.
  */
-export const metadata = {
-  title: `${BRAND_NAME}`,
-  description: "מדורי תוכן בעברית. מדור ראשון: האקדמיה של קלוד.",
-};
 
 export default function BrandHome() {
   // ‏Organization בלי sameAs — אין עדיין פרופילים חברתיים, ואסור להצהיר
