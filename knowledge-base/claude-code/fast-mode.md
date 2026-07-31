@@ -1,6 +1,7 @@
 ---
 title: "Fast Mode — תגובות Opus מהירות יותר"
-published: 2026-06-14
+published: "2026-06-14T18:27:18+03:00"
+body_changed_at: "2026-06-14T18:27:18+03:00"
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

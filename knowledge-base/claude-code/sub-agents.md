@@ -1,6 +1,7 @@
 ---
 title: "Subagents — סוכנים ייעודיים ב-Claude Code"
-published: 2026-05-30
+published: "2026-05-30T09:58:12Z"
+body_changed_at: "2026-07-29T18:01:43+03:00"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29
@@ -14,7 +15,7 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 18
-last_reviewed: 2026-07-29
+last_reviewed: "2026-07-29T12:00:00+03:00"
 ---
 
 Subagents הם עוזרי AI ייעודיים שמטפלים בסוגי משימות ספציפיים. השתמש ב-subagent כש-side task היה מציף את השיחה הראשית בתוצאות חיפוש, ב-logs או בתוכן קבצים שלא תפנה אליהם שוב — ה-subagent מבצע את העבודה ב-context window משלו ומחזיר רק את הסיכום. הגדר subagent מותאם כשאתה מוצא את עצמך מפעיל שוב ושוב את אותו סוג של worker עם אותן הוראות.

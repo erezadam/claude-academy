@@ -1,6 +1,7 @@
 ---
 title: "Agency Agents — ספריית סוכני AI לצוות מקצועי שלם"
-published: 2026-03-11
+published: "2026-03-11T18:52:44+02:00"
+body_changed_at: "2026-03-11T18:52:44+02:00"
 category: guides
 layer: advanced
 last_verified: 2026-07-29

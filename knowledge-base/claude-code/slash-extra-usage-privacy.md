@@ -1,6 +1,7 @@
 ---
 title: "/usage-credits, /privacy-settings — מכסות ופרטיות"
-published: 2026-03-09
+published: "2026-03-09T19:25:24+02:00"
+body_changed_at: "2026-07-29T17:28:58+03:00"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29
@@ -15,7 +16,7 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
-last_reviewed: 2026-07-29
+last_reviewed: "2026-07-29T12:00:00+03:00"
 ---
 
 ## /usage-credits (בעבר: /extra-usage), /privacy-settings — מכסות ופרטיות

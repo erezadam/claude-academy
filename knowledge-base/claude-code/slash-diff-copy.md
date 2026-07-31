@@ -1,6 +1,7 @@
 ---
 title: "/diff, /copy — צפייה והעתקה"
-published: 2026-03-09
+published: "2026-03-09T19:25:24+02:00"
+body_changed_at: "2026-03-09T19:25:24+02:00"
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

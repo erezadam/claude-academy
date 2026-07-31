@@ -1,6 +1,7 @@
 ---
 title: "/plan"
-published: 2026-03-09
+published: "2026-03-09T18:49:12+02:00"
+body_changed_at: "2026-03-09T18:49:12+02:00"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

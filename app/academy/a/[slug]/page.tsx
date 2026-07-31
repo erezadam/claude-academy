@@ -232,7 +232,7 @@ export default async function ArticlePage({
                 <span>תוכן מקורי — מבוסס ניסיון, לא תיעוד</span>
               ) : article.lastReviewed ? (
                 <span>
-                  נסקר ידנית ב-{article.lastReviewed} · הפקודות והדגלים בעמוד
+                  נסקר ידנית ב-{article.lastReviewed.slice(0, 10)} · הפקודות והדגלים בעמוד
                   אומתו מול התיעוד הרשמי ב-{article.lastVerified}
                   {article.bodyChangedAt && article.bodyChangedAt > article.lastReviewed && (
                     <span className="text-muted"> · עודכן לאחר מכן</span>

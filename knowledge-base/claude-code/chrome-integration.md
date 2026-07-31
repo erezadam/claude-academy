@@ -1,6 +1,7 @@
 ---
 title: "אינטגרציית Chrome — אוטומציה של דפדפן מה-CLI (בטא)"
-published: 2026-06-27
+published: "2026-06-27T08:57:41Z"
+body_changed_at: "2026-06-27T08:57:41Z"
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

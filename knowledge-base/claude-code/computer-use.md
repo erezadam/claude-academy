@@ -1,6 +1,7 @@
 ---
 title: "Computer Use — שליטה במסך ואפליקציות מה-CLI"
-published: 2026-06-14
+published: "2026-06-14T18:27:18+03:00"
+body_changed_at: "2026-06-14T18:27:18+03:00"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

@@ -1,6 +1,7 @@
 ---
 title: "וורקפלואו דינמי — תזמור סוכנים בקנה מידה"
-published: 2026-05-30
+published: "2026-05-30T09:58:12Z"
+body_changed_at: "2026-06-14T18:27:18+03:00"
 category: workflows
 layer: intermediate
 last_verified: 2026-07-29

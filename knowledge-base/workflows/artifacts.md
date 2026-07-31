@@ -1,6 +1,7 @@
 ---
 title: "Artifacts — שיתוף פלט session כעמוד חי ואינטראקטיבי"
-published: 2026-06-27
+published: "2026-06-27T08:57:41Z"
+body_changed_at: "2026-07-18T08:15:33Z"
 category: workflows
 layer: basic
 last_verified: 2026-07-29

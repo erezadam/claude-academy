@@ -1,6 +1,7 @@
 ---
 title: "המדריך המלא לבניית Skills ל-Claude"
-published: 2026-03-11
+published: "2026-03-11T11:52:44+02:00"
+body_changed_at: "2026-07-29T17:28:58+03:00"
 category: guides
 layer: advanced
 last_verified: 2026-07-29
