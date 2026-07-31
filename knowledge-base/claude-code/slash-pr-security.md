@@ -1,5 +1,6 @@
 ---
 title: "/pr-comments, /security-review — סקירת PR ואבטחה"
+published: 2026-03-09
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

@@ -1,5 +1,6 @@
 ---
 title: "הגדרת מודל ב-Claude Code"
+published: 2026-07-25
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

@@ -1,5 +1,6 @@
 ---
 title: "Claude Code ב-Monorepo ובקוד-בייס גדול"
+published: 2026-07-25
 category: guides
 layer: intermediate
 last_verified: 2026-07-29

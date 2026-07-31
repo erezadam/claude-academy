@@ -52,6 +52,7 @@ type: <guide|reference|recipe — ר' 5.3>
 tool: <claude-code|git|both>
 origin: official
 timeMinutes: <מספר מילים בגוף ÷ 180, מעוגל, מינימום 2>
+published: <תאריך היום YYYY-MM-DD — נקבע פעם אחת ביצירה ולעולם לא משתנה; במאמרים היסטוריים הוזן מתאריך הקומיט הראשון של הקובץ>
 pathOrder: <ר' 5.4 — רק אם type אינו reference>
 ---
 

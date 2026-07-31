@@ -1,5 +1,6 @@
 ---
 title: "/usage-credits, /privacy-settings — מכסות ופרטיות"
+published: 2026-03-09
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

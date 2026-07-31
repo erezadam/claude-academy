@@ -6,10 +6,11 @@ import {
   getCategoryBySlug,
   getArticle,
   getNextArticle,
+  getContentModifiedDate,
   MISSION_META,
   type Level,
 } from "@/lib/knowledge";
-import { SITE_URL, SITE_NAME, BRAND_NAME } from "@/lib/seo";
+import { SITE_URL, BRAND_NAME } from "@/lib/seo";
 import MarkdownContent from "@/components/MarkdownContent";
 
 // באנר ההתיישנות נגזר מ-last_reviewed (ביקורת אנושית, ידני) — לא מ-
@@ -70,7 +71,7 @@ export default async function ArticlePage({
 
   if (!category || !article) notFound();
 
-  const articleUrl = `${SITE_URL}/a/${article.slug}`;
+  const articleUrl = `${SITE_URL}/academy/a/${article.slug}`;
   const description =
     article.whatItDoes || `${article.title} — הסבר ומדריך בעברית.`;
 
@@ -97,6 +98,10 @@ export default async function ArticlePage({
   // TOC — כותרות ה-h2 של הגוף, מקושרות לעוגנים ש-MarkdownContent מייצר.
   const toc = [...bodyWithoutLeadingTitle.matchAll(/^## (.+)$/gm)].map((m) => m[1].trim());
 
+  // ‏dateModified: ‏body_changed_at או קומיט אחרון — לא last_verified שמתרענן
+  // בכל ריצת שער. ‏author: ‏Person רק כשיש סקירה אנושית חתומה (last_reviewed);
+  // אחרת המותג כארגון. ‏datePublished: מהשדה published (קומיט ראשון) בלבד.
+  const modified = getContentModifiedDate(article);
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -106,24 +111,27 @@ export default async function ArticlePage({
         description,
         inLanguage: "he",
         url: articleUrl,
-        ...(article.lastVerified
-          ? { dateModified: article.lastVerified }
-          : {}),
-        author: { "@type": "Organization", name: SITE_NAME },
-        publisher: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+        ...(article.published ? { datePublished: article.published } : {}),
+        ...(modified ? { dateModified: modified } : {}),
+        author: article.lastReviewed
+          ? { "@type": "Person", name: "Erez Adam" }
+          : { "@type": "Organization", name: BRAND_NAME },
+        publisher: { "@type": "Organization", name: BRAND_NAME, url: SITE_URL },
         mainEntityOfPage: articleUrl,
       },
       {
+        // השרשרת מהתוכן, לא ממבנה התיקיות: מותג ← מדור ← משימה ← מאמר.
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: SITE_NAME, item: SITE_URL },
+          { "@type": "ListItem", position: 1, name: BRAND_NAME, item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "האקדמיה של קלוד", item: `${SITE_URL}/academy` },
           {
             "@type": "ListItem",
-            position: 2,
-            name: category.name,
-            item: `${SITE_URL}/category/${category.slug}`,
+            position: 3,
+            name: missionName,
+            item: `${SITE_URL}${missionHref}`,
           },
-          { "@type": "ListItem", position: 3, name: article.title, item: articleUrl },
+          { "@type": "ListItem", position: 4, name: article.title, item: articleUrl },
         ],
       },
     ],

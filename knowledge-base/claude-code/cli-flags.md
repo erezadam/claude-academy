@@ -1,5 +1,6 @@
 ---
 title: "דגלי CLI — הפעלה מהטרמינל"
+published: 2026-03-09
 category: claude-code
 layer: advanced
 last_verified: 2026-07-29

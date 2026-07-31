@@ -1,5 +1,6 @@
 ---
 title: "מצבי הרשאה ב-Claude Code"
+published: 2026-07-04
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

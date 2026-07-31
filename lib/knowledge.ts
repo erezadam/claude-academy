@@ -1,4 +1,5 @@
 import fs from "fs";
+import { execFileSync } from "child_process";
 import path from "path";
 import matter from "gray-matter";
 
@@ -20,6 +21,7 @@ export interface Article {
   lastVerified?: string; // מתרענן אוטומטית ע"י שער האימות — מתי אומתו הפקודות
   lastReviewed?: string; // ידני בלבד, נאכף מול reviews.jsonl — מתי אדם קרא ואימת
   bodyChangedAt?: string; // הצינור מטביע כשגוף מאמר שנסקר משתנה אחרי הסקירה
+  published?: string; // תאריך הקומיט הראשון של הקובץ — הוזן חד-פעמית, לא מנוחש
   level: Level;
   mission: Mission;
   type: ArticleType;
@@ -198,6 +200,7 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       lastVerified: normalizeDate(data.last_verified),
       lastReviewed: normalizeDate(data.last_reviewed),
       bodyChangedAt: normalizeDate(data.body_changed_at),
+      published: normalizeDate(data.published),
       level: pick(data.level, LEVELS, "intermediate"),
       mission: pick(data.mission, MISSIONS, MISSION_BY_CATEGORY[category] ?? "daily"),
       type: pick(data.type, TYPES, "guide"),
@@ -214,6 +217,28 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
         : undefined,
     };
   });
+}
+
+// ‏dateModified ל-JSON-LD: ‏body_changed_at אם אוכלס; אחרת תאריך הקומיט
+// האחרון שנגע בקובץ (על clone רדוד ייתכן שאין — ואז מושמט, לא מנוחש).
+// ‏last_verified במפורש לא — הוא מתרענן בכל ריצת שער ואינו מודד שינוי תוכן.
+const gitDateCache = new Map<string, string | undefined>();
+export function getContentModifiedDate(article: Article): string | undefined {
+  if (article.bodyChangedAt) return article.bodyChangedAt;
+  const file = `knowledge-base/${article.category}/${article.slug}.md`;
+  if (gitDateCache.has(file)) return gitDateCache.get(file);
+  let date: string | undefined;
+  try {
+    date =
+      execFileSync("git", ["log", "-1", "--format=%cs", "--", file], {
+        encoding: "utf-8",
+        cwd: process.cwd(),
+      }).trim() || undefined;
+  } catch {
+    date = undefined;
+  }
+  gitDateCache.set(file, date);
+  return date;
 }
 
 export function getCategories(): Category[] {

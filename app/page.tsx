@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BRAND_NAME } from "@/lib/seo";
+import { BRAND_NAME, SITE_URL } from "@/lib/seo";
 
 /*
  * ⚠️ טיוטה — עמוד המותג של תכלס AI ממתין לכתיבה אנושית של בעל האתר.
@@ -12,8 +12,22 @@ export const metadata = {
 };
 
 export default function BrandHome() {
+  // ‏Organization בלי sameAs — אין עדיין פרופילים חברתיים, ואסור להצהיר
+  // על מה שלא קיים.
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: BRAND_NAME,
+    url: SITE_URL,
+  };
   return (
     <main style={{ maxWidth: 1240, margin: "0 auto", padding: "80px 40px" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(orgJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <p className="text-small font-mono-ds text-muted" style={{ marginBottom: 16 }}>
         tachlesai.co.il
       </p>

@@ -1,5 +1,6 @@
 ---
 title: "Routines — אוטומציה בענן עם Claude Code"
+published: 2026-05-30
 category: scheduling
 layer: intermediate
 last_verified: 2026-07-29

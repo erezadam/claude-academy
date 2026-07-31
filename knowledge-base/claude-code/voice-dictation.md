@@ -1,5 +1,6 @@
 ---
 title: "Voice Dictation — הכתבה קולית לטרמינל"
+published: 2026-06-14
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

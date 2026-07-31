@@ -1,5 +1,6 @@
 ---
 title: "code-review/ — סקירת קוד בטרמינל"
+published: 2026-05-28
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

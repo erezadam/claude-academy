@@ -1,5 +1,6 @@
 ---
 title: "איך מדברים אליו — בקשה טובה מול בקשה שמייצרת בלגן"
+published: 2026-07-29
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

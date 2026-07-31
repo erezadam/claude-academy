@@ -8,6 +8,7 @@ import {
   type Mission,
 } from "@/lib/knowledge";
 import MissionArticleList from "./MissionArticleList";
+import { SITE_URL, BRAND_NAME } from "@/lib/seo";
 
 // עמוד משימה — מימוש isModule מ-"Claude Academy - Site.dc.html".
 export function generateStaticParams() {
@@ -45,8 +46,37 @@ export default async function MissionPage({
     date: a.lastVerified,
   }));
 
+  const pageUrl = `${SITE_URL}/academy/m/${mission}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        name: meta.name,
+        description: meta.description,
+        url: pageUrl,
+        inLanguage: "he",
+        publisher: { "@type": "Organization", name: BRAND_NAME, url: SITE_URL },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: BRAND_NAME, item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "האקדמיה של קלוד", item: `${SITE_URL}/academy` },
+          { "@type": "ListItem", position: 3, name: meta.name, item: pageUrl },
+        ],
+      },
+    ],
+  };
+
   return (
     <main style={{ maxWidth: 1240, margin: "0 auto" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <div style={{ padding: "40px 40px 26px", borderBottom: "1px solid var(--color-divider)" }}>
         <div style={{ fontSize: 13, display: "flex", gap: 6, marginBottom: 14 }}>
           <Link href="/">האקדמיה</Link>
