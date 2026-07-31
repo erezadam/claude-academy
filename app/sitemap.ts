@@ -12,6 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: homeModified,
     },
     {
+      url: `${SITE_URL}/about`,
+    },
+    {
       url: `${SITE_URL}/academy/commands-list`,
     },
     {
