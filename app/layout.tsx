@@ -8,7 +8,7 @@ import {
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { getLastUpdated, getAllArticles } from "@/lib/knowledge";
-import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, BRAND_NAME, SITE_DESCRIPTION } from "@/lib/seo";
 import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "he_IL",
     url: SITE_URL,
-    siteName: SITE_NAME,
+    siteName: BRAND_NAME,
     title: TITLE,
     description: SITE_DESCRIPTION,
   },
@@ -138,10 +138,10 @@ export default function RootLayout({
             {lastUpdatedLabel ? ` · עודכן ${lastUpdatedLabel}` : ""}
           </span>
           <span style={{ display: "flex", gap: 18, fontSize: 13 }}>
-            <a href="/start">התחלה</a>
-            <a href="/commands-list">פקודות</a>
-            <a href="/tools">כלים</a>
-            <a href="/feedback">שפרו את האקדמיה</a>
+            <a href="/academy/start">התחלה</a>
+            <a href="/academy/commands-list">פקודות</a>
+            <a href="/academy/tools">כלים</a>
+            <a href="/academy/feedback">שפרו את האקדמיה</a>
             <a href="/admin" className="text-muted" style={{ fontSize: 12 }}>ניהול</a>
           </span>
         </footer>

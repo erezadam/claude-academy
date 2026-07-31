@@ -20,17 +20,17 @@ interface Tool {
 }
 
 const CAPABILITIES: Tool[] = [
-  { code: "MCP", name: "Model Context Protocol", level: "מתקדמים", needs: "שרת MCP", href: "/a/slash-mcp", desc: "מחבר את קלוד למקורות חיצוניים — DB, ‏Jira, ‏Figma — כקריאות כלים אמיתיות." },
-  { code: "HOOKS", name: "Hooks", level: "מתקדמים", needs: "settings.json", href: "/a/hooks-guide", desc: "מריץ פקודה שלך בנקודות מוגדרות בסשן: לפני עריכה, אחרי commit, בסיום." },
-  { code: "SKILLS", name: "Skills", level: "מתקדמים", needs: "תיקיית skills", href: "/a/skills", desc: "תיקיית הוראות שקלוד טוען לפי הקשר — כך תהליך חוזר נשמע אותו דבר כל פעם." },
-  { code: "AGENTS", name: "Subagents", level: "מתקדמים", needs: "—", href: "/a/sub-agents", desc: "סוכני-משנה שרצים במקביל על תתי-משימות ומחזירים תוצאה מרוכזת." },
-  { code: "CLAUDE.MD", name: "CLAUDE.md", level: "מתחילים", needs: "—", href: "/a/first-claude-md", desc: "הזיכרון הקבוע של הפרויקט: כללים, סגנון ומוסכמות שנטענים בכל סשן." },
-  { code: "WORKTREE", name: "Worktrees", level: "מתקדמים", needs: "git 2.5+", href: "/a/worktrees", desc: "כמה סשנים על אותו repo בלי שידרכו זה על זה." },
+  { code: "MCP", name: "Model Context Protocol", level: "מתקדמים", needs: "שרת MCP", href: "/academy/a/slash-mcp", desc: "מחבר את קלוד למקורות חיצוניים — DB, ‏Jira, ‏Figma — כקריאות כלים אמיתיות." },
+  { code: "HOOKS", name: "Hooks", level: "מתקדמים", needs: "settings.json", href: "/academy/a/hooks-guide", desc: "מריץ פקודה שלך בנקודות מוגדרות בסשן: לפני עריכה, אחרי commit, בסיום." },
+  { code: "SKILLS", name: "Skills", level: "מתקדמים", needs: "תיקיית skills", href: "/academy/a/skills", desc: "תיקיית הוראות שקלוד טוען לפי הקשר — כך תהליך חוזר נשמע אותו דבר כל פעם." },
+  { code: "AGENTS", name: "Subagents", level: "מתקדמים", needs: "—", href: "/academy/a/sub-agents", desc: "סוכני-משנה שרצים במקביל על תתי-משימות ומחזירים תוצאה מרוכזת." },
+  { code: "CLAUDE.MD", name: "CLAUDE.md", level: "מתחילים", needs: "—", href: "/academy/a/first-claude-md", desc: "הזיכרון הקבוע של הפרויקט: כללים, סגנון ומוסכמות שנטענים בכל סשן." },
+  { code: "WORKTREE", name: "Worktrees", level: "מתקדמים", needs: "git 2.5+", href: "/academy/a/worktrees", desc: "כמה סשנים על אותו repo בלי שידרכו זה על זה." },
 ];
 
 const ACADEMY_TOOLS: Tool[] = [
-  { code: "WIZARD", name: "אשף פרויקט חדש", level: "מתחילים", needs: "—", href: "/wizard", desc: "ענה על כמה שאלות וקבל את כל הפקודות מוכנות להרצה — Git, ‏CLAUDE.md ו-GitHub." },
-  { code: "GALLERY", name: "Design Gallery", level: "מתחילים", needs: "—", href: "/design-gallery/", desc: "12 מערכות עיצוב מוכנות לשימוש — דמו חי, קוד CSS ו-Skill Prompt.", external: true },
+  { code: "WIZARD", name: "אשף פרויקט חדש", level: "מתחילים", needs: "—", href: "/academy/wizard", desc: "ענה על כמה שאלות וקבל את כל הפקודות מוכנות להרצה — Git, ‏CLAUDE.md ו-GitHub." },
+  { code: "GALLERY", name: "Design Gallery", level: "מתחילים", needs: "—", href: "/academy/design-gallery/", desc: "12 מערכות עיצוב מוכנות לשימוש — דמו חי, קוד CSS ו-Skill Prompt.", external: true },
 ];
 
 function ToolCard({ t }: { t: Tool }) {

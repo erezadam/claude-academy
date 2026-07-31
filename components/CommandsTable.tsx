@@ -289,7 +289,7 @@ export default function CommandsTable({
                   </td>
                   <td className="py-2 px-3 text-small border-b border-rule">
                     <Link
-                      href={`/a/${article.slug}`}
+                      href={`/academy/a/${article.slug}`}
                       aria-label={`פתח את ${article.title}`}
                       className="text-accent hover:underline text-small"
                     >

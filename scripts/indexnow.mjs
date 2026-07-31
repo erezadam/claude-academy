@@ -9,12 +9,12 @@ const KEY = "7d18b3e91840dd637e7d73230fff0d7d";
 const BASE = `https://${HOST}`;
 
 // אותה רשימת כתובות כמו ב-sitemap: סטטיים + משימות + כל המאמרים.
-const staticPaths = ["/", "/commands-list", "/design-gallery/", "/wizard", "/start", "/guides", "/tools", "/feedback"];
-const missions = ["start", "daily", "code", "automate", "spec", "advanced"].map((m) => `/m/${m}`);
+const staticPaths = ["/", "/academy", "/academy/commands-list", "/academy/design-gallery/", "/academy/wizard", "/academy/start", "/academy/guides", "/academy/tools", "/academy/feedback"];
+const missions = ["start", "daily", "code", "automate", "spec", "advanced"].map((m) => `/academy/m/${m}`);
 const articles = fs
   .readdirSync("knowledge-base", { recursive: true })
   .filter((f) => f.endsWith(".md"))
-  .map((f) => `/a/${f.split("/").pop().replace(/\.md$/, "")}`);
+  .map((f) => `/academy/a/${f.split("/").pop().replace(/\.md$/, "")}`);
 
 const urlList = [...staticPaths, ...missions, ...articles].map((p) => `${BASE}${p}`);
 

@@ -12,27 +12,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: homeModified,
     },
     {
-      url: `${SITE_URL}/commands-list`,
+      url: `${SITE_URL}/academy/commands-list`,
     },
     {
-      url: `${SITE_URL}/design-gallery/`,
+      url: `${SITE_URL}/academy/design-gallery/`,
     },
     {
-      url: `${SITE_URL}/wizard`,
+      url: `${SITE_URL}/academy/wizard`,
     },
   ];
 
   const missions: MetadataRoute.Sitemap = MISSION_ORDER.map((m) => ({
-    url: `${SITE_URL}/m/${m}`,
+    url: `${SITE_URL}/academy/m/${m}`,
   }));
-  const hubs: MetadataRoute.Sitemap = ["/start", "/guides", "/tools", "/feedback"].map(
+  const hubs: MetadataRoute.Sitemap = ["/academy", "/academy/start", "/academy/guides", "/academy/tools", "/academy/feedback"].map(
     (path) => ({
       url: `${SITE_URL}${path}`,
     })
   );
 
   const articles: MetadataRoute.Sitemap = getAllArticles().map((a) => ({
-    url: `${SITE_URL}/a/${a.slug}`,
+    url: `${SITE_URL}/academy/a/${a.slug}`,
     lastModified: a.lastVerified ? new Date(a.lastVerified) : undefined,
   }));
 
