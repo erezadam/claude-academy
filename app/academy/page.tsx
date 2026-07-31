@@ -9,7 +9,11 @@ import {
 
 // עמוד הבית — מימוש "Claude Academy - Site.dc.html" (isHome) מ-Claude Design.
 export default function Home() {
-  const articleCount = getAllArticles().length;
+  const allArticles = getAllArticles();
+  const articleCount = allArticles.length;
+  // מוני המשימות סופרים מאמרי לימוד בלבד; כרטיסי reference חיים בטבלת
+  // הפקודות. שורת ההתאמה מתחת לרשת סוגרת את החשבון מול המונה הכללי.
+  const referenceCount = allArticles.filter((a) => a.type === "reference").length;
   const buildDate = new Date().toISOString().slice(0, 10);
   const recent = getRecentlyVerified(5);
 
@@ -108,7 +112,7 @@ export default function Home() {
           {MISSION_ORDER.map((mission, i) => {
             const meta = MISSION_META[mission];
             const count = getMissionArticles(mission).length;
-            const href = mission === "start" ? "/start" : `/academy/m/${mission}`;
+            const href = `/academy/m/${mission}`;
             return (
               <Link key={mission} href={href} className="card blueprint" style={{ padding: 18, gap: 8 }}>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
@@ -124,6 +128,12 @@ export default function Home() {
             );
           })}
         </div>
+        <p className="text-muted" style={{ marginTop: 14, fontSize: 13 }}>
+          שש המשימות מכסות {articleCount - referenceCount} מאמרי לימוד; עוד{" "}
+          {referenceCount} כרטיסי פקודות (reference) נמצאים ב
+          <Link href="/academy/commands-list">טבלת הפקודות</Link> — יחד{" "}
+          {articleCount} מאמרים.
+        </p>
 
         <div
           style={{
