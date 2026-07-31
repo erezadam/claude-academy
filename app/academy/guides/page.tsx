@@ -29,7 +29,7 @@ export default function GuidesPage() {
             const meta = MISSION_META[mission];
             return (
               <li key={mission} className="py-4 border-b border-rule last:border-b-0">
-                <Link href={`/m/${mission}`} className="group block">
+                <Link href={`/academy/m/${mission}`} className="group block">
                   <span className="text-h2 font-bold text-ink group-hover:text-accent">
                     {meta.name}
                   </span>

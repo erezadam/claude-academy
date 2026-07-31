@@ -5,7 +5,9 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.tachlesai.co.il"
 ).replace(/\/$/, "");
 
-export const SITE_NAME = "האקדמיה של קלוד";
+// המותג יושב בשורש; האקדמיה היא מדור.
+export const BRAND_NAME = "תכלס AI";
+export const SITE_NAME = "האקדמיה של קלוד"; // שם המדור — נשאר בתבנית ה-title של מאמרים
 
 export const SITE_DESCRIPTION =
   "מאגר ידע מקיף בעברית ל-Claude Code ו-Git — פקודות, מדריכים ותהליכי עבודה, הכל במקום אחד.";

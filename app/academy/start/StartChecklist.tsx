@@ -120,7 +120,7 @@ export default function StartChecklist({
                 <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                   {step.timeMinutes && <span className="tag tag-neutral">{step.timeMinutes} דק׳</span>}
                   {step.slug && (
-                    <Link href={`/a/${step.slug}`} className="btn btn-secondary" style={{ fontSize: 13 }}>
+                    <Link href={`/academy/a/${step.slug}`} className="btn btn-secondary" style={{ fontSize: 13 }}>
                       פתח ←
                     </Link>
                   )}
@@ -132,7 +132,7 @@ export default function StartChecklist({
         <div style={{ marginTop: 32, display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
           {firstOpen && (
             <Link
-              href={`/a/${firstOpen.slug}`}
+              href={`/academy/a/${firstOpen.slug}`}
               className="btn btn-primary blueprint"
               style={{ fontSize: 15, padding: "11px 20px" }}
             >
@@ -142,7 +142,7 @@ export default function StartChecklist({
             </Link>
           )}
           <span className="text-muted" style={{ fontSize: 14 }}>
-            סיימת את המסלול? <Link href="/m/code">קפוץ לעבודה עם Git</Link>
+            סיימת את המסלול? <Link href="/academy/m/code">קפוץ לעבודה עם Git</Link>
           </span>
         </div>
       </div>

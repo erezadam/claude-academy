@@ -70,7 +70,7 @@ export default function MissionArticleList({ items, total }: { items: MissionArt
         }}
       >
         {filtered.map((a) => (
-          <Link key={a.slug} href={`/a/${a.slug}`} className="card blueprint" style={{ padding: 18, gap: 8 }}>
+          <Link key={a.slug} href={`/academy/a/${a.slug}`} className="card blueprint" style={{ padding: 18, gap: 8 }}>
             <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
               <span className="tag tag-outline">{LEVEL_LABEL[a.level]}</span>
               {a.time && <span className="tag tag-neutral">{a.time} דק׳</span>}

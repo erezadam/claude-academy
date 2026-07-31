@@ -9,7 +9,7 @@ import {
   MISSION_META,
   type Level,
 } from "@/lib/knowledge";
-import { SITE_URL, SITE_NAME } from "@/lib/seo";
+import { SITE_URL, SITE_NAME, BRAND_NAME } from "@/lib/seo";
 import MarkdownContent from "@/components/MarkdownContent";
 
 // באנר ההתיישנות נגזר מ-last_reviewed (ביקורת אנושית, ידני) — לא מ-
@@ -36,7 +36,7 @@ export async function generateMetadata({
 
   const description =
     article.whatItDoes || `${article.title} — הסבר ומדריך בעברית.`;
-  const url = `/a/${slug}`;
+  const url = `/academy/a/${slug}`;
 
   return {
     title: article.title,
@@ -47,7 +47,7 @@ export async function generateMetadata({
       title: article.title,
       description,
       url,
-      siteName: SITE_NAME,
+      siteName: BRAND_NAME,
       locale: "he_IL",
       modifiedTime: article.lastVerified,
     },
@@ -76,7 +76,7 @@ export default async function ArticlePage({
 
   // reference שייך לטבלת הפקודות; מאמר לימוד — לעמוד המשימה שלו.
   const isReference = article.type === "reference";
-  const missionHref = isReference ? "/commands-list" : `/m/${article.mission}`;
+  const missionHref = isReference ? "/academy/commands-list" : `/academy/m/${article.mission}`;
   const missionName = isReference
     ? "טבלת הפקודות"
     : MISSION_META[article.mission].name;
@@ -176,12 +176,12 @@ export default async function ArticlePage({
             <div className="blueprint" style={{ marginTop: 26, padding: 14, fontSize: 13, lineHeight: 1.6 }}>
               <div style={{ fontFamily: "var(--font-heading)", fontSize: 15, marginBottom: 5 }}>קשור</div>
               {prerequisites.map((pre) => (
-                <Link key={pre.slug} href={`/a/${pre.slug}`} style={{ display: "block" }}>
+                <Link key={pre.slug} href={`/academy/a/${pre.slug}`} style={{ display: "block" }}>
                   {pre.title}
                 </Link>
               ))}
               {stepNext && (
-                <Link href={`/a/${stepNext.slug}`} style={{ display: "block" }}>
+                <Link href={`/academy/a/${stepNext.slug}`} style={{ display: "block" }}>
                   {stepNext.title}
                 </Link>
               )}
@@ -252,7 +252,7 @@ export default async function ArticlePage({
           <MarkdownContent content={bodyWithoutLeadingTitle} />
 
           <Link
-            href={stepNext ? `/a/${stepNext.slug}` : missionHref}
+            href={stepNext ? `/academy/a/${stepNext.slug}` : missionHref}
             className="card blueprint"
             style={{ padding: "15px 17px", gap: 2, maxWidth: 360, marginTop: 12 }}
           >

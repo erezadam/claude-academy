@@ -21,18 +21,29 @@ for (const file of files) {
   if (origin === "original") continue; // תוכן מקורי — אין מקור להתיישן מולו
   const tool = get("tool");
   if (tool && tool !== "claude-code") continue; // תיעוד Git לא זז באותו קצב
-  // מאמר שלא נסקר אינו "מיושן" — הוא "טרם נסקר". העדיפות בתור נגזרת
-  // מהתאריך הקיים: last_reviewed אם יש, אחרת גיל last_verified (קיים לכולם).
+  // מאמר שלא נסקר אינו "מיושן" — הוא "טרם נסקר". גיל last_verified אינו
+  // מודד גיל תוכן (מתרענן בכל ריצת שער), ולכן הלא-נסקרים מדורגים לפי
+  // ערך פדגוגי: mission (בסדר המסלול) ואז pathOrder. הנסקרים — לפי גיל.
   const lr = get("last_reviewed");
-  const lv = get("last_verified");
-  const ref = lr || lv;
+  const mission = get("mission") || "";
+  const pathOrder = Number(get("pathOrder") || 999);
   rows.push({
     file,
-    lastVerified: lr ? lr : lv ? `${lv} (טרם נסקר)` : "(חסר)",
-    days: ref ? Math.floor((Date.now() - new Date(ref).getTime()) / 86400000) : 0,
+    reviewed: Boolean(lr),
+    lastVerified: lr ? lr : "(טרם נסקר)",
+    days: lr ? Math.floor((Date.now() - new Date(lr).getTime()) / 86400000) : 0,
+    mission,
+    pathOrder,
   });
 }
-rows.sort((a, b) => b.days - a.days);
+const MISSION_ORDER = ["start", "daily", "code", "automate", "spec", "advanced", ""];
+rows.sort((a, b) => {
+  // נסקרים-שהתיישנו קודם (לפי גיל יורד); אחריהם הלא-נסקרים לפי mission+pathOrder.
+  if (a.reviewed !== b.reviewed) return a.reviewed ? -1 : 1;
+  if (a.reviewed) return b.days - a.days;
+  const mi = MISSION_ORDER.indexOf(a.mission) - MISSION_ORDER.indexOf(b.mission);
+  return mi !== 0 ? mi : a.pathOrder - b.pathOrder;
+});
 
 const topArg = process.argv.indexOf("--top");
 const top = topArg > -1 ? Number(process.argv[topArg + 1]) : rows.length;
@@ -47,5 +58,5 @@ if (md) {
   for (const r of rows.slice(0, top))
     console.log(`${String(r.days === Infinity ? "?" : r.days).padStart(5)}  ${r.lastVerified.padEnd(12)}  ${r.file}`);
 }
-const stale = rows.filter((r) => r.days > 90).length;
+const stale = rows.filter((r) => r.reviewed && r.days > 90).length;
 console.error(`\n${rows.length} מאמרים עם מקור; ${stale} מעל 90 יום.`);

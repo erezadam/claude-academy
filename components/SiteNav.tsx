@@ -6,17 +6,18 @@ import BackLink from "./BackLink";
 
 // ניווט עליון דביק לפי ה-DS: מותג, ארבעה פריטים, ומונה מאמרים במונו.
 const ITEMS = [
-  { href: "/start", label: "התחלה" },
-  { href: "/guides", label: "מדריכים" },
-  { href: "/commands-list", label: "פקודות" },
-  { href: "/tools", label: "כלים" },
+  { href: "/academy/start", label: "התחלה" },
+  { href: "/academy/guides", label: "מדריכים" },
+  { href: "/academy/commands-list", label: "פקודות" },
+  { href: "/academy/tools", label: "כלים" },
 ];
 
 export default function SiteNav({ articleCount }: { articleCount: number }) {
   const pathname = usePathname();
   const isCurrent = (href: string) =>
     pathname === href ||
-    (href === "/guides" && (pathname.startsWith("/m/") || pathname.startsWith("/a/")));
+    (href === "/academy/guides" &&
+      (pathname.startsWith("/academy/m/") || pathname.startsWith("/academy/a/")));
 
   return (
     <header

@@ -8,11 +8,12 @@ import { test, expect, type Page } from "@playwright/test";
  */
 
 const PAGES = [
-  { path: "/", name: "home" },
-  { path: "/a/install-first-run", name: "article" },
-  { path: "/commands-list", name: "commands-list" },
-  { path: "/start", name: "start" },
-  { path: "/feedback", name: "feedback" },
+  { path: "/", name: "brand-root" },
+  { path: "/academy", name: "academy-home" },
+  { path: "/academy/a/install-first-run", name: "article" },
+  { path: "/academy/commands-list", name: "commands-list" },
+  { path: "/academy/start", name: "start" },
+  { path: "/academy/feedback", name: "feedback" },
 ];
 
 // צבע הקישורים חייב להגיע מטוקן העיצוב, לא מברירת המחדל של הדפדפן.
