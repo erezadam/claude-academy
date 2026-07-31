@@ -1,5 +1,6 @@
 ---
 title: "Ultraplan — תכנון בענן ועריכה שיתופית"
+published: 2026-06-14
 category: workflows
 layer: intermediate
 last_verified: 2026-07-29

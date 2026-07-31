@@ -1,5 +1,6 @@
 ---
 title: "Agent Teams — תיאום קבוצות של Claude Code"
+published: 2026-06-24
 category: workflows
 layer: intermediate
 last_verified: 2026-07-29

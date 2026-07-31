@@ -1,5 +1,6 @@
 ---
 title: "git log"
+published: 2026-03-09
 category: git
 layer: basic
 last_verified: 2026-07-29

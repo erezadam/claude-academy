@@ -1,5 +1,6 @@
 ---
 title: "Advisor — ייעוץ ממודל חזק יותר באמצע משימה"
+published: 2026-06-14
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

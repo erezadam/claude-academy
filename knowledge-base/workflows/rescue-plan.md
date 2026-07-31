@@ -1,5 +1,6 @@
 ---
 title: "קלוד שבר לי משהו — מסלול החילוץ"
+published: 2026-07-29
 category: workflows
 layer: basic
 last_verified: 2026-07-29

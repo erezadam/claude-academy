@@ -1,5 +1,6 @@
 ---
 title: "/goal — עבודה עצמאית עד השגת מטרה"
+published: 2026-06-06
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

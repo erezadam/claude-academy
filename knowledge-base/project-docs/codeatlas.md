@@ -1,5 +1,6 @@
 ---
 title: "CODEATLAS.md - מפת ניווט וזרימה"
+published: 2026-05-02
 category: project-docs
 layer: basic
 last_verified: 2026-05-01

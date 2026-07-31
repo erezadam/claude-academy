@@ -1,5 +1,6 @@
 ---
 title: "לאבחן תצורה שלא עובדת"
+published: 2026-07-11
 category: guides
 layer: intermediate
 last_verified: 2026-07-29

@@ -1,5 +1,6 @@
 ---
 title: "ניהול עלויות ב-Claude Code"
+published: 2026-07-11
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

@@ -1,5 +1,6 @@
 ---
 title: "Skills — הרחבת יכולות Claude Code"
+published: 2026-05-30
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

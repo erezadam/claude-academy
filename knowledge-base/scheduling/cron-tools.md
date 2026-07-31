@@ -1,5 +1,6 @@
 ---
 title: "כלי Cron — CronCreate, CronList, CronDelete"
+published: 2026-03-09
 category: scheduling
 layer: advanced
 last_verified: 2026-07-29

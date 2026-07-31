@@ -61,7 +61,10 @@ export const metadata: Metadata = {
     "כלי פיתוח AI",
   ],
   authors: [{ name: "Erez Adam" }],
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": "/rss.xml" },
+  },
   openGraph: {
     type: "website",
     locale: "he_IL",

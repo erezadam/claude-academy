@@ -1,5 +1,6 @@
 ---
 title: "/doctor — בדיקת תצורה מקיפה ומתקנת"
+published: 2026-03-09
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

@@ -1,5 +1,6 @@
 ---
 title: "Worktrees — סשנים מקבילים מבודדים ב-git"
+published: 2026-06-06
 category: workflows
 layer: intermediate
 last_verified: 2026-07-29

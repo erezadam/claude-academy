@@ -1,5 +1,6 @@
 ---
 title: "/stats, /insights, /release-notes — מידע וניתוח"
+published: 2026-03-09
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

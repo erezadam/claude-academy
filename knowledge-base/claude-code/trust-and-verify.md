@@ -1,5 +1,6 @@
 ---
 title: "מתי לסמוך ומתי לבדוק"
+published: 2026-07-29
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

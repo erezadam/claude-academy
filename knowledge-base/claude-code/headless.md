@@ -1,5 +1,6 @@
 ---
 title: "Headless Mode — הפעלת Claude Code ללא אינטראקציה"
+published: 2026-07-25
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

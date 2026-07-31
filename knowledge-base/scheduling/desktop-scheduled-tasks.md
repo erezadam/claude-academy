@@ -1,5 +1,6 @@
 ---
 title: "Desktop Scheduled Tasks — משימות מתוזמנות ב-Claude Code Desktop"
+published: 2026-06-06
 category: scheduling
 layer: basic
 last_verified: 2026-07-29

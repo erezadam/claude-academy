@@ -1,5 +1,6 @@
 ---
 title: "Git Flow — תהליך עבודה בסיסי"
+published: 2026-05-30
 category: workflows
 layer: basic
 last_verified: 2026-05-30

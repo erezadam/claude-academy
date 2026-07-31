@@ -1,5 +1,6 @@
 ---
 title: "תזמון משימות בתוך Session — /loop וכלי Cron"
+published: 2026-05-30
 category: scheduling
 layer: intermediate
 last_verified: 2026-07-29
