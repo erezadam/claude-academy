@@ -40,7 +40,7 @@ export default function OpengraphImage() {
             letterSpacing: -2,
           }}
         >
-          Claude Academy
+          Tachles AI
         </div>
         <div
           style={{
