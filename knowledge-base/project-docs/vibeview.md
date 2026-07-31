@@ -1,6 +1,7 @@
 ---
 title: "VIBEVIEW.md - מפת הפרויקט"
-published: 2026-05-02
+published: "2026-05-02T13:32:48+03:00"
+body_changed_at: "2026-05-02T13:32:48+03:00"
 category: project-docs
 layer: basic
 last_verified: 2026-05-01

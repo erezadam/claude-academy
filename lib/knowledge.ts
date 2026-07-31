@@ -169,6 +169,14 @@ function extractFirstCodeBlock(content: string): string {
   return "";
 }
 
+// חותמת מלאה (ISO עם אזור זמן) כשקיימת — ל-schema; אחרת כמו שהיא.
+function fullTimestamp(value: unknown): string | undefined {
+  if (!value) return undefined;
+  if (value instanceof Date) return value.toISOString();
+  const str = String(value).trim();
+  return str || undefined;
+}
+
 // gray-matter (js-yaml) parses an unquoted YAML date like `2026-03-07` as a
 // Date object; a quoted one stays a string. Normalize both to "YYYY-MM-DD".
 function normalizeDate(value: unknown): string | undefined {
@@ -198,9 +206,9 @@ function readArticlesFromDir(dirPath: string, category: string): Article[] {
       layer: data.layer ?? undefined,
       status: typeof data.status === "string" ? data.status : undefined,
       lastVerified: normalizeDate(data.last_verified),
-      lastReviewed: normalizeDate(data.last_reviewed),
-      bodyChangedAt: normalizeDate(data.body_changed_at),
-      published: normalizeDate(data.published),
+      lastReviewed: fullTimestamp(data.last_reviewed),
+      bodyChangedAt: fullTimestamp(data.body_changed_at),
+      published: fullTimestamp(data.published),
       level: pick(data.level, LEVELS, "intermediate"),
       mission: pick(data.mission, MISSIONS, MISSION_BY_CATEGORY[category] ?? "daily"),
       type: pick(data.type, TYPES, "guide"),
@@ -230,7 +238,7 @@ export function getContentModifiedDate(article: Article): string | undefined {
   let date: string | undefined;
   try {
     date =
-      execFileSync("git", ["log", "-1", "--format=%cs", "--", file], {
+      execFileSync("git", ["log", "-1", "--format=%cI", "--", file], {
         encoding: "utf-8",
         cwd: process.cwd(),
       }).trim() || undefined;

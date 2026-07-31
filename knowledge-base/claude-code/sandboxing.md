@@ -1,6 +1,7 @@
 ---
 title: "Sandbox של Bash — בידוד פקודות ב-Claude Code"
-published: 2026-06-24
+published: "2026-06-24T08:41:09Z"
+body_changed_at: "2026-06-24T11:47:29+03:00"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

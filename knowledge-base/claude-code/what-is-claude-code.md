@@ -1,10 +1,11 @@
 ---
 title: "מה זה Claude Code — ומתי הוא לא הכלי הנכון"
-published: 2026-07-29
+published: "2026-07-29T17:28:58+03:00"
+body_changed_at: "2026-07-29T17:28:58+03:00"
 category: claude-code
 layer: basic
 last_verified: 2026-07-29
-last_reviewed: 2026-07-29
+last_reviewed: "2026-07-29T12:00:00+03:00"
 status: needs-review
 source_url: https://code.claude.com/docs/en/overview
 related: [install-first-run]

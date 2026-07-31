@@ -1,6 +1,7 @@
 ---
 title: "שורת סטטוס מותאמת אישית ב-Claude Code"
-published: 2026-07-04
+published: "2026-07-04T08:56:24Z"
+body_changed_at: "2026-07-04T08:56:24Z"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

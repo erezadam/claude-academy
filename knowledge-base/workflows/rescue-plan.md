@@ -1,10 +1,11 @@
 ---
 title: "קלוד שבר לי משהו — מסלול החילוץ"
-published: 2026-07-29
+published: "2026-07-29T17:28:58+03:00"
+body_changed_at: "2026-07-29T17:28:58+03:00"
 category: workflows
 layer: basic
 last_verified: 2026-07-29
-last_reviewed: 2026-07-29
+last_reviewed: "2026-07-29T12:00:00+03:00"
 status: needs-review
 source_url: https://code.claude.com/docs/en/checkpointing
 source_url_extra: https://git-scm.com/docs/git-status https://git-scm.com/docs/git-diff https://git-scm.com/docs/git-revert https://git-scm.com/docs/git-reset https://git-scm.com/docs/git-stash https://git-scm.com/docs/git-log

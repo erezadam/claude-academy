@@ -1,6 +1,7 @@
 ---
 title: "Ultrareview — סקירת קוד עמוקה רב-סוכנית בענן"
-published: 2026-06-06
+published: "2026-06-06T11:15:00+03:00"
+body_changed_at: "2026-06-06T11:15:00+03:00"
 category: guides
 layer: intermediate
 last_verified: 2026-07-29

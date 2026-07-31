@@ -1,6 +1,7 @@
 ---
 title: "ניהול עלויות ב-Claude Code"
-published: 2026-07-11
+published: "2026-07-11T08:22:19Z"
+body_changed_at: "2026-07-11T08:22:19Z"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

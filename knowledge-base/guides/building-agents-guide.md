@@ -1,6 +1,7 @@
 ---
 title: "בניית סוכן ב-Claude Code — מדריך מקצה לקצה לפי ההמלצות הרשמיות"
-published: 2026-06-09
+published: "2026-06-09T13:20:55+03:00"
+body_changed_at: "2026-07-29T12:56:53+03:00"
 category: guides
 layer: advanced
 last_verified: 2026-07-29

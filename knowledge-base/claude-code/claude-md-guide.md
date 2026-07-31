@@ -1,6 +1,7 @@
 ---
 title: "שיטות עבודה מומלצות עם Claude Code"
-published: 2026-03-09
+published: "2026-03-09T18:49:12+02:00"
+body_changed_at: "2026-05-30T13:21:57+03:00"
 category: claude-code
 layer: basic
 last_verified: 2026-07-29

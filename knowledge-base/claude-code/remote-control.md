@@ -1,6 +1,7 @@
 ---
 title: "Remote Control — שליטה מרחוק ב-Claude Code"
-published: 2026-06-24
+published: "2026-06-24T11:28:37+03:00"
+body_changed_at: "2026-06-24T11:28:37+03:00"
 category: claude-code
 layer: intermediate
 last_verified: 2026-07-29

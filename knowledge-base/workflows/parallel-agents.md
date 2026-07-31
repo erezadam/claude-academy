@@ -1,6 +1,7 @@
 ---
 title: "הרצת Agents במקביל — השוואת גישות"
-published: 2026-06-24
+published: "2026-06-24T11:28:37+03:00"
+body_changed_at: "2026-06-24T11:28:37+03:00"
 category: workflows
 layer: intermediate
 last_verified: 2026-07-29
