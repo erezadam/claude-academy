@@ -85,8 +85,8 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: SITE_NAME,
-  alternateName: "Claude Academy",
+  name: BRAND_NAME,
+  alternateName: "Tachles AI",
   url: SITE_URL,
   inLanguage: "he",
   description: SITE_DESCRIPTION,
