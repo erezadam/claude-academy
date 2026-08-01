@@ -83,16 +83,7 @@ jobs:
 
 ## שימוש עם Skills
 
-ניתן להעביר הפעלת skill כ-`prompt`:
-
-```yaml
-- uses: anthropics/claude-code-action@v1
-  with:
-    anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-    plugin_marketplaces: "https://github.com/anthropics/claude-code.git"
-    plugins: "code-review@claude-code-plugins"
-    prompt: "/code-review:code-review ${{ github.repository }}/pull/${{ github.event.pull_request.number }}"
-```
+ניתן להעביר הפעלת skill כ-`prompt`. לדוגמה, לשימוש ב-skill מ-plugin שמותקן דרך marketplace — מציינים `plugin_marketplaces`, `plugins`, ואת הפקודה המלאה של ה-skill בשדה `prompt`. הפקודה עוברת לסשן של קלוד כמו כל prompt רגיל, ויכולה לכלול משתני הקשר של GitHub מה-workflow.
 
 ## דוגמאות שימוש בתגובות
 
