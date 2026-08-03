@@ -3,9 +3,12 @@ import {
   getAllArticles,
   getRecentlyVerified,
   getMissionArticles,
+  getChangelog,
+  getCategories,
   MISSION_META,
   MISSION_ORDER,
 } from "@/lib/knowledge";
+import WhatsNew from "@/components/WhatsNew";
 
 // עמוד הבית — מימוש "Claude Academy - Site.dc.html" (isHome) מ-Claude Design.
 export default function Home() {
@@ -16,6 +19,10 @@ export default function Home() {
   const referenceCount = allArticles.filter((a) => a.type === "reference").length;
   const buildDate = new Date().toISOString().slice(0, 10);
   const recent = getRecentlyVerified(5);
+  const changelog = getChangelog();
+  const categoryNames = Object.fromEntries(
+    getCategories().map((c) => [c.slug, c.name])
+  );
 
   const corners = (
     <>
@@ -65,6 +72,9 @@ export default function Home() {
             <Link href="/academy/commands-list" className="btn btn-secondary" style={{ fontSize: 15, padding: "11px 20px" }}>
               טבלת כל הפקודות
             </Link>
+            <a href="#whats-new" className="btn btn-secondary" style={{ fontSize: 15, padding: "11px 20px" }}>
+              מה התחדש
+            </a>
             <Link href="/academy/feedback" className="btn btn-secondary" style={{ fontSize: 15, padding: "11px 20px" }}>
               שפרו את האתר
             </Link>
@@ -100,6 +110,11 @@ export default function Home() {
             {corners}
           </Link>
         </div>
+      </div>
+
+      {/* מה התחדש — changelog שבועי, לבקרה ולמיקוד הנכנסים */}
+      <div id="whats-new" style={{ maxWidth: 1240, margin: "0 auto", padding: "32px 40px 0" }}>
+        <WhatsNew entries={changelog} categoryNames={categoryNames} />
       </div>
 
       {/* שש דרכים להיכנס */}
