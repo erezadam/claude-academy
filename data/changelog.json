@@ -1,6 +1,36 @@
 {
   "entries": [
     {
+      "date": "2026-08-01",
+      "summary": "נוספו 4 מאמרים חדשים: מדריך עיון Hooks, חיבור MCP, הרחבת Claude Code ב-GitHub Actions.",
+      "items": [
+        {
+          "title": "מדריך עיון: אירועי Hooks ב-Claude Code",
+          "category": "claude-code",
+          "slug": "hooks-reference",
+          "type": "new"
+        },
+        {
+          "title": "חיבור Claude Code לכלים חיצוניים עם MCP",
+          "category": "claude-code",
+          "slug": "mcp-connect",
+          "type": "new"
+        },
+        {
+          "title": "להרחיב את Claude Code: מתי להשתמש ב-CLAUDE.md, Skills, Hooks, MCP ו-Subagents",
+          "category": "guides",
+          "slug": "extend-claude-code",
+          "type": "new"
+        },
+        {
+          "title": "Claude Code ב-GitHub Actions — אוטומציה עם @claude",
+          "category": "workflows",
+          "slug": "github-actions",
+          "type": "new"
+        }
+      ]
+    },
+    {
       "date": "2026-07-25",
       "summary": "נוספו 3 מאמרים חדשים: Headless Mode, הגדרת מודל, ו-Claude Code ב-Monorepo.",
       "items": [
