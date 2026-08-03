@@ -3,15 +3,26 @@ import {
   getAllArticles,
   getRecentlyVerified,
   getMissionArticles,
+  getChangelog,
+  getCategories,
   MISSION_META,
   MISSION_ORDER,
 } from "@/lib/knowledge";
+import WhatsNew from "@/components/WhatsNew";
 
 // עמוד הבית — מימוש "Claude Academy - Site.dc.html" (isHome) מ-Claude Design.
 export default function Home() {
-  const articleCount = getAllArticles().length;
+  const allArticles = getAllArticles();
+  const articleCount = allArticles.length;
+  // מוני המשימות סופרים מאמרי לימוד בלבד; כרטיסי reference חיים בטבלת
+  // הפקודות. שורת ההתאמה מתחת לרשת סוגרת את החשבון מול המונה הכללי.
+  const referenceCount = allArticles.filter((a) => a.type === "reference").length;
   const buildDate = new Date().toISOString().slice(0, 10);
   const recent = getRecentlyVerified(5);
+  const changelog = getChangelog();
+  const categoryNames = Object.fromEntries(
+    getCategories().map((c) => [c.slug, c.name])
+  );
 
   const corners = (
     <>
@@ -61,6 +72,9 @@ export default function Home() {
             <Link href="/academy/commands-list" className="btn btn-secondary" style={{ fontSize: 15, padding: "11px 20px" }}>
               טבלת כל הפקודות
             </Link>
+            <a href="#whats-new" className="btn btn-secondary" style={{ fontSize: 15, padding: "11px 20px" }}>
+              מה התחדש
+            </a>
             <Link href="/academy/feedback" className="btn btn-secondary" style={{ fontSize: 15, padding: "11px 20px" }}>
               שפרו את האתר
             </Link>
@@ -98,6 +112,11 @@ export default function Home() {
         </div>
       </div>
 
+      {/* מה התחדש — changelog שבועי, לבקרה ולמיקוד הנכנסים */}
+      <div id="whats-new" style={{ maxWidth: 1240, margin: "0 auto", padding: "32px 40px 0" }}>
+        <WhatsNew entries={changelog} categoryNames={categoryNames} />
+      </div>
+
       {/* שש דרכים להיכנס */}
       <div style={{ maxWidth: 1240, margin: "0 auto", padding: "44px 40px 56px" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 22 }}>
@@ -108,7 +127,7 @@ export default function Home() {
           {MISSION_ORDER.map((mission, i) => {
             const meta = MISSION_META[mission];
             const count = getMissionArticles(mission).length;
-            const href = mission === "start" ? "/start" : `/academy/m/${mission}`;
+            const href = `/academy/m/${mission}`;
             return (
               <Link key={mission} href={href} className="card blueprint" style={{ padding: 18, gap: 8 }}>
                 <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between" }}>
@@ -124,6 +143,12 @@ export default function Home() {
             );
           })}
         </div>
+        <p className="text-muted" style={{ marginTop: 14, fontSize: 13 }}>
+          שש המשימות מכסות {articleCount - referenceCount} מאמרי לימוד; עוד{" "}
+          {referenceCount} כרטיסי פקודות (reference) נמצאים ב
+          <Link href="/academy/commands-list">טבלת הפקודות</Link> — יחד{" "}
+          {articleCount} מאמרים.
+        </p>
 
         <div
           style={{

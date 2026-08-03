@@ -4,6 +4,14 @@ import FeedbackForm from "./FeedbackForm";
 export const metadata: Metadata = {
   title: "שפרו את האקדמיה",
   description: "רעיון, מאמר חסר או טעות שמצאת — ספרו לנו. כל הודעה נקראת.",
+  alternates: { canonical: "/academy/feedback" },
+  openGraph: {
+    type: "website",
+    title: "שפרו את האקדמיה",
+    description: "רעיון, מאמר חסר או טעות שמצאת — ספרו לנו. כל הודעה נקראת.",
+    url: "/academy/feedback",
+    locale: "he_IL",
+  },
 };
 
 export default function FeedbackPage() {

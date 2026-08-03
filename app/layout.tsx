@@ -8,7 +8,7 @@ import {
 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { getLastUpdated, getAllArticles } from "@/lib/knowledge";
-import { SITE_URL, SITE_NAME, BRAND_NAME, SITE_DESCRIPTION } from "@/lib/seo";
+import { SITE_URL, BRAND_NAME, ROOT_TITLE, ROOT_DESCRIPTION } from "@/lib/seo";
 import SiteNav from "@/components/SiteNav";
 import "./globals.css";
 
@@ -38,28 +38,16 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
-const TITLE = "האקדמיה של קלוד — מאגר ידע ל-Claude Code ו-Git";
-
+// מטא-דאטה גלובלית מינימלית של המותג. מדור האקדמיה דורס אותה
+// ב-app/academy/layout.tsx; כל route מגדיר canonical ו-og:url משלו.
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: TITLE,
-    template: `%s · ${SITE_NAME}`,
+    default: ROOT_TITLE,
+    template: `%s · ${BRAND_NAME}`,
   },
-  description: SITE_DESCRIPTION,
-  applicationName: SITE_NAME,
-  keywords: [
-    "Claude Code",
-    "Claude Code בעברית",
-    "פקודות Git",
-    "Git בעברית",
-    "מדריך Git",
-    "מדריך Claude Code",
-    "CLAUDE.md",
-    "MCP",
-    "Anthropic",
-    "כלי פיתוח AI",
-  ],
+  description: ROOT_DESCRIPTION,
+  applicationName: BRAND_NAME,
   authors: [{ name: "Erez Adam" }],
   alternates: {
     canonical: "/",
@@ -68,15 +56,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "he_IL",
-    url: SITE_URL,
+    url: "/",
     siteName: BRAND_NAME,
-    title: TITLE,
-    description: SITE_DESCRIPTION,
+    title: ROOT_TITLE,
+    description: ROOT_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: TITLE,
-    description: SITE_DESCRIPTION,
+    title: ROOT_TITLE,
+    description: ROOT_DESCRIPTION,
   },
   robots: {
     index: true,
@@ -92,10 +80,10 @@ const jsonLd = {
   alternateName: "Tachles AI",
   url: SITE_URL,
   inLanguage: "he",
-  description: SITE_DESCRIPTION,
+  description: ROOT_DESCRIPTION,
   publisher: {
     "@type": "Organization",
-    name: SITE_NAME,
+    name: BRAND_NAME,
     url: SITE_URL,
   },
 };

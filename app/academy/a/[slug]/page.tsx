@@ -201,7 +201,7 @@ export default async function ArticlePage({
 
         <article style={{ padding: "40px 44px 60px", maxWidth: 780 }}>
           <div style={{ fontSize: 13, display: "flex", gap: 6, marginBottom: 18 }}>
-            <Link href="/">האקדמיה</Link>
+            <Link href="/academy">האקדמיה</Link>
             <span className="text-muted">/</span>
             <Link href={missionHref}>{missionName}</Link>
             <span className="text-muted">/</span>
