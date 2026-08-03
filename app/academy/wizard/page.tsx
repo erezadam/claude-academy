@@ -915,7 +915,7 @@ claude`;
 
           {/* Header */}
           <header className="wiz-header">
-            <Link href="/" className="wiz-back">
+            <Link href="/academy" className="wiz-back">
               <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>

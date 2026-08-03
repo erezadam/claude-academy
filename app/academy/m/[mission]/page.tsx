@@ -91,7 +91,7 @@ export default async function MissionPage({
       />
       <div style={{ padding: "40px 40px 26px", borderBottom: "1px solid var(--color-divider)" }}>
         <div style={{ fontSize: 13, display: "flex", gap: 6, marginBottom: 14 }}>
-          <Link href="/">האקדמיה</Link>
+          <Link href="/academy">האקדמיה</Link>
           <span className="text-muted">/</span>
           <span className="text-muted">{meta.name}</span>
         </div>

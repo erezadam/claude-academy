@@ -29,7 +29,7 @@ export default async function CommandsListPage() {
       <nav className="border-b border-rule">
         <div className="max-w-5xl mx-auto px-6 py-3 flex items-center gap-2 text-small">
           <Link
-            href="/"
+            href="/academy"
             className="text-accent hover:underline transition-colors"
           >
             &larr; חזרה לעמוד הבית
