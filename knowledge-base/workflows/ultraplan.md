@@ -49,17 +49,7 @@ ultraplan: audit every API endpoint under src/routes/
 
 או לחצו **No, refine with Ultraplan** כשה-plan mode המקומי מסיים ומציג תוכנית.
 
-**מעקב אחר התקדמות** — הריצו `/tasks` ובחרו את רשומת ultraplan לפרטים ו-link:
-
-```text
-/tasks
-```
-
-| סטטוס | משמעות |
-|:--|:--|
-| `◇ ultraplan` | Claude חוקר את ה-codebase ומנסח |
-| `◇ ultraplan needs your input` | Claude שאל שאלה — פתחו את ה-session link |
-| `◆ ultraplan ready` | התוכנית מוכנה לסקירה בדפדפן |
+**מעקב אחר התקדמות** — ניתן היה לעקוב דרך רשימת ה-tasks הפנימית של Claude Code (הוסר בגרסה 2.1.222).
 
 ## סקירה ועריכה בדפדפן
 
