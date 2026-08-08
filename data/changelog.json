@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "date": "2026-08-08",
+      "summary": "נוספו 2 מאמרים חדשים: Self-Hosted Environments ו-Cross-Session Messaging; עודכן Ultraplan (הפיצ'ר הוסר ב-v2.1.222).",
+      "items": [
+        {
+          "title": "סביבות Self-Hosted — הרצת Sessions של Claude Code בתשתית שלכם",
+          "category": "claude-code",
+          "slug": "self-hosted-environments",
+          "type": "new"
+        },
+        {
+          "title": "העברת הודעות בין Sessions של Claude Code",
+          "category": "claude-code",
+          "slug": "cross-session-messaging",
+          "type": "new"
+        },
+        {
+          "title": "Ultraplan — תכנון בענן ועריכה שיתופית",
+          "category": "workflows",
+          "slug": "ultraplan",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-08-01",
       "summary": "נוספו 4 מאמרים חדשים: מדריך עיון Hooks, חיבור MCP, הרחבת Claude Code ב-GitHub Actions.",
       "items": [

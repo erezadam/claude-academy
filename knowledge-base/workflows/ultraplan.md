@@ -1,10 +1,10 @@
 ---
 title: "Ultraplan — תכנון בענן ועריכה שיתופית"
 published: "2026-06-14T18:27:18+03:00"
-body_changed_at: "2026-06-14T18:27:18+03:00"
+body_changed_at: "2026-08-08T12:00:00+03:00"
 category: workflows
 layer: intermediate
-last_verified: 2026-07-29
+last_verified: 2026-08-08
 status: needs-review
 source_url: https://code.claude.com/docs/en/ultraplan
 related: ["dynamic-workflows", "agent-view", "worktrees"]
@@ -15,6 +15,10 @@ type: guide
 tool: claude-code
 origin: official
 timeMinutes: 2
+---
+
+**הוסר בגרסה 2.1.222 (אוגוסט 2026).** Anthropic הסירה את תצוגה המקדימה המחקרית של Ultraplan. לתכנון, השתמשו ב-[plan mode](https://code.claude.com/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode) מקומית, או ב-[Claude Code on the web](https://code.claude.com/docs/en/claude-code-on-the-web) לסשן ענן.
+
 ---
 
 Ultraplan מעביר משימת תכנון מה-CLI המקומי ל-session של Claude Code on the web שרץ ב-plan mode. Claude מנסח את התוכנית בענן בזמן שאתם ממשיכים לעבוד בטרמינל. כשהתוכנית מוכנה, פותחים אותה בדפדפן, מגיבים על קטעים ספציפיים ובוחרים היכן לבצע.
