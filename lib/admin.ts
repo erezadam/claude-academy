@@ -14,9 +14,16 @@ export async function computeToken(password: string): Promise<string> {
     .join("");
 }
 
-// ה-token הצפוי לפי הסיסמה שב-env. null אם הסיסמה לא הוגדרה.
+// אכיפת חוזק מינימלי (fail-closed): סיסמה שאינה עומדת בדרישה נועלת את הפאנל
+// בדיוק כמו סיסמה חסרה — לא מזהירה ולא ממשיכה. לא מודפס הערך עצמו בשום מקום.
+// דרישה: לפחות 24 תווים, וללא תו '@' (למנוע חזרה לסיסמת כתובת-מייל).
+export function isPasswordAcceptable(password: string): boolean {
+  return password.length >= 24 && !password.includes("@");
+}
+
+// ה-token הצפוי לפי הסיסמה שב-env. null אם הסיסמה לא הוגדרה או אינה עומדת בדרישה.
 export async function expectedToken(): Promise<string | null> {
   const password = process.env.ADMIN_PASSWORD;
-  if (!password) return null;
+  if (!password || !isPasswordAcceptable(password)) return null;
   return computeToken(password);
 }
