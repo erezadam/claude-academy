@@ -1,6 +1,36 @@
 {
   "entries": [
     {
+      "date": "2026-08-15",
+      "summary": "נוספו 2 מאמרים חדשים (איך Claude Code עובד, Prompt Caching) ועודכנו 2 קיימים (Worktrees עם תמיכת GitLab MR, Cross-Session Messaging עם @mention ו-/config).",
+      "items": [
+        {
+          "title": "איך Claude Code עובד — הלולאה האגנטית, כלים וסשנים",
+          "category": "guides",
+          "slug": "how-claude-code-works",
+          "type": "new"
+        },
+        {
+          "title": "Prompt Caching — מטמון ב-Claude Code",
+          "category": "claude-code",
+          "slug": "prompt-caching",
+          "type": "new"
+        },
+        {
+          "title": "Worktrees — סשנים מקבילים מבודדים ב-git",
+          "category": "workflows",
+          "slug": "worktrees",
+          "type": "changed"
+        },
+        {
+          "title": "העברת הודעות בין Sessions של Claude Code",
+          "category": "claude-code",
+          "slug": "cross-session-messaging",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-08-08",
       "summary": "נוספו 2 מאמרים חדשים: Self-Hosted Environments ו-Cross-Session Messaging; עודכן Ultraplan (הפיצ'ר הוסר ב-v2.1.222).",
       "items": [
@@ -326,54 +356,6 @@
           "title": "Ultrareview — סקירת קוד עמוקה רב-סוכנית בענן",
           "category": "guides",
           "slug": "ultrareview",
-          "type": "new"
-        }
-      ]
-    },
-    {
-      "date": "2026-05-30",
-      "summary": "נוספו 7 מאמרים חדשים בסריקה האוטומטית — Claude Code, תזמון ולולאות, תהליכי עבודה.",
-      "items": [
-        {
-          "title": "שיטות עבודה מומלצות עם Claude Code",
-          "category": "claude-code",
-          "slug": "claude-md-guide",
-          "type": "new"
-        },
-        {
-          "title": "Plugins — חבילות הרחבה לשיתוף",
-          "category": "claude-code",
-          "slug": "plugins-guide",
-          "type": "new"
-        },
-        {
-          "title": "Skills — הרחבת יכולות Claude Code",
-          "category": "claude-code",
-          "slug": "skills",
-          "type": "new"
-        },
-        {
-          "title": "Subagents — סוכנים ייעודיים ב-Claude Code",
-          "category": "claude-code",
-          "slug": "sub-agents",
-          "type": "new"
-        },
-        {
-          "title": "תזמון משימות בתוך Session — /loop וכלי Cron",
-          "category": "scheduling",
-          "slug": "scheduled-tasks",
-          "type": "new"
-        },
-        {
-          "title": "Routines — אוטומציה בענן עם Claude Code",
-          "category": "scheduling",
-          "slug": "routines",
-          "type": "new"
-        },
-        {
-          "title": "וורקפלואו דינמי — תזמור סוכנים בקנה מידה",
-          "category": "workflows",
-          "slug": "dynamic-workflows",
           "type": "new"
         }
       ]

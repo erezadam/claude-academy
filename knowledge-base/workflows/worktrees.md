@@ -1,10 +1,10 @@
 ---
 title: "Worktrees — סשנים מקבילים מבודדים ב-git"
 published: "2026-06-06T11:15:00+03:00"
-body_changed_at: "2026-06-06T11:15:00+03:00"
+body_changed_at: "2026-08-15T12:00:00+03:00"
 category: workflows
 layer: intermediate
-last_verified: 2026-07-29
+last_verified: 2026-08-15
 status: needs-review
 source_url: https://code.claude.com/docs/en/worktrees
 related: ["sub-agents", "dynamic-workflows", "agent-view"]
@@ -59,11 +59,23 @@ claude --worktree
 
 `"head"` מעתיק מה-HEAD המקומי הנוכחי, כולל commits לא-pushed ועבודה בפרוגרס.
 
-לפתיחת worktree מ-Pull Request ספציפי:
+לפתיחת worktree מ-Pull Request או Merge Request ספציפי — העבירו מספר עם קידומת `#`, URL של GitHub PR, או URL מלא של GitLab MR. Claude Code מדלה את ה-head commit מ-`origin` ויוצר את ה-worktree תחת `.claude/worktrees/pr-<number>`. יש לצטט את הארגומנט כדי שה-shell לא יפרש `#` כהערה:
 
 ```bash
 claude --worktree "#1234"
 ```
+
+Claude Code בוחר את נתיב ה-fetch לפי host של `origin`:
+
+| Host | נתיב fetch |
+|:--|:--|
+| `github.com` | `pull/<number>/head` |
+| `gitlab.com` | `merge-requests/<number>/head` |
+| GitHub Enterprise, GitLab עצמאי, או כל host אחר | מנסה `pull/<number>/head` קודם, ואחר כך `merge-requests/<number>/head` |
+
+לפני v2.1.233, Claude Code קיבל רק `#<number>` ו-URLs בסגנון GitHub PR.
+
+ב-`claude agents` view, Merge Requests של GitLab מוצגים בפורמט `!N`.
 
 ### העתקת קבצים gitignored לworktrees
 
