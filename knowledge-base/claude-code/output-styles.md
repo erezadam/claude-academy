@@ -1,10 +1,10 @@
 ---
 title: "סגנונות פלט ב-Claude Code"
 published: "2026-07-04T08:56:24Z"
-body_changed_at: "2026-07-04T08:56:24Z"
+body_changed_at: "2026-08-22T12:00:00+03:00"
 category: claude-code
 layer: intermediate
-last_verified: 2026-07-29
+last_verified: 2026-08-22
 status: needs-review
 source_url: https://code.claude.com/docs/en/output-styles
 related: [memory, skills, permission-modes, slash-config]
@@ -29,9 +29,10 @@ timeMinutes: 3
 
 סגנון ה-**Default** הוא הפרומפט המובנה, המיועד לסיוע יעיל במשימות הנדסת תוכנה.
 
-שלושה סגנונות מובנים נוספים:
+ארבעה סגנונות מובנים נוספים:
 
 - **Proactive**: Claude מבצע מיד, עושה הנחות סבירות ומעדיף פעולה על פני תכנון. זו הנחיה חזקה יותר מ-auto mode, ועובד ללא שינוי מצב ההרשאה — כך שבקשות ההרשאה ממשיכות להופיע.
+- **Concise**: Claude מוביל עם התוצאה, מדלג על הקדמות ותיאורים, ושומר על תגובות קצרות כברירת מחדל — תוך ביצוע עבודת ההנדסה באותה רמה. כשמבקשים הסבר מלא, Claude עונה בהרחבה. תוכן אזהרות אבטחה ודוחות שגיאות תמיד נשמר במלואו. דורש Claude Code v2.1.237 ומעלה.
 - **Explanatory**: מספק "Insights" חינוכיים בין משימות ההנדסה. מסביר בחירות מימוש ותבניות ב-codebase.
 - **Learning**: מצב שיתופי ולמידה בעשייה שבו Claude מבקש ממך לתרום חלקי קוד קטנים. Claude מוסיף `TODO(human)` בקוד שלך לפריטים שעליך לממש.
 
@@ -89,7 +90,7 @@ Use `flowchart TD` for control flow and `sequenceDiagram` for request paths. Kee
 - כל סגנון מפעיל תזכורות ל-Claude לדבוק בהוראות לאורך השיחה.
 - סגנונות מותאמים משמיטים את הוראות ההנדסה המובנות של Claude Code (scope, comments, verify) אלא אם `keep-coding-instructions: true`.
 
-שימוש בטוקנים: הוספת הוראות לפרומפט המערכת מגדילה את טוקני הקלט, אם כי prompt caching מפחית את העלות לאחר הבקשה הראשונה. הסגנונות Explanatory ו-Learning מייצרים תגובות ארוכות יותר מ-Default.
+שימוש בטוקנים: הוספת הוראות לפרומפט המערכת מגדילה את טוקני הקלט, אם כי prompt caching מפחית את העלות לאחר הבקשה הראשונה. הסגנונות Explanatory ו-Learning מייצרים תגובות ארוכות יותר מ-Default; הסגנון Concise עושה את ההפך ומצמצם טוקני פלט.
 
 ## השוואה לתכונות קשורות
 
