@@ -1,9 +1,9 @@
 ---
 title: "העברת הודעות בין Sessions של Claude Code"
 category: claude-code
-last_verified: 2026-08-15
+last_verified: 2026-08-22
 status: needs-review
-body_changed_at: "2026-08-15T12:00:00+03:00"
+body_changed_at: "2026-08-22T12:00:00+03:00"
 source_url: https://code.claude.com/docs/en/cross-session-messaging
 related: [sessions, agent-view, remote-control, channels, sub-agents]
 mission: daily
@@ -84,6 +84,20 @@ Claude כותב את ההודעה בעצמו. לפעמים הוא ישלח בי�
 מ-v2.1.232 אפשר לבחור את הערך גם דרך `/config` בשורה **Messages from your other sessions** — Claude Code כותב את הערך שתבחרו להגדרות המשתמש.
 
 **זמן תפוגה לdialog**: ההגדרה `dialogExpiry` קובעת כמה זמן (בדקות) dialog אישור נשאר פתוח לפני שההודעה נמחקת. ברירת המחדל היא 5 דקות. ניתן לקנפג גם דרך `/config` בשורה **Dialog expiry**. ערך `"never"` שומר הודעות עד סיום הsession.
+
+## קבלת הודעה כשסשן אחר מסיים עבודה
+
+Claude יכול לבקש מסשן אחר על אותו מחשב לשלוח הודעת עדכון אחת כשהוא מסיים את התור הנוכחי ועובר למצב idle. שימושי כשממתינים לתהליך ארוך בסשן אחר ורוצים לדעת מתי הוא הסתיים — בלי לבדוק ידנית. דורש Claude Code v2.1.236 ומעלה בשני הסשנים.
+
+```text
+אמור לי כשסשן ה-migration מסיים את מה שהוא עובד עליו
+```
+
+Claude מבצע את הרישום דרך הכלי `SendMessage` עם הפרמטר `notify_when_idle`. הסשן הנצפה מציג שורה שמסבירה שנרשמה בקשת עדכון; הסשן המחכה מקבל הודעה עם שם הסשן הנצפה ומצבו האחרון.
+
+ההודעה היא חד-פעמית — נשלחת פעם אחת בלבד. אם לא הגיעה תוך 12 שעות, הרישום בטל אוטומטית.
+
+הגדרות `crossSessionInbound` ב-`refuse` או `hold` משפיעות גם על עדכוני idle: `refuse` בצד אחד ביניהם מונע הגעת העדכון.
 
 ## הגבלות על הודעות נכנסות
 

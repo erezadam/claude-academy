@@ -1,6 +1,30 @@
 {
   "entries": [
     {
+      "date": "2026-08-22",
+      "summary": "נוסף מאמר חדש: Deep Links (פתיחת סשן מלינק); עודכנו 2 מאמרים קיימים (Output Styles עם סגנון Concise, Cross-Session Messaging עם notify_when_idle).",
+      "items": [
+        {
+          "title": "Deep Links — פתיחת סשן Claude Code מלינק",
+          "category": "claude-code",
+          "slug": "deep-links",
+          "type": "new"
+        },
+        {
+          "title": "סגנונות פלט ב-Claude Code",
+          "category": "claude-code",
+          "slug": "output-styles",
+          "type": "changed"
+        },
+        {
+          "title": "העברת הודעות בין Sessions של Claude Code",
+          "category": "claude-code",
+          "slug": "cross-session-messaging",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-08-15",
       "summary": "נוספו 2 מאמרים חדשים (איך Claude Code עובד, Prompt Caching) ועודכנו 2 קיימים (Worktrees עם תמיכת GitLab MR, Cross-Session Messaging עם @mention ו-/config).",
       "items": [
