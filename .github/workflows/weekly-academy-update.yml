@@ -28,6 +28,8 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    # החסם האמיתי מפני ריצה בורחת הוא שעון-קיר, לא ספירת תורות.
+    timeout-minutes: 60
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
@@ -39,31 +41,47 @@ jobs:
           node-version: 22
       - run: npm ci
 
+      # continue-on-error מכוון: ה-action מפיל את הצעד גם על כשלים לא-מהותיים
+      # (למשל חריגת num_turns אחרי שהסוכן סיים בהצלחה), וכל צעד עם if: success()
+      # אחריו — כולל שער האימות והמיזוג — נדלג. הפוסק הבלעדי על הצלחה הוא הצעד
+      # הדטרמיניסטי "Surface Claude execution failures" שקורא is_error מה-JSON.
       - uses: anthropics/claude-code-action@v1
         id: claude
+        continue-on-error: true
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # ה-watchdog מפעיל את ה-workflow הזה דרך gh workflow run עם GITHUB_TOKEN,
+          # ולכן ה-actor הוא github-actions[bot]. בלי הרשאה מפורשת ה-action חוסם
+          # ריצות של בוטים — וכל הפעלה מחדש של ה-watchdog נכשלה תוך 30 שניות.
+          # שם מפורש ולא '*': הריפו ציבורי, ו-'*' יפתח אותו לכל App חיצוני.
+          allowed_bots: "github-actions[bot]"
           prompt: |
             קרא את הקובץ .claude/academy-update-spec.md ובצע אותו במלואו.
           claude_args: |
             --model claude-sonnet-4-6
-            --max-turns 40
+            --max-turns 150
             --allowedTools Read,Write,Edit,Bash,Glob,Grep,WebFetch
 
       # שמירת פלט הריצה כ-artifact לדיבוג — נשמר תמיד, גם בכשל.
+      # התנאי על execution_file חיוני: אם ה-action קרס לפני שכתב את הקובץ,
+      # path יהיה מחרוזת ריקה ו-upload-artifact נופל על "Input required: path"
+      # — כשל מדומה שמסתיר את הכשל האמיתי. if-no-files-found לא מכסה את זה.
       - name: Upload Claude execution log
-        if: always()
+        if: always() && steps.claude.outputs.execution_file != ''
         uses: actions/upload-artifact@v7
         with:
           name: claude-execution-output
           path: ${{ steps.claude.outputs.execution_file }}
           if-no-files-found: warn
 
-      # חשיפת כשל לוגי של הסוכן: ה-action מחזיר success גם כש-is_error=true.
+      # הפוסק היחיד על הצלחת הסוכן. ה-action עצמו לא אמין לשני הכיוונים: הוא
+      # מחזיר success גם כש-is_error=true, ולהפך — מפיל את הצעד על חריגת num_turns
+      # אחרי שהסוכן סיים בהצלחה. הצעד הזה קורא את התוצאה מה-JSON ומכריע.
       - name: Surface Claude execution failures
         if: always()
+        env:
+          OUT: ${{ steps.claude.outputs.execution_file }}
         run: |
-          OUT="${{ steps.claude.outputs.execution_file }}"
           if [ -z "$OUT" ] || [ ! -f "$OUT" ]; then
             echo "::error::Claude execution output not found (execution_file='$OUT') — cannot verify the weekly update ran."
             exit 1
