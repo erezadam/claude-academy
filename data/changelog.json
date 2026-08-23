@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2026-08-23",
+      "summary": "2 מאמרים חדשים: מצב מסך מלא (Fullscreen Rendering) והגדרת הטרמינל לעבודה עם Claude Code.",
+      "items": [
+        {
+          "title": "מצב מסך מלא — Fullscreen Rendering",
+          "category": "claude-code",
+          "slug": "fullscreen",
+          "type": "new"
+        },
+        {
+          "title": "הגדרת הטרמינל לעבודה עם Claude Code",
+          "category": "guides",
+          "slug": "terminal-config",
+          "type": "new"
+        }
+      ]
+    },
+    {
       "date": "2026-08-22",
       "summary": "נוסף מאמר חדש: Deep Links (פתיחת סשן מלינק); עודכנו 2 מאמרים קיימים (Output Styles עם סגנון Concise, Cross-Session Messaging עם notify_when_idle).",
       "items": [
@@ -278,108 +296,6 @@
           "title": "Keybindings — התאמת קיצורי מקלדת",
           "category": "claude-code",
           "slug": "keybindings",
-          "type": "new"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-14",
-      "summary": "נוספו 7 מאמרים חדשים ועודכנו 2 קיימים: Advisor, Channels, Computer Use, Voice Dictation, Fast Mode, Sessions, Ultraplan, Dynamic Workflows ו-Sub-agents.",
-      "items": [
-        {
-          "title": "Advisor — ייעוץ ממודל חזק יותר באמצע משימה",
-          "category": "claude-code",
-          "slug": "advisor",
-          "type": "new"
-        },
-        {
-          "title": "Channels — הזרמת אירועים חיצוניים לתוך session פעיל",
-          "category": "claude-code",
-          "slug": "channels",
-          "type": "new"
-        },
-        {
-          "title": "Computer Use — שליטה במסך ואפליקציות מה-CLI",
-          "category": "claude-code",
-          "slug": "computer-use",
-          "type": "new"
-        },
-        {
-          "title": "Voice Dictation — הכתבה קולית לטרמינל",
-          "category": "claude-code",
-          "slug": "voice-dictation",
-          "type": "new"
-        },
-        {
-          "title": "Fast Mode — תגובות Opus מהירות יותר",
-          "category": "claude-code",
-          "slug": "fast-mode",
-          "type": "new"
-        },
-        {
-          "title": "Sessions — ניהול שיחות, המשך וסניפים",
-          "category": "claude-code",
-          "slug": "sessions",
-          "type": "new"
-        },
-        {
-          "title": "Ultraplan — תכנון בענן ועריכה שיתופית",
-          "category": "workflows",
-          "slug": "ultraplan",
-          "type": "new"
-        },
-        {
-          "title": "וורקפלואו דינמי — תזמור סוכנים בקנה מידה",
-          "category": "workflows",
-          "slug": "dynamic-workflows",
-          "type": "changed"
-        },
-        {
-          "title": "Subagents — סוכנים ייעודיים ב-Claude Code",
-          "category": "claude-code",
-          "slug": "sub-agents",
-          "type": "changed"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-06",
-      "summary": "נוספו 6 מאמרים חדשים: /goal, Agent View, Desktop Scheduled Tasks, Worktrees, זיכרון, Ultrareview.",
-      "items": [
-        {
-          "title": "/goal — עבודה עצמאית עד השגת מטרה",
-          "category": "claude-code",
-          "slug": "slash-goal",
-          "type": "new"
-        },
-        {
-          "title": "Agent View — ניהול סשנים מקבילים מסך אחד",
-          "category": "workflows",
-          "slug": "agent-view",
-          "type": "new"
-        },
-        {
-          "title": "Desktop Scheduled Tasks — משימות מתוזמנות ב-Claude Code Desktop",
-          "category": "scheduling",
-          "slug": "desktop-scheduled-tasks",
-          "type": "new"
-        },
-        {
-          "title": "Worktrees — סשנים מקבילים מבודדים ב-git",
-          "category": "workflows",
-          "slug": "worktrees",
-          "type": "new"
-        },
-        {
-          "title": "זיכרון — CLAUDE.md ו-Auto Memory לאורך סשנים",
-          "category": "claude-code",
-          "slug": "memory",
-          "type": "new"
-        },
-        {
-          "title": "Ultrareview — סקירת קוד עמוקה רב-סוכנית בענן",
-          "category": "guides",
-          "slug": "ultrareview",
           "type": "new"
         }
       ]
