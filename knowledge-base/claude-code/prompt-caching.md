@@ -76,7 +76,7 @@ Claude Code מנהל זאת אוטומטית. שמירה על session פעיל �
 - **שיחה ראשית**: הגדרת `promptCacheTtl` (בקובץ settings.json) או משתנה הסביבה `CLAUDE_CODE_PROMPT_CACHE_TTL`
 - **subagents וסוגים אחרים**: הגדרת `subagentPromptCacheTtl` או `CLAUDE_CODE_SUBAGENT_PROMPT_CACHE_TTL`
 
-שתי ההגדרות ושני משתני הסביבה דורשים v2.1.242 ומעלה. עבור subagent בודד, ניתן לדרוס את ההגדרה הכללית דרך שדה `experimental.cacheTtl` ב-frontmatter של אותו subagent (דורש v2.1.248).
+שתי ההגדרות ושני משתני הסביבה דורשים v2.1.242 ומעלה. ניתן לדרוס את ה-TTL לכל subagent בנפרד דרך frontmatter הsubagent — ראו מאמר subagents לפרטים.
 
 ```json
 {
