@@ -1,11 +1,11 @@
 ---
 title: "Subagents — סוכנים ייעודיים ב-Claude Code"
 published: "2026-05-30T09:58:12Z"
-body_changed_at: "2026-07-29T18:01:43+03:00"
+body_changed_at: "2026-08-29T12:00:00+03:00"
 category: claude-code
 layer: intermediate
-last_verified: 2026-07-29
-status: current
+last_verified: 2026-08-29
+status: needs-review
 source_url: https://code.claude.com/docs/en/sub-agents
 related: ["skills", "plugins-guide", "/agents"]
 mission: advanced
@@ -161,7 +161,19 @@ claude --agents '{
 | `effort` | לא | רמת effort בעת פעילות ה-subagent. גוברת על רמת ה-effort של ה-session. אפשרויות: `low`, `medium`, `high`, `xhigh`, `max` |
 | `isolation` | לא | `worktree` כדי להריץ ב-git worktree זמני, עם עותק מבודד של ה-repository |
 | `color` | לא | צבע תצוגה ברשימת המשימות וב-transcript: `red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, או `cyan` |
+| `experimental` | לא | מפה של אפשרויות ניסיוניות. הגדר `cacheTtl: "5m"` או `cacheTtl: "1h"` כדי לבחור את חיי prompt cache לבקשות ה-subagent. Claude Code מתעלם מערכים אחרים, ומתעלם מ-`"1h"` כשהמינוי פועל על usage credits. נקרא רק מקבצי subagent (לא ב-CLI). דורש v2.1.248 |
 | `initialPrompt` | לא | מוגש אוטומטית כתור המשתמש הראשון כשה-agent רץ כ-agent הראשי (דרך `--agent` או הגדרת `agent`) |
+
+כתוב `cacheTtl` בתוך המפה `experimental`, לא ברמה העליונה של ה-frontmatter:
+
+```yaml
+---
+name: long-runner
+description: Agent that benefits from a 1-hour prompt cache
+experimental:
+  cacheTtl: 1h
+---
+```
 
 ## שליטה ביכולות ה-Subagent
 

@@ -1,7 +1,8 @@
 ---
 title: "Prompt Caching — מטמון ב-Claude Code"
 category: claude-code
-last_verified: 2026-08-15
+last_verified: 2026-08-29
+body_changed_at: 2026-08-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/prompt-caching
 related: ["costs", "sessions", "model-config", "fast-mode", "mcp-connect"]
@@ -67,6 +68,24 @@ Claude Code מנהל prompt caching אוטומטית. בכל זאת, שווה ל
 ערכי מטמון פוקעים אחרי תקופת חוסר פעילות. ברירת המחדל היא 15 דקות בשרתי Anthropic. ל-Anthropic API (גרסה 2024-11-01 ומעלה), אפשר לבקש TTL של עד שעה אחת עם explicit cache breakpoints בבקשה עצמה.
 
 Claude Code מנהל זאת אוטומטית. שמירה על session פעיל מרחיבה את חלון ה-caching.
+
+## בחירת ה-TTL בעצמך
+
+ברירת המחדל היא 5 דקות. משתמשי API key ומשתמשי cloud provider יכולים להאריך אותה לשעה אחת. ניהול ה-TTL נעשה דרך הגדרות:
+
+- **שיחה ראשית**: הגדרת `promptCacheTtl` (בקובץ settings.json) או משתנה הסביבה `CLAUDE_CODE_PROMPT_CACHE_TTL`
+- **subagents וסוגים אחרים**: הגדרת `subagentPromptCacheTtl` או `CLAUDE_CODE_SUBAGENT_PROMPT_CACHE_TTL`
+
+שתי ההגדרות ושני משתני הסביבה דורשים v2.1.242 ומעלה. עבור subagent בודד, ניתן לדרוס את ההגדרה הכללית דרך שדה `experimental.cacheTtl` ב-frontmatter של אותו subagent (דורש v2.1.248).
+
+```json
+{
+  "promptCacheTtl": "1h",
+  "subagentPromptCacheTtl": "5m"
+}
+```
+
+Claude Code מתעלם מ-`"1h"` כל עוד המינוי פועל על usage credits.
 
 ## טיפים לשימור ביצועי מטמון
 
