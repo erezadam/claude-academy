@@ -1,6 +1,48 @@
 {
   "entries": [
     {
+      "date": "2026-08-29",
+      "summary": "2 מאמרים חדשים (חלון ההקשר, תיקיית .claude) ו-4 עדכונים (statusline, CLI flags, sub-agents, prompt caching).",
+      "items": [
+        {
+          "title": "חלון ההקשר — מה נטען ומתי",
+          "category": "guides",
+          "slug": "context-window",
+          "type": "new"
+        },
+        {
+          "title": "תיקיית .claude — מה נמצא איפה ולמה",
+          "category": "claude-code",
+          "slug": "claude-directory",
+          "type": "new"
+        },
+        {
+          "title": "שורת סטטוס מותאמת אישית ב-Claude Code",
+          "category": "claude-code",
+          "slug": "statusline",
+          "type": "changed"
+        },
+        {
+          "title": "דגלי CLI — הפעלה מהטרמינל",
+          "category": "claude-code",
+          "slug": "cli-flags",
+          "type": "changed"
+        },
+        {
+          "title": "Subagents — סוכנים ייעודיים ב-Claude Code",
+          "category": "claude-code",
+          "slug": "sub-agents",
+          "type": "changed"
+        },
+        {
+          "title": "Prompt Caching — מטמון ב-Claude Code",
+          "category": "claude-code",
+          "slug": "prompt-caching",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-08-23",
       "summary": "2 מאמרים חדשים: מצב מסך מלא (Fullscreen Rendering) והגדרת הטרמינל לעבודה עם Claude Code.",
       "items": [
@@ -255,48 +297,6 @@
           "category": "claude-code",
           "slug": "sub-agents",
           "type": "changed"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-20",
-      "summary": "נוספו 6 מאמרים חדשים: מדריך Hooks, Agent Teams, הרצת Agents במקביל, Checkpointing, Remote Control, ו-Keybindings.",
-      "items": [
-        {
-          "title": "מדריך Hooks — אוטומציה של פעולות ב-Claude Code",
-          "category": "guides",
-          "slug": "hooks-guide",
-          "type": "new"
-        },
-        {
-          "title": "Agent Teams — תיאום קבוצות של Claude Code",
-          "category": "workflows",
-          "slug": "agent-teams",
-          "type": "new"
-        },
-        {
-          "title": "הרצת Agents במקביל — השוואת גישות",
-          "category": "workflows",
-          "slug": "parallel-agents",
-          "type": "new"
-        },
-        {
-          "title": "Checkpointing — עקיבה והחזרה של שינויים",
-          "category": "claude-code",
-          "slug": "checkpointing",
-          "type": "new"
-        },
-        {
-          "title": "Remote Control — שליטה מרחוק ב-Claude Code",
-          "category": "claude-code",
-          "slug": "remote-control",
-          "type": "new"
-        },
-        {
-          "title": "Keybindings — התאמת קיצורי מקלדת",
-          "category": "claude-code",
-          "slug": "keybindings",
-          "type": "new"
         }
       ]
     }

@@ -1,11 +1,11 @@
 ---
 title: "דגלי CLI — הפעלה מהטרמינל"
 published: "2026-03-09T19:25:24+02:00"
-body_changed_at: "2026-03-09T19:25:24+02:00"
+body_changed_at: "2026-08-29T12:00:00+03:00"
 category: claude-code
 layer: advanced
-last_verified: 2026-07-29
-status: current
+last_verified: 2026-08-29
+status: needs-review
 source_url: https://code.claude.com/docs/en/cli
 related: [slash-commands-all]
 badge: new
@@ -51,6 +51,7 @@ claude -p "query" --output-format stream-json
 | `--resume [id]` | המשך session ב-headless | CI/CD pipelines |
 | `--agents [json]` | הגדר subagents inline | אוטומציה מתקדמת |
 | `--from-pr [number]` | פתח session מקושר ל-PR | code review |
+| `--restricted` | מצב מוגבל: מסיר כלי Bash/Shell/WebFetch, מגביל כלי קבצים לתיקיית העבודה, מסרב ל-bypassPermissions, טוען רק managed settings. מינימום v2.1.248 | הרצה במכונות משותפות |
 
 ---
 

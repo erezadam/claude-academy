@@ -1,10 +1,10 @@
 ---
 title: "שורת סטטוס מותאמת אישית ב-Claude Code"
 published: "2026-07-04T08:56:24Z"
-body_changed_at: "2026-07-04T08:56:24Z"
+body_changed_at: "2026-08-29T12:00:00+03:00"
 category: claude-code
 layer: intermediate
-last_verified: 2026-07-29
+last_verified: 2026-08-29
 status: needs-review
 source_url: https://code.claude.com/docs/en/statusline
 related: [slash-config, keybindings, sessions]
@@ -101,6 +101,12 @@ Claude Code שולח את שדות ה-JSON הבאים לסקריפט:
 | `context_window.context_window_size` | גודל חלון ההקשר המרבי בטוקנים |
 | `context_window.total_input_tokens` | מספר טוקני קלט בחלון הנוכחי |
 | `rate_limits.five_hour.used_percentage` | אחוז מגבלת rate limit של 5 שעות (למנויי Claude.ai) |
+| `rate_limits.five_hour.resets_at` | Unix epoch seconds עד איפוס חלון 5 שעות |
+| `rate_limits.seven_day.used_percentage` | אחוז מגבלת rate limit שבועית |
+| `rate_limits.seven_day.resets_at` | Unix epoch seconds עד איפוס החלון השבועי |
+| `rate_limits.spend_limit.used_percentage` | אחוז מגבלת ההוצאה (דרך Claude apps gateway עם spend limit). עשוי לעלות מעל 100 לאחר חריגה. דורש v2.1.251 |
+| `rate_limits.spend_limit.resets_at` | Unix epoch seconds עד איפוס תקופת spend limit. דורש v2.1.251 |
+| `prompt_cache` | סטטיסטיקות prompt cache של השיחה הראשית: hit ratio, misses, warm/cold. נעדר עד לאחר תגובת API ראשונה. דורש v2.1.251 |
 | `session_id` | מזהה ייחודי של הסשן |
 | `session_name` | שם מותאם שהוגדר עם `--name` או `/rename` |
 | `version` | גרסת Claude Code |
