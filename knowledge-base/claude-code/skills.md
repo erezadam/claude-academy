@@ -1,10 +1,10 @@
 ---
 title: "Skills — הרחבת יכולות Claude Code"
 published: "2026-05-30T09:58:12Z"
-body_changed_at: "2026-05-30T13:21:57+03:00"
+body_changed_at: "2026-09-05T12:00:00+03:00"
 category: claude-code
 layer: intermediate
-last_verified: 2026-07-29
+last_verified: 2026-09-05
 status: needs-review
 source_url: https://code.claude.com/docs/en/skills
 related: [plugins-guide, sub-agents, slash-commands]
@@ -215,3 +215,17 @@ Claude Code כולל סט skills מובנים הזמינים בכל session, כ�
 אם Claude משתמש ב-skill יותר מדי, אפשר להפוך את ה-`description` לספציפי יותר, או להוסיף `disable-model-invocation: true` אם רוצים רק הפעלה ידנית.
 
 תיאורי skills נטענים ל-context כדי ש-Claude יידע מה זמין. כל שמות ה-skills תמיד נכללים, אך אם יש skills רבים, התיאורים מתקצרים כדי להיכנס למכסת התווים. אפשר להריץ `/doctor` כדי לראות אם המכסה עוברת את הגבול ואילו skills מושפעים.
+
+## Skills לא בשימוש — `/skill-doctor`
+
+כל skill ברשימה מוסיף לקונטקסט בכל תור, בין אם Claude משתמש בו ובין אם לא. הרצת `/skill-doctor` מציגה מה כל skill עולה בטוקנים ועד כמה הוא בשימוש — כדי לסייע להחליט אילו לכבות.
+
+```text
+/skill-doctor
+```
+
+בסשן אינטראקטיבי, הדוח נפתח בלשונית **Stats** של מנהל ה-`/plugin`. במצב לא-אינטראקטיבי (`-p`), הוא מודפס כטקסט.
+
+הדוח מכסה את ה-skills ב-session שלכם מלבד skills מובנים ו-enterprise skills. הוא מסמן skills שמעולם לא הופעלו ומציין היכן לכבות אותם. הוא גם מפרט plugins שלא בשימוש לאחרונה.
+
+`/skill-doctor` דורש Claude Code v2.1.252 ומעלה ואינו זמין ב-Remote Control מהטלפון או הדפדפן (Claude Code יחזיר הודעת שגיאה במקום); הריצו אותו בטרמינל על המחשב שבו ה-session רץ.

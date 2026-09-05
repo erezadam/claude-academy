@@ -1,7 +1,8 @@
 ---
 title: "מצב מסך מלא — Fullscreen Rendering"
 category: claude-code
-last_verified: 2026-08-23
+last_verified: 2026-09-05
+body_changed_at: 2026-09-05
 status: needs-review
 source_url: https://code.claude.com/docs/en/fullscreen
 related: [terminal-config, keybindings, statusline]
@@ -75,6 +76,16 @@ CLAUDE_CODE_NO_FLICKER=1 claude
 - **לחיצה על אפשרות** בדיאלוג (`/model`, `/config` וכד') — בוחרת אותה
 - **לחיצה על תוצאת כלי מקופלת** — מרחיבה את הפלט המלא; לחיצה שנייה מקפלת
 - **Cmd/Ctrl + לחיצה על URL או נתיב קובץ** — פותח בדפדפן או אפליקציה מתאימה
+
+## פאנל ה-diff
+
+במצב מסך מלא, `/diff` פותח פאנל **לצד השיחה** במקום viewer שצריך לסגור — כך ניתן לצפות בשינויים מצטברים בזמן שקלוד עובד. בטרמינל רחב מספיק, הפאנל יכול לנפתח מעצמו ברגע שקלוד מתחיל לערוך קבצים.
+
+```text
+/diff
+```
+
+הפאנל מציג את השינויים הבלתי-מאושרים הנוכחיים בהשוואה לבסיס שניתן לשינוי. לפרטים על מה הפאנל מציג ואיך לשמור אותו סגור — ראו [Diff panel](https://code.claude.com/docs/en/interactive-mode#diff-panel).
 
 ## ברירת מחדל — מתי מצב מסך מלא מופעל
 
