@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2026-09-12",
+      "summary": "מאמר חדש: בדיקת פלאגינים עם evals (claude plugin eval, v2.1.269); עודכן מאמר סגנונות פלט (שינוי מיידי, VS Code v2.1.257+).",
+      "items": [
+        {
+          "title": "בדיקת פלאגינים עם evals — claude plugin eval",
+          "category": "claude-code",
+          "slug": "plugin-evals",
+          "type": "new"
+        },
+        {
+          "title": "סגנונות פלט ב-Claude Code",
+          "category": "claude-code",
+          "slug": "output-styles",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-09-05",
       "summary": "3 מאמרים חדשים: חלון ההקשר, תהליכי עבודה נפוצים ו-Claude Code במובייל; עודכנו 2 מאמרים: מצב מסך מלא (פאנל /diff) ו-Skills (/skill-doctor).",
       "items": [
@@ -266,30 +284,6 @@
           "title": "מדריך Hooks — אוטומציה של פעולות ב-Claude Code",
           "category": "guides",
           "slug": "hooks-guide",
-          "type": "changed"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-24",
-      "summary": "נוספו 2 מאמרים חדשים ועודכן 1 קיים: Bash Sandbox, Auto Mode Config, ותיקון עומק nested subagents.",
-      "items": [
-        {
-          "title": "Sandbox של Bash — בידוד פקודות ב-Claude Code",
-          "category": "claude-code",
-          "slug": "sandboxing",
-          "type": "new"
-        },
-        {
-          "title": "הגדרת Auto Mode — שליטה בסיווג אוטומטי",
-          "category": "claude-code",
-          "slug": "auto-mode-config",
-          "type": "new"
-        },
-        {
-          "title": "Subagents — סוכנים ייעודיים ב-Claude Code",
-          "category": "claude-code",
-          "slug": "sub-agents",
           "type": "changed"
         }
       ]

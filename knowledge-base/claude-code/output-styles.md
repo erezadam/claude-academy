@@ -1,10 +1,10 @@
 ---
 title: "סגנונות פלט ב-Claude Code"
 published: "2026-07-04T08:56:24Z"
-body_changed_at: "2026-08-22T12:00:00+03:00"
+body_changed_at: "2026-09-12T12:00:00+03:00"
 category: claude-code
 layer: intermediate
-last_verified: 2026-08-22
+last_verified: 2026-09-12
 status: needs-review
 source_url: https://code.claude.com/docs/en/output-styles
 related: [memory, skills, permission-modes, slash-config]
@@ -38,7 +38,11 @@ timeMinutes: 3
 
 ## איך משתמשים
 
-**בחירת סגנון**: הרץ `/config` ובחר **Output style**. הבחירה נשמרת ב-`.claude/settings.local.json` ברמת הפרויקט המקומי.
+שלוש דרכים לבחור סגנון:
+
+**טרמינל**: הרץ `/config` ובחר **Output style**. הבחירה נשמרת ב-`.claude/settings.local.json` ברמת הפרויקט המקומי.
+
+**הרחבת VS Code**: פתח את תפריט הפקודות עם `/` ובחר **Output styles** (כולל סגנונות מותאמים). דורש Claude Code v2.1.257 ומעלה. ניתן גם ליצור סגנון חדש ישירות מהתפריט החל מ-v2.1.261.
 
 **הגדרה ישירה בקובץ settings**:
 
@@ -48,7 +52,7 @@ timeMinutes: 3
 }
 ```
 
-סגנון הפלט הוא חלק מהפרומפט המערכת, שClaude Code קורא פעם אחת בתחילת הסשן. שינויים נכנסים לתוקף אחרי `/clear` או בסשן חדש.
+שינוי סגנון באמצע סשן נכנס לתוקף **מהפנייה הבאה שלך** — אין צורך ב-`/clear`. לפני v2.1.251 נדרש `/clear` או סשן חדש.
 
 ## יצירת סגנון פלט מותאם אישית
 
