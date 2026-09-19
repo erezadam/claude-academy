@@ -1,6 +1,36 @@
 {
   "entries": [
     {
+      "date": "2026-09-19",
+      "summary": "2 מאמרים חדשים: חיוב מסווג auto mode ו-Projects; עודכנו 2 מאמרים בנושא AGENTS.md (תמיכה ילידית מ-v2.1.277).",
+      "items": [
+        {
+          "title": "חיוב בקשות מסווג Auto Mode",
+          "category": "claude-code",
+          "slug": "auto-mode-classifier-billing",
+          "type": "new"
+        },
+        {
+          "title": "Projects — ניהול עבודה מתמשכת עם Claude",
+          "category": "workflows",
+          "slug": "claude-projects",
+          "type": "new"
+        },
+        {
+          "title": "זיכרון — CLAUDE.md ו-Auto Memory לאורך סשנים",
+          "category": "claude-code",
+          "slug": "memory",
+          "type": "changed"
+        },
+        {
+          "title": "CLAUDE.md — הדבר הראשון שכותבים",
+          "category": "claude-code",
+          "slug": "first-claude-md",
+          "type": "changed"
+        }
+      ]
+    },
+    {
       "date": "2026-09-12",
       "summary": "מאמר חדש: בדיקת פלאגינים עם evals (claude plugin eval, v2.1.269); עודכן מאמר סגנונות פלט (שינוי מיידי, VS Code v2.1.257+).",
       "items": [
@@ -261,30 +291,6 @@
           "category": "claude-code",
           "slug": "statusline",
           "type": "new"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-27",
-      "summary": "נוספו 2 מאמרים חדשים (Artifacts, Chrome) ועודכן 1 קיים (Hooks — תיקון התנהגות matchers).",
-      "items": [
-        {
-          "title": "Artifacts — שיתוף פלט session כעמוד חי ואינטראקטיבי",
-          "category": "workflows",
-          "slug": "artifacts",
-          "type": "new"
-        },
-        {
-          "title": "אינטגרציית Chrome — אוטומציה של דפדפן מה-CLI (בטא)",
-          "category": "claude-code",
-          "slug": "chrome-integration",
-          "type": "new"
-        },
-        {
-          "title": "מדריך Hooks — אוטומציה של פעולות ב-Claude Code",
-          "category": "guides",
-          "slug": "hooks-guide",
-          "type": "changed"
         }
       ]
     }

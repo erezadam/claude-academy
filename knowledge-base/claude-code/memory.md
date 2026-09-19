@@ -1,10 +1,10 @@
 ---
 title: "זיכרון — CLAUDE.md ו-Auto Memory לאורך סשנים"
 published: "2026-06-06T11:15:00+03:00"
-body_changed_at: "2026-06-06T11:15:00+03:00"
+body_changed_at: 2026-09-19
 category: claude-code
 layer: basic
-last_verified: 2026-07-29
+last_verified: 2026-09-19
 status: needs-review
 source_url: https://code.claude.com/docs/en/memory
 related: ["claude-md-guide", "slash-init", "slash-hooks"]
@@ -77,7 +77,23 @@ See @README for project overview and @package.json for npm commands.
 
 ### AGENTS.md
 
-Claude Code קורא `CLAUDE.md`, לא `AGENTS.md`. אם repository שלכם כבר משתמש ב-`AGENTS.md`:
+מגרסה 2.1.277, Claude Code יכול לקרוא `AGENTS.md` ישירות כהוראות הפרויקט — ללא צורך בייבוא ידני. הטבלה הבאה מסכמת מה Claude קורא לפי השילוב שקיים ב-repository:
+
+| מה יש ב-repository | מה Claude קורא |
+| :--- | :--- |
+| `AGENTS.md` בלבד (ללא `CLAUDE.md` או `CLAUDE.local.md`) | `AGENTS.md` |
+| `AGENTS.md` + `CLAUDE.md` או `CLAUDE.local.md` | `CLAUDE.md` בלבד |
+| `CLAUDE.md` שמייבא `AGENTS.md` ב-`@` | `CLAUDE.md` כולל תוכן `AGENTS.md` |
+
+ברירת המחדל היא `claude-md-or-agents-md`. לשינוי ההגדרה:
+
+```text
+/config → Project instructions
+```
+
+ערכים אפשריים: `claude-md-or-agents-md`, `claude-md-and-agents-md` (שניהם יחד), `claude-md`, `managed-only`.
+
+**מגבלה:** תמיכת AGENTS.md אינה זמינה על Amazon Bedrock, Vertex AI, Foundry, ובסשנים ש-telemetry מושבת בהם (v2.1.277+). בסשנים אלה יש לייבא ידנית:
 
 ```markdown
 @AGENTS.md
