@@ -1,10 +1,10 @@
 ---
 title: "CLAUDE.md — הדבר הראשון שכותבים"
 published: "2026-07-29T17:28:58+03:00"
-body_changed_at: "2026-07-29T17:28:58+03:00"
+body_changed_at: 2026-09-19
 category: claude-code
 layer: basic
-last_verified: 2026-07-29
+last_verified: 2026-09-19
 last_reviewed: "2026-07-29T12:00:00+03:00"
 status: needs-review
 source_url: https://code.claude.com/docs/en/memory
@@ -67,6 +67,10 @@ pathOrder: 4
 ```
 /memory
 ```
+
+## AGENTS.md — אם הפרויקט כבר משתמש בו
+
+מגרסה 2.1.277, Claude Code קורא `AGENTS.md` ישירות כאשר אין `CLAUDE.md` בתיקייה. אם הפרויקט שלכם כבר מגדיר הוראות ב-`AGENTS.md` (עבור Codex, Gemini או כלי אחר), Claude Code יקרא אותו אוטומטית — ללא שינויים. אם יש גם `CLAUDE.md` וגם `AGENTS.md`, Claude קורא את `CLAUDE.md` בלבד (ברירת מחדל). לשינוי: `/config → Project instructions`.
 
 ## איך יודעים שזה עובד
 
