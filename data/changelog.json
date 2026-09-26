@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2026-09-26",
+      "summary": "2 מאמרים חדשים: מדריך תיקיית .claude ו-ספריית פרומפטים.",
+      "items": [
+        {
+          "title": "תיקיית .claude — מבנה הקבצים שClaude Code קורא",
+          "category": "guides",
+          "slug": "claude-directory",
+          "type": "new"
+        },
+        {
+          "title": "ספריית פרומפטים — תבניות עבודה מוכחות עם Claude Code",
+          "category": "guides",
+          "slug": "prompt-library",
+          "type": "new"
+        }
+      ]
+    },
+    {
       "date": "2026-09-19",
       "summary": "2 מאמרים חדשים: חיוב מסווג auto mode ו-Projects; עודכנו 2 מאמרים בנושא AGENTS.md (תמיכה ילידית מ-v2.1.277).",
       "items": [
@@ -266,30 +284,6 @@
           "title": "ניהול עלויות ב-Claude Code",
           "category": "claude-code",
           "slug": "costs",
-          "type": "new"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-04",
-      "summary": "נוספו 3 מאמרים חדשים: מצבי הרשאה, סגנונות פלט ושורת סטטוס מותאמת.",
-      "items": [
-        {
-          "title": "מצבי הרשאה — שליטה בתדירות אישורי פעולות",
-          "category": "claude-code",
-          "slug": "permission-modes",
-          "type": "new"
-        },
-        {
-          "title": "סגנונות פלט — התאמת תפקיד, טון ופורמט תגובה",
-          "category": "claude-code",
-          "slug": "output-styles",
-          "type": "new"
-        },
-        {
-          "title": "שורת סטטוס — מעקב שימוש, עלות ו-git בזמן אמת",
-          "category": "claude-code",
-          "slug": "statusline",
           "type": "new"
         }
       ]
