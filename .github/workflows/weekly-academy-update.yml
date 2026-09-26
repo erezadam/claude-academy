@@ -24,6 +24,9 @@ permissions:
   contents: write
   pull-requests: write
   id-token: write
+  # קריאת מצב בדיקות החובה (gh pr checks) לפני מיזוג — ר' scripts/land-update-pr.sh
+  checks: read
+  statuses: read
 
 jobs:
   update:
@@ -170,12 +173,16 @@ jobs:
           fi
 
       # מיזוג אוטומטי ל-main אחרי build ירוק + שער אימות. squash + מחיקת הענף.
+      # ממתינים קודם לבדיקות החובה של ה-branch protection (verify-full-corpus,
+      # visual-smoke): מיזוג מיידי נדחה בכל שבוע ב-"base branch policy prohibits
+      # the merge" כי visual-smoke עוד רצה (ריצות #30–#34). הסקריפט נקרא מ-main
+      # ולא מה-checkout, כי שלב ה-build העביר את ה-checkout לענף ה-PR.
       - name: Auto-merge the update
         id: merge
         if: success() && steps.find_pr.outputs.no_pr == 'false'
         env:
           PR_NUM: ${{ steps.find_pr.outputs.pr_num }}
         run: |
-          gh pr merge "$PR_NUM" --squash --delete-branch
-          echo "merged=true" >> "$GITHUB_OUTPUT"
-          echo "✅ מוזג PR #$PR_NUM ל-main."
+          git fetch origin main
+          git show origin/main:scripts/land-update-pr.sh > "$RUNNER_TEMP/land-update-pr.sh"
+          bash "$RUNNER_TEMP/land-update-pr.sh" "$PR_NUM"
