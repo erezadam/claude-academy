@@ -22,6 +22,9 @@ permissions:
   contents: write
   pull-requests: write
   actions: write
+  # קריאת מצב בדיקות החובה (gh pr checks) לפני מיזוג — ר' scripts/land-update-pr.sh
+  checks: read
+  statuses: read
 
 env:
   STALE_DAYS: 8
@@ -95,18 +98,24 @@ jobs:
         # success() חיוני: בלעדיו שלב המיזוג ירוץ גם אם ה-build או שער האימות נכשלו,
         # כי ציון if מותאם מבטל את ה-success() המשתמע ב-GitHub Actions.
         if: success() && steps.stuck.outputs.found == 'true'
+        # אותו סקריפט כמו בריצה השבועית: ממתין לבדיקות החובה ואז ממזג. CLOSE_IF_STALE:
+        # PR עם קונפליקט מול main נסגר (הענף נשמר) במקום להפיל את ה-watchdog כל יום
+        # מחדש — כך קרה עם #87, שחסם את ה-watchdog מ-09-20 ואילך. נקרא מ-main כי
+        # ה-checkout כרגע על ענף ה-PR, שעשוי להיות ישן יותר מהסקריפט.
         env:
           PR_NUM: ${{ steps.stuck.outputs.pr_num }}
+          CLOSE_IF_STALE: "1"
         run: |
-          gh pr merge "$PR_NUM" --squash --delete-branch
-          echo "merged=true" >> "$GITHUB_OUTPUT"
-          echo "✅ ה-watchdog מיזג PR תקוע #$PR_NUM."
+          git fetch origin main
+          git show origin/main:scripts/land-update-pr.sh > "$RUNNER_TEMP/land-update-pr.sh"
+          bash "$RUNNER_TEMP/land-update-pr.sh" "$PR_NUM"
 
       # ---------- שלב 2: זיהוי עדכון "תקוע מאחור" והפעלה מחדש ----------
-      # נריץ רק אם לא היה PR תקוע למזג (אם מיזגנו עכשיו — העדכון נחת, אין צורך).
+      # נריץ רק אם לא היה PR תקוע למזג (אם מיזגנו עכשיו — העדכון נחת, אין צורך),
+      # או אם ה-PR התקוע נסגר כמיושן — אז צריך סריקה חדשה.
       - name: Check staleness and re-trigger if needed
         id: stale
-        if: steps.stuck.outputs.found == 'false'
+        if: success() && (steps.stuck.outputs.found == 'false' || steps.merge_stuck.outputs.closed == 'true')
         run: |
           LAST_SUCCESS=$(gh run list --workflow=weekly-academy-update.yml \
             --status=success --limit 1 --json createdAt --jq '.[0].createdAt // empty')
