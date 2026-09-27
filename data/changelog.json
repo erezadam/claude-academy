@@ -1,6 +1,24 @@
 {
   "entries": [
     {
+      "date": "2026-09-27",
+      "summary": "2 מאמרים חדשים: חיבור שרתי MCP (מדריך מהיר) והרצת Claude Code בענן.",
+      "items": [
+        {
+          "title": "חיבור שרתי MCP — מדריך מהיר",
+          "category": "claude-code",
+          "slug": "mcp-quickstart",
+          "type": "new"
+        },
+        {
+          "title": "הרצת Claude Code בענן",
+          "category": "claude-code",
+          "slug": "cloud-sessions",
+          "type": "new"
+        }
+      ]
+    },
+    {
       "date": "2026-09-26",
       "summary": "2 מאמרים חדשים: מדריך תיקיית .claude ו-ספריית פרומפטים.",
       "items": [
@@ -267,24 +285,6 @@
           "category": "claude-code",
           "slug": "slash-doctor",
           "type": "changed"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-11",
-      "summary": "נוספו 2 מאמרים חדשים: אבחון תצורה שלא עובדת וניהול עלויות ב-Claude Code.",
-      "items": [
-        {
-          "title": "לאבחן תצורה שלא עובדת",
-          "category": "guides",
-          "slug": "debug-your-config",
-          "type": "new"
-        },
-        {
-          "title": "ניהול עלויות ב-Claude Code",
-          "category": "claude-code",
-          "slug": "costs",
-          "type": "new"
         }
       ]
     }
